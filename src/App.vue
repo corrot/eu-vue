@@ -7,19 +7,21 @@
       </div>
     </div>
     <div>
-      <b-navbar toggleable="lg" type="dark" variant="info">
-        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-        <b-collapse id="nav-collapse" is-nav>
-          <b-navbar-nav>
-            <div v-for="route in routes" :key="route.name">
-              <b-nav-item :text="$t(route.title)" v-if="!route.children.length"><router-link :to="route.path">{{ $t(route.title) }}</router-link></b-nav-item>
-              <b-nav-item-dropdown v-if="route.children.length">
-                <template slot="button-content"><router-link :to="route.path">{{ $t(route.title) }}</router-link></template>
-                <b-dropdown-item href="#" v-for="item in route.children" :key="item.name"><router-link :to="item.path">{{ $t(item.title) }}</router-link></b-dropdown-item>
-              </b-nav-item-dropdown>
-            </div>
-          </b-navbar-nav>
-        </b-collapse>
+      <b-navbar toggleable="md" type="light" variant="primary ">
+        <b-container>
+          <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+          <b-collapse id="nav-collapse" is-nav>
+            <b-navbar-nav>
+              <div v-for="route in routes" :key="route.name">
+                <b-nav-item :text="$t(route.title)" v-if="!route.children.length"><router-link :to="route.path">{{ $t(route.title) }}</router-link></b-nav-item>
+                <b-nav-item-dropdown v-if="route.children.length">
+                  <template slot="button-content"><router-link :to="route.path">{{ $t(route.title) }}</router-link></template>
+                  <b-dropdown-item v-for="item in route.children" :key="item.name"><router-link :to="item.path">{{ $t(item.title) }}</router-link></b-dropdown-item>
+                </b-nav-item-dropdown>
+              </div>
+            </b-navbar-nav>
+          </b-collapse>
+        </b-container>
       </b-navbar>
     </div>
 
