@@ -11,7 +11,7 @@ const messages = {
 
 const i18n = new VueI18n({
   locale: 'en', // set locale
-  fallbackLocale: 'en', // set fallback locale
+  fallbackLocale: 'ge', // set fallback locale
   messages, // set locale messages
 });
 
