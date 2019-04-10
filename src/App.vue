@@ -2,8 +2,8 @@
   <div id="app">
     <img src="./assets/logo.png">
       <div>
-        <div v-for="entry in languages" :key="entry.title" @click="changeLocale(entry.language)">
-          <flag :iso="entry.flag" v-bind:squared=false /> 
+        <div v-for="entry in languages" :key="entry.title" @click="changeLocale(entry.language)" v-show="entry.language !== i18n.locale">
+          <flag :iso="entry.flag" v-bind:squared=false></flag>
         </div>
       </div>
     <router-link to="/">{{ $t('Home') }}</router-link>
@@ -21,16 +21,17 @@ export default {
   data() {
     return {
         languages: [
-            { flag: 'us', language: 'en', title: 'English' },
+            { flag: 'gb', language: 'en', title: 'English' },
             { flag: 'ge', language: 'ge', title: 'ქართული' }
-        ]
+        ],
+        i18n
     };
-},
-methods: {
+  },
+  methods: {
     changeLocale(locale) {
-        i18n.locale = locale;
+      i18n.locale = locale;
     }
-}
+  }
 }
 </script>
 
