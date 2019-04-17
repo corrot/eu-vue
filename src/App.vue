@@ -2,8 +2,13 @@
   <div id="app">
     <img src="./assets/logo.png">
     <div>
-      <div v-for="entry in languages" :key="entry.title" @click="changeLocale(entry.language)" v-show="entry.language !== i18n.locale">
-        <flag :iso="entry.flag" v-bind:squared=false></flag>
+      <div
+        v-for="entry in languages"
+        :key="entry.title"
+        @click="changeLocale(entry.language)"
+        v-show="entry.language !== i18n.locale"
+      >
+        <flag :iso="entry.flag" v-bind:squared="false"></flag>
       </div>
     </div>
     <div>
@@ -13,10 +18,16 @@
           <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav>
               <div v-for="route in routes" :key="route.name">
-                <b-nav-item :text="$t(route.title)" v-if="!route.children.length"><router-link :to="route.path">{{ $t(route.title) }}</router-link></b-nav-item>
+                <b-nav-item :text="$t(route.title)" v-if="!route.children.length">
+                  <router-link :to="route.path">{{ $t(route.title) }}</router-link>
+                </b-nav-item>
                 <b-nav-item-dropdown v-if="route.children.length">
-                  <template slot="button-content"><router-link :to="route.path">{{ $t(route.title) }}</router-link></template>
-                  <b-dropdown-item v-for="item in route.children" :key="item.name"><router-link :to="item.path">{{ $t(item.title) }}</router-link></b-dropdown-item>
+                  <template slot="button-content">
+                    <router-link :to="route.path">{{ $t(route.title) }}</router-link>
+                  </template>
+                  <b-dropdown-item v-for="item in route.children" :key="item.name">
+                    <router-link :to="item.path">{{ $t(item.title) }}</router-link>
+                  </b-dropdown-item>
                 </b-nav-item-dropdown>
               </div>
             </b-navbar-nav>
@@ -26,7 +37,6 @@
     </div>
 
     <router-view/>
-
   </div>
 </template>
 
@@ -38,23 +48,23 @@ export default {
   name: 'App',
   data() {
     return {
-        languages: [
-            { flag: 'gb', language: 'en', title: 'English' },
-            { flag: 'ge', language: 'ge', title: 'ქართული' }
-        ],
-        i18n,
-        routes
+      languages: [
+        { flag: 'gb', language: 'en', title: 'English' },
+        { flag: 'ge', language: 'ge', title: 'ქართული' },
+      ],
+      i18n,
+      routes,
     };
   },
   methods: {
     changeLocale(locale) {
       i18n.locale = locale;
-    }
+    },
   },
-  created(){
-    console.log(routes)
-  }
-}
+  created() {
+    console.log(routes);
+  },
+};
 </script>
 
 <style>
@@ -68,17 +78,17 @@ export default {
 }
 
 button {
-    font-size: 18px;
-    margin: 15px;
+  font-size: 18px;
+  margin: 15px;
 }
 
 a {
   font-weight: 600;
-  color: #222;
+  color: #222 !important;
 }
 
-a:hover{
+a:hover {
   text-decoration: none;
-  color: #333;
+  color: #333 !important;
 }
 </style>
