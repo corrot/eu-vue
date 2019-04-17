@@ -1,9 +1,13 @@
 <template>
   <div>
-    <h1>{{ msg }}</h1>
-    <carousel>
-      <slide>Slide 1 Content</slide>
-      <slide>Slide 2 Content</slide>
+    <!-- <h1>{{ msg }}</h1> -->
+    <carousel perPage="2" autoplay="true" autoplayHoverPause="true">
+      <slide>
+        <img src="./assets/img1.jpg">
+      </slide>
+      <slide>
+        <img src="./assets/img2.jpg">
+      </slide>
       <slide>Slide 3 Content</slide>
       <slide>Slide 4 Content</slide>
     </carousel>
@@ -32,5 +36,14 @@ export default {
 h1,
 h2 {
   font-weight: normal;
+}
+
+slide {
+  height: 500px;
+  width: 100%;
+}
+slide > img {
+  max-width: 100%;
+  height: auto;
 }
 </style>

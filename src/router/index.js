@@ -1,10 +1,10 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from '@/pages/Home/Home'
-import AboutUs from '@/pages/AboutUs/AboutUs'
-import Contact from '@/pages/Contact/Contact'
+import Vue from 'vue';
+import Router from 'vue-router';
+import Home from '@/pages/Home/Home';
+import AboutUs from '@/pages/AboutUs/AboutUs';
+import Contact from '@/pages/Contact/Contact';
 
-Vue.use(Router)
+Vue.use(Router);
 
 export const routes = [
   {
@@ -15,7 +15,7 @@ export const routes = [
     children: [],
   },
   {
-    title: 'About Us',
+    title: 'AboutUs',
     path: '/about-us',
     name: 'about',
     component: AboutUs,
@@ -228,9 +228,9 @@ export const routes = [
     name: 'contact',
     component: Contact,
     children: [],
-  }
+  },
 ];
 
 export default new Router({
-  routes
-})
+  routes,
+});
