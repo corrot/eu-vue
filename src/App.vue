@@ -2,7 +2,7 @@
   <div id="app">
     <b-container>
       <div class="app-top-header">
-        <a href="/" class="logo-wrapper">
+        <a href="#" class="logo-wrapper">
           <img src="./assets/logo1.png">
         </a>
         <div>
@@ -69,7 +69,7 @@
       </b-navbar>
     </div>
     <b-container>
-      <router-view/>
+      <router-view />
     </b-container>
     <footer>
       <b-container>

@@ -3,15 +3,14 @@
     <b-row>
       <b-col>
         <iframe
-          style="width:100%; border:0"
-          height="450"
+          style="width:100%; height: 100%; border:0"
           frameborder="0"
           src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCJdk1n9TmA1d7y1WEfYNfxixiYRlJ6fvI&q=154+Davit+Aghmashenebeli+Ave,+T'bilisi"
           allowfullscreen
         ></iframe>
       </b-col>
       <b-col>
-        <b-card>
+        <b-card class="mt-3">
           <p>Georgian Competition Agency</p>
           <p>154, Agmashenebeli av. Tbilisi, 0106</p>
           <p>Phone: (032) 2 440 770 (Ext 21-74)</p>
@@ -59,6 +58,7 @@
               max-rows="6"
             ></b-form-textarea>
           </b-form-group>
+          <b-button type="submit" variant="primary" class="right">Submit</b-button>
         </div>
       </b-col>
     </b-row>
