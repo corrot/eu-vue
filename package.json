@@ -21,6 +21,7 @@
     "@fortawesome/vue-fontawesome": "^0.1.6",
     "bootstrap": "^4.3.1",
     "bootstrap-vue": "^2.0.0-rc.18",
+    "v-calendar": "^1.0.0-beta.6",
     "vue": "^2.6.10",
     "vue-carousel": "^0.18.0",
     "vue-flag-icon": "^1.0.6",

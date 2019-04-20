@@ -45,13 +45,13 @@
       </div>
     </b-container>
     <div>
-      <b-navbar toggleable="md" type="light" variant="primary">
+      <b-navbar toggleable="md" type="light" variant="primary" sticky="true">
         <b-container>
           <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
           <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav>
               <div v-for="route in routes" :key="route.name">
-                <b-nav-item :text="$t(route.title)" v-if="!route.children.length">
+                <b-nav-item :text="$t(route.title)" v-if="!route.children.length && !route.hidden">
                   <router-link :to="route.path">{{ $t(route.title) }}</router-link>
                 </b-nav-item>
                 <b-nav-item-dropdown v-if="route.children.length">
@@ -68,9 +68,9 @@
         </b-container>
       </b-navbar>
     </div>
-    <b-container>
-      <router-view />
-    </b-container>
+    <div class="main">
+      <router-view/>
+    </div>
     <footer>
       <b-container>
         <div style="text-align: left">
@@ -121,6 +121,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   position: relative;
+}
+
+.main {
+  margin-bottom: 190px;
 }
 
 .app-top-header {
