@@ -1,9 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+
 import Home from '@/pages/Home/Home';
 import AboutUs from '@/pages/AboutUs/AboutUs';
 import Contact from '@/pages/Contact/Contact';
 import Releases from '@/pages/Releases/Releases';
+import PageNotFound from '@/pages/PageNotFound/PageNotFound';
 
 Vue.use(Router);
 
@@ -241,5 +243,6 @@ export const routes = [
 ];
 
 export default new Router({
+  mode: 'history',
   routes,
 });

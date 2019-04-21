@@ -16,7 +16,7 @@
         <slide>Slide 4 Content</slide>
       </carousel>
     </div>
-    <b-container fluid>
+    <b-container style="display: flex">
       <div style="width: calc(100% - 286px)">
         <div class="page-row porganization-links">ორგანიზაციების ლინქები</div>
         <div class="page-row surveys">გამოკითხვები</div>
