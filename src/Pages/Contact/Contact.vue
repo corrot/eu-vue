@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <b-container>
     <b-row>
       <b-col>
         <iframe
@@ -62,7 +62,7 @@
         </div>
       </b-col>
     </b-row>
-  </div>
+  </b-container>
 </template>
 
 <script>
