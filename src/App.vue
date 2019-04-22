@@ -3,7 +3,7 @@
     <b-container>
       <div class="app-top-header">
         <a href="#" class="logo-wrapper">
-          <img src="./assets/logo.png">
+          <img :src="headerLogo">
         </a>
         <div>
           <br>
@@ -75,7 +75,7 @@
       <b-container>
         <div style="text-align: left">
           <div>
-            <img width="100" height="64" src="./assets/EU.jpg" alt="Eu_Logo">
+            <img width="100" height="64" :src="euLogo" alt="Eu_Logo">
             <div style="color: #fff">{{ $t('FOOTER_TEXT_1') }}</div>
           </div>
           <br>
@@ -89,6 +89,8 @@
 <script>
 import i18n from '@/plugins/i18n';
 import { routes } from './router';
+import headerLogo from '@/assets/logo.png';
+import euLogo from './assets/EU.jpg';
 
 export default {
   name: 'App',
@@ -100,6 +102,8 @@ export default {
       ],
       i18n,
       routes,
+      headerLogo,
+      euLogo,
     };
   },
   methods: {

@@ -4,13 +4,13 @@
       <!-- <h1>{{ msg }}</h1> -->
       <carousel autoplay="true" autoplayHoverPause="true" centerMode="true" perPage="1" loop="true">
         <slide>
-          <img style="width: 100%;" src="./assets/img_one.jpg">
+          <img style="width: 100%;" :src="img1">
           <router-link to="releases/1">
             <h1 class="release-title">Release Title</h1>
           </router-link>
         </slide>
         <slide>
-          <img style="width: 100%;" src="./assets/img_two.jpg">
+          <img style="width: 100%;" :src="img2">
         </slide>
         <slide>Slide 3 Content</slide>
         <slide>Slide 4 Content</slide>
@@ -54,6 +54,8 @@
 <script>
 import { Carousel, Slide } from 'vue-carousel';
 import i18n from '@/plugins/i18n';
+import img1 from './assets/img_one.jpg';
+import img2 from './assets/img_two.jpg';
 
 export default {
   name: 'Home',
@@ -65,6 +67,8 @@ export default {
     return {
       msg: 'Home Page',
       i18n,
+      img1,
+      img2,
     };
   },
 };
