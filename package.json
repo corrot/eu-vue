@@ -1,5 +1,5 @@
 {
-  "name": "eu-vue",
+  "name": "euca",
   "homepage": "https://github.com/corrot/eu-vue",
   "version": "1.0.0",
   "description": "Website for EU Competition Agency in Georgia",
@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run dev",
+    "start": "node server.js",
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js",
     "deploy": "node ./node_modules/vue-gh-pages/index.js -b gh-pages -p"
@@ -23,6 +23,7 @@
     "@fortawesome/vue-fontawesome": "^0.1.6",
     "bootstrap": "^4.3.1",
     "bootstrap-vue": "^2.0.0-rc.18",
+    "express": "^4.16.4",
     "v-calendar": "^1.0.0-beta.6",
     "vue": "^2.6.10",
     "vue-carousel": "^0.18.0",
