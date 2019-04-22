@@ -14,7 +14,7 @@
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js",
-    "deploy": "node ./node_modules/vue-gh-pages/index.js -b gh-pages"
+    "deploy": "node ./node_modules/vue-gh-pages/index.js -b gh-pages -p"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.17",

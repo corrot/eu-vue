@@ -45,16 +45,20 @@
       </div>
     </b-container>
     <div>
-      <b-navbar toggleable="md" type="light" variant="primary" sticky="true">
+      <b-navbar toggleable="md" type="dark" variant="dark" sticky="true" class="navbar">
         <b-container>
           <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
           <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav>
               <div v-for="route in routes" :key="route.name">
-                <b-nav-item :text="$t(route.title)" v-if="!route.children.length && !route.hidden">
+                <b-nav-item
+                  class="navbar-title"
+                  :text="$t(route.title)"
+                  v-if="!route.children.length && !route.hidden"
+                >
                   <router-link :to="route.path">{{ $t(route.title) }}</router-link>
                 </b-nav-item>
-                <b-nav-item-dropdown v-if="route.children.length">
+                <b-nav-item-dropdown class="navbar-title" v-if="route.children.length">
                   <template slot="button-content">
                     <router-link :to="route.path">{{ $t(route.title) }}</router-link>
                   </template>
@@ -76,6 +80,8 @@
         <div style="text-align: left">
           <div>
             <img width="100" height="64" :src="euLogo" alt="Eu_Logo">
+            <br>
+            <br>
             <div style="color: #fff">{{ $t('FOOTER_TEXT_1') }}</div>
           </div>
           <br>
@@ -118,8 +124,17 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+@import url('//cdn.web-fonts.ge/fonts/dejavu-sans-condensed/css/dejavu-sans-condensed.min.css');
+@import url('//cdn.web-fonts.ge/fonts/bpg-glaho-web-caps/css/bpg-glaho-web-caps.min.css');
+
+html,
+body {
+  font-family: 'Roboto Condensed', 'DejaVu Sans Condensed', sans-serif;
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Roboto Condensed', 'DejaVu Sans Condensed', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -128,7 +143,7 @@ export default {
 }
 
 .main {
-  margin-bottom: 190px;
+  margin-bottom: 214px;
 }
 
 .app-top-header {
@@ -143,6 +158,13 @@ export default {
 }
 .logo-wrapper > img {
   width: 100%;
+}
+.navbar {
+  background: #00005a !important;
+}
+
+.navbar-title {
+  font-family: 'Roboto Condensed Caps', 'BPG Glaho WEB Caps', sans-serif;
 }
 
 button {
@@ -182,14 +204,8 @@ li {
   fill: #ff0000;
 }
 
-a {
-  font-weight: 600;
-  color: #222 !important;
-}
-
 a:hover {
   text-decoration: none;
-  color: #333 !important;
 }
 
 footer {
