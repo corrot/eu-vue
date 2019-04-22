@@ -4,13 +4,13 @@
       <!-- <h1>{{ msg }}</h1> -->
       <carousel autoplay="true" autoplayHoverPause="true" centerMode="true" perPage="1" loop="true">
         <slide>
-          <img style="width: 100%;" src="./assets/img1.jpg">
+          <img style="width: 100%;" src="./assets/img_one.jpg">
           <router-link to="releases/1">
             <h1 class="release-title">Release Title</h1>
           </router-link>
         </slide>
         <slide>
-          <img style="width: 100%;" src="./assets/img2.jpg">
+          <img style="width: 100%;" src="./assets/img_two.jpg">
         </slide>
         <slide>Slide 3 Content</slide>
         <slide>Slide 4 Content</slide>

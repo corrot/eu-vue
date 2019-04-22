@@ -3,7 +3,7 @@
     <b-container>
       <div class="app-top-header">
         <a href="#" class="logo-wrapper">
-          <img src="./assets/logo1.png">
+          <img src="./assets/logo.png">
         </a>
         <div>
           <br>
