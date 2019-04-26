@@ -1,4 +1,3 @@
-
 @import url('bootstrap/dist/css/bootstrap.css');
 @import url('bootstrap-vue/dist/bootstrap-vue.css');
 
@@ -22,75 +21,4 @@ body {
 
 .main {
   margin-bottom: 214px;
-}
-
-.app-top-header {
-  margin: 15px 0;
-  display: flex;
-  justify-content: space-between;
-}
-
-.logo-wrapper {
-  width: 136px;
-  height: 136px;
-}
-.logo-wrapper > img {
-  width: 100%;
-}
-.navbar {
-  background: #00005a !important;
-}
-
-.navbar-title {
-  font-family: 'Roboto Condensed Caps', 'BPG Glaho WEB Caps', sans-serif;
-}
-
-button {
-  font-size: 18px;
-  margin: 15px;
-}
-
-.social-container {
-  display: flex;
-}
-ul {
-  padding: 0;
-  margin: 0;
-}
-li {
-  padding: 0;
-  margin: 0;
-  margin-left: 10px;
-  list-style-type: none;
-}
-.icon-fb > path,
-.icon-twitter > path,
-.icon-youtube > path {
-  transition: 0.3s all ease;
-  fill: #2c3e50;
-}
-.icon-fb:hover > path {
-  transition: 0.3s all ease;
-  fill: #405d9b;
-}
-.icon-twitter:hover > path {
-  transition: 0.3s all ease;
-  fill: #1da1f2;
-}
-.icon-youtube:hover > path {
-  transition: 0.3s all ease;
-  fill: #ff0000;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-footer {
-  position: relative;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 15px 0;
-  background: #00005a;
 }

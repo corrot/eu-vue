@@ -2,9 +2,9 @@
   <div id="app">
     <b-container>
       <div class="app-top-header">
-        <a href="#" class="logo-wrapper">
+        <router-link :to="`/`" class="logo-wrapper">
           <img :src="headerLogo">
-        </a>
+        </router-link>
         <div>
           <br>
           <h3>საქართველოს კონკურენციის სააგენტო</h3>
@@ -118,11 +118,94 @@ export default {
     },
   },
   created() {
-    console.log(en);
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.handleResize);
+  },
+  methods: {
+    handleResize() {
+      this.window.width = window.innerWidth;
+      this.window.height = window.innerHeight;
+    },
   },
 };
 </script>
 
 <style>
 @import url('./assets/styles/main.css');
+
+.app-top-header {
+  margin: 15px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo-wrapper {
+  width: 136px;
+  height: 136px;
+}
+.logo-wrapper > img {
+  width: 100%;
+}
+.navbar {
+  background: #00005a !important;
+}
+
+.navbar-title {
+  font-family: 'Roboto Condensed Caps', 'BPG Glaho WEB Caps', sans-serif;
+}
+
+button {
+  font-size: 18px;
+  margin: 15px;
+}
+
+.social-container {
+  display: flex;
+}
+ul {
+  padding: 0;
+  margin: 0;
+}
+li {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+.social-container > li {
+  margin-left: 10px;
+}
+.icon-fb > path,
+.icon-twitter > path,
+.icon-youtube > path {
+  transition: 0.3s all ease;
+  fill: #2c3e50;
+}
+.icon-fb:hover > path {
+  transition: 0.3s all ease;
+  fill: #405d9b;
+}
+.icon-twitter:hover > path {
+  transition: 0.3s all ease;
+  fill: #1da1f2;
+}
+.icon-youtube:hover > path {
+  transition: 0.3s all ease;
+  fill: #ff0000;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px 0;
+  background: #00005a;
+}
 </style>

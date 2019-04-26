@@ -1,10 +1,11 @@
 import Vue from 'vue';
-import App from '@/App';
 import BootstrapVue from 'bootstrap-vue';
-import router from '@/router';
-import i18n from '@/plugins/i18n';
 import FlagIcon from 'vue-flag-icon';
 import VCalendar from 'v-calendar';
+
+import App from '@/App';
+import router from '@/router';
+import i18n from '@/plugins/i18n';
 
 // import 'bootstrap/dist/css/bootstrap.css';
 // import 'bootstrap-vue/dist/bootstrap-vue.css';

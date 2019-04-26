@@ -4,7 +4,8 @@
       <!-- <h1>{{ msg }}</h1> -->
       <carousel autoplay="true" autoplayHoverPause="true" centerMode="true" perPage="1" loop="true">
         <slide>
-          <img style="width: 100%;" :src="img1">
+          <div class="slide-image" v-bind:style="{ 'background-image': 'url(' + img1 + ')' }"></div>
+          <!-- <img style="width: 100%;" :src="img1"> -->
           <router-link to="releases/1">
             <h1 class="release-title">Release Title</h1>
           </router-link>
@@ -83,6 +84,13 @@ h2 {
 .carousel-wrapper {
   height: 500px;
   overflow: hidden;
+}
+.slide-image {
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+  width: 100%;
+  height: 100%;
 }
 .release-title {
   color: #fff;
