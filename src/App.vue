@@ -118,17 +118,17 @@ export default {
     },
   },
   created() {
-    window.addEventListener('resize', this.handleResize);
-    this.handleResize();
+    // window.addEventListener('resize', this.handleResize);
+    // this.handleResize();
   },
   destroyed() {
-    window.removeEventListener('resize', this.handleResize);
+    // window.removeEventListener('resize', this.handleResize);
   },
   methods: {
-    handleResize() {
-      this.window.width = window.innerWidth;
-      this.window.height = window.innerHeight;
-    },
+    // handleResize() {
+    //   this.window.width = window.innerWidth;
+    //   this.window.height = window.innerHeight;
+    // },
   },
 };
 </script>

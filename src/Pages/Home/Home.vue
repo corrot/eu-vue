@@ -11,7 +11,7 @@
           </router-link>
         </slide>
         <slide>
-          <img style="width: 100%;" :src="img2">
+          <div class="slide-image" v-bind:style="{ 'background-image': 'url(' + img2 + ')' }"></div>
         </slide>
         <slide>Slide 3 Content</slide>
         <slide>Slide 4 Content</slide>
