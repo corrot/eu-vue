@@ -1,6 +1,6 @@
 {
   "name": "euca",
-  "homepage": "/",
+  "homepage": "https://euca.herokuapp.com/",
   "version": "1.0.0",
   "description": "Website for EU Competition Agency in Georgia",
   "author": "Giorgi Koroshinadze <gkoroshinadze@gmail.com>",
@@ -11,8 +11,8 @@
   ],
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run dev",
-    "serve": "nodemon server.js",
+    "serve": "npm run dev",
+    "start": "node server.js",
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js",
     "deploy": "node ./node_modules/vue-gh-pages/index.js -b gh-pages -p"
