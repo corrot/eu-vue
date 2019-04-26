@@ -21,8 +21,6 @@
         <slide>
           <div class="slide-image" v-bind:style="{ 'background-image': 'url(' + img2 + ')' }"></div>
         </slide>
-        <slide>Slide 3 Content</slide>
-        <slide>Slide 4 Content</slide>
       </carousel>
     </div>
     <b-container style="display: flex">

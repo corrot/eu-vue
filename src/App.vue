@@ -45,7 +45,7 @@
       </div>
     </b-container>
     <div>
-      <b-navbar toggleable="md" type="dark" variant="dark" sticky="true" class="navbar">
+      <b-navbar toggleable="md" type="dark" variant="dark" :sticky="true" class="navbar">
         <b-container>
           <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
           <b-collapse id="nav-collapse" is-nav>
@@ -112,11 +112,6 @@ export default {
       euLogo,
     };
   },
-  methods: {
-    changeLocale(locale) {
-      i18n.locale = locale;
-    },
-  },
   created() {
     // window.addEventListener('resize', this.handleResize);
     // this.handleResize();
@@ -125,10 +120,9 @@ export default {
     // window.removeEventListener('resize', this.handleResize);
   },
   methods: {
-    // handleResize() {
-    //   this.window.width = window.innerWidth;
-    //   this.window.height = window.innerHeight;
-    // },
+    changeLocale(locale) {
+      i18n.locale = locale;
+    },
   },
 };
 </script>
