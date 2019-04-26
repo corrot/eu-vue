@@ -2,7 +2,15 @@
   <div>
     <div class="carousel-wrapper">
       <!-- <h1>{{ msg }}</h1> -->
-      <carousel autoplay="true" autoplayHoverPause="true" centerMode="true" perPage="1" loop="true">
+      <carousel
+        autoplay="true"
+        autoplayHoverPause="true"
+        centerMode="true"
+        perPage="1"
+        loop="true"
+        pagination="false"
+        paginationPosition="bottom-overlay"
+      >
         <slide>
           <div class="slide-image" v-bind:style="{ 'background-image': 'url(' + img1 + ')' }"></div>
           <!-- <img style="width: 100%;" :src="img1"> -->
@@ -82,7 +90,8 @@ h2 {
   font-weight: normal;
 }
 .carousel-wrapper {
-  height: 500px;
+  height: calc(vh - 192px);
+  width: 100%;
   overflow: hidden;
 }
 .slide-image {
@@ -90,12 +99,12 @@ h2 {
   background-position-x: center;
   background-position-y: center;
   width: 100%;
-  height: 100%;
+  height: 500px;
 }
 .release-title {
   color: #fff;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
-  margin-top: -60px;
+  margin-top: -120px;
 }
 .page-row {
   padding: 15px;
