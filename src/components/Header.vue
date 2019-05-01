@@ -47,9 +47,9 @@
 <script>
 import i18n from '@/plugins/i18n';
 import headerLogo from '@/assets/logo.png';
-this.name = 'Header';
+
 export default {
-  name: this.name,
+  name: 'Header',
   methods: {
     handleClick: () => {
       console.log('clicked');
@@ -69,15 +69,15 @@ export default {
     };
   },
   created() {
-    console.log('created: ', this.name);
+    console.log('created: header');
   },
   destroyed() {
-    console.log('destroyed: ', this.name);
+    console.log('destroyed: header');
   },
 };
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 .app-top-header {
   margin: 15px 0;
   display: flex;

@@ -29,20 +29,7 @@ export default {
 <style>
 @import url('./assets/styles/main.css');
 
-button {
-  font-size: 18px;
-  margin: 15px;
-}
-ul {
-  padding: 0;
-  margin: 0;
-}
-li {
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-}
-a:hover {
-  text-decoration: none;
+.main {
+  /* margin-bottom: 214px; */
 }
 </style>
