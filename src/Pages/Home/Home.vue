@@ -4,11 +4,11 @@
       <!-- <h1>{{ msg }}</h1> -->
       <carousel
         autoplay="true"
-        autoplayHoverPause="true"
-        centerMode="true"
+        :autoplayHoverPause="true"
+        :centerMode="true"
         perPage="1"
-        loop="true"
-        pagination="false"
+        :loop="true"
+        :pagination="false"
         paginationPosition="bottom-overlay"
       >
         <slide>
