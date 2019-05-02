@@ -5,6 +5,8 @@ import Home from '@/Pages/Home/Home';
 import AboutUs from '@/Pages/AboutUs/AboutUs';
 import Contact from '@/Pages/Contact/Contact';
 import Releases from '@/Pages/Releases/Releases';
+import Links from '@/Pages/Links/Links';
+import Sitemap from '@/Pages/Sitemap/Sitemap';
 import PageNotFound from '@/Pages/PageNotFound/PageNotFound';
 
 Vue.use(Router);
@@ -237,6 +239,22 @@ export const routes = [
     path: '/releases/:id',
     name: 'releases',
     component: Releases,
+    children: [],
+    hidden: true,
+  },
+  {
+    title: 'Links',
+    path: '/links',
+    name: 'links',
+    component: Links,
+    children: [],
+    hidden: true,
+  },
+  {
+    title: 'Sitemap',
+    path: '/sitemap',
+    name: 'sitemap',
+    component: Sitemap,
     children: [],
     hidden: true,
   },

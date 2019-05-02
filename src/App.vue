@@ -10,9 +10,9 @@
 </template>
 
 <script>
-import HeaderComponent from './components/Header';
-import NavbarComponent from './components/Navbar';
-import FooterComponent from './components/Footer';
+import HeaderComponent from './containers/Header/Header';
+import NavbarComponent from './containers/Navbar';
+import FooterComponent from './containers/Footer';
 
 export default {
   name: 'App',

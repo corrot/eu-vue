@@ -15,18 +15,21 @@ import {
   faTwitterSquare,
   faFacebookSquare,
   faYoutubeSquare,
-  faAdobe,
 } from '@fortawesome/free-brands-svg-icons';
+import { faLink, faSitemap } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 library.config = {
   autoAddCss: false,
 };
 
-library.add(faTwitterSquare);
-library.add(faFacebookSquare);
-library.add(faYoutubeSquare);
-library.add(faAdobe);
+library.add(
+  faTwitterSquare,
+  faFacebookSquare,
+  faYoutubeSquare,
+  faLink,
+  faSitemap
+);
 
 Vue.use(VCalendar);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
