@@ -1,13 +1,13 @@
 <template>
-  <div>
+  <b-container>
     <h1>Links</h1>
-    <ul class="links container">
-      <li v-for="link in links" :key="link.id">
+    <ul class="links-container">
+      <li v-for="link in links" :key="link.id" class="link">
         <a :href="link.path">{{ link.title }}</a>
         <div>{{ link.description }}</div>
       </li>
     </ul>
-  </div>
+  </b-container>
 </template>
 
 <script>
@@ -38,4 +38,10 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+.links-container {
+  text-align: left;
+}
+.link {
+  margin-borrom: 30px;
+}
 </style>

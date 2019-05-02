@@ -2,11 +2,13 @@
 <template>
   <div style="position: relative">
     <router-link to="/links">
-      <font-awesome-icon class="icon-link mr-1" :icon="['fas', 'link']"/>Links
+      <font-awesome-icon class="icon-link mr-1" :icon="['fas', 'link']"/>
+      {{ $t('Links') }}
     </router-link>
     <links-separator/>
     <router-link to="/sitemap">
-      <font-awesome-icon class="icon-sitemap mr-1" :icon="['fas', 'sitemap']"/>Sitemap
+      <font-awesome-icon class="icon-sitemap mr-1" :icon="['fas', 'sitemap']"/>
+      {{ $t('Sitemap') }}
     </router-link>
     <links-separator/>
     <div
