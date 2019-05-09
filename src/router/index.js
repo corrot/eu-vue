@@ -5,8 +5,10 @@ import Home from '@/Pages/Home/Home';
 import AboutUs from '@/Pages/AboutUs/AboutUs';
 import Contact from '@/Pages/Contact/Contact';
 import Releases from '@/Pages/Releases/Releases';
+import Newsletter from '@/Pages/Newsletter/Newsletter';
 import Links from '@/Pages/Links/Links';
 import Sitemap from '@/Pages/Sitemap/Sitemap';
+import Media from '@/Pages/Media/Media';
 import PageNotFound from '@/Pages/PageNotFound/PageNotFound';
 
 Vue.use(Router);
@@ -181,7 +183,7 @@ export const routes = [
     title: 'Media',
     path: '/media',
     name: 'media',
-    component: Contact,
+    component: Media,
     children: [
       {
         title: 'Announcement',
@@ -211,7 +213,7 @@ export const routes = [
         title: 'Newsletter',
         path: '/newsletter',
         name: 'newsletter',
-        component: Contact,
+        component: Newsletter,
       },
       {
         title: 'Publications',
@@ -262,5 +264,7 @@ export const routes = [
 
 export default new Router({
   mode: 'history',
+  linkActiveClass: 'open active',
+  scrollBehavior: () => ({ y: 0 }),
   routes,
 });

@@ -1,9 +1,14 @@
 <template>
   <div id="app">
     <header-component/>
+    <b-container style="position: relative">
+      <button class="print-button" @click="print">
+        <font-awesome-icon class="mr-1" :icon="['fas', 'print']"/>Print
+      </button>
+    </b-container>
     <navbar-component/>
     <div class="main">
-      <router-view/>
+      <router-view></router-view>
     </div>
     <footer-component/>
   </div>
@@ -22,7 +27,11 @@ export default {
   },
   created() {},
   destroyed() {},
-  methods: {},
+  methods: {
+    print() {
+      window.print();
+    },
+  },
 };
 </script>
 
@@ -31,5 +40,12 @@ export default {
 
 .main {
   /* margin-bottom: 214px; */
+}
+.print-button {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  z-index: 10000;
+  color: #007bff;
 }
 </style>

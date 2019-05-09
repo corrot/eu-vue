@@ -6,9 +6,10 @@ import VCalendar from 'v-calendar';
 import App from '@/App';
 import router from '@/router';
 import i18n from '@/plugins/i18n';
+import axios from 'axios';
 
-// import 'bootstrap/dist/css/bootstrap.css';
-// import 'bootstrap-vue/dist/bootstrap-vue.css';
+import VueSimpleMarkdown from 'vue-simple-markdown';
+import 'vue-simple-markdown/dist/vue-simple-markdown.css';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -16,7 +17,7 @@ import {
   faFacebookSquare,
   faYoutubeSquare,
 } from '@fortawesome/free-brands-svg-icons';
-import { faLink, faSitemap } from '@fortawesome/free-solid-svg-icons';
+import { faLink, faSitemap, faPrint } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 library.config = {
@@ -28,13 +29,17 @@ library.add(
   faFacebookSquare,
   faYoutubeSquare,
   faLink,
-  faSitemap
+  faSitemap,
+  faPrint
 );
+
+Vue.prototype.$http = axios;
 
 Vue.use(VCalendar);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.use(FlagIcon);
 Vue.use(BootstrapVue);
+Vue.use(VueSimpleMarkdown);
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */

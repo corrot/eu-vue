@@ -14,9 +14,10 @@
             </b-nav-item>
             <b-nav-item-dropdown class="navbar-title" v-if="route.children.length">
               <template slot="button-content">
-                <router-link :to="route.path">{{ $t(route.title) }}</router-link>
+                <!-- <router-link :to="route.path">{{ $t(route.title) }}</router-link> -->
+                {{ $t(route.title) }}
               </template>
-              <b-dropdown-item v-for="item in route.children" :key="item.name">
+              <b-dropdown-item v-for="(item, index) in route.children" :key="index">
                 <router-link :to="item.path">{{ $t(item.title) }}</router-link>
               </b-dropdown-item>
             </b-nav-item-dropdown>
