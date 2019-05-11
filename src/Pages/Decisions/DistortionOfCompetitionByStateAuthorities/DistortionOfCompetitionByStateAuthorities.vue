@@ -1,24 +1,25 @@
 <template>
-  <b-container>
-    <loading-spinner v-if="loading"/>
-    <server-error v-if="errored"/>
-    <div v-if="!errored && !loading">
-      <div v-for="newsletter in data" v-bind:key="newsletter.id">
-        <h3>{{ newsletter["Title"] }}</h3>
-        <!-- <p>{{ newsletter["Article"] }}</p> -->
-        <vue-simple-markdown :source="newsletter.Article"></vue-simple-markdown>
-      </div>
-    </div>
-  </b-container>
+  <div>
+    <b-container style="padding: 15px 0">
+      <b-button
+        to="/decisions/abuse-of-diminant-position/by-prohibition"
+        class="mr-2"
+      >{{$t('ByProhibition')}}</b-button>
+      <b-button
+        to="/decisions/abuse-of-diminant-position/by-investigation"
+      >{{$t('ByInvestigation')}}</b-button>
+    </b-container>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
 import { NEWSLETTERS_URL } from '@/constants.js';
-import LoadingSpinner from '../../components/LoadingSpinner';
-import ServerError from '../../components/ServerError';
+import LoadingSpinner from '@/components/LoadingSpinner';
+import ServerError from '@/components/ServerError';
 
 export default {
-  name: 'Newsletter',
+  name: 'DistortionOfCompetitionByStateAuthorities',
   data() {
     return {
       data: null,

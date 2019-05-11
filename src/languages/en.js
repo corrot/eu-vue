@@ -8,4 +8,16 @@ export const en = {
   CompetitionAgencyOfGeorgia: 'Competition Agency Of Georgia',
   Links: 'Links',
   Sitemap: 'Sitemap',
+  ViewDocument: 'View Document',
+  Decisions: 'Decisions',
+  AbuseOfDominantPosition: 'Abuse Of Dominant Position',
+  ByInvestigation: 'Decisions taken on the bases of investigation',
+  ByProhibition: 'Decisions on inadmissibility',
+  AntiCompetitiveAgreements: 'Anticompetitive Agreements',
+  DistortionOfCompetitionByStateAuthorities:
+    'Distortion of Competition by the State Authorities',
+  UnfairCompetition: 'Unfair Competition',
+  ConcentrationControl: 'Concentration Control',
+  StateAid: 'State Aid',
+  MarketMonitoring: 'Market Monitoring',
 };

@@ -8,4 +8,16 @@ export const ge = {
   CompetitionAgencyOfGeorgia: 'საქართველოს კონკურენციის სააგენტო',
   Links: 'ბმულებბი',
   Sitemap: 'საიტის რუკა',
+  ViewDocument: 'დოკუმენტის ნახვა',
+  Decisions: 'გადაწყვეტილებები',
+  AbuseOfDominantPosition: 'დომინირებული მდგომარეობის ბოროტად გამოყენება',
+  ByInvestigation: 'მოკვლევის შედეგად მიღებული გადაწყვეტილებები',
+  ByProhibition: 'დაუშვებლობის გადაწყვეტილებები',
+  AntiCompetitiveAgreements: 'კონკურენციის შემზღუდველი შეთანხმებები',
+  DistortionOfCompetitionByStateAuthorities:
+    'სახელმწიფო უწყებების მხრიდან კონკურენციის შეზღუდვა',
+  UnfairCompetition: 'არაკეთილსინდისიერი კონკურენცია',
+  ConcentrationControl: 'კონცენტრაციების კონტროლი',
+  StateAid: 'სახელმწიფო დახმარება',
+  MarketMonitoring: 'ბაზრის მონიტორინგი',
 };

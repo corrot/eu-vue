@@ -5,10 +5,28 @@ import Home from '@/Pages/Home/Home';
 import AboutUs from '@/Pages/AboutUs/AboutUs';
 import Contact from '@/Pages/Contact/Contact';
 import Releases from '@/Pages/Releases/Releases';
-import Newsletter from '@/Pages/Newsletter/Newsletter';
 import Links from '@/Pages/Links/Links';
 import Sitemap from '@/Pages/Sitemap/Sitemap';
 import Media from '@/Pages/Media/Media';
+import Newsletter from '@/Pages/Media/Newsletter/Newsletter';
+import Decisions from '@/Pages/Decisions/Decisions';
+import AbuseOfDominantPosition from '@/Pages/Decisions/AbuseOfDominantPosition/AbuseOfDominantPosition.vue';
+import AbuseOfDominantPositionByProhibition from '@/Pages/Decisions/AbuseOfDominantPosition/ByProhibition.vue';
+import AbuseOfDominantPositionByInvestigation from '@/Pages/Decisions/AbuseOfDominantPosition/ByInvestigation.vue';
+import AntiCompetitiveAgreements from '@/Pages/Decisions/AntiCompetitiveAgreements/AntiCompetitiveAgreements.vue';
+import AntiCompetitiveAgreementsByProhibition from '@/Pages/Decisions/AntiCompetitiveAgreements/ByProhibition.vue';
+import AntiCompetitiveAgreementsByInvestigation from '@/Pages/Decisions/AntiCompetitiveAgreements/ByInvestigation.vue';
+import DistortionOfCompetitionByStateAuthorities from '@/Pages/Decisions/DistortionOfCompetitionByStateAuthorities/DistortionOfCompetitionByStateAuthorities.vue';
+import DistortionOfCompetitionByStateAuthoritiesByProhibition from '@/Pages/Decisions/DistortionOfCompetitionByStateAuthorities/ByProhibition.vue';
+import DistortionOfCompetitionByStateAuthoritiesByInvestigation from '@/Pages/Decisions/DistortionOfCompetitionByStateAuthorities/ByInvestigation.vue';
+import UnfairCompetition from '@/Pages/Decisions/UnfairCompetition/UnfairCompetition.vue';
+import UnfairCompetitionByProhibition from '@/Pages/Decisions/UnfairCompetition/ByProhibition.vue';
+import UnfairCompetitionByInvestigation from '@/Pages/Decisions/UnfairCompetition/ByInvestigation.vue';
+
+import ConcentrationControl from '@/Pages/Decisions/ConcentrationControl';
+import StateAid from '@/Pages/Decisions/StateAid';
+import MarketMonitoring from '@/Pages/Decisions/MarketMonitoring';
+
 import PageNotFound from '@/Pages/PageNotFound/PageNotFound';
 
 Vue.use(Router);
@@ -95,31 +113,107 @@ export const routes = [
     title: 'Decisions',
     path: '/decisions',
     name: 'decisions',
-    component: Contact,
+    component: Decisions,
     children: [
       {
-        title: 'Unfair competition',
+        title: 'AbuseOfDominantPosition',
+        path: '/decisions/abuse-of-diminant-position/by-prohibition',
+        name: 'abuseOfDominantPosition',
+        component: AbuseOfDominantPosition,
+        children: [
+          {
+            title: 'ByProhibition',
+            path: '/decisions/abuse-of-diminant-position/by-prohibition',
+            name: 'abuseOfDominantPositionByProhibition',
+            component: AbuseOfDominantPositionByProhibition,
+          },
+          {
+            title: 'ByInvestigation',
+            path: '/decisions/abuse-of-diminant-position/by-investigation',
+            name: 'abuseOfDominantPositionByInvestigation',
+            component: AbuseOfDominantPositionByInvestigation,
+          },
+        ],
+      },
+      {
+        title: 'AntiCompetitiveAgreements',
+        path: '/anti-competitive-agreements',
+        name: 'antiCompetitiveAgreements',
+        component: AntiCompetitiveAgreements,
+        children: [
+          {
+            title: 'ByProhibition',
+            path: '/decisions/anti-competitive-agreements/by-prohibition',
+            name: 'antiCompetitiveAgreementsByProhibition',
+            component: AntiCompetitiveAgreementsByProhibition,
+          },
+          {
+            title: 'ByInvestigation',
+            path: '/decisions/anti-competitive-agreements/by-investigation',
+            name: 'antiCompetitiveAgreementsByInvestigation',
+            component: AntiCompetitiveAgreementsByInvestigation,
+          },
+        ],
+      },
+      {
+        title: 'DistortionOfCompetitionByStateAuthorities',
+        path: '/distortion-of-competition-by-state-authorities',
+        name: 'distortionOfCompetitionByStateAuthorities',
+        component: DistortionOfCompetitionByStateAuthorities,
+        children: [
+          {
+            title: 'ByProhibition',
+            path:
+              '/decisions/distortion-of-competition-by-state-authorities/by-prohibition',
+            name: 'distortionOfCompetitionByStateAuthoritiesByProhibition',
+            component: DistortionOfCompetitionByStateAuthoritiesByProhibition,
+          },
+          {
+            title: 'ByInvestigation',
+            path:
+              '/decisions/distortion-of-competition-by-state-authorities/by-investigation',
+            name: 'distortionOfCompetitionByStateAuthoritiesByInvestigation',
+            component: DistortionOfCompetitionByStateAuthoritiesByInvestigation,
+          },
+        ],
+      },
+      {
+        title: 'UnfairCompetition',
         path: '/unfair-competition',
         name: 'unfairCompetition',
-        component: Contact,
+        component: UnfairCompetition,
+        children: [
+          {
+            title: 'ByProhibition',
+            path: '/decisions/unfair-competition/by-prohibition',
+            name: 'unfairCompetitionByProhibition',
+            component: UnfairCompetitionByProhibition,
+          },
+          {
+            title: 'ByInvestigation',
+            path: '/decisions/unfair-competition/by-investigation',
+            name: 'unfairCompetitionByInvestigation',
+            component: UnfairCompetitionByInvestigation,
+          },
+        ],
       },
       {
-        title: 'Advertising',
-        path: '/advertising',
-        name: 'advertising',
-        component: Contact,
+        title: 'ConcentrationControl',
+        path: '/concentration-control',
+        name: 'concentrationControl',
+        component: ConcentrationControl,
       },
       {
-        title: 'State aid',
+        title: 'StateAid',
         path: '/state-aid',
         name: 'stateAid',
-        component: Contact,
+        component: StateAid,
       },
       {
-        title: 'Abuse of dominant position',
-        path: '/abuse-of-diminant-position',
-        name: 'abuseOfDominantPosition',
-        component: Contact,
+        title: 'MarketMonitoring',
+        path: '/market-monitoring',
+        name: 'marketMonitoring',
+        component: MarketMonitoring,
       },
     ],
   },
@@ -257,6 +351,13 @@ export const routes = [
     path: '/sitemap',
     name: 'sitemap',
     component: Sitemap,
+    children: [],
+    hidden: true,
+  },
+  {
+    path: '*',
+    name: 'page-not-found',
+    component: PageNotFound,
     children: [],
     hidden: true,
   },
