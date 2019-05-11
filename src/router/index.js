@@ -137,7 +137,7 @@ export const routes = [
       },
       {
         title: 'AntiCompetitiveAgreements',
-        path: '/anti-competitive-agreements',
+        path: '/decisions/anti-competitive-agreements/by-prohibition',
         name: 'antiCompetitiveAgreements',
         component: AntiCompetitiveAgreements,
         children: [
@@ -157,7 +157,8 @@ export const routes = [
       },
       {
         title: 'DistortionOfCompetitionByStateAuthorities',
-        path: '/distortion-of-competition-by-state-authorities',
+        path:
+          '/decisions/distortion-of-competition-by-state-authorities/by-prohibition',
         name: 'distortionOfCompetitionByStateAuthorities',
         component: DistortionOfCompetitionByStateAuthorities,
         children: [
@@ -179,7 +180,7 @@ export const routes = [
       },
       {
         title: 'UnfairCompetition',
-        path: '/unfair-competition',
+        path: '/decisions/unfair-competition/by-prohibition',
         name: 'unfairCompetition',
         component: UnfairCompetition,
         children: [
@@ -199,19 +200,19 @@ export const routes = [
       },
       {
         title: 'ConcentrationControl',
-        path: '/concentration-control',
+        path: '/decisions/concentration-control',
         name: 'concentrationControl',
         component: ConcentrationControl,
       },
       {
         title: 'StateAid',
-        path: '/state-aid',
+        path: '/decisions/state-aid',
         name: 'stateAid',
         component: StateAid,
       },
       {
         title: 'MarketMonitoring',
-        path: '/market-monitoring',
+        path: '/decisions/market-monitoring',
         name: 'marketMonitoring',
         component: MarketMonitoring,
       },
