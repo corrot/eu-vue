@@ -6,7 +6,7 @@ export const ge = {
   FOOTER_TEXT_2:
     'ეს ვებსაიტი შექმნილია ევროკავშირის მხარდაჭერით. მის შინაარსზე სრულად პასუხისმგებელია B&S Europe და არ ნიშნავს, რომ იგი ასახავს ევროკავშირის შეხედულებებს.',
   CompetitionAgencyOfGeorgia: 'საქართველოს კონკურენციის სააგენტო',
-  Links: 'ბმულებბი',
+  Links: 'ბმულები',
   Sitemap: 'საიტის რუკა',
   ViewDocument: 'დოკუმენტის ნახვა',
   Decisions: 'გადაწყვეტილებები',
@@ -20,4 +20,12 @@ export const ge = {
   ConcentrationControl: 'კონცენტრაციების კონტროლი',
   StateAid: 'სახელმწიფო დახმარება',
   MarketMonitoring: 'ბაზრის მონიტორინგი',
+  WhatWeDo: 'სააგენტოს საქმიანობა',
+  Projects: 'პროექტები',
+  Structure: 'სტრუქტურა',
+  PublicInformation: 'საჯარო ინფორმაცია',
+  AnnualReports: 'წლიური ანგარიშები',
+  Media: 'მედია',
+  PressReleases: 'პრეს რელიზები',
+  Legislation: 'კანონმდებლობა',
 };

@@ -20,4 +20,12 @@ export const en = {
   ConcentrationControl: 'Concentration Control',
   StateAid: 'State Aid',
   MarketMonitoring: 'Market Monitoring',
+  WhatWeDo: 'What We Do',
+  Projects: 'Projects',
+  Structure: 'Structure',
+  PublicInformation: 'Public Information',
+  AnnualReports: 'Annual Reports',
+  Media: 'Media',
+  PressReleases: 'Press Releases',
+  Legislation: 'Legislation',
 };
