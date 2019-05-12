@@ -91,32 +91,32 @@ export const routes = [
       },
     ],
   },
-  {
-    title: 'Legislation',
-    path: '/legislation',
-    name: 'legislation',
-    component: Contact,
-    children: [
-      {
-        title: 'National',
-        path: '/national',
-        name: 'national',
-        component: Contact,
-      },
-      {
-        title: 'Guidelines',
-        path: '/guidelines',
-        name: 'guidelines',
-        component: Contact,
-      },
-      {
-        title: 'International',
-        path: '/international',
-        name: 'international',
-        component: Contact,
-      },
-    ],
-  },
+  // {
+  //   title: 'Legislation',
+  //   path: '/legislation',
+  //   name: 'legislation',
+  //   component: Contact,
+  //   children: [
+  //     {
+  //       title: 'National',
+  //       path: '/national',
+  //       name: 'national',
+  //       component: Contact,
+  //     },
+  //     {
+  //       title: 'Guidelines',
+  //       path: '/guidelines',
+  //       name: 'guidelines',
+  //       component: Contact,
+  //     },
+  //     {
+  //       title: 'International',
+  //       path: '/international',
+  //       name: 'international',
+  //       component: Contact,
+  //     },
+  //   ],
+  // },
   {
     title: 'Decisions',
     path: '/decisions',
@@ -232,54 +232,54 @@ export const routes = [
     name: 'public',
     component: PublicInformation,
     children: [
-      {
-        title: 'Proactive information',
-        path: '/proactive-information',
-        name: 'proactiveInformation',
-        component: Contact,
-      },
+      // {
+      //   title: 'Proactive information',
+      //   path: '/proactive-information',
+      //   name: 'proactiveInformation',
+      //   component: Contact,
+      // },
       {
         title: 'AnnualReports',
         path: '/annual-reports',
         name: 'annualReports',
         component: AnnualReports,
       },
-      {
-        title: 'Statistics',
-        path: '/statistics',
-        name: 'statistics',
-        component: Contact,
-      },
-      {
-        title: 'Public survey',
-        path: '/public-survey',
-        name: 'publicSurvey',
-        component: Contact,
-      },
-      {
-        title: 'Request related acts',
-        path: '/request-related-acts',
-        name: 'requestRelatedActs',
-        component: Contact,
-      },
-      {
-        title: 'Request standard',
-        path: '/request-standard',
-        name: 'requestStandard',
-        component: Contact,
-      },
-      {
-        title: 'Application form',
-        path: '/application-form',
-        name: 'applicationForm',
-        component: Contact,
-      },
-      {
-        title: 'Complaint form',
-        path: '/complaint-form',
-        name: 'complaintForm',
-        component: Contact,
-      },
+      // {
+      //   title: 'Statistics',
+      //   path: '/statistics',
+      //   name: 'statistics',
+      //   component: Contact,
+      // },
+      // {
+      //   title: 'Public survey',
+      //   path: '/public-survey',
+      //   name: 'publicSurvey',
+      //   component: Contact,
+      // },
+      // {
+      //   title: 'Request related acts',
+      //   path: '/request-related-acts',
+      //   name: 'requestRelatedActs',
+      //   component: Contact,
+      // },
+      // {
+      //   title: 'Request standard',
+      //   path: '/request-standard',
+      //   name: 'requestStandard',
+      //   component: Contact,
+      // },
+      // {
+      //   title: 'Application form',
+      //   path: '/application-form',
+      //   name: 'applicationForm',
+      //   component: Contact,
+      // },
+      // {
+      //   title: 'Complaint form',
+      //   path: '/complaint-form',
+      //   name: 'complaintForm',
+      //   component: Contact,
+      // },
     ],
   },
   {
@@ -393,3 +393,11 @@ export default new Router({
   scrollBehavior: () => ({ y: 0 }),
   routes,
 });
+
+// AbuseOfDominantPosition
+// AntiCompetitiveAgreements
+// DistortionOfCompetitionByStateAuthorities
+// UnfairCompetitionByProhibition
+// ConcentrationControl
+// StateAid
+// MarketMonitoring
