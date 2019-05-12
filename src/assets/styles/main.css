@@ -30,3 +30,12 @@ li {
 a:hover {
   text-decoration: none;
 }
+.dropdown-menu {
+  overflow-x: hidden;
+}
+html,
+body,
+#app,
+.container {
+  min-width: 1023px;
+}

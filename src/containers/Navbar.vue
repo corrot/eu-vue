@@ -19,7 +19,11 @@
                   :class="activePath === route.path ? 'navbar-title active' : 'navbar-title'"
                 >{{ $t(route.title) }}</span>
               </template>
-              <b-dropdown-item v-for="(item, index) in route.children" :key="index">
+              <b-dropdown-item
+                v-for="(item, index) in route.children"
+                :key="index"
+                v-if="!item.hidden"
+              >
                 <router-link :to="item.path">{{ $t(item.title) }}</router-link>
                 <!-- <div v-if="item.children.length">{{ $t(item.title) }}</div> -->
                 <b-dropdown-item v-for="(subItem, index) in item.children" :key="index">

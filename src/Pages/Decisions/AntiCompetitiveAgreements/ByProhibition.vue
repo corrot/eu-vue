@@ -31,7 +31,7 @@
 
 <script>
 import i18n from '@/plugins/i18n';
-import { ABUSEOFDOMINITIONBYPROHIBITION_URL } from '@/constants.js';
+import { AntiCompetitiveAgreementsByProhibition_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 
@@ -52,7 +52,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get(ABUSEOFDOMINITIONBYPROHIBITION_URL)
+      .get(AntiCompetitiveAgreementsByProhibition_URL)
       .then(response => {
         this.data = response.data;
       })

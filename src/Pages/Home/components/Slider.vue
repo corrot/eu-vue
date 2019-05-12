@@ -11,9 +11,11 @@
     >
       <slide>
         <div class="slide-image" v-bind:style="{ 'background-image': 'url(' + img1 + ')' }"></div>
-        <router-link to="releases/1">
-          <h1 class="release-title">Release Title</h1>
-        </router-link>
+        <b-container>
+          <router-link to="releases/1">
+            <h1 class="release-title">Release Title</h1>
+          </router-link>
+        </b-container>
       </slide>
       <slide>
         <div class="slide-image" v-bind:style="{ 'background-image': 'url(' + img2 + ')' }"></div>
