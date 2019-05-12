@@ -3,11 +3,19 @@ import Router from 'vue-router';
 
 import Home from '@/Pages/Home/Home';
 import AboutUs from '@/Pages/AboutUs/AboutUs';
+import WhatWeDo from '@/Pages/AboutUs/WhatWeDo/WhatWeDo';
+import Projects from '@/Pages/AboutUs/Projects/Projects';
+import Structure from '@/Pages/AboutUs/Structure/Structure';
+import Employees from '@/Pages/AboutUs/Structure/Employees';
+
+import PublicInformation from '@/Pages/PublicInformation/PublicInformation';
+import AnnualReports from '@/Pages/PublicInformation/AnnualReports/AnnualReports';
+
 import Contact from '@/Pages/Contact/Contact';
-import Releases from '@/Pages/Releases/Releases';
 import Links from '@/Pages/Links/Links';
 import Sitemap from '@/Pages/Sitemap/Sitemap';
 import Media from '@/Pages/Media/Media';
+import Releases from '@/Pages/Media/Releases/Releases';
 import Newsletter from '@/Pages/Media/Newsletter/Newsletter';
 import Decisions from '@/Pages/Decisions/Decisions';
 import AbuseOfDominantPosition from '@/Pages/Decisions/AbuseOfDominantPosition/AbuseOfDominantPosition.vue';
@@ -46,40 +54,40 @@ export const routes = [
     component: AboutUs,
     children: [
       {
-        title: 'What we do',
-        path: '/what-we-do',
+        title: 'WhatWeDo',
+        path: '/about-us/what-we-do',
         name: 'whatWeDo',
-        component: Contact,
+        component: WhatWeDo,
       },
-      {
-        title: 'Chairman',
-        path: '/chairman',
-        name: 'chairman',
-        component: Contact,
-      },
+      // {
+      //   title: 'Chairman',
+      //   path: '/chairman',
+      //   name: 'chairman',
+      //   component: Contact,
+      // },
       {
         title: 'Structure',
-        path: '/structure',
+        path: '/about-us/structure',
         name: 'structure',
-        component: Contact,
+        component: Structure,
       },
-      {
-        title: 'Cooperation',
-        path: '/cooperation',
-        name: 'cooperation',
-        component: Contact,
-      },
-      {
-        title: 'Carreer',
-        path: '/carreer',
-        name: 'career',
-        component: Contact,
-      },
+      // {
+      //   title: 'Cooperation',
+      //   path: '/cooperation',
+      //   name: 'cooperation',
+      //   component: Contact,
+      // },
+      // {
+      //   title: 'Carreer',
+      //   path: '/carreer',
+      //   name: 'career',
+      //   component: Contact,
+      // },
       {
         title: 'Projects',
-        path: '/projects',
+        path: '/about-us/projects',
         name: 'projects',
-        component: Contact,
+        component: Projects,
       },
     ],
   },
@@ -219,10 +227,10 @@ export const routes = [
     ],
   },
   {
-    title: 'Public Information',
+    title: 'PublicInformation',
     path: '/public',
     name: 'public',
-    component: Contact,
+    component: PublicInformation,
     children: [
       {
         title: 'Proactive information',
@@ -231,10 +239,10 @@ export const routes = [
         component: Contact,
       },
       {
-        title: 'Annual reports',
+        title: 'AnnualReports',
         path: '/annual-reports',
         name: 'annualReports',
-        component: Contact,
+        component: AnnualReports,
       },
       {
         title: 'Statistics',
@@ -280,48 +288,55 @@ export const routes = [
     name: 'media',
     component: Media,
     children: [
+      // {
+      //   title: 'Announcement',
+      //   path: '/announcement',
+      //   name: 'announcement',
+      //   component: Contact,
+      // },
       {
-        title: 'Announcement',
-        path: '/announcement',
-        name: 'announcement',
-        component: Contact,
-      },
-      {
-        title: 'Press releases',
-        path: '/press-releases',
+        title: 'PressReleases',
+        path: '/media/press-releases/:id',
         name: 'pressReleases',
-        component: Contact,
+        component: Releases,
+        hidden: true,
       },
       {
-        title: 'Events',
-        path: '/events',
-        name: 'events',
-        component: Contact,
+        title: 'PressReleases',
+        path: '/media/press-releases',
+        name: 'pressReleases',
+        component: Releases,
       },
-      {
-        title: 'News archive',
-        path: '/news-archive',
-        name: 'newsArchive',
-        component: Contact,
-      },
-      {
-        title: 'Newsletter',
-        path: '/newsletter',
-        name: 'newsletter',
-        component: Newsletter,
-      },
-      {
-        title: 'Publications',
-        path: '/publications',
-        name: 'publications',
-        component: Contact,
-      },
-      {
-        title: 'FAQ',
-        path: '/faq',
-        name: 'faq',
-        component: Contact,
-      },
+      // {
+      //   title: 'Events',
+      //   path: '/events',
+      //   name: 'events',
+      //   component: Contact,
+      // },
+      // {
+      //   title: 'News archive',
+      //   path: '/news-archive',
+      //   name: 'newsArchive',
+      //   component: Contact,
+      // },
+      // {
+      //   title: 'Newsletter',
+      //   path: '/newsletter',
+      //   name: 'newsletter',
+      //   component: Newsletter,
+      // },
+      // {
+      //   title: 'Publications',
+      //   path: '/publications',
+      //   name: 'publications',
+      //   component: Contact,
+      // },
+      // {
+      //   title: 'FAQ',
+      //   path: '/faq',
+      //   name: 'faq',
+      //   component: Contact,
+      // },
     ],
   },
   {
@@ -344,6 +359,14 @@ export const routes = [
     path: '/links',
     name: 'links',
     component: Links,
+    children: [],
+    hidden: true,
+  },
+  {
+    title: 'Employees',
+    path: '/employees/:id',
+    name: 'employees',
+    component: Employees,
     children: [],
     hidden: true,
   },
