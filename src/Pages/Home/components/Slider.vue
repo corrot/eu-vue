@@ -1,10 +1,10 @@
 <template>
   <div class="carousel-wrapper">
     <carousel
-      autoplay="true"
+      :autoplay="true"
       :autoplayHoverPause="true"
       :centerMode="true"
-      perPage="1"
+      :per-page="1"
       :loop="true"
       :pagination="false"
       paginationPosition="bottom-overlay"
@@ -21,6 +21,9 @@
         <div class="slide-image" v-bind:style="{ 'background-image': 'url(' + img2 + ')' }"></div>
       </slide>
     </carousel>
+    <div id="slider-footer">
+      
+    </div>
   </div>
 </template>
 
@@ -38,7 +41,7 @@ export default {
   data() {
     return {
       img1,
-      img2,
+      img2
     };
   },
 };
@@ -63,5 +66,11 @@ export default {
   color: #fff;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
   margin-top: -120px;
+}
+
+#slider-footer{
+  /* background: #00005a !important; */
+  background: #0a0a2d !important;
+  height: 4em;
 }
 </style>

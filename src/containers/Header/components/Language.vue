@@ -1,15 +1,25 @@
-
 <template>
   <div style="position: relative">
     <router-link to="/links">
       <font-awesome-icon class="icon-link mr-1" :icon="['fas', 'link']"/>
-      {{ $t('Links') }}
+      <span class="links">
+        {{ $t('Links') }}
+      </span>
     </router-link>
     <links-separator/>
     <router-link to="/sitemap">
       <font-awesome-icon class="icon-sitemap mr-1" :icon="['fas', 'sitemap']"/>
-      {{ $t('Sitemap') }}
+      <span class="links">
+        {{ $t('Sitemap') }}
+      </span>
     </router-link>
+
+    <links-separator/>
+    <b-button id="print-button" @click="print">
+      <font-awesome-icon class="mr-1" :icon="['fas', 'print']"/>
+      <span class="links">Print</span>
+    </b-button>
+
     <links-separator/>
     <div
       class="language-toggler"
@@ -34,6 +44,9 @@ export default {
     changeLocale(locale) {
       i18n.locale = locale;
     },
+    print() {
+      window.print();
+    },
   },
   components: {
     LinksSeparator,
@@ -57,4 +70,30 @@ export default {
   cursor: pointer;
   display: inline-block;
 }
+
+.icon-link, .icon-sitemap, #print-button{
+  color: #0a0a2d;
+}
+
+#print-button{
+  background: none;
+  border: none;
+  padding: 2px;
+}
+
+#print-button:active, #print-button:focus{
+  color: #0a0a2d;
+  background: none;
+  border: none!important;
+  box-shadow: none;
+}
+
+.links{
+  color: #0a0a2d;
+}
+
+.links:hover{
+  color: #253d92;
+}
+
 </style>

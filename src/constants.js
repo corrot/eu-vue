@@ -1,4 +1,4 @@
-export const API_BASE_URL = 'http://192.168.100.3:1338';
+export const API_BASE_URL = 'http://localhost:1338';
 
 export const NEWSLETTERS_URL = `${API_BASE_URL}/newsletters`;
 export const ABUSEOFDOMINITIONBYPROHIBITION_URL = `${API_BASE_URL}/abuseofdominantpositionsbyprohibitions`;
@@ -15,4 +15,5 @@ export const UnfairCompetitionByInvestigation_URL = `${API_BASE_URL}/abuseofdomi
 
 export const ConcentrationControl_URL = `${API_BASE_URL}/abuseofdominantpositionsbyprohibitions`;
 export const StateAid_URL = `${API_BASE_URL}/abuseofdominantpositionsbyprohibitions`;
+export const NewsArchive_URL = `${API_BASE_URL}/abuseofdominantpositionsbyprohibitions`;
 export const MarketMonitoring_URL = `${API_BASE_URL}/abuseofdominantpositionsbyprohibitions`;

@@ -10,7 +10,7 @@
       <logo-component/>
       <div>
         <language-component/>
-        <social-component style="display: inline-block; float: right; margin-top: 20px;"/>
+        <social-component style="display: inline-block; float: right; margin-top: 10px;"/>
       </div>
     </div>
   </b-container>
@@ -50,5 +50,26 @@ export default {
   top: 0;
   z-index: -1;
   text-align: center;
+}
+
+@media (max-width: 1200px){
+  .euca-title{
+    width: 80%;
+    text-align: left;
+    left: 19%;
+    top: -0.5%;
+  }
+
+  .euca-title h3{
+    font-size: 1.3rem;
+  }
+}
+
+
+@media (max-width: 992px){
+  .euca-title {
+    display: none;
+  }
+
 }
 </style>

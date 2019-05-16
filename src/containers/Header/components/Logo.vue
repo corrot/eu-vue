@@ -1,7 +1,8 @@
 <template>
-  <div>
+  <div class="test">
     <router-link :to="`/`" class="logo-wrapper">
-      <img :src="headerLogo">
+      <b-tooltip target="logo-image" placement="right">Competition Agency of Georgia</b-tooltip>
+      <img :src="headerLogo" id="logo-image">
     </router-link>
   </div>
 </template>
@@ -26,6 +27,12 @@ export default {
 
   img {
     width: 100%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .logo-wrapper img {
+    width: 110px;
   }
 }
 </style>

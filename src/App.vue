@@ -1,11 +1,11 @@
 <template>
   <div id="app">
     <header-component/>
-    <b-container style="position: relative">
-      <button class="print-button" @click="print">
+    <!-- <b-container style="position: relative">
+      <b-button variant="outline-primary" class="print-button" @click="print">
         <font-awesome-icon class="mr-1" :icon="['fas', 'print']"/>Print
-      </button>
-    </b-container>
+      </b-button>
+    </b-container> -->
     <navbar-component/>
     <div class="main">
       <router-view></router-view>
@@ -27,25 +27,15 @@ export default {
   },
   created() {},
   destroyed() {},
-  methods: {
-    print() {
-      window.print();
-    },
-  },
 };
 </script>
 
 <style>
 @import url('./assets/styles/main.css');
 
-.main {
-  /* margin-bottom: 214px; */
-}
-.print-button {
-  position: absolute;
-  right: 15px;
-  bottom: 15px;
-  z-index: 10000;
-  color: #007bff;
+.dropdown-item.active, .dropdown-item:active {
+    color: #000!important;
+    text-decoration: none;
+    background-color: #fff!important;
 }
 </style>

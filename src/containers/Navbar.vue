@@ -14,21 +14,17 @@
             </b-nav-item>
             <b-nav-item-dropdown v-if="route.children.length">
               <template slot="button-content">
-                <!-- <router-link :to="route.path">{{ $t(route.title) }}</router-link> -->
                 <span
                   :class="activePath === route.path ? 'navbar-title active' : 'navbar-title'"
                 >{{ $t(route.title) }}</span>
               </template>
-              <b-dropdown-item
-                v-for="(item, index) in route.children"
-                :key="index"
-                v-if="!item.hidden"
-              >
-                <router-link :to="item.path">{{ $t(item.title) }}</router-link>
-                <!-- <div v-if="item.children.length">{{ $t(item.title) }}</div> -->
-                <b-dropdown-item v-for="(subItem, index) in item.children" :key="index">
-                  <router-link :to="subItem.path">{{ $t(subItem.title) }}</router-link>
-                </b-dropdown-item>
+              <b-dropdown-item class="dropdown-override" v-for="(item, index) in route.children" :key="index" :to="item.path">
+                <span v-if="!item.hidden">{{ $t(item.title) }}
+                  <!-- <router-link :to="item.path">{{ $t(item.title) }}</router-link> -->
+                  <b-dropdown-item class="dropdown-override" :to="subItem.path" v-for="(subItem, index) in item.children" :key="index">{{ $t(subItem.title) }}
+                    <!-- <router-link :to="subItem.path">{{ $t(subItem.title) }}</router-link> -->
+                  </b-dropdown-item>
+                </span>
               </b-dropdown-item>
             </b-nav-item-dropdown>
           </div>
@@ -49,6 +45,21 @@ export default {
   updated() {
     this.activePath = `/${this.$router.currentRoute.path.split('/')[1]}`;
   },
+  computed: {
+    //todo
+    routeChildren: function() {
+      let routeChildren = [];
+
+      for (let route in routes) {
+        for (let child in route.children) {
+          if (!child.hidden) routeChildren = [child, ...routeChildren];
+        }
+      }
+      console.log(routeChildren);
+      debugger;
+      return routeChildren;
+    },
+  },
   data() {
     return {
       routes,
@@ -60,12 +71,14 @@ export default {
 
 <style scoped lang="postcss">
 .navbar {
-  background: #00005a !important;
+  background: #0a0a2d !important;
+  height: 4em;
 }
 
 .navbar-title {
   font-family: 'Roboto Condensed', 'BPG Glaho WEB Caps', sans-serif;
   color: #eee !important;
+  letter-spacing: 1px;
 }
 
 .navbar-title.active {
@@ -76,7 +89,9 @@ export default {
 .dropdown-menu {
   overflow-x: hidden;
 }
+
 .dropdown-item {
   width: auto;
 }
+
 </style>

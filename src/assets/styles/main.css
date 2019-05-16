@@ -2,8 +2,9 @@
 @import url('bootstrap-vue/dist/bootstrap-vue.css');
 
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
-@import url('//cdn.web-fonts.ge/fonts/dejavu-sans-condensed/css/dejavu-sans-condensed.min.css');
-@import url('//cdn.web-fonts.ge/fonts/bpg-glaho-web-caps/css/bpg-glaho-web-caps.min.css');
+/* todo: */
+/* @import url("//cdn.web-fonts.ge/fonts/dejavu-sans-condensed/css/dejavu-sans-condensed.min.css"); */
+/* @import url('//cdn.web-fonts.ge/fonts/bpg-glaho-web-caps/css/bpg-glaho-web-caps.min.css'); */
 
 html,
 body {
@@ -37,5 +38,5 @@ html,
 body,
 #app,
 .container {
-  min-width: 1023px;
+  /* min-width: 1023px; */
 }

@@ -5,7 +5,7 @@ import Home from '@/Pages/Home/Home';
 import AboutUs from '@/Pages/AboutUs/AboutUs';
 import WhatWeDo from '@/Pages/AboutUs/WhatWeDo/WhatWeDo';
 import Projects from '@/Pages/AboutUs/Projects/Projects';
-import Structure from '@/Pages/AboutUs/Structure/Structure';
+import Structure from '@/Pages/AboutUs/Structure/Structure.vue';
 import Employees from '@/Pages/AboutUs/Structure/Employees';
 
 import PublicInformation from '@/Pages/PublicInformation/PublicInformation';
@@ -16,6 +16,7 @@ import Links from '@/Pages/Links/Links';
 import Sitemap from '@/Pages/Sitemap/Sitemap';
 import Media from '@/Pages/Media/Media';
 import Releases from '@/Pages/Media/Releases/Releases';
+import NewsArchive from '@/Pages/Media/NewsArchive/NewsArchive';
 import Newsletter from '@/Pages/Media/Newsletter/Newsletter';
 import Decisions from '@/Pages/Decisions/Decisions';
 import AbuseOfDominantPosition from '@/Pages/Decisions/AbuseOfDominantPosition/AbuseOfDominantPosition.vue';
@@ -295,10 +296,10 @@ export const routes = [
       //   component: Contact,
       // },
       {
-        title: 'PressReleases',
+        title: 'PressReleasesDetail',
         path: '/media/press-releases/:id',
-        name: 'pressReleases',
-        component: Releases,
+        name: 'pressReleasesDetail',
+        component: {template: '<div>asfasf</div>'},
         hidden: true,
       },
       {
@@ -313,12 +314,12 @@ export const routes = [
       //   name: 'events',
       //   component: Contact,
       // },
-      // {
-      //   title: 'News archive',
-      //   path: '/news-archive',
-      //   name: 'newsArchive',
-      //   component: Contact,
-      // },
+      {
+        title: 'NewsArchive',
+        path: '/media/news-archive',
+        name: 'newsArchive',
+        component: NewsArchive,
+      },
       // {
       //   title: 'Newsletter',
       //   path: '/newsletter',

@@ -1,17 +1,17 @@
 <template>
   <b-container>
     <div style="padding: 15px 0">
-      <h3>{{item["title"]}}</h3>
-      <h4>{{item["name"]}}</h4>
+      <h3>{{item["title"]}}</h3><br />
+      <h4>{{item["name"]}}</h4><br />
       <div>
-        tel:
+        Tel:
         <a :href="'tel:' + item['tel']">{{item['tel']}}</a>
       </div>
       <div>
-        email:
-        <div v-for="(mail, index) in item.email" :key="index">
-          <a :href="'mailto:' + mail">{{mail}}</a>
-        </div>
+        E-mail:
+        <span v-for="(mail, index) in item.email" :key="index">
+          <a :href="'mailto:' + mail">{{mail}}</a><br />
+        </span>
       </div>
     </div>
   </b-container>
@@ -19,7 +19,7 @@
 
 <script>
 import i18n from '@/plugins/i18n';
-import tree from './structure.js';
+import tree from './structure-tree.js';
 
 export default {
   name: 'WhatWeDo',

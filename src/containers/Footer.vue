@@ -35,6 +35,7 @@ footer {
   left: 0;
   right: 0;
   padding: 15px 0;
-  background: #00005a;
+  background: #0a0a2d;
+  margin-top: 30px;
 }
 </style>

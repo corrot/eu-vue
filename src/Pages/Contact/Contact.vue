@@ -10,13 +10,13 @@
         ></iframe>
       </b-col>
       <b-col>
-        <b-card class="mt-3">
+        <b-card class="mt-3 text-center" style="border: none;">
           <p>Georgian Competition Agency</p>
           <p>154, Agmashenebeli av. Tbilisi, 0106</p>
           <p>Phone: (032) 2 440 770 (Ext 21-74)</p>
           <p>E-mail: info-gca@competition.ge</p>
         </b-card>
-        <div class="mt-3">
+        <div class="mt-3 input-container">
           <b-form-group
             label-cols-sm="3"
             label="Full Name:"
@@ -58,7 +58,9 @@
               max-rows="6"
             ></b-form-textarea>
           </b-form-group>
-          <b-button type="submit" variant="primary" class="right">Submit</b-button>
+        </div>
+        <div class="text-center">
+          <b-button type="submit" class="btn-submit-message">Submit</b-button>
         </div>
       </b-col>
     </b-row>
@@ -72,16 +74,41 @@ export default {
   data() {
     return {
       msg: 'Contact Page',
+      text: ''
     };
   },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1,
 h2 {
   font-weight: normal;
+}
+
+iframe {
+  margin: 15px 0;
+}
+
+.input-container {
+  padding-right: 15%;
+}
+
+.btn-submit-message {
+  border: none;
+  border-bottom: 4px solid #0a0a2d;
+  background: none;
+  color: #000;
+  border-radius: 0;
+  letter-spacing: 1px;
+  width: 110px;
+  height: 40px;
+  /* float: right; */
+  font-size: 17px;
+}
+
+.btn-submit-message:hover {
+  background: #e3eaf1;
 }
 </style>
 
