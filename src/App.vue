@@ -1,16 +1,12 @@
 <template>
   <div id="app">
     <header-component/>
-    <!-- <b-container style="position: relative">
-      <b-button variant="outline-primary" class="print-button" @click="print">
-        <font-awesome-icon class="mr-1" :icon="['fas', 'print']"/>Print
-      </b-button>
-    </b-container> -->
     <navbar-component/>
     <div class="main">
       <router-view></router-view>
     </div>
     <footer-component/>
+    <go-top :size="60" :z-index="10000" bg-color="#004996" ></go-top>
   </div>
 </template>
 
@@ -18,10 +14,11 @@
 import HeaderComponent from './containers/Header/Header';
 import NavbarComponent from './containers/Navbar';
 import FooterComponent from './containers/Footer';
+import GoTop from '@inotom/vue-go-top';
 
 export default {
   name: 'App',
-  components: { HeaderComponent, FooterComponent, NavbarComponent },
+  components: { HeaderComponent, FooterComponent, NavbarComponent, GoTop },
   data() {
     return {};
   },
