@@ -6,7 +6,7 @@
       <router-view></router-view>
     </div>
     <footer-component/>
-    <go-top :size="60" :z-index="10000" bg-color="#004996" ></go-top>
+    <go-top :size="60" :z-index="10000" bg-color="#004996"></go-top>
   </div>
 </template>
 
