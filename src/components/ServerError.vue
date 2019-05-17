@@ -10,6 +10,8 @@ export default {
 
 <style lang="postcss" scoped>
 .server-error {
+  text-align: center;
+  font-size: 20px;
   color: #f00;
 }
 </style>

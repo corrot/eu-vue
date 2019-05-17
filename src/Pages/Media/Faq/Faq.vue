@@ -1,5 +1,5 @@
 <template>
-  <div class="chairman" style="padding: 15px 0">
+  <div style="padding: 15px 0">
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
     <div v-if="!errored && !loading">
@@ -10,12 +10,12 @@
 
 <script>
 import i18n from '@/plugins/i18n';
-import { CHAIRMAN_URL } from '@/constants.js';
+import { PROACTIVE_INFORMATION_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 
 export default {
-  name: 'Chairman',
+  name: 'Faq',
   data() {
     return {
       data: null,
@@ -30,7 +30,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get(CHAIRMAN_URL)
+      .get(PROACTIVE_INFORMATION_URL)
       .then(response => {
         this.data = response.data;
       })

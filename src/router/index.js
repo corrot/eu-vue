@@ -2,22 +2,44 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 import Home from '@/Pages/Home/Home';
+
 import AboutUs from '@/Pages/AboutUs/AboutUs';
 import WhatWeDo from '@/Pages/AboutUs/WhatWeDo/WhatWeDo';
 import Projects from '@/Pages/AboutUs/Projects/Projects';
 import Structure from '@/Pages/AboutUs/Structure/Structure.vue';
+import Chairman from '@/Pages/AboutUs/Chairman/Chairman';
+import Carreer from '@/Pages/AboutUs/Carreer/Carreer';
+import Cooperation from '@/Pages/AboutUs/Cooperation/Cooperation';
 import Employees from '@/Pages/AboutUs/Structure/Employees';
+
+import Legislation from '@/Pages/Legislation/Legislation';
+import National from '@/Pages/Legislation/National/National';
+import Guidelines from '@/Pages/Legislation/Guidelines/Guidelines';
+import International from '@/Pages/Legislation/International/International';
 
 import PublicInformation from '@/Pages/PublicInformation/PublicInformation';
 import AnnualReports from '@/Pages/PublicInformation/AnnualReports/AnnualReports';
+import ProactiveInformation from '@/Pages/PublicInformation/ProactiveInformation/ProactiveInformation';
+import Statistics from '@/Pages/PublicInformation/Statistics/Statistics';
+import PublicSurvey from '@/Pages/PublicInformation/PublicSurvey/PublicSurvey';
+import RequestRelatedActs from '@/Pages/PublicInformation/RequestRelatedActs/RequestRelatedActs';
+import RequestStandard from '@/Pages/PublicInformation/RequestStandard/RequestStandard';
+import ApplicationForm from '@/Pages/PublicInformation/ApplicationForm/ApplicationForm';
+import ComplaintForm from '@/Pages/PublicInformation/ComplaintForm/ComplaintForm';
 
 import Contact from '@/Pages/Contact/Contact';
 import Links from '@/Pages/Links/Links';
 import Sitemap from '@/Pages/Sitemap/Sitemap';
+
 import Media from '@/Pages/Media/Media';
 import Releases from '@/Pages/Media/Releases/Releases';
 import NewsArchive from '@/Pages/Media/NewsArchive/NewsArchive';
 import Newsletter from '@/Pages/Media/Newsletter/Newsletter';
+import Announcement from '@/Pages/Media/Announcement/Announcement';
+import Events from '@/Pages/Media/Events/Events';
+import Publications from '@/Pages/Media/Publications/Publications';
+import Faq from '@/Pages/Media/Faq/Faq';
+
 import Decisions from '@/Pages/Decisions/Decisions';
 import AbuseOfDominantPosition from '@/Pages/Decisions/AbuseOfDominantPosition/AbuseOfDominantPosition.vue';
 import AbuseOfDominantPositionByProhibition from '@/Pages/Decisions/AbuseOfDominantPosition/ByProhibition.vue';
@@ -64,7 +86,7 @@ export const routes = [
         title: 'Chairman',
         path: '/about-us/chairman',
         name: 'chairman',
-        component: Contact,
+        component: Chairman,
       },
       {
         title: 'Structure',
@@ -76,13 +98,13 @@ export const routes = [
         title: 'Cooperation',
         path: '/about-us/cooperation',
         name: 'cooperation',
-        component: Contact,
+        component: Cooperation,
       },
       {
         title: 'Carreer',
         path: '/about-us/carreer',
         name: 'career',
-        component: Contact,
+        component: Carreer,
       },
       {
         title: 'Projects',
@@ -92,32 +114,32 @@ export const routes = [
       },
     ],
   },
-  // {
-  //   title: 'Legislation',
-  //   path: '/legislation',
-  //   name: 'legislation',
-  //   component: Contact,
-  //   children: [
-  //     {
-  //       title: 'National',
-  //       path: '/national',
-  //       name: 'national',
-  //       component: Contact,
-  //     },
-  //     {
-  //       title: 'Guidelines',
-  //       path: '/guidelines',
-  //       name: 'guidelines',
-  //       component: Contact,
-  //     },
-  //     {
-  //       title: 'International',
-  //       path: '/international',
-  //       name: 'international',
-  //       component: Contact,
-  //     },
-  //   ],
-  // },
+  {
+    title: 'Legislation',
+    path: '/legislation',
+    name: 'legislation',
+    component: Legislation,
+    children: [
+      {
+        title: 'National',
+        path: '/legislation/national',
+        name: 'national',
+        component: National,
+      },
+      {
+        title: 'Guidelines',
+        path: '/legislation/guidelines',
+        name: 'guidelines',
+        component: Guidelines,
+      },
+      {
+        title: 'International',
+        path: '/legislation/international',
+        name: 'international',
+        component: International,
+      },
+    ],
+  },
   {
     title: 'Decisions',
     path: '/decisions',
@@ -233,54 +255,54 @@ export const routes = [
     name: 'public',
     component: PublicInformation,
     children: [
-      // {
-      //   title: 'Proactive information',
-      //   path: '/proactive-information',
-      //   name: 'proactiveInformation',
-      //   component: Contact,
-      // },
+      {
+        title: 'Proactive information',
+        path: '/public/proactive-information',
+        name: 'proactiveInformation',
+        component: ProactiveInformation,
+      },
       {
         title: 'AnnualReports',
-        path: '/annual-reports',
+        path: '/public/annual-reports',
         name: 'annualReports',
         component: AnnualReports,
       },
-      // {
-      //   title: 'Statistics',
-      //   path: '/statistics',
-      //   name: 'statistics',
-      //   component: Contact,
-      // },
-      // {
-      //   title: 'Public survey',
-      //   path: '/public-survey',
-      //   name: 'publicSurvey',
-      //   component: Contact,
-      // },
-      // {
-      //   title: 'Request related acts',
-      //   path: '/request-related-acts',
-      //   name: 'requestRelatedActs',
-      //   component: Contact,
-      // },
-      // {
-      //   title: 'Request standard',
-      //   path: '/request-standard',
-      //   name: 'requestStandard',
-      //   component: Contact,
-      // },
-      // {
-      //   title: 'Application form',
-      //   path: '/application-form',
-      //   name: 'applicationForm',
-      //   component: Contact,
-      // },
-      // {
-      //   title: 'Complaint form',
-      //   path: '/complaint-form',
-      //   name: 'complaintForm',
-      //   component: Contact,
-      // },
+      {
+        title: 'Statistics',
+        path: '/public/statistics',
+        name: 'statistics',
+        component: Statistics,
+      },
+      {
+        title: 'Public survey',
+        path: '/public/public-survey',
+        name: 'publicSurvey',
+        component: PublicSurvey,
+      },
+      {
+        title: 'Request related acts',
+        path: '/public/request-related-acts',
+        name: 'requestRelatedActs',
+        component: RequestRelatedActs,
+      },
+      {
+        title: 'Request standard',
+        path: '/public/request-standard',
+        name: 'requestStandard',
+        component: RequestStandard,
+      },
+      {
+        title: 'Application form',
+        path: '/public/application-form',
+        name: 'applicationForm',
+        component: ApplicationForm,
+      },
+      {
+        title: 'Complaint form',
+        path: '/public/complaint-form',
+        name: 'complaintForm',
+        component: ComplaintForm,
+      },
     ],
   },
   {
@@ -289,12 +311,12 @@ export const routes = [
     name: 'media',
     component: Media,
     children: [
-      // {
-      //   title: 'Announcement',
-      //   path: '/announcement',
-      //   name: 'announcement',
-      //   component: Contact,
-      // },
+      {
+        title: 'Announcement',
+        path: '/announcement',
+        name: 'announcement',
+        component: Announcement,
+      },
       {
         title: 'PressReleasesDetail',
         path: '/media/press-releases/:id',
@@ -308,36 +330,36 @@ export const routes = [
         name: 'pressReleases',
         component: Releases,
       },
-      // {
-      //   title: 'Events',
-      //   path: '/events',
-      //   name: 'events',
-      //   component: Contact,
-      // },
+      {
+        title: 'Events',
+        path: '/media//events',
+        name: 'events',
+        component: Events,
+      },
       {
         title: 'NewsArchive',
         path: '/media/news-archive',
         name: 'newsArchive',
         component: NewsArchive,
       },
-      // {
-      //   title: 'Newsletter',
-      //   path: '/newsletter',
-      //   name: 'newsletter',
-      //   component: Newsletter,
-      // },
-      // {
-      //   title: 'Publications',
-      //   path: '/publications',
-      //   name: 'publications',
-      //   component: Contact,
-      // },
-      // {
-      //   title: 'FAQ',
-      //   path: '/faq',
-      //   name: 'faq',
-      //   component: Contact,
-      // },
+      {
+        title: 'Newsletter',
+        path: '/media/newsletter',
+        name: 'newsletter',
+        component: Newsletter,
+      },
+      {
+        title: 'Publications',
+        path: '/media/publications',
+        name: 'publications',
+        component: Publications,
+      },
+      {
+        title: 'FAQ',
+        path: '/media/faq',
+        name: 'faq',
+        component: Faq,
+      },
     ],
   },
   {
