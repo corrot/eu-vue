@@ -60,30 +60,30 @@ export const routes = [
         name: 'whatWeDo',
         component: WhatWeDo,
       },
-      // {
-      //   title: 'Chairman',
-      //   path: '/chairman',
-      //   name: 'chairman',
-      //   component: Contact,
-      // },
+      {
+        title: 'Chairman',
+        path: '/about-us/chairman',
+        name: 'chairman',
+        component: Contact,
+      },
       {
         title: 'Structure',
         path: '/about-us/structure',
         name: 'structure',
         component: Structure,
       },
-      // {
-      //   title: 'Cooperation',
-      //   path: '/cooperation',
-      //   name: 'cooperation',
-      //   component: Contact,
-      // },
-      // {
-      //   title: 'Carreer',
-      //   path: '/carreer',
-      //   name: 'career',
-      //   component: Contact,
-      // },
+      {
+        title: 'Cooperation',
+        path: '/about-us/cooperation',
+        name: 'cooperation',
+        component: Contact,
+      },
+      {
+        title: 'Carreer',
+        path: '/about-us/carreer',
+        name: 'career',
+        component: Contact,
+      },
       {
         title: 'Projects',
         path: '/about-us/projects',
