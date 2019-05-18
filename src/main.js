@@ -13,9 +13,9 @@ import 'vue-simple-markdown/dist/vue-simple-markdown.css';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
-  faTwitterSquare,
-  faFacebookSquare,
-  faYoutubeSquare,
+  faTwitter,
+  faFacebook,
+  faYoutube,
 } from '@fortawesome/free-brands-svg-icons';
 import { faLink, faSitemap, faPrint } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -24,14 +24,7 @@ library.config = {
   autoAddCss: false,
 };
 
-library.add(
-  faTwitterSquare,
-  faFacebookSquare,
-  faYoutubeSquare,
-  faLink,
-  faSitemap,
-  faPrint
-);
+library.add(faTwitter, faFacebook, faYoutube, faLink, faSitemap, faPrint);
 
 Vue.prototype.$http = axios;
 

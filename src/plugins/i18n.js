@@ -10,8 +10,10 @@ const messages = {
   ge: languages.ge,
 };
 
+const activeLocale = localStorage.getItem('activeLocale');
+
 const i18n = new VueI18n({
-  locale: 'en', // set locale
+  locale: activeLocale || 'en', // set locale
   // silentTranslationWarn,
   fallbackLocale: 'ge', // set fallback locale
   messages, // set locale messages
