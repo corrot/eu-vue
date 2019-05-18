@@ -28,4 +28,6 @@ export const en = {
   Media: 'Media',
   PressReleases: 'Press Releases',
   Legislation: 'Legislation',
+  PageNotFound: 'Page Not Found',
+  InternalServerError: 'Internal Server Error',
 };

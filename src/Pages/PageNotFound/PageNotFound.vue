@@ -1,24 +1,43 @@
 <template>
-  <b-container>
-    <h1>{{ msg }}</h1>
-  </b-container>
+  <div class="server-error">
+    <h1>404</h1>
+    <h2>{{ $t('PageNotFound') }}</h2>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'PageNotFound',
-  data() {
-    return {
-      msg: '404 Page Not Found',
-    };
-  },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="postcss" scoped>
+.server-error {
+  text-align: center;
+  font-size: 20px;
+}
+
+h1 {
+  margin: 30px auto 0 auto;
+  color: var(--stroke-color);
+  font-family: 'Encode Sans Semi Condensed', 'DejaVu Sans Condensed', Verdana,
+    sans-serif;
+  font-size: 8rem;
+  line-height: 10rem;
+  font-weight: 200;
+  text-align: center;
+}
+h2 {
+  margin: 20px auto 30px auto;
+  font-family: 'Encode Sans Semi Condensed', 'DejaVu Sans Condensed', Verdana,
+    sans-serif;
+  font-size: 1.5rem;
+  font-weight: 200;
+  text-align: center;
+}
 h1,
 h2 {
-  font-weight: normal;
+  -webkit-transition: opacity 0.5s linear, margin-top 0.5s linear; /* Safari */
+  transition: opacity 0.5s linear, margin-top 0.5s linear;
 }
 </style>

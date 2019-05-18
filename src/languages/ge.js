@@ -28,4 +28,6 @@ export const ge = {
   Media: 'მედია',
   PressReleases: 'პრეს რელიზები',
   Legislation: 'კანონმდებლობა',
+  PageNotFound: 'ასეთი გვერდი არ არსებობს',
+  InternalServerError: 'სერვერზე შეფერხებაა',
 };
