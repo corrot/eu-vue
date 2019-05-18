@@ -313,7 +313,7 @@ export const routes = [
     children: [
       {
         title: 'Announcement',
-        path: '/announcement',
+        path: '/media/announcement',
         name: 'announcement',
         component: Announcement,
       },

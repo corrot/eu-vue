@@ -30,7 +30,7 @@
 
 <script>
 import i18n from '@/plugins/i18n';
-import { NewsArchive_URL } from '@/constants.js';
+import { NEWSARCHIVE_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 
@@ -50,7 +50,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get(NewsArchive_URL)
+      .get(NEWSARCHIVE_URL)
       .then(response => {
         this.data = response.data;
       })

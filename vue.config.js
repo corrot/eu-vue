@@ -1,5 +1,4 @@
  // vue.config.js
  module.exports = {
-  publicPath: 'eu-vue',
-  lintOnSave: false
- } 
+  publicPath: 'eu-vue' 
+} 
