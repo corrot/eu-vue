@@ -256,7 +256,7 @@ export const routes = [
     component: PublicInformation,
     children: [
       {
-        title: 'Proactive information',
+        title: 'ProactiveInformation',
         path: '/public/proactive-information',
         name: 'proactiveInformation',
         component: ProactiveInformation,
@@ -274,31 +274,31 @@ export const routes = [
         component: Statistics,
       },
       {
-        title: 'Public survey',
+        title: 'PublicSurvey',
         path: '/public/public-survey',
         name: 'publicSurvey',
         component: PublicSurvey,
       },
       {
-        title: 'Request related acts',
+        title: 'RequestRelatedActs',
         path: '/public/request-related-acts',
         name: 'requestRelatedActs',
         component: RequestRelatedActs,
       },
       {
-        title: 'Request standard',
+        title: 'RequestStandard',
         path: '/public/request-standard',
         name: 'requestStandard',
         component: RequestStandard,
       },
       {
-        title: 'Application form',
+        title: 'ApplicationForm',
         path: '/public/application-form',
         name: 'applicationForm',
         component: ApplicationForm,
       },
       {
-        title: 'Complaint form',
+        title: 'ComplaintForm',
         path: '/public/complaint-form',
         name: 'complaintForm',
         component: ComplaintForm,

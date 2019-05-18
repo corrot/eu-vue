@@ -9,6 +9,7 @@ export const CARREER_URL = `${API_BASE_URL}/carreer`;
 export const NATIONAL_URL = `${API_BASE_URL}/national`;
 export const GUIDELINES_URL = `${API_BASE_URL}/guidelines`;
 export const INTERNATIONAL_URL = `${API_BASE_URL}/international`;
+export const PROACTIVE_INFORMATION_URL = `${API_BASE_URL}/proactive`;
 
 
 
