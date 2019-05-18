@@ -2,18 +2,18 @@
   <div style="display: block">
     <ul class="social-container">
       <li>
-        <a href="https://facebook.com" title="Facebook" target="_blank">
-          <font-awesome-icon class="fa-2x icon icon-fb" :icon="['fab', 'facebook-square']"/>
+        <a class="btn-social fb" href="https://facebook.com" title="Facebook" target="_blank">
+          <font-awesome-icon class="fa" :icon="['fab', 'facebook']"/>
         </a>
       </li>
       <li>
-        <a href="https://twitter.com" title="Twitter" target="_blank">
-          <font-awesome-icon class="fa-2x icon icon-twitter" :icon="['fab', 'twitter-square']"/>
+        <a class="btn-social twitter" href="https://twitter.com" title="Twitter" target="_blank">
+          <font-awesome-icon class="fa" :icon="['fab', 'twitter']"/>
         </a>
       </li>
       <li>
-        <a href="https://youtube.com" title="Youtube" target="_blank">
-          <font-awesome-icon class="fa-2x icon icon-youtube" :icon="['fab', 'youtube-square']"/>
+        <a class="btn-social youtube" href="https://youtube.com" title="Youtube" target="_blank">
+          <font-awesome-icon class="fa" :icon="['fab', 'youtube']"/>
         </a>
       </li>
     </ul>
@@ -35,37 +35,30 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.icon{
-  width: 25px;
-}
-
 .social-container {
   display: flex;
 }
-
-.social-container > li {
-  margin-left: 10px;
+.btn-social {
+  padding: 5px 8px;
+  text-align: center;
+  color: #fff !important;
 }
-
-.icon-fb > path,
-.icon-twitter > path,
-.icon-youtube > path {
-  transition: 0.3s all ease;
-  fill: #2c3e50;
+.btn-social.fb {
+  background: #405d9b;
 }
-
-.icon-fb:hover > path {
-  transition: 0.3s all ease;
-  fill: #405d9b;
+.btn-social.twitter {
+  background: #1da1f2;
 }
-
-.icon-twitter:hover > path {
-  transition: 0.3s all ease;
-  fill: #1da1f2;
+.btn-social.youtube {
+  background: #f01111;
 }
-
-.icon-youtube:hover > path {
-  transition: 0.3s all ease;
-  fill: #ff0000;
+.btn-social.fb:hover {
+  background: #405d9bcc;
+}
+.btn-social.twitter:hover {
+  background: #1da1f2cc;
+}
+.btn-social.youtube:hover {
+  background: #f01111cc;
 }
 </style>
