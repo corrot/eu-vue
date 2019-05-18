@@ -52,24 +52,22 @@ export default {
   text-align: center;
 }
 
-@media (max-width: 1200px){
-  .euca-title{
+@media (max-width: 1200px) {
+  .euca-title {
     width: 80%;
     text-align: left;
     left: 19%;
     top: -0.5%;
   }
 
-  .euca-title h3{
+  .euca-title h3 {
     font-size: 1.3rem;
   }
 }
 
-
-@media (max-width: 992px){
+@media (max-width: 992px) {
   .euca-title {
     display: none;
   }
-
 }
 </style>

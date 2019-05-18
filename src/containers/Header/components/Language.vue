@@ -2,16 +2,12 @@
   <div style="position: relative">
     <router-link to="/links">
       <font-awesome-icon class="icon-link mr-1" :icon="['fas', 'link']"/>
-      <span class="links">
-        {{ $t('Links') }}
-      </span>
+      <span class="links">{{ $t('Links') }}</span>
     </router-link>
     <links-separator/>
     <router-link to="/sitemap">
       <font-awesome-icon class="icon-sitemap mr-1" :icon="['fas', 'sitemap']"/>
-      <span class="links">
-        {{ $t('Sitemap') }}
-      </span>
+      <span class="links">{{ $t('Sitemap') }}</span>
     </router-link>
 
     <links-separator/>
@@ -43,6 +39,7 @@ export default {
     handleClick: () => {},
     changeLocale(locale) {
       i18n.locale = locale;
+      localStorage.setItem('activeLocale', locale);
     },
     print() {
       window.print();
@@ -71,29 +68,31 @@ export default {
   display: inline-block;
 }
 
-.icon-link, .icon-sitemap, #print-button{
+.icon-link,
+.icon-sitemap,
+#print-button {
   color: #0a0a2d;
 }
 
-#print-button{
+#print-button {
   background: none;
   border: none;
   padding: 2px;
 }
 
-#print-button:active, #print-button:focus{
+#print-button:active,
+#print-button:focus {
   color: #0a0a2d;
   background: none;
-  border: none!important;
+  border: none !important;
   box-shadow: none;
 }
 
-.links{
+.links {
   color: #0a0a2d;
 }
 
-.links:hover{
+.links:hover {
   color: #253d92;
 }
-
 </style>
