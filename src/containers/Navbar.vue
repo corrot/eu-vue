@@ -45,21 +45,6 @@ export default {
   updated() {
     this.activePath = `/${this.$router.currentRoute.path.split('/')[1]}`;
   },
-  computed: {
-    //todo
-    routeChildren: function() {
-      let routeChildren = [];
-
-      for (let route in routes) {
-        for (let child in route.children) {
-          if (!child.hidden) routeChildren = [child, ...routeChildren];
-        }
-      }
-      console.log(routeChildren);
-      debugger;
-      return routeChildren;
-    },
-  },
   data() {
     return {
       routes,

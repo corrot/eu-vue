@@ -3,6 +3,9 @@
     <header-component/>
     <navbar-component/>
     <div class="main">
+      <b-container v-if="this.$router.currentRoute.name !== 'home'" class="mt-2">
+        <b-breadcrumb class="container" :items="breadcrumbNames"></b-breadcrumb>
+      </b-container>
       <router-view></router-view>
     </div>
     <footer-component/>
@@ -20,10 +23,26 @@ export default {
   name: 'App',
   components: { HeaderComponent, FooterComponent, NavbarComponent, GoTop },
   data() {
-    return {};
+    return { 
+      routePaths: []
+    };
   },
-  created() {},
-  destroyed() {},
+  computed: {
+    breadcrumbNames: function(){
+      this.routePaths = this.$router.currentRoute.path.split('/');
+      this.routePaths.shift();
+      this.routePaths.forEach((routePath, index, arr) => {
+        arr[index] = routePath.split('-').join(' ');
+      });
+      return this.routePaths;
+    }
+  },
+  watch:{
+    $route (to, from){
+      //forces to recompute property this.routePaths
+      this.routePaths = []; 
+    }
+  } 
 };
 </script>
 
@@ -34,5 +53,9 @@ export default {
     color: #000!important;
     text-decoration: none;
     background-color: #fff!important;
+}
+
+.breadcrumb-item{
+  text-transform: capitalize;
 }
 </style>
