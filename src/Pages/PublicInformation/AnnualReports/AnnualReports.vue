@@ -14,16 +14,24 @@
     <div class="mb-2">
       <b-button to="/uploads/f8d448cd15084472b51339120e9b3f00.pdf">2014 წლის ანგარიში</b-button>
     </div>
+    {{ data }}
   </b-container>
 </template>
 
 <script>
 import i18n from '@/plugins/i18n';
+import ANNUALREPORTS_URL from '@/constants';
+import LoadingSpinner from '@/components/LoadingSpinner';
+import ServerError from '@/components/ServerError';
 
 export default {
   name: 'AnnualReports',
   data() {
-    return {};
+    return {
+      data: null,
+      loading: true,
+      errored: false,
+    };
   },
   computed: {
     locale: () => {
@@ -31,7 +39,19 @@ export default {
       return i18n.locale;
     },
   },
-  mounted() {},
+  mounted() {
+    this.$http
+      .get(ANNUALREPORTS_URL)
+      .then(response => {
+        this.data = response.data;
+      })
+      .catch(error => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
+  },
+  components: { LoadingSpinner, ServerError },
 };
 </script>
 
