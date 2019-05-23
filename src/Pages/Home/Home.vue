@@ -5,6 +5,7 @@
       <div style="width: calc(100% - 286px)" class="page-row">
         <links-component/>
         <testimonials-component/>
+        <cards-component/>
       </div>
       <div style="width: 286px" class="page-row">
         <calendar-component/>
@@ -20,6 +21,7 @@ import FbwidgetComponent from './components/Fbwidget';
 import CalendarComponent from './components/Calendar';
 import LinksComponent from './components/Links';
 import TestimonialsComponent from './components/Testimonials';
+import CardsComponent from './components/Cards';
 
 export default {
   name: 'Home',
@@ -29,6 +31,7 @@ export default {
     CalendarComponent,
     LinksComponent,
     TestimonialsComponent,
+    CardsComponent
   },
   data() {
     return {
