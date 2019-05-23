@@ -26,10 +26,6 @@ export const DistortionOfCompetitionByStateAuthoritiesByInvestigation_URL = `${A
 
 export const UnfairCompetitionByProhibition_URL = `${API_BASE_URL}/decisiontypes/9`;
 export const UnfairCompetitionByInvestigation_URL = `${API_BASE_URL}/decisiontypes/10`;
-export const ABUSEOFDOMINITIONBYPROHIBITION_URL = `${API_BASE_URL}/abuseofdominantpositionsbyprohibitions`;
-export const ABUSEOFDOMINITIONBYINVESTIGATION_URL = `${API_BASE_URL}/abuseofdominantpositionbyinvestigations`;
-
-export const NEWSARCHIVE_URL = `${API_BASE_URL}/newsarchive`;
 
 export const ConcentrationControl_URL = `${API_BASE_URL}/decisiontypes/11`;
 export const StateAid_URL = `${API_BASE_URL}/decisiontypes/12`;
