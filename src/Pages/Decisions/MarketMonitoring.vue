@@ -1,5 +1,5 @@
 <template>
-  <div style="padding: 15px 0">
+  <div>
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
     <div v-if="!errored && !loading">
@@ -7,19 +7,19 @@
         <div>
           <b-card-group deck>
             <b-card
-              :title="article[`Title_${locale}`]"
+              :title="article[`title_${locale}`]"
               header-tag="header"
               footer-tag="footer"
               class="mb-5"
             >
-              <h6 slot="header" class="mb-0">{{ article.Date.split(" ")[0] }}</h6>
+              <h6 slot="header" class="mb-0">{{ article.date.split(" ")[0] }}</h6>
               <b-card-text>{{ article[`Annotation_${locale}`] }}</b-card-text>
               <b-button
-                :href="article[`Document_${locale}`] && article[`Document_${locale}`].url"
-                :disabled="!article[`Document_${locale}`]"
+                :href="article[`document_${locale}`] && `${API_BASE_URL}/uploads/${article[`document_${locale}`].hash}${article[`document_${locale}`].ext}`"
+                :disabled="!article[`document_${locale}`]"
                 variant="primary"
               >{{ $t('ViewDocument') }}</b-button>
-              <em slot="footer">{{ article[`Tags_${locale}`] }}</em>
+              <em slot="footer">{{ article[`tags_${locale}`] }}</em>
             </b-card>
           </b-card-group>
         </div>
@@ -31,7 +31,7 @@
 
 <script>
 import i18n from '@/plugins/i18n';
-import { MarketMonitoring_URL } from '@/constants.js';
+import { API_BASE_URL, MarketMonitoring_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 
@@ -42,6 +42,7 @@ export default {
       data: null,
       loading: true,
       errored: false,
+      API_BASE_URL,
     };
   },
   computed: {
@@ -54,7 +55,7 @@ export default {
     this.$http
       .get(MarketMonitoring_URL)
       .then(response => {
-        this.data = response.data;
+        this.data = response.data.decisions;
       })
       .catch(error => {
         console.log(error);

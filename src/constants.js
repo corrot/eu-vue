@@ -15,21 +15,21 @@ export const EMPLOYEES_URL = `${API_BASE_URL}/employesses`;
 
 // Decisions
 export const DECISIONS_URL = `${API_BASE_URL}/decisions`;
-export const ABUSEOFDOMINITIONBYPROHIBITION_URL = `${API_BASE_URL}/abuseofdominantpositionsbyprohibitions`;
-export const ABUSEOFDOMINITIONBYINVESTIGATION_URL = `${API_BASE_URL}/abuseofdominantpositionbyinvestigations`;
+export const ABUSEOFDOMINITIONBYPROHIBITION_URL = `${API_BASE_URL}/decisiontypes/3`;
+export const ABUSEOFDOMINITIONBYINVESTIGATION_URL = `${API_BASE_URL}/decisiontypes/4`;
 
-export const AntiCompetitiveAgreementsByProhibition_URL = `${API_BASE_URL}/abuseofdominantpositionsbyprohibitions`;
-export const AntiCompetitiveAgreementsByInvestigation_URL = `${API_BASE_URL}/abuseofdominantpositionsbyprohibitions`;
+export const AntiCompetitiveAgreementsByProhibition_URL = `${API_BASE_URL}/decisiontypes/5`;
+export const AntiCompetitiveAgreementsByInvestigation_URL = `${API_BASE_URL}/decisiontypes/6`;
 
-export const DistortionOfCompetitionByStateAuthoritiesByProhibition_URL = `${API_BASE_URL}/abuseofdominantpositionsbyprohibitions`;
-export const DistortionOfCompetitionByStateAuthoritiesByInvestigation_URL = `${API_BASE_URL}/abuseofdominantpositionsbyprohibitions`;
+export const DistortionOfCompetitionByStateAuthoritiesByProhibition_URL = `${API_BASE_URL}/decisiontypes/7`;
+export const DistortionOfCompetitionByStateAuthoritiesByInvestigation_URL = `${API_BASE_URL}/decisiontypes/8`;
 
-export const UnfairCompetitionByProhibition_URL = `${API_BASE_URL}/abuseofdominantpositionsbyprohibitions`;
-export const UnfairCompetitionByInvestigation_URL = `${API_BASE_URL}/abuseofdominantpositionsbyprohibitions`;
+export const UnfairCompetitionByProhibition_URL = `${API_BASE_URL}/decisiontypes/9`;
+export const UnfairCompetitionByInvestigation_URL = `${API_BASE_URL}/decisiontypes/10`;
 
-export const ConcentrationControl_URL = `${API_BASE_URL}/abuseofdominantpositionsbyprohibitions`;
-export const StateAid_URL = `${API_BASE_URL}/abuseofdominantpositionsbyprohibitions`;
-export const MarketMonitoring_URL = `${API_BASE_URL}/abuseofdominantpositionsbyprohibitions`;
+export const ConcentrationControl_URL = `${API_BASE_URL}/decisiontypes/11`;
+export const StateAid_URL = `${API_BASE_URL}/decisiontypes/12`;
+export const MarketMonitoring_URL = `${API_BASE_URL}/decisiontypes/13`;
 
 // Home
 export const SLIDERDATA_URL = `${API_BASE_URL}/sliderdata`;
