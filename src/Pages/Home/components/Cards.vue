@@ -1,7 +1,7 @@
 <template>
   <div class="cards container">
     <div class="row card-row">
-
+      <!-- todo: only several of news -->
       <div class="card col-5" v-for="newsArticle in news" :key="newsArticle.id">
         <h4 class="card-title font-weight-bold">{{ newsArticle[`title_${locale}`] }}</h4>
         <div class="card-img-container">
@@ -14,7 +14,7 @@
           </p>
         </div>
         <div class="btn-container">
-          <b-button class="btn-read-more" @click="expandArticle">Read more...</b-button>
+          <b-button class="btn-read-more" @click="expandArticle">{{ $t('ReadMore') + '...'}}</b-button>
         </div>
       </div>
 
@@ -61,6 +61,7 @@ export default {
   methods: {
     expandArticle() {
       console.log("read");
+      
     }
   },
   components: { LoadingSpinner, ServerError },

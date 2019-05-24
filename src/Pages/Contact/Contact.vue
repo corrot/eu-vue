@@ -11,15 +11,15 @@
       </b-col>
       <b-col>
         <b-card class="mt-3 text-center" style="border: none;">
-          <p>Georgian Competition Agency</p>
-          <p>154, Agmashenebeli av. Tbilisi, 0106</p>
-          <p>Phone: (032) 2 440 770 (Ext 21-74)</p>
-          <p>E-mail: info-gca@competition.ge</p>
+          <p> {{ $t('CompetitionAgencyOfGeorgia') }} </p>
+          <p> {{ data[`adrress_${locale}`] }} </p>
+          <p>{{ $t('Phone') }}: {{ data[`Tel_number`] }} </p>
+          <p>{{ $t('Email') }}: {{ data[`email_${locale}`] }}</p>
         </b-card>
         <div class="mt-3 input-container">
           <b-form-group
             label-cols-sm="3"
-            label="Full Name:"
+            :label=" $t('FullName') + ':'"
             label-align-sm="right"
             label-for="nested-street"
           >
@@ -28,7 +28,7 @@
 
           <b-form-group
             label-cols-sm="3"
-            label="Email:"
+            :label=" $t('Email') + ':'"
             label-align-sm="right"
             label-for="nested-city"
           >
@@ -37,7 +37,7 @@
 
           <b-form-group
             label-cols-sm="3"
-            label="Tel:"
+            :label=" $t('Tel') + ':'"
             label-align-sm="right"
             label-for="nested-state"
           >
@@ -46,7 +46,7 @@
 
           <b-form-group
             label-cols-sm="3"
-            label="Message:"
+            :label=" $t('Message') + ':'"
             label-align-sm="right"
             label-for="nested-country"
           >
@@ -60,7 +60,7 @@
           </b-form-group>
         </div>
         <div class="text-center">
-          <b-button type="submit" class="btn-submit-message">Submit</b-button>
+          <b-button type="submit" class="btn-submit-message">{{ $t('Submit') }}</b-button>
         </div>
       </b-col>
     </b-row>
@@ -69,14 +69,42 @@
 </template>
 
 <script>
+import i18n from '@/plugins/i18n';
+import { API_BASE_URL, CONTACT_URL } from '@/constants.js';
+import LoadingSpinner from '@/components/LoadingSpinner';
+import ServerError from '@/components/ServerError';
+
 export default {
   name: 'Contact',
   data() {
     return {
-      msg: 'Contact Page',
+      data: null,
+      loading: true,
+      errored: false,
       text: ''
     };
   },
+  computed: {
+    locale: () => {
+      console.log(i18n.locale);
+      return i18n.locale;
+    },
+  },
+  mounted() {
+    this.$http
+      .get(CONTACT_URL)
+      .then(response => {
+        debugger;
+        this.data = response.data[0];
+        console.log(this.data);
+      })
+      .catch(error => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
+  },
+  components: { LoadingSpinner, ServerError },
 };
 </script>
 

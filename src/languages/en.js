@@ -6,6 +6,7 @@ export const en = {
   FOOTER_TEXT_2:
     'This website has been produced with the assistance of the European Union. Its contents are the sole responsibility of B&S Europe and do not necessarily reflect the views of the European Union.',
   CompetitionAgencyOfGeorgia: 'Competition Agency Of Georgia',
+  ReadMore: 'Read more', 
   Links: 'Links',
   Sitemap: 'Sitemap',
   ViewDocument: 'View Document',
@@ -49,4 +50,11 @@ export const en = {
   Newsletter: "Newsletter",
   Publications: "Publications",
   FAQ: "FAQ",
+  Phone: "Phone",
+  Email: "E-mail",
+  FullName: "Full Name",
+  Tel: "Tel",
+  Message: "Message",
+  Submit: "Submit"
+
 };

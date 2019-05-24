@@ -12,17 +12,13 @@
                 >{{ $t(route.title) }}</span>
               </router-link>
             </b-nav-item>
-            <b-nav-item-dropdown v-if="route.children.length">
+            <b-nav-item-dropdown v-if="route.children.length && !route.hidden">
               <template slot="button-content">
-                <span
-                  :class="activePath === route.path ? 'navbar-title active' : 'navbar-title'"
-                >{{ $t(route.title) }}</span>
+                <span :class="activePath === route.path ? 'navbar-title active' : 'navbar-title'">{{ $t(route.title) }}</span>
               </template>
               <b-dropdown-item class="dropdown-override" v-for="(item, index) in route.children" :key="index" :to="item.path">
                 <span v-if="!item.hidden">{{ $t(item.title) }}
-                  <!-- <router-link :to="item.path">{{ $t(item.title) }}</router-link> -->
                   <b-dropdown-item class="dropdown-override" :to="subItem.path" v-for="(subItem, index) in item.children" :key="index">{{ $t(subItem.title) }}
-                    <!-- <router-link :to="subItem.path">{{ $t(subItem.title) }}</router-link> -->
                   </b-dropdown-item>
                 </span>
               </b-dropdown-item>

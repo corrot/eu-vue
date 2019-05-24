@@ -20,7 +20,7 @@
 
 <script>
 import i18n from '@/plugins/i18n';
-import ANNUALREPORTS_URL from '@/constants';
+// import ANNUALREPORTS_URL from '@/constants';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 
@@ -40,16 +40,16 @@ export default {
     },
   },
   mounted() {
-    this.$http
-      .get(ANNUALREPORTS_URL)
-      .then(response => {
-        this.data = response.data;
-      })
-      .catch(error => {
-        console.log(error);
-        this.errored = true;
-      })
-      .finally(() => (this.loading = false));
+    // this.$http
+    //   .get(ANNUALREPORTS_URL)
+    //   .then(response => {
+    //     this.data = response.data;
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //     this.errored = true;
+    //   })
+    //   .finally(() => (this.loading = false));
   },
   components: { LoadingSpinner, ServerError },
 };
