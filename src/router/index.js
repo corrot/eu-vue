@@ -318,14 +318,14 @@ export const routes = [
         component: Announcement,
       },
       {
-        title: 'PressReleasesDetail',
+        title: 'Press Releases Detail',
         path: '/media/press-releases/:id',
         name: 'pressReleasesDetail',
         component: {template: '<div>asfasf</div>'},
         hidden: true,
       },
       {
-        title: 'PressReleases',
+        title: 'Press Releases',
         path: '/media/press-releases',
         name: 'pressReleases',
         component: Releases,
@@ -337,7 +337,7 @@ export const routes = [
         component: Events,
       },
       {
-        title: 'NewsArchive',
+        title: 'News Archive',
         path: '/media/news-archive',
         name: 'newsArchive',
         component: NewsArchive,

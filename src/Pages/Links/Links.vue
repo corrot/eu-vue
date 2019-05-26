@@ -2,8 +2,8 @@
   <b-container>
     <h1>Links</h1>
     <ul class="links-container">
-      <li v-for="link in links" :key="link.id" class="link">
-        <a :href="link.path">{{ link.title }}</a>
+      <li v-for="link in data" :key="link.id" class="link">
+        <a :href="link.link">{{ link[`title_${locale}`] }}</a>
         <div>{{ link.description }}</div>
       </li>
     </ul>
@@ -11,37 +11,76 @@
 </template>
 
 <script>
-const links = [
-  {
-    id: 0,
-    title: 'example title 1',
-    path: 'https://example.net',
-    description:
-      'example description that`s supposed to be long enough to run on a new line. Is not it already? Okay - Alright! Let`s go on typing some random stuff... I think it`s alright for now!',
-  },
-  {
-    id: 1,
-    title: 'example title 2',
-    path: 'https://example.net',
-    description: 'example description',
-  },
-];
+import i18n from '@/plugins/i18n';
+import { API_BASE_URL, LINKS_URL } from '@/constants.js';
+import LoadingSpinner from '@/components/LoadingSpinner';
+import ServerError from '@/components/ServerError';
 
 export default {
   name: 'Links',
   data() {
     return {
-      links,
+      data: null,
+      loading: true,
+      errored: false,
     };
   },
+  computed: {
+    locale: () => {
+      console.log(i18n.locale);
+      return i18n.locale;
+    },
+  },
+  mounted() {
+    this.$http
+      .get(LINKS_URL)
+      .then(response => {
+        debugger;
+        this.data = response.data;
+      })
+      .catch(error => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
+  },
+  components: { LoadingSpinner, ServerError },
 };
 </script>
 
 <style lang="postcss" scoped>
 .links-container {
   text-align: left;
+  margin-bottom: 50px;
 }
+
+li{
+  list-style-type: disc;
+}
+
+h1{
+  margin-bottom: 30px;
+}
+
 .link {
-  margin-borrom: 30px;
+  margin-bottom: 30px;
+  font-size: 18px;
 }
+
+/* 
+a[href^="http"]:after {
+    font-family: FontAwesome;
+    content: "\f08e";
+    font-size: 0.800em;
+    display: inline-block;
+    margin-left: 0.25em;
+    margin-right: 2px;
+    position: relative;
+    top: 0;
+    color: #444444;
+}
+
+a[href^="http"]:visited:after {
+    color: #9eacbc;
+} */
 </style>

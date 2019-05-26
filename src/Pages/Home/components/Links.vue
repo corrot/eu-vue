@@ -12,16 +12,14 @@
       </b-col>
     </b-row>
 
-    <!-- Tooltip title specified via prop title -->
     <b-tooltip target="button-1">საქართველოს პარლამენტი</b-tooltip>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'Links',
-};
+
 </script>
 
 <style lang="postcss" scoped>
+
 </style>
