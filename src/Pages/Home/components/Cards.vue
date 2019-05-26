@@ -1,23 +1,19 @@
 <template>
-  <div class="cards container">
-    <div class="row card-row">
-
-      <div class="card col-5" v-for="newsArticle in news" :key="newsArticle.id">
-        <h4 class="card-title font-weight-bold">{{ newsArticle[`title_${locale}`] }}</h4>
-        <div class="card-img-container">
-          <img class="card-img-top rounded-0" 
-          :src="base_url + newsArticle.image.url" :alt="newsArticle[`title_${locale}`]">
-        </div>
-        <div class="card-body">
-          <p class="card-text">
-            {{ newsArticle[`article_${locale}`] }}
-          </p>
-        </div>
-        <div class="btn-container">
-          <b-button class="btn-read-more" @click="expandArticle">Read more...</b-button>
-        </div>
+  <div class="cards">
+    <div class="card" v-for="newsArticle in news" :key="newsArticle.id">
+      <h4 class="card-title font-weight-bold">{{ newsArticle[`title_${locale}`] }}</h4>
+      <div class="card-img-container">
+        <img class="card-img-top rounded-0" 
+        :src="base_url + newsArticle.image.url" :alt="newsArticle[`title_${locale}`]">
       </div>
-
+      <div class="card-body">
+        <p class="card-text">
+          {{ newsArticle[`article_${locale}`] }}
+        </p>
+      </div>
+      <div class="btn-container">
+        <b-button class="btn-read-more" @click="expandArticle">Read more...</b-button>
+      </div>
     </div>
   </div>
 </template>
@@ -70,16 +66,17 @@ export default {
 <style lang="postcss" scoped>
 .cards{
   margin: 30px 0;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .card{
-  display: -webkit-box;
-  margin: 2rem;
+  margin: 1rem;
+  width: 350px;
 }
 
 .card:nth-child(odd){
   margin-left: 0;
-
 }
 
 .card-title{

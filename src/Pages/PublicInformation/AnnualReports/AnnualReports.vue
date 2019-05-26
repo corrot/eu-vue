@@ -1,26 +1,23 @@
 <template>
   <b-container>
     <h2>{{ $t('AnnualReports') }}:</h2>
-    <br>
-    <div class="mb-2">
-      <b-button to="/uploads/a8d134311b3747ab9b3450764eb63448.pdf">2017 წლის ანგარიში</b-button>
-    </div>
-    <div class="mb-2">
-      <b-button to="/uploads/91c46c6fa6ae41ed9d02c0c9f264d636.pdf">2016 წლის ანგარიში</b-button>
-    </div>
-    <div class="mb-2">
-      <b-button to="/uploads/1a464f35fc96415aafb9aa87096b965a.pdf">2015 წლის ანგარიში</b-button>
-    </div>
-    <div class="mb-2">
-      <b-button to="/uploads/f8d448cd15084472b51339120e9b3f00.pdf">2014 წლის ანგარიში</b-button>
-    </div>
-    {{ data }}
+    
+    <div class="cards">
+        <div class="card" v-for="report in data" :key="report.id">
+          <h4 class="card-title font-weight-bold">{{ report[`title_${locale}`] }}</h4>
+          <div class="card-img-container">
+            <a v-if="report[`doc_${locale}`]" :href="(report[`doc_${locale}`]).url" target="_blank"><img class="card-img-top rounded-0" src="@/assets/doc-icon.png" alt="document"></a>
+            <a v-else><img class="card-img-top rounded-0" src="@/assets/doc-icon.png" alt="document"></a>
+          </div>
+        </div>
+  </div>
+
   </b-container>
 </template>
 
 <script>
 import i18n from '@/plugins/i18n';
-import ANNUALREPORTS_URL from '@/constants';
+import { ANNUALREPORTS_URL, API_BASE_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 
@@ -43,6 +40,7 @@ export default {
     this.$http
       .get(ANNUALREPORTS_URL)
       .then(response => {
+        console.log(response.data);
         this.data = response.data;
       })
       .catch(error => {
@@ -56,4 +54,28 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+.cards{
+  margin: 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card{
+  margin: 1rem;
+  width: 200px;
+}
+
+.card:nth-child(odd){
+  margin-left: 0;
+}
+
+.card-title{
+  margin: 15px 10px;
+}
+
+.card-img-container img{
+  width: 150px;
+  height: auto;
+}
+
 </style>

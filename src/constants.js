@@ -40,9 +40,9 @@ export const LINKS_URL = `${API_BASE_URL}/links`;
 export const CONTACT_URL = `${API_BASE_URL}/contacts`;
 
 // Media
+export const ANNUALREPORTS_URL = `${API_BASE_URL}/annualreports`;
 export const PRESSRELEASES_URL = `${API_BASE_URL}/pressreleas`;
 export const RELEASES_URL = `${API_BASE_URL}/releases`;
-export const ANNUALREPORTS_URL = `${API_BASE_URL}/annualreports`;
 export const NEWSLETTERS_URL = `${API_BASE_URL}/newsletters`;
 export const NEWSARCHIVE_URL = `${API_BASE_URL}/newsarchive`;
 export const FAQ_URL = `${API_BASE_URL}/faqs`;
