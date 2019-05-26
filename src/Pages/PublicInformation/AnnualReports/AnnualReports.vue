@@ -37,7 +37,6 @@ export default {
     },
   },
   mounted() {
-<<<<<<< HEAD
     this.$http
       .get(ANNUALREPORTS_URL)
       .then(response => {
@@ -49,18 +48,6 @@ export default {
         this.errored = true;
       })
       .finally(() => (this.loading = false));
-=======
-    // this.$http
-    //   .get(ANNUALREPORTS_URL)
-    //   .then(response => {
-    //     this.data = response.data;
-    //   })
-    //   .catch(error => {
-    //     console.log(error);
-    //     this.errored = true;
-    //   })
-    //   .finally(() => (this.loading = false));
->>>>>>> f6efbe8507d9b8f30823dbdf5aac2bb5fc60015f
   },
   components: { LoadingSpinner, ServerError },
 };

@@ -1,6 +1,6 @@
 <template>
-<<<<<<< HEAD
   <div class="cards">
+    <!-- todo: show only several of news on homepaage -->
     <div class="card" v-for="newsArticle in news" :key="newsArticle.id">
       <h4 class="card-title font-weight-bold">{{ newsArticle[`title_${locale}`] }}</h4>
       <div class="card-img-container">
@@ -14,25 +14,6 @@
       </div>
       <div class="btn-container">
         <b-button class="btn-read-more" @click="expandArticle">Read more...</b-button>
-=======
-  <div class="cards container">
-    <div class="row card-row">
-      <!-- todo: only several of news -->
-      <div class="card col-5" v-for="newsArticle in news" :key="newsArticle.id">
-        <h4 class="card-title font-weight-bold">{{ newsArticle[`title_${locale}`] }}</h4>
-        <div class="card-img-container">
-          <img class="card-img-top rounded-0" 
-          :src="base_url + newsArticle.image.url" :alt="newsArticle[`title_${locale}`]">
-        </div>
-        <div class="card-body">
-          <p class="card-text">
-            {{ newsArticle[`article_${locale}`] }}
-          </p>
-        </div>
-        <div class="btn-container">
-          <b-button class="btn-read-more" @click="expandArticle">{{ $t('ReadMore') + '...'}}</b-button>
-        </div>
->>>>>>> f6efbe8507d9b8f30823dbdf5aac2bb5fc60015f
       </div>
     </div>
   </div>
