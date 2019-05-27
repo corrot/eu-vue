@@ -1,6 +1,5 @@
 <template>
   <div class="cards">
-    <!-- todo: show only several of news on homepaage -->
     <div class="card" v-for="newsArticle in news" :key="newsArticle.id">
       <h4 class="card-title font-weight-bold">{{ newsArticle[`title_${locale}`] }}</h4>
       <div class="card-img-container">
@@ -46,7 +45,10 @@ export default {
     this.$http
       .get(NEWSLETTERS_URL)
       .then(response => {
-        this.news = response.data;
+        if(response.data.length > 4)
+          this.news = response.data.slice(0, 4);
+        else
+          this.news = response.data;
       })
       .catch(error => {
         console.log(error);
@@ -70,11 +72,12 @@ export default {
   margin: 30px 0;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .card{
-  margin: 1rem;
-  width: 350px;
+  width: 47%;
+  margin: 10px 0;
 }
 
 .card:nth-child(odd){
@@ -86,7 +89,7 @@ export default {
 }
 
 .card-img-container{
-  max-height: 160px;
+  max-height: 200px;
   overflow: hidden;
 }
 
