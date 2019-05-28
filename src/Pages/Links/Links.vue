@@ -3,8 +3,9 @@
     <h1>Links</h1>
     <ul class="links-container">
       <li v-for="link in data" :key="link.id" class="link">
-        <a :href="link.link">{{ link[`title_${locale}`] }}</a>
-        <div>{{ link.description }}</div>
+        <a v-if="link[`title_${locale}`] && link.link" :href="link.link">{{ link[`title_${locale}`] }}</a>
+        <a v-else-if="!(link[`title_${locale}`])" :href="link.link">Link {{ link.id }}</a>
+        <a v-else-if="!link.link" href="#">{{ link[`title_${locale}`] }}</a>
       </li>
     </ul>
   </b-container>
@@ -35,7 +36,6 @@ export default {
     this.$http
       .get(LINKS_URL)
       .then(response => {
-        debugger;
         this.data = response.data;
       })
       .catch(error => {
@@ -54,7 +54,7 @@ export default {
   margin-bottom: 50px;
 }
 
-li{
+a{
   list-style-type: disc;
 }
 
