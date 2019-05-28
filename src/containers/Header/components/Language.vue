@@ -1,5 +1,5 @@
 <template>
-  <div style="position: relative">
+  <div class="language">
     <router-link to="/links">
       <font-awesome-icon class="icon-link mr-1" :icon="['fas', 'link']"/>
       <span class="links">{{ $t('Links') }}</span>
@@ -26,12 +26,19 @@
     >
       <flag :iso="entry.flag" v-bind:squared="false"></flag>
     </div>
+
+
+        <social-component />
+
+
   </div>
 </template>
 
 <script>
 import i18n from '@/plugins/i18n';
 import LinksSeparator from '@/components/LinksSeparator';
+import SocialComponent from './Social';
+
 
 export default {
   name: 'Language',
@@ -46,7 +53,7 @@ export default {
     },
   },
   components: {
-    LinksSeparator,
+    LinksSeparator, SocialComponent
   },
   data() {
     return {
@@ -63,6 +70,10 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+.language{
+  float: right;
+}
+
 .language-toggler {
   cursor: pointer;
   display: inline-block;

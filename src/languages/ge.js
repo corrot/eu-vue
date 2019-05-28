@@ -3,7 +3,7 @@ export const ge = {
   AboutUs: 'ჩვენ შესახებ',
   Contact: 'კონტაქტი',
   FOOTER_TEXT_1: 'საქართველოს კონკურენციის სააგენტო ',
-  FOOTER_TEXT_2: 'ყველა უფება დაცულია',
+  FOOTER_TEXT_2: 'ყველა უფლება დაცულია',
   CompetitionAgencyOfGeorgia: 'საქართველოს კონკურენციის სააგენტო',
   ReadMore: 'ვრცლად',
   Links: 'ბმულები',

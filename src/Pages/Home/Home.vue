@@ -1,13 +1,13 @@
 <template>
-  <div>
+  <div style="background-color: #f7f7f7;">
     <slider-component/>
-    <b-container style="display: flex">
+    <b-container style="display: flex;">
       <div style="width: calc(100% - 286px)" class="page-row">
         <!-- <links-component/> -->
         <!-- <testimonials-component/> -->
         <cards-component/>
       </div>
-      <div style="width: 286px" class="page-row">
+      <div style="width: 286px; padding-top: 55px;" class="page-row">
         <calendar-component/>
         <fbwidget-component/>
       </div>

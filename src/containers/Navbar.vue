@@ -40,6 +40,8 @@ export default {
   },
   updated() {
     this.activePath = `/${this.$router.currentRoute.path.split('/')[1]}`;
+
+    
   },
   data() {
     return {
@@ -76,7 +78,7 @@ export default {
 }
 
 .main-nav-item{
-  margin-right: 5px;
+  margin-right: 20px;
 }
 
 </style>
