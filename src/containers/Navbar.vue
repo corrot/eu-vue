@@ -4,7 +4,7 @@
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <div v-for="route in routes" :key="route.name">
+          <div v-for="route in routes" :key="route.name" class="main-nav-item">
             <b-nav-item :text="$t(route.title)" v-if="!route.children.length && !route.hidden">
               <router-link :to="route.path">
                 <span
@@ -53,7 +53,7 @@ export default {
 <style scoped lang="postcss">
 .navbar {
   background: #0a0a2d !important;
-  height: 4em;
+  height: 3em;
 }
 
 .navbar-title {
@@ -73,6 +73,10 @@ export default {
 
 .dropdown-item {
   width: auto;
+}
+
+.main-nav-item{
+  margin-right: 5px;
 }
 
 </style>

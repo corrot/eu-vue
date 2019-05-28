@@ -3,8 +3,8 @@
     <slider-component/>
     <b-container style="display: flex">
       <div style="width: calc(100% - 286px)" class="page-row">
-        <links-component/>
-        <testimonials-component/>
+        <!-- <links-component/> -->
+        <!-- <testimonials-component/> -->
         <cards-component/>
       </div>
       <div style="width: 286px" class="page-row">
