@@ -34,6 +34,7 @@ import Sitemap from '@/Pages/Sitemap/Sitemap';
 import Media from '@/Pages/Media/Media';
 import Releases from '@/Pages/Media/Releases/Releases';
 import NewsArchive from '@/Pages/Media/NewsArchive/NewsArchive';
+import NewsDetails  from '@/Pages/Media/NewsArchive/NewsDetails';
 import Newsletter from '@/Pages/Media/Newsletter/Newsletter';
 import Announcement from '@/Pages/Media/Announcement/Announcement';
 import Events from '@/Pages/Media/Events/Events';
@@ -333,7 +334,7 @@ export const routes = [
       },
       {
         title: 'Events',
-        path: '/media//events',
+        path: '/media/events',
         name: 'events',
         component: Events,
       },
@@ -342,6 +343,13 @@ export const routes = [
         path: '/media/news-archive',
         name: 'newsArchive',
         component: NewsArchive,
+      },
+      {
+        title: 'News Details',
+        path: '/media/news-archive/:id',
+        name: 'newsDetails',
+        component: NewsDetails,
+        hidden: true
       },
       {
         title: 'Newsletter',
