@@ -20,23 +20,19 @@ export default {
       attrs: [
         {
           key: 'independence',
-          highlight: {
-            backgroundColor: '#ff8080',
-          },
           dates: new Date(2019, 4, 26),
-          bar: {
+          popover: {
             label: 'Independence Day',
           },
+          bar: { }
         },
         {
           key: 'children',
-          highlight: {
-            backgroundColor: '#ff8080',
-          },
           dates: new Date(2019, 5, 1),
-          bar: {
+          popover: {
             label: 'Childrens` Day',
           },
+          bar: { }
         },
       ],
     };

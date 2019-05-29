@@ -1,7 +1,7 @@
 <template>
   <div class="carousel-wrapper">
     <carousel
-      :autoplay="true"
+      :autoplay="false"
       :autoplayHoverPause="true"
       :centerMode="true"
       :per-page="1"
@@ -9,28 +9,27 @@
       :pagination="false"
       paginationPosition="bottom-overlay"
     >
-      <slide>
-        <div class="slide-image" v-bind:style="{ 'background-image': 'url(' + img1 + ')' }"></div>
-        <b-container>
-          <router-link to="releases/1">
-            <h1 class="release-title">Release Title</h1>
+    <slide v-for="item in data" :key="item.id">
+      <div class="slide-image" v-bind:style="{ 'background-image': 'url(' + base_url + item.image.url + ')' }"></div>
+      <b-container>
+        <span class="slider-text">
+          <router-link to="releases/1" class="text">
+            <p class="release-title">Lorem ipsum dolor sit amet dolor sit amet</p>
           </router-link>
-        </b-container>
-      </slide>
-      <slide>
-        <div class="slide-image" v-bind:style="{ 'background-image': 'url(' + img2 + ')' }"></div>
-      </slide>
+        </span>
+      </b-container>
+    </slide>
+
     </carousel>
-    <div id="slider-footer">
-      
-    </div>
+    <div id="slider-footer"></div>
   </div>
 </template>
 
 <script>
 import { Carousel, Slide } from 'vue-carousel';
-import img1 from '../assets/img_one.jpg';
-import img2 from '../assets/img_two.jpg';
+import { API_BASE_URL, SLIDERDATA_URL } from '@/constants.js';
+import LoadingSpinner from '@/components/LoadingSpinner';
+import ServerError from '@/components/ServerError';
 
 export default {
   name: 'Slider',
@@ -38,12 +37,30 @@ export default {
     Carousel,
     Slide,
   },
+  computed: {
+    base_url: () => {
+      return API_BASE_URL;
+    }
+  },
   data() {
     return {
-      img1,
-      img2
+      data: null,
+      loading: true,
+      errored: false,
     };
   },
+  mounted() {
+    this.$http
+      .get(SLIDERDATA_URL)
+      .then(response => {
+        this.data = response.data;
+      })
+      .catch(error => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
+  }
 };
 </script>
 
@@ -69,8 +86,26 @@ export default {
 }
 
 #slider-footer{
-  /* background: #00005a !important; */
   background: #0a0a2d !important;
   height: 3em;
+}
+
+.slider-text{
+  position: absolute;
+  top: 100px;
+  left: 430px;
+  width: 470px;
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  z-index: 100;
+  padding: 40px;
+}
+
+.slider-text p{
+  font-weight: 100;
+  letter-spacing: 1px;
+  font-size: 25px;
+  display: inline;
 }
 </style>

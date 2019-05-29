@@ -104,6 +104,7 @@ export default {
 .card{
   width: 31%;
   margin: 10px;
+  border-radius: 0;
 }
 
 .card-title{
@@ -116,7 +117,7 @@ export default {
 }
 
 .card-body{
-  max-height: 95px;
+  max-height: 70px;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;

@@ -79,7 +79,7 @@ export default {
 .card{
   width: 47%;
   margin: 10px 0;
-  border-radius: none;
+  border-radius: 0;
 }
 
 .card:nth-child(odd){
@@ -87,7 +87,7 @@ export default {
 }
 
 .card-title{
-  margin: 15px 1.25rem;;
+  margin: 15px 1.25rem;
 }
 
 .card-img-container{
