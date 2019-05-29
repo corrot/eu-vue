@@ -1,6 +1,5 @@
 <template>
   <div class="social">
-    
     <ul class="social-container">
       <li>
         <a class="btn-social fb" href="https://facebook.com" title="Facebook" target="_blank">
@@ -18,8 +17,6 @@
         </a>
       </li>
     </ul>
-
-
   </div>
 </template>
 
@@ -40,7 +37,7 @@ export default {
 <style lang="postcss" scoped>
 .social-container {
   display: flex;
-  margin-top: 10px;
+  margin-top: 20px;
   float: right;
 }
 

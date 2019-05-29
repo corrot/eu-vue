@@ -15,7 +15,6 @@
       <font-awesome-icon class="mr-1" :icon="['fas', 'print']"/>
       <span class="links">Print</span>
     </b-button>
-
     <links-separator/>
     <div
       class="language-toggler"
@@ -27,16 +26,15 @@
       <flag :iso="entry.flag" v-bind:squared="false"></flag>
     </div>
 
-    <social-component />
-<!--     
+    <social-component/>
+    <!--     
     <div class="input-group">
       <input class="search-input form-control my-0 py-1 amber-border" type="text" placeholder="Search" aria-label="Search">
       <div class="btn-search-group">
         <input type="submit" name="search" id="btnSearch"/>
         <span>S</span>
       </div>
-    </div> -->
-
+    </div>-->
   </div>
 </template>
 
@@ -44,7 +42,6 @@
 import i18n from '@/plugins/i18n';
 import LinksSeparator from '@/components/LinksSeparator';
 import SocialComponent from './Social';
-
 
 export default {
   name: 'Language',
@@ -59,7 +56,8 @@ export default {
     },
   },
   components: {
-    LinksSeparator, SocialComponent
+    LinksSeparator,
+    SocialComponent,
   },
   data() {
     return {
@@ -76,11 +74,12 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.language{
+.language {
   float: right;
+  margin-top: 15px;
 }
 
-.language a{
+.language a {
   margin-left: 12px;
 }
 

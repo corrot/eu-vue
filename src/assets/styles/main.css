@@ -40,3 +40,19 @@ body,
 .container {
   /* min-width: 1023px; */
 }
+
+.dropdown-menu.show {
+  display: block;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.dropdown-item {
+  padding: 0.25rem 1.5rem;
+  font-weight: 400;
+  border-bottom: #ccc solid 1px;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
