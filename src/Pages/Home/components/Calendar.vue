@@ -45,4 +45,11 @@ export default {
 </script>
 
 <style lang='postcss' scoped>
+.vc-rounded-lg{
+  border-radius: none;
+}
+
+span.vc-rounded-full{
+  border-radius: 0!important;
+}
 </style>

@@ -12,7 +12,7 @@
         </p>
       </div>
       <div class="btn-container">
-        <b-button class="btn-read-more" @click="expandArticle(newsArticle.id)">Read more...</b-button>
+        <b-button class="btn-read-more" @click="expandArticle(newsArticle.id)">{{ $t("ReadMore") }}...</b-button>
       </div>
     </div>
   </div>
@@ -73,11 +73,13 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding: 0 1rem;
 }
 
 .card{
   width: 47%;
   margin: 10px 0;
+  border-radius: none;
 }
 
 .card:nth-child(odd){
@@ -85,7 +87,7 @@ export default {
 }
 
 .card-title{
-  margin: 15px 10px;
+  margin: 15px 1.25rem;;
 }
 
 .card-img-container{
@@ -94,10 +96,10 @@ export default {
 }
 
 .card-body{
-  max-height: 95px;
+  max-height: 70px;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;  
 }
 

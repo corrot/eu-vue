@@ -4,7 +4,7 @@
     <server-error v-if="errored"/>
     <div class="cards" v-if="!errored && !loading">
       <div class="card" v-for="newsArticle in news" :key="newsArticle.id">
-        <h4 class="card-title font-weight-bold">{{ newsArticle[`title_${locale}`] }}</h4>
+        <h5 class="card-title font-weight-bold">{{ newsArticle[`title_${locale}`] }}</h5>
         <div class="card-img-container">
           <img v-if="newsArticle.image"
             class="card-img-top rounded-0"
@@ -17,7 +17,7 @@
           <p class="card-text">{{ newsArticle[`article_${locale}`] }}</p>
         </div>
         <div class="btn-container">
-          <b-button class="btn-read-more" @click="expandArticle">Read more...</b-button>
+          <b-button class="btn-read-more" @click="expandArticle">{{ $t("ReadMore") }}...</b-button>
         </div>
       </div>
 

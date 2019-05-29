@@ -71,6 +71,6 @@ export default {
 #slider-footer{
   /* background: #00005a !important; */
   background: #0a0a2d !important;
-  height: 4em;
+  height: 3em;
 }
 </style>

@@ -69,6 +69,7 @@ export const routes = [
     path: '/',
     name: 'home',
     component: Home,
+    hidden: true,
     children: [],
   },
   {
