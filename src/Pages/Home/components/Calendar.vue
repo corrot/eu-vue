@@ -24,7 +24,7 @@ export default {
             backgroundColor: '#ff8080',
           },
           dates: new Date(2019, 4, 26),
-          popover: {
+          bar: {
             label: 'Independence Day',
           },
         },
@@ -34,7 +34,7 @@ export default {
             backgroundColor: '#ff8080',
           },
           dates: new Date(2019, 5, 1),
-          popover: {
+          bar: {
             label: 'Childrens` Day',
           },
         },
@@ -46,10 +46,10 @@ export default {
 
 <style lang='postcss' scoped>
 .vc-rounded-lg{
-  border-radius: none;
+  border-radius: 0;
 }
 
-span.vc-rounded-full{
+.vc-rounded-full{
   border-radius: 0!important;
 }
 </style>

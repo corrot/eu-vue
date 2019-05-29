@@ -326,7 +326,7 @@ export const routes = [
         hidden: true,
       },
       {
-        title: 'Press Releases',
+        title: 'PressReleases',
         path: '/media/press-releases',
         name: 'pressReleases',
         component: Releases,
@@ -338,7 +338,7 @@ export const routes = [
         component: Events,
       },
       {
-        title: 'News Archive',
+        title: 'NewsArchive',
         path: '/media/news-archive',
         name: 'newsArchive',
         component: NewsArchive,

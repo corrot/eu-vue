@@ -1,7 +1,7 @@
 <template>
   <div style="background-color: #f7f7f7;">
     <slider-component/>
-    <b-container style="display: flex;">
+    <b-container style="display: flex; padding-bottom: 20px;">
       <div style="width: calc(100% - 286px)" class="page-row">
         <!-- <links-component/> -->
         <!-- <testimonials-component/> -->
@@ -41,12 +41,7 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1,
-h2 {
-  font-weight: normal;
-}
 .page-row {
   padding: 15px;
 }

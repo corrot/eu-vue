@@ -38,12 +38,12 @@ export const en = {
   International: "International",
   ProactiveInformation: "ProactiveInformation",
   Statistics: "Statistics",
-  PublicSurvey: "PublicSurvey",
+  PublicSurvey: "PublicSurveys",
   RequestRelatedActs: "RequestRelatedActs",
   RequestStandard: "RequestStandard",
   ApplicationForm: "ApplicationForm",
   ComplaintForm: "ComplaintForm",
-  Announcement: "Announcement",
+  Announcement: "Announcements",
   Events: "Events",
   NewsArchive: "NewsArchive",
   Newsletter: "Newsletter",
@@ -54,6 +54,5 @@ export const en = {
   FullName: "Full Name",
   Tel: "Tel",
   Message: "Message",
-  Submit: "Submit"
-
+  Submit: "Submit",
 };
