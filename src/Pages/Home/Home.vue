@@ -1,6 +1,8 @@
 <template>
   <div style="background-color: #f7f7f7;">
     <slider-component/>
+    <decisions-cards-component></decisions-cards-component>
+
     <b-container style="display: flex; padding-bottom: 20px;">
       <div style="width: calc(100% - 286px)" class="page-row">
         <!-- <links-component/> -->
@@ -22,6 +24,7 @@ import CalendarComponent from './components/Calendar';
 import LinksComponent from './components/Links';
 import TestimonialsComponent from './components/Testimonials';
 import CardsComponent from './components/Cards';
+import DecisionsCardsComponent from './components/DecisionsCards';
 
 export default {
   name: 'Home',
@@ -31,7 +34,8 @@ export default {
     CalendarComponent,
     LinksComponent,
     TestimonialsComponent,
-    CardsComponent
+    CardsComponent,
+    DecisionsCardsComponent
   },
   data() {
     return {

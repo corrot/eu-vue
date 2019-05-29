@@ -1,9 +1,6 @@
 <template>
   <div class="calendar">
     <v-calendar :attributes="attrs">
-      <!-- <div slot="day-popover" slot-scope>
-        <tooltip-component/>
-      </div>-->
     </v-calendar>
   </div>
 </template>
