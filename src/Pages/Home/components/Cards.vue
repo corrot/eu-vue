@@ -12,7 +12,7 @@
         </p>
       </div>
       <div class="btn-container">
-        <b-button class="btn-read-more" @click="expandArticle">Read more...</b-button>
+        <b-button class="btn-read-more" @click="expandArticle(newsArticle.id)">Read more...</b-button>
       </div>
     </div>
   </div>
@@ -58,9 +58,9 @@ export default {
       return true;
   },
   methods: {
-    expandArticle() {
-      console.log("read");
-      
+    expandArticle(id) {
+      // alert(id);
+      this.$router.push({ name: 'newsDetails', params: { id } });
     }
   },
   components: { LoadingSpinner, ServerError },
