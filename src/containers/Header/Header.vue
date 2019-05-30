@@ -4,8 +4,7 @@
       <div class="header-left">
         <logo-component/>
         <div class="euca-title">
-          <div>საქართველოს კონკურენციის სააგენტო</div>
-          <br>
+          <div style="margin-bottom: 10px;">საქართველოს კონკურენციის სააგენტო</div>
           <br>
           <div>Competition Agency of Georgia</div>
         </div>
