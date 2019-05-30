@@ -3,7 +3,7 @@
     <header-component/>
     <navbar-component/>
     <div class="main">
-      <b-container v-if="this.$router.currentRoute.name !== 'home'" class="mt-2" id="breadcrumb-container">
+      <b-container v-if="this.$router.currentRoute.name !== 'home' && this.$router.currentRoute.name !== 'contact'" class="mt-2" id="breadcrumb-container">
         <b-breadcrumb class="container" :items="breadcrumbNames"></b-breadcrumb>
       </b-container>
       <router-view></router-view>
@@ -49,6 +49,10 @@ export default {
 <style>
 @import url('./assets/styles/main.css');
 
+.main{
+  background-color: #f7f7f7;
+}
+
 .dropdown-item.active, .dropdown-item:active {
     background-color: #141e3a!important;
     text-decoration: none;
@@ -69,9 +73,9 @@ export default {
 }
 
 ol.breadcrumb{
-  margin-top: 20px;
   border-radius: 0!important;
-  background-color: rgba(0, 0, 0, 0.03);
+  /* background-color: rgba(0, 0, 0, 0.03); */
+  background-color: rgba(0, 0, 0, 0);
 }
 
 </style>

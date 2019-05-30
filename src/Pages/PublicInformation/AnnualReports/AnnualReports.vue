@@ -4,10 +4,10 @@
     
     <div class="cards">
         <div class="card" v-for="report in data" :key="report.id">
-          <h4 class="card-title font-weight-bold">{{ report[`title_${locale}`] }}</h4>
+          <h4 class="card-title">{{ report[`title_${locale}`] }}</h4>
           <div class="card-img-container">
-            <a v-if="report[`doc_${locale}`]" :href="(report[`doc_${locale}`]).url" target="_blank"><img class="card-img-top rounded-0" src="@/assets/doc-icon.png" alt="document"></a>
-            <a v-else><img class="card-img-top rounded-0" src="@/assets/doc-icon.png" alt="document"></a>
+            <a v-if="report[`doc_${locale}`]" :href="(report[`doc_${locale}`]).url" target="_blank"><img class="card-img-top rounded-0" src="@/assets/doc-icon.svg" alt="document"></a>
+            <a v-else><img class="card-img-top rounded-0" src="@/assets/doc-icon.svg" alt="document"></a>
           </div>
         </div>
   </div>
@@ -63,6 +63,7 @@ export default {
 .card{
   margin: 1rem;
   width: 200px;
+  text-align: center;
 }
 
 .card:nth-child(odd){
@@ -71,10 +72,19 @@ export default {
 
 .card-title{
   margin: 15px 10px;
+  color: #DB2323;
+  font-size: 19px;
+}
+
+.card-img-container{
+  text-align: center;
+  padding: 10px;
+  padding-bottom: 20px;
 }
 
 .card-img-container img{
-  width: 150px;
+  width: 100px;
+  margin: 0 auto;
   height: auto;
 }
 

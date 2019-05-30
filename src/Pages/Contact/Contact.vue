@@ -1,5 +1,5 @@
 <template>
-  <b-container>
+  <b-container style="padding: 30px 0 60px 0; ">
     <b-row>
       <b-col>
         <iframe
@@ -10,7 +10,7 @@
         ></iframe>
       </b-col>
       <b-col>
-        <b-card class="mt-3 text-center" style="border: none;">
+        <b-card class="text-center" style="border: none; margin-top: none;">
           <p> {{ $t('CompetitionAgencyOfGeorgia') }} </p>
           <p> {{ data[`adrress_${locale}`] }} </p>
           <p>{{ $t('Phone') }}: {{ data[`Tel_number`] }} </p>
@@ -109,34 +109,29 @@ export default {
 </script>
 
 <style scoped>
-h1,
-h2 {
-  font-weight: normal;
-}
-
-iframe {
-  margin: 15px 0;
-}
-
 .input-container {
   padding-right: 15%;
 }
 
 .btn-submit-message {
   border: none;
-  border-bottom: 4px solid #0a0a2d;
+  border-bottom: 4px solid #DB2323;
   background: none;
   color: #000;
   border-radius: 0;
   letter-spacing: 1px;
   width: 110px;
   height: 40px;
-  /* float: right; */
   font-size: 17px;
 }
 
 .btn-submit-message:hover {
-  background: #e3eaf1;
+  color: #DB2323;
+}
+
+.col:nth-child(2){
+  background: #fff;
+  padding: 20px;
 }
 </style>
 

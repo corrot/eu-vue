@@ -15,9 +15,9 @@
               <h6 slot="header" class="mb-0">{{ article.date.split(" ")[0] }}</h6>
               <b-card-text>{{ article[`Annotation_${locale}`] }}</b-card-text>
               <b-button
+              class="doc-button"
                 :href="article[`document_${locale}`] && `${API_BASE_URL}/uploads/${article[`document_${locale}`].hash}${article[`document_${locale}`].ext}`"
                 :disabled="!article[`document_${locale}`]"
-                variant="primary"
               >{{ $t('ViewDocument') }}</b-button>
               <em slot="footer">{{ article[`tags_${locale}`] }}</em>
             </b-card>
@@ -71,4 +71,18 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+.card{
+  border-radius: 0!important;
+}
+
+.doc-button{
+  background: transparent;
+  color: #DB2323;
+  border: none;
+  padding: 0;
+}
+
+.doc-button:hover{
+  color: #ff5d43;
+}
 </style>
