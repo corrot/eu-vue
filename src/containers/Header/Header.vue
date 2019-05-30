@@ -1,10 +1,13 @@
 <template>
   <b-container>
     <div class="app-top-header">
-      <logo-component/>
-      <div class="euca-title">
-        <span>საქართველოს კონკურენციის სააგენტო</span>
-        <span>Competition Agency of Georgia</span>
+      <div class="header-left">
+        <logo-component/>
+        <div class="euca-title">
+          <div style="margin-bottom: 10px;">საქართველოს კონკურენციის სააგენტო</div>
+          <br>
+          <div>Competition Agency of Georgia</div>
+        </div>
       </div>
       <span class="lang-social">
         <language-component/>
@@ -25,27 +28,42 @@ export default {
   components: { LogoComponent, SocialComponent, LanguageComponent },
   data() {
     return {};
-  }
+  },
 };
 </script>
 
 <style lang="postcss" scoped>
 .app-top-header {
   margin: 20px 0;
+  position: relative;
 }
 
 .euca-title {
   display: inline;
-  margin-left: 10px;
+  margin-left: 110px;
 }
 
-.euca-title span{
+.header-left {
+  display: flex;
+  position: relative;
+}
+
+.euca-title {
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+.euca-title div {
   font-size: 16px;
+  display: inline-block;
 }
 
-
-
-
+.lang-social {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
 /* 
 @media (max-width: 1200px) {
   
