@@ -91,7 +91,7 @@ export default {
 .icon-link,
 .icon-sitemap,
 #print-button {
-  color: #0a0a2d;
+  color: #141e3a;
 }
 
 #print-button {
@@ -113,8 +113,10 @@ export default {
 }
 
 .links:hover {
-  color: #253d92;
+  color: #DB2323;
 }
+
+
 /* 
 .search-input{
   background: #f7f7f7;

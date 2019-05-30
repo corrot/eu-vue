@@ -13,7 +13,7 @@
       <div class="slide-image" v-bind:style="{ 'background-image': 'url(' + base_url + item.image.url + ')' }"></div>
       <b-container>
         <span class="slider-text">
-          <router-link to="releases/1" class="text">
+          <router-link :to="item.link" class="text">
             <p class="release-title">{{ item[`text_${locale}`] }}</p>
           </router-link>
         </span>
@@ -90,20 +90,21 @@ export default {
 }
 
 #slider-footer{
-  background: #0a0a2d !important;
+  background: #141e3a !important;
   height: 3em;
 }
 
 .slider-text{
   position: absolute;
-  top: 100px;
-  left: 430px;
-  width: 470px;
-  height: 200px;
-  background-color: rgba(0, 0, 0, 0.4);
+  top: 20%;
+  left: 20%;
+  width: 25%;
+  height: 35%;
+  background-color: rgba(0, 0, 0, 0.65);
   text-align: center;
   z-index: 100;
-  padding: 40px;
+  padding: 2%;
+  font-family: 'Open Sans', 'BPG Glaho WEB Caps', sans-serif;
 }
 
 .slider-text p{
@@ -112,4 +113,6 @@ export default {
   font-size: 25px;
   display: inline;
 }
+
+
 </style>

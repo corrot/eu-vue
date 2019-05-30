@@ -9,7 +9,7 @@
       <router-view></router-view>
     </div>
     <footer-component/>
-    <go-top :size="60" :z-index="10000" bg-color="#004996" :radius="0"></go-top>
+    <go-top :size="55" :z-index="10000" bg-color="#DB2323" :radius="0"></go-top>
   </div>
 </template>
 
@@ -50,9 +50,9 @@ export default {
 @import url('./assets/styles/main.css');
 
 .dropdown-item.active, .dropdown-item:active {
-    color: #000!important;
+    background-color: #141e3a!important;
     text-decoration: none;
-    background-color: #fff!important;
+    color: #fff!important;
 }
 
 .breadcrumb-item{

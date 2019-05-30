@@ -33,6 +33,7 @@ footer {
   left: 0;
   right: 0;
   padding: 15px 0;
-  background: #0a0a2d;
+  background: #141e3a;
+  font-family: 'Open Sans', 'BPG Glaho WEB Caps', sans-serif;
 }
 </style>

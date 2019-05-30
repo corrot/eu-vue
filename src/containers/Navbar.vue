@@ -16,7 +16,7 @@
               <template slot="button-content">
                 <span :class="activePath === route.path ? 'navbar-title active' : 'navbar-title'">{{ $t(route.title) }}</span>
               </template>
-              <b-dropdown-item class="dropdown-override" v-for="(item, index) in route.children" :key="index" :to="item.path">
+              <b-dropdown-item class="dropdown-override" v-for="(item, index) in route.children" :key="index" :to="item.path" v-if="!item.hidden">
                 <span v-if="!item.hidden">{{ $t(item.title) }}
                   <b-dropdown-item class="dropdown-override" :to="subItem.path" v-for="(subItem, index) in item.children" :key="index">{{ $t(subItem.title) }}
                   </b-dropdown-item>
@@ -54,19 +54,15 @@ export default {
 
 <style scoped lang="postcss">
 .navbar {
-  background: #0a0a2d !important;
+  background: #141e3a !important;
   height: 3em;
 }
 
 .navbar-title {
-  font-family: 'Roboto Condensed', 'BPG Glaho WEB Caps', sans-serif;
+  /* font-family: 'Roboto Condensed', 'BPG Glaho WEB Caps', sans-serif; */
+  font-family: 'Open Sans', 'BPG Glaho WEB Caps', sans-serif;
   color: #eee !important;
   letter-spacing: 1px;
-}
-
-.navbar-title.active {
-  color: #007bff;
-  opacity: 1;
 }
 
 .dropdown-menu {

@@ -88,10 +88,12 @@ export default {
 
 .card-title{
   margin: 15px 1.25rem;
+  color: #1f345f;
 }
 
 .card-img-container{
   max-height: 200px;
+  height: 200px;
   overflow: hidden;
 }
 
@@ -101,6 +103,7 @@ export default {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;  
+  font-family: 'Open Sans', 'BPG Glaho WEB Caps', sans-serif;
 }
 
 .btn-container{
@@ -108,27 +111,28 @@ export default {
 }
 
 .btn-read-more{
-    font-weight: 500;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    background-color: transparent;
-    color: inherit;
-    border: none;
-    box-shadow: none;
-    height: 30px;
-    padding: 0;
-    color: #004996;
+  font-weight: 500;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: transparent;
+  color: inherit;
+  border: none;
+  box-shadow: none;
+  height: 30px;
+  padding: 0;
+  color: #DB2323;
+  
 }
 
 .btn-read-more:active, .btn-read-more:visited{
-    color:#004996!important;
-    background: none!important;
-    border: none!important;
-    box-shadow: none!important;
+  color:#ff5d43!important;
+  background: none!important;
+  border: none!important;
+  box-shadow: none!important;
 }
 
 .btn-read-more:hover{
-    color:#4080ff;
+  color:#ff5d43;
 }
 
 </style>
