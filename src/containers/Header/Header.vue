@@ -64,6 +64,7 @@ export default {
   right: 0;
   top: 0;
 }
+
 /* 
 @media (max-width: 1200px) {
   

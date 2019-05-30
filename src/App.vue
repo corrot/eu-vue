@@ -24,33 +24,22 @@ export default {
   components: { HeaderComponent, FooterComponent, NavbarComponent, GoTop },
   data() {
     return { 
-      routePaths: [],
-      breadcrumbs: []
+      routePaths: []
     };
-  },
-  mounted() {
-    
-    // this.breadcrumbs = [...document.getElementsByClassName("breadcrumb-item")].slice(0, this.breadcrumbs.length - 1);
-    // this.breadcrumbs.forEach((element, index) => {
-      // element.firstChild.setAttribute("href", "/");
-    // });
   },
   computed: {
     breadcrumbNames: function(){
       this.routePaths = this.$router.currentRoute.path.split('/');
       this.routePaths.shift();
       this.routePaths.forEach((routePath, index, arr) => {
-        if(+routePath)
-          this.routePaths.splice(this.routePaths.indexOf(routePath), 1);
-        else        
-          arr[index] = routePath.split('-').join(' ');
+        arr[index] = routePath.split('-').join(' ');
       });
       return this.routePaths;
     }
   },
   watch:{
     $route (to, from){
-      //forces to recompute property breadcrumbNames
+      //forces to recompute property this.routePaths
       this.routePaths = []; 
     }
   } 
@@ -69,4 +58,5 @@ export default {
 .breadcrumb-item{
   text-transform: capitalize;
 }
+
 </style>

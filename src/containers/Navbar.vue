@@ -1,6 +1,6 @@
 <template>
   <b-navbar toggleable="md" type="dark" variant="dark" :sticky="true" class="navbar">
-    <b-container>
+    <b-container style="height: 3em;">
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>

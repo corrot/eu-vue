@@ -281,18 +281,18 @@ export const routes = [
         name: 'publicSurvey',
         component: PublicSurvey,
       },
-      {
-        title: 'RequestRelatedActs',
-        path: '/public/request-related-acts',
-        name: 'requestRelatedActs',
-        component: RequestRelatedActs,
-      },
-      {
-        title: 'RequestStandard',
-        path: '/public/request-standard',
-        name: 'requestStandard',
-        component: RequestStandard,
-      },
+      // {
+      //   title: 'RequestRelatedActs',
+      //   path: '/public/request-related-acts',
+      //   name: 'requestRelatedActs',
+      //   component: RequestRelatedActs,
+      // },
+      // {
+      //   title: 'RequestStandard',
+      //   path: '/public/request-standard',
+      //   name: 'requestStandard',
+      //   component: RequestStandard,
+      // },
       {
         title: 'ApplicationForm',
         path: '/public/application-form',
