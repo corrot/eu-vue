@@ -14,7 +14,7 @@
       <b-container>
         <span class="slider-text">
           <router-link to="releases/1" class="text">
-            <p class="release-title">Lorem ipsum dolor sit amet dolor sit amet</p>
+            <p class="release-title">{{ item[`text_${locale}`] }}</p>
           </router-link>
         </span>
       </b-container>
@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import i18n from '@/plugins/i18n';
 import { Carousel, Slide } from 'vue-carousel';
 import { API_BASE_URL, SLIDERDATA_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
@@ -38,6 +39,9 @@ export default {
     Slide,
   },
   computed: {
+    locale: () => {
+      return i18n.locale;
+    },
     base_url: () => {
       return API_BASE_URL;
     }
