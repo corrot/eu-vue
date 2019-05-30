@@ -1,18 +1,24 @@
 <template>
   <b-container id="sitemap-container">
-    <h1 id="sitemap-title">Sitemap</h1>
+    <h1 id="sitemap-title">{{$t('Sitemap')}}</h1>
     <div v-for="route in routes" :key="route.name" class="route-title">
-        <span class="dot"></span>
-        <span :text="$t(route.title)" v-if="!route.children.length">
-          <router-link :to="route.path" class="dark-blue">{{ $t(route.title) }}</router-link>
+      <span class="dot"></span>
+      <span :text="$t(route.title)" v-if="!route.children.length">
+        <router-link :to="route.path" class="dark-blue">{{ $t(route.title) }}</router-link>
+      </span>
+      <span v-if="route.children.length">
+        <router-link :to="route.path" class="dark-blue">{{ $t(route.title) }}</router-link>
+        <br>
+        <span
+          v-for="item in route.children"
+          :key="item.name"
+          class="child-title"
+          v-if="!item.hidden"
+        >
+          <router-link :to="item.path" class="light-blue">{{ $t(item.title) }}</router-link>
+          <br>
         </span>
-        <span v-if="route.children.length">
-          <router-link :to="route.path" class="dark-blue">{{ $t(route.title) }}</router-link><br/>
-            <span v-for="item in route.children" :key="item.name" class="child-title">
-              <router-link :to="item.path" class="light-blue">{{ $t(item.title) }}</router-link>
-              <br/>
-            </span>
-        </span>
+      </span>
     </div>
   </b-container>
 </template>
@@ -32,12 +38,11 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-
-#sitemap-container{
+#sitemap-container {
   padding: 2% 0 2% 4%;
 }
 
-#sitemap-title{
+#sitemap-title {
   margin-bottom: 30px;
   letter-spacing: 2px;
 }
@@ -55,18 +60,18 @@ export default {
   padding-left: 8px;
 }
 
-.dark-blue{
+.dark-blue {
   color: #2c3e50;
   letter-spacing: 1px;
   text-transform: uppercase;
   font-size: 18px;
 }
 
-.dark-blue:hover{
+.dark-blue:hover {
   color: #527496;
 }
 
-.light-blue{
+.light-blue {
   color: #4b6580;
   font-size: 17px;
   border-left: 1px solid grey;
@@ -75,8 +80,7 @@ export default {
   padding-bottom: 4px;
 }
 
-.light-blue:hover{
+.light-blue:hover {
   color: #6c99c7;
 }
-
 </style>

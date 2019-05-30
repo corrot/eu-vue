@@ -25,8 +25,19 @@
     >
       <flag :iso="entry.flag" v-bind:squared="false"></flag>
     </div>
-
-    <social-component/>
+    <div>
+      <div style="position: absolute" class="w-100">
+        <social-component class="ml-2"/>
+        <b-input-group class="mt-3 ml-2 input-search" size="sm" style="max-width: 224px">
+          <b-form-input placeholder="Search"></b-form-input>
+          <b-input-group-append>
+            <b-button to="/search/no-such-file" class="ml-0" variant="info">
+              <font-awesome-icon class="icon-search mr-1" :icon="['fas', 'search']"/>
+            </b-button>
+          </b-input-group-append>
+        </b-input-group>
+      </div>
+    </div>
     <!--     
     <div class="input-group">
       <input class="search-input form-control my-0 py-1 amber-border" type="text" placeholder="Search" aria-label="Search">
@@ -113,40 +124,16 @@ export default {
 }
 
 .links:hover {
-  color: #DB2323;
+  color: #db2323;
 }
-
-
-/* 
-.search-input{
-  background: #f7f7f7;
-  padding: 0 40px 0 13px;
-  outline: none;
-  color: #838383;
-  line-height: 28px;
-  height: 30px;
-  border: 1px solid #eaeaea;
+.input-search {
 }
-
-#btnSearch{
-  font-size: 0;
-  height: 30px;
-   border: none; 
-  border: 1px solid red;
-
-  border-left: 1px solid lightgray;
-  outline: none;
-  cursor: pointer;
-  line-height: 30px;
-   //position: absolute; 
-   //top: 0; 
-   //right: 0; 
-  background: none;
-  width: 34px;
+.input-search > input,
+.input-search > .input-group-append > .btn {
+  border-radius: 0;
 }
-
-.btn-search-group span{
-   //position: absolute; 
-  //top: 0; 
-} */
+.input-search > .input-group-append > .btn {
+  background: #db2323;
+  border-color: #db2323;
+}
 </style>

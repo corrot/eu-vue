@@ -17,14 +17,27 @@ import {
   faFacebook,
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons';
-import { faLink, faSitemap, faPrint } from '@fortawesome/free-solid-svg-icons';
+import {
+  faLink,
+  faSitemap,
+  faPrint,
+  faSearch,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 library.config = {
   autoAddCss: false,
 };
 
-library.add(faTwitter, faFacebook, faYoutube, faLink, faSitemap, faPrint);
+library.add(
+  faTwitter,
+  faFacebook,
+  faYoutube,
+  faLink,
+  faSitemap,
+  faPrint,
+  faSearch
+);
 
 Vue.prototype.$http = axios;
 

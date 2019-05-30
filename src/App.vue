@@ -3,7 +3,11 @@
     <header-component/>
     <navbar-component/>
     <div class="main">
-      <b-container v-if="this.$router.currentRoute.name !== 'home' && this.$router.currentRoute.name !== 'contact'" class="mt-2" id="breadcrumb-container">
+      <b-container
+        v-if="this.$router.currentRoute.name !== 'home' && this.$router.currentRoute.name !== 'contact'"
+        class="mt-2"
+        id="breadcrumb-container"
+      >
         <b-breadcrumb class="container" :items="breadcrumbNames"></b-breadcrumb>
       </b-container>
       <router-view></router-view>
@@ -23,59 +27,64 @@ export default {
   name: 'App',
   components: { HeaderComponent, FooterComponent, NavbarComponent, GoTop },
   data() {
-    return { 
-      routePaths: []
+    return {
+      routePaths: [],
     };
   },
   computed: {
-    breadcrumbNames: function(){
+    breadcrumbNames: function() {
+      const capitalize = s => {
+        if (typeof s !== 'string') return '';
+        return s.charAt(0).toUpperCase() + s.slice(1);
+      };
+
       this.routePaths = this.$router.currentRoute.path.split('/');
       this.routePaths.shift();
       this.routePaths.forEach((routePath, index, arr) => {
         arr[index] = routePath.split('-').join(' ');
       });
       return this.routePaths;
-    }
+    },
   },
-  watch:{
-    $route (to, from){
+  watch: {
+    $route(to, from) {
       //forces to recompute property this.routePaths
-      this.routePaths = []; 
-    }
-  } 
+      this.routePaths = [];
+    },
+  },
 };
 </script>
 
 <style>
 @import url('./assets/styles/main.css');
 
-.main{
+.main {
   background-color: #f7f7f7;
 }
 
-.dropdown-item.active, .dropdown-item:active {
-    background-color: #141e3a!important;
-    text-decoration: none;
-    color: #fff!important;
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: #141e3a !important;
+  text-decoration: none;
+  color: #fff !important;
 }
 
-.breadcrumb-item{
+.breadcrumb-item {
   text-transform: capitalize;
   font-size: 15px;
 }
 
-.breadcrumb-item:nth-child(1) a{
-  color: #DB2323!important;
+.breadcrumb-item:nth-child(1) a {
+  color: #db2323 !important;
 }
 
-.breadcrumb-item a{
+.breadcrumb-item a {
   color: #6c757d;
 }
 
-ol.breadcrumb{
-  border-radius: 0!important;
+ol.breadcrumb {
+  border-radius: 0 !important;
   /* background-color: rgba(0, 0, 0, 0.03); */
   background-color: rgba(0, 0, 0, 0);
 }
-
 </style>

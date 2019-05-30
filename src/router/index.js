@@ -34,7 +34,7 @@ import Sitemap from '@/Pages/Sitemap/Sitemap';
 import Media from '@/Pages/Media/Media';
 import Releases from '@/Pages/Media/Releases/Releases';
 import NewsArchive from '@/Pages/Media/NewsArchive/NewsArchive';
-import NewsDetails  from '@/Pages/Media/NewsArchive/NewsDetails';
+import NewsDetails from '@/Pages/Media/NewsArchive/NewsDetails';
 import Newsletter from '@/Pages/Media/Newsletter/Newsletter';
 import Announcement from '@/Pages/Media/Announcement/Announcement';
 import Events from '@/Pages/Media/Events/Events';
@@ -58,6 +58,8 @@ import UnfairCompetitionByInvestigation from '@/Pages/Decisions/UnfairCompetitio
 import ConcentrationControl from '@/Pages/Decisions/ConcentrationControl';
 import StateAid from '@/Pages/Decisions/StateAid';
 import MarketMonitoring from '@/Pages/Decisions/MarketMonitoring';
+
+import Search from '@/Pages/Search/Search';
 
 import PageNotFound from '@/Pages/PageNotFound/PageNotFound';
 
@@ -329,7 +331,7 @@ export const routes = [
         title: 'Press Releases Detail',
         path: '/media/press-releases/:id',
         name: 'pressReleasesDetail',
-        component: {template: '<div>asfasf</div>'},
+        component: { template: '<div>asfasf</div>' },
         hidden: true,
       },
       {
@@ -355,7 +357,7 @@ export const routes = [
         path: '/media/news-archive/:id',
         name: 'newsDetails',
         component: NewsDetails,
-        hidden: true
+        hidden: true,
       },
       {
         title: 'Newsletter',
@@ -405,6 +407,14 @@ export const routes = [
     path: '/employees/:id',
     name: 'employees',
     component: Employees,
+    children: [],
+    hidden: true,
+  },
+  {
+    title: 'Search',
+    path: '/search/:id',
+    name: 'search',
+    component: Search,
     children: [],
     hidden: true,
   },

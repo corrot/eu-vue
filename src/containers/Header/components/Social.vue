@@ -42,7 +42,7 @@ export default {
 }
 
 .btn-social {
-  padding: 5px;
+  padding: 4px 5px;
   text-align: center;
   color: #fff !important;
 }
