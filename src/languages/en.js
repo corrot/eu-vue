@@ -55,4 +55,6 @@ export const en = {
   Tel: "Tel",
   Message: "Message",
   Submit: "Submit",
+  Print: "Print",
+  AccessToPublicInformation: "Access To Public Information"
 };

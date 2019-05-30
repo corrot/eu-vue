@@ -1,5 +1,5 @@
 <template>
-  <div class="carousel-wrapper">
+  <div class="carousel-wrapper" v-if="data">
     <carousel
       :autoplay="false"
       :autoplayHoverPause="true"
@@ -9,8 +9,9 @@
       :pagination="false"
       paginationPosition="bottom-overlay"
     >
+        
     <slide v-for="item in data" :key="item.id">
-      <div class="slide-image" v-bind:style="{ 'background-image': 'url(' + base_url + item.image.url + ')' }"></div>
+      <div v-if="item.image" class="slide-image" v-bind:style="{ 'background-image': 'url(' + base_url + item.image.url + ')' }"></div>
       <b-container>
         <span class="slider-text">
           <router-link :to="item.link" class="text">

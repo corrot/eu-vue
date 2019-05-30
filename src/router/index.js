@@ -269,17 +269,23 @@ export const routes = [
         name: 'annualReports',
         component: AnnualReports,
       },
-      {
-        title: 'Statistics',
-        path: '/public/statistics',
-        name: 'statistics',
-        component: Statistics,
-      },
+      // {
+      //   title: 'Statistics',
+      //   path: '/public/statistics',
+      //   name: 'statistics',
+      //   component: Statistics,
+      // },
       {
         title: 'PublicSurvey',
         path: '/public/public-survey',
         name: 'publicSurvey',
         component: PublicSurvey,
+      },
+      {
+        title: 'AccessToPublicInformation',
+        path: '/public/access-to-public-information',
+        name: 'accessToPublicInformation',
+        component: RequestRelatedActs,
       },
       // {
       //   title: 'RequestRelatedActs',

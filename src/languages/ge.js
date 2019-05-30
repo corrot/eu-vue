@@ -54,5 +54,7 @@ export const ge = {
   Message: "ტექსტი",
   Submit: "გაგზავნა",
   ProactiveInformation: "პროაქტიული ინფორმაცია",
-  PublicSurvey: "საჯარო გამოკითხვები"
+  PublicSurvey: "საჯარო გამოკითხვები",
+  Print: "ბეჭდვა",
+  AccessToPublicInformation: "საჯარო ინფორმაციასთან წვდომა"
 };

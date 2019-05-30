@@ -13,7 +13,7 @@
     <links-separator/>
     <b-button id="print-button" @click="print">
       <font-awesome-icon class="mr-1" :icon="['fas', 'print']"/>
-      <span class="links">Print</span>
+      <span class="links">{{ $t('Print') }}</span>
     </b-button>
     <links-separator/>
     <div
