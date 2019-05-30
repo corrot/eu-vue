@@ -1,10 +1,6 @@
 <template>
   <div class="newsDetails">
-    <!-- todo: add an option to go back -->
-    <!-- todo: breadcrumb -->
-    <h1>erkjfbhr</h1>
       <div class="newsDetail">
-
 
       
       </div>

@@ -3,7 +3,7 @@
     <header-component/>
     <navbar-component/>
     <div class="main">
-      <b-container v-if="this.$router.currentRoute.name !== 'home'" class="mt-2">
+      <b-container v-if="this.$router.currentRoute.name !== 'home'" class="mt-2" id="breadcrumb-container">
         <b-breadcrumb class="container" :items="breadcrumbNames"></b-breadcrumb>
       </b-container>
       <router-view></router-view>
@@ -57,6 +57,21 @@ export default {
 
 .breadcrumb-item{
   text-transform: capitalize;
+  font-size: 15px;
+}
+
+.breadcrumb-item:nth-child(1) a{
+  color: #DB2323!important;
+}
+
+.breadcrumb-item a{
+  color: #6c757d;
+}
+
+ol.breadcrumb{
+  margin-top: 20px;
+  border-radius: 0!important;
+  background-color: rgba(0, 0, 0, 0.03);
 }
 
 </style>
