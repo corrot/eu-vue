@@ -135,4 +135,12 @@ export default {
   color:#ff5d43;
 }
 
+@media (max-width: 1010px){
+  .card{
+    width: 92%;
+    /* margin: 10px 0; */
+    border-radius: 0;
+  }
+}
+
 </style>

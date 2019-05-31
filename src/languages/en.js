@@ -58,4 +58,7 @@ export const en = {
   Print: 'Print',
   AccessToPublicInformation: 'Access To Public Information',
   Search: 'Search',
+  Employees: 'Employees',
+  Releases: 'Releases'
+
 };
