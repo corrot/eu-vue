@@ -11,12 +11,14 @@
       </b-col>
       <b-col>
         <b-card class="text-center" style="border: none; margin-top: none;">
-          <p> {{ $t('CompetitionAgencyOfGeorgia') }} </p>
+          <p class="title"> {{ $t('CompetitionAgencyOfGeorgia') }} </p>
           <p> {{ data[`adrress_${locale}`] }} </p>
           <p>{{ $t('Phone') }}: {{ data[`Tel_number`] }} </p>
           <p>{{ $t('Email') }}: {{ data[`email_${locale}`] }}</p>
         </b-card>
-        <div class="mt-3 input-container">
+        
+        
+        <!-- <div class="mt-3 input-container">
           <b-form-group
             label-cols-sm="3"
             :label=" $t('FullName') + ':'"
@@ -61,7 +63,9 @@
         </div>
         <div class="text-center">
           <b-button type="submit" class="btn-submit-message">{{ $t('Submit') }}</b-button>
-        </div>
+        </div> -->
+
+
       </b-col>
     </b-row>
     <router-view></router-view>
@@ -108,7 +112,19 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
+.col{
+  height: 30rem;
+}
+
+p{
+  font-size: 18px;
+}
+
+p.title{
+  border-bottom: #DB2323;
+}
+
 .input-container {
   padding-right: 15%;
 }
@@ -133,5 +149,7 @@ export default {
   background: #fff;
   padding: 20px;
 }
+
+
 </style>
 
