@@ -2,8 +2,8 @@ export const en = {
   Home: 'Home',
   AboutUs: 'About us',
   Contact: 'Contact',
-  FOOTER_TEXT_1: 'Competition Agency Of Georgia',
-  FOOTER_TEXT_2: 'All rights reserved',
+  FOOTER_TEXT_1: 'This website has been produced with the assistance of the European Union. Its contents are the sole responsibility of the Competition Agency of Georgia and do not necessarily reflect the views of the European Union.',
+  FOOTER_TEXT_2: '',
   CompetitionAgencyOfGeorgia: 'Competition Agency Of Georgia',
   ReadMore: 'Read more',
   Links: 'Links',
@@ -59,6 +59,7 @@ export const en = {
   AccessToPublicInformation: 'Access To Public Information',
   Search: 'Search',
   Employees: 'Employees',
-  Releases: 'Releases'
-
+  Releases: 'Releases',
+  PhotoGallery: 'Photo Gallery',
+  VideoGallery: 'Video Gallery'
 };

@@ -1,19 +1,45 @@
 <template>
   <div class="cards">
-    <div class="card" v-for="newsArticle in news" :key="newsArticle.id">
-      <h4 class="card-title font-weight-bold">{{ newsArticle[`title_${locale}`] }}</h4>
-      <div class="card-img-container">
-        <img class="card-img-top rounded-0" 
-        :src="base_url + newsArticle.image.url" :alt="newsArticle[`title_${locale}`]">
-      </div>
-      <div class="card-body">
-        <p class="card-text">
-          {{ newsArticle[`article_${locale}`] }}
-        </p>
-      </div>
-      <div class="btn-container">
-        <b-button class="btn-read-more" @click="expandArticle(newsArticle.id)">{{ $t("ReadMore") }}...</b-button>
-      </div>
+      <!-- <b-card no-body class="overflow-hidden" v-for="newsArticle in news" :key="newsArticle.id">
+          <b-row no-gutters>
+            <b-col md="4">
+              <b-card-img :src="base_url + newsArticle.image.url" :alt="newsArticle[`title_${locale}`]" class="rounded-0"></b-card-img>
+            </b-col>
+            <b-col md="8">
+              <b-card-body :title="newsArticle[`title_${locale}`]">
+                <b-card-text>
+                  <p>
+                  {{ newsArticle[`article_${locale}`] }}
+                  </p>
+                </b-card-text>
+              <div class="btn-container">
+                <b-button class="btn-read-more" @click="expandArticle(newsArticle.id)">{{ $t("ReadMore") }}...</b-button>
+              </div>
+              </b-card-body>
+            </b-col>
+          </b-row>
+        </b-card> -->
+    <b-row>
+      <b-col cols="6" v-for="newsArticle in news" :key="newsArticle.id">
+        <div class="card">
+          <h4 class="card-title font-weight-bold">{{ newsArticle[`title_${locale}`] }}</h4>
+          <div class="card-img-container">
+            <img class="card-img-top rounded-0" 
+            :src="base_url + newsArticle.image.url" :alt="newsArticle[`title_${locale}`]">
+          </div>
+          <div class="card-body">
+            <p class="card-text">
+              {{ newsArticle[`article_${locale}`] }}
+            </p>
+          </div>
+          <div class="btn-container">
+            <b-button class="btn-read-more" @click="expandArticle(newsArticle.id)">{{ $t("ReadMore") }}...</b-button>
+          </div>
+        </div>
+      </b-col>
+    </b-row>
+    <div style="width: 100%; text-align: right">
+      <router-link class="btn-read-more" to="/media/news-archive">{{ $t("ViewAll") }}...</router-link>
     </div>
   </div>
 </template>
@@ -69,21 +95,14 @@ export default {
 
 <style lang="postcss" scoped>
 .cards{
-  margin: 30px 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 0 1rem;
+  background: #fff;
+  padding: 30px;
+  border: 1px solid #ddd;
 }
 
 .card{
-  width: 47%;
-  margin: 10px 0;
   border-radius: 0;
-}
-
-.card:nth-child(odd){
-  margin-left: 0;
+  margin-bottom: 30px;
 }
 
 .card-title{

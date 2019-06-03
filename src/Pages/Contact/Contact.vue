@@ -17,7 +17,6 @@
           <p>{{ $t('Email') }}: {{ data[`email_${locale}`] }}</p>
         </b-card>
         
-        
         <!-- <div class="mt-3 input-container">
           <b-form-group
             label-cols-sm="3"

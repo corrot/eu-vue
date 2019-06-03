@@ -2,11 +2,13 @@
   <footer>
     <b-container>
       <div style="text-align: left">
-        <!-- <img width="70" height="auto" :src="euLogo" alt="Eu_Logo"> -->
-        <div style="text-align: center;">
-          <span style="color: #fff;">{{ $t('FOOTER_TEXT_1') }}</span>
-          <span style="color: #fff;">&copy;</span>
-          <span style="color: #fff;">{{ $t('FOOTER_TEXT_2') }}</span>
+        <div style="display: flex">
+          <img width="70" height="46" class="mr-3" :src="euLogo" alt="Eu_Logo" style="display: inline">
+          <span>
+            <span style="color: #fff;">{{ $t('FOOTER_TEXT_1') }}</span>
+            <!-- <span style="color: #fff;">&copy;</span> -->
+            <span style="color: #fff;">{{ $t('FOOTER_TEXT_2') }}</span>
+          </span>
         </div>
       </div>
     </b-container>

@@ -1,19 +1,25 @@
 <template>
-  <div class="decisions-cards">
-    <div class="container-fluid" style="margin: 1% 10%; width: auto;">
-      <div class="row">
-        <div v-for="route in decisionsRoutes" :key="route.name" class="col decision-card" @click="goTo(route.name)">
-          <div class="card-icon"></div>
-          <span>{{ $t(route.title) }}</span>
-        </div>
+  <div>
+    <div id="slider-footer"></div>
+    <b-container style="margin-bottom: 20px">
+      <div class="decisions-cards">
+        <b-row>
+          <b-col v-for="route in decisionsRoutes" :key="route.name" class="col decision-card">
+            <router-link :to="route.path">
+              <div class="card-icon"></div>
+              <span>{{ $t(route.title) }}</span>
+            </router-link>
+          </b-col>
+        </b-row>
       </div>
-    </div>
+    </b-container>
   </div>
 </template>
 
 <script>
 import i18n from '@/plugins/i18n';
 import { routes } from '@/router';
+import BASE_URL from '@/constants';
 
 export default {
   name: 'DecisionsCards',
@@ -28,6 +34,7 @@ export default {
       if(route.title === "Decisions")
         this.decisionsRoutes = route.children;
     });
+    this.decisionsRoutes.forEach(path => console.log(path.path))
   },
   computed: {
     locale: () => {
@@ -43,19 +50,22 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+#slider-footer{
+  background: #141e3a !important;
+  height: 6em;
+}
+
 .decisions-cards{
-  margin-top: 60px;
-  
+  margin-top: -82px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
+  margin-bottom: 30px;
 }
 
 .decision-card{
   height: 180px;
   background: transparent;
-  margin: 20px;
   text-align: center;
   cursor: pointer;
   font-weight: bold;
@@ -65,16 +75,22 @@ export default {
 
 .decision-card:hover{
   color: #DB2323;
+  filter: invert(100%);
 }
 
 .card-icon {
-  width: 50%;
   margin-bottom: 15px;
   height: 50%;
   background-repeat: no-repeat;
   margin: 0 auto;
-  max-width: 71px;
-  background-size: 100%;
+  background-size: 60%;
+  background-position: center;
+  width: 70px;
+  height: 70px;
+  background-color: #007bff;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  /* filter: invert(100%); */
 }
 
 .decision-card:nth-child(1) .card-icon{

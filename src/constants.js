@@ -15,24 +15,24 @@ export const EMPLOYEES_URL = `${API_BASE_URL}/employesses`;
 
 // Decisions
 export const DECISIONS_URL = `${API_BASE_URL}/decisions`;
-export const ABUSEOFDOMINITIONBYPROHIBITION_URL = `${API_BASE_URL}/decisiontypes/3`;
-export const ABUSEOFDOMINITIONBYINVESTIGATION_URL = `${API_BASE_URL}/decisiontypes/4`;
+export const ABUSEOFDOMINITIONBYPROHIBITION_URL = `${API_BASE_URL}/decisiontypes/1`;
+export const ABUSEOFDOMINITIONBYINVESTIGATION_URL = `${API_BASE_URL}/decisiontypes/2`;
 
-export const AntiCompetitiveAgreementsByProhibition_URL = `${API_BASE_URL}/decisiontypes/5`;
-export const AntiCompetitiveAgreementsByInvestigation_URL = `${API_BASE_URL}/decisiontypes/6`;
+export const AntiCompetitiveAgreementsByProhibition_URL = `${API_BASE_URL}/decisiontypes/3`;
+export const AntiCompetitiveAgreementsByInvestigation_URL = `${API_BASE_URL}/decisiontypes/4`;
 
-export const DistortionOfCompetitionByStateAuthoritiesByProhibition_URL = `${API_BASE_URL}/decisiontypes/7`;
-export const DistortionOfCompetitionByStateAuthoritiesByInvestigation_URL = `${API_BASE_URL}/decisiontypes/8`;
+export const DistortionOfCompetitionByStateAuthoritiesByProhibition_URL = `${API_BASE_URL}/decisiontypes/5`;
+export const DistortionOfCompetitionByStateAuthoritiesByInvestigation_URL = `${API_BASE_URL}/decisiontypes/6`;
 
-export const UnfairCompetitionByProhibition_URL = `${API_BASE_URL}/decisiontypes/9`;
-export const UnfairCompetitionByInvestigation_URL = `${API_BASE_URL}/decisiontypes/10`;
+export const UnfairCompetitionByProhibition_URL = `${API_BASE_URL}/decisiontypes/7`;
+export const UnfairCompetitionByInvestigation_URL = `${API_BASE_URL}/decisiontypes/8`;
 
-export const ConcentrationControl_URL = `${API_BASE_URL}/decisiontypes/11`;
-export const StateAid_URL = `${API_BASE_URL}/decisiontypes/12`;
-export const MarketMonitoring_URL = `${API_BASE_URL}/decisiontypes/13`;
+export const ConcentrationControl_URL = `${API_BASE_URL}/decisiontypes/9`;
+export const StateAid_URL = `${API_BASE_URL}/decisiontypes/10`;
+export const MarketMonitoring_URL = `${API_BASE_URL}/decisiontypes/11`;
 
 // Home
-export const SLIDERDATA_URL = `${API_BASE_URL}/sliderdata`;
+export const SLIDERDATA_URL = `${API_BASE_URL}/slidaerdata`;
 export const CALENDARDATA_URL = `${API_BASE_URL}/calendardata`;
 export const LINKS_URL = `${API_BASE_URL}/links`;
 
@@ -46,3 +46,9 @@ export const RELEASES_URL = `${API_BASE_URL}/releases`;
 export const NEWSLETTERS_URL = `${API_BASE_URL}/newsletters`;
 export const NEWSARCHIVE_URL = `${API_BASE_URL}/newsarchive`;
 export const FAQ_URL = `${API_BASE_URL}/faqs`;
+
+// Events
+export const EVENTS_URL = `${API_BASE_URL}/events`;
+
+// Projects
+export const PROJECTS_URL = `${API_BASE_URL}/projects`;
