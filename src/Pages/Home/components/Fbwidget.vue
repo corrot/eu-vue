@@ -1,5 +1,5 @@
 <template>
-  <div class="page-row fb-widget" style="min-width: 180px; width: 258px;">
+  <div class="page-row fb-widget" style="min-width: 180px; width: 286px;">
     <div
       class="fb-page"
       data-href="https://www.facebook.com/CompetitionAgencyGeo"
@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style lang='postcss' scoped>
-  .fb-widget{
-    padding: 15px 0;
-  }
+.fb-widget {
+  padding: 15px 0;
+}
 </style>

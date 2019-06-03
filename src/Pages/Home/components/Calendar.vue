@@ -1,7 +1,6 @@
 <template>
   <div class="calendar">
-    <v-calendar :attributes="attrs">
-    </v-calendar>
+    <v-calendar style="width: 100%;" :attributes="attrs"></v-calendar>
   </div>
 </template>
 
@@ -21,7 +20,7 @@ export default {
           popover: {
             label: 'Independence Day',
           },
-          bar: { }
+          bar: {},
         },
         {
           key: 'children',
@@ -29,7 +28,7 @@ export default {
           popover: {
             label: 'Childrens` Day',
           },
-          bar: { }
+          bar: {},
         },
       ],
     };
@@ -38,11 +37,11 @@ export default {
 </script>
 
 <style lang='postcss' scoped>
-.vc-rounded-lg{
+.vc-rounded-lg {
   border-radius: 0;
 }
 
-.vc-rounded-full{
-  border-radius: 0!important;
+.vc-rounded-full {
+  border-radius: 0 !important;
 }
 </style>

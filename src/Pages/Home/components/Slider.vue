@@ -10,16 +10,20 @@
       paginationPosition="bottom-overlay"
     >
       <slide v-for="item in data" :key="item.id">
-        <div v-if="item.image" class="slide-image" v-bind:style="{ 'background-image': 'url(' + base_url + item.image.url + ')' }">
-        <b-container style="height:100%">
-          <div style="position: relative; width: 100%; height:100%;">
-            <div class="slider-text">
-              <router-link :to="item.link" class="text">
-                <p class="release-title">{{ item[`text_${locale}`] }}</p>
-              </router-link>
+        <div
+          v-if="item.image"
+          class="slide-image"
+          v-bind:style="{ 'background-image': 'url(' + base_url + item.image.url + ')' }"
+        >
+          <b-container style="height:100%">
+            <div style="position: relative; width: 100%; height:100%;">
+              <div class="slider-text">
+                <router-link :to="item.link" class="text">
+                  <p class="release-title">{{ item[`text_${locale}`] }}</p>
+                </router-link>
+              </div>
             </div>
-          </div>
-        </b-container>
+          </b-container>
         </div>
       </slide>
     </carousel>
@@ -45,7 +49,7 @@ export default {
     },
     base_url: () => {
       return API_BASE_URL;
-    }
+    },
   },
   data() {
     return {
@@ -65,7 +69,7 @@ export default {
         this.errored = true;
       })
       .finally(() => (this.loading = false));
-  }
+  },
 };
 </script>
 
@@ -89,12 +93,12 @@ export default {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
 
-#slider-footer{
+#slider-footer {
   background: #141e3a !important;
   height: 3em;
 }
 
-.slider-text{
+.slider-text {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -106,12 +110,10 @@ export default {
   font-family: 'Open Sans', 'BPG Glaho WEB Caps', sans-serif;
 }
 
-.slider-text p{
+.slider-text p {
   font-weight: 100;
   letter-spacing: 1px;
   font-size: 25px;
   display: inline;
 }
-
-
 </style>

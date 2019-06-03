@@ -7,7 +7,7 @@ import App from '@/App';
 import router from '@/router';
 import i18n from '@/plugins/i18n';
 import axios from 'axios';
-
+import VueYouTubeEmbed from 'vue-youtube-embed';
 import VueSimpleMarkdown from 'vue-simple-markdown';
 import 'vue-simple-markdown/dist/vue-simple-markdown.css';
 
@@ -46,6 +46,8 @@ Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.use(FlagIcon);
 Vue.use(BootstrapVue);
 Vue.use(VueSimpleMarkdown);
+Vue.use(VueYouTubeEmbed);
+
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */

@@ -52,3 +52,6 @@ export const EVENTS_URL = `${API_BASE_URL}/events`;
 
 // Projects
 export const PROJECTS_URL = `${API_BASE_URL}/projects`;
+
+// Videos
+export const VIDEOS_URL = `${API_BASE_URL}/videos`;

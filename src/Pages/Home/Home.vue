@@ -21,7 +21,6 @@
     </b-container>
   </div>
 </template>
-  
 
 <script>
 import SliderComponent from './components/Slider';
@@ -51,7 +50,7 @@ export default {
     ProjectsComponent,
     EventsComponent,
     PhotoGalleryComponent,
-    VideoGalleryComponent
+    VideoGalleryComponent,
   },
   data() {
     return {
