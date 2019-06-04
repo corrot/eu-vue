@@ -28,7 +28,7 @@
     <div>
       <div style="position: absolute" class="w-100">
         <social-component class="ml-2"/>
-        <b-input-group class="mt-3 ml-2 input-search" size="sm" style="max-width: 224px">
+        <b-input-group class="mt-3 ml-2 input-search" size="sm" style="max-width: 200px">
           <b-form-input placeholder="Search"></b-form-input>
           <b-input-group-append>
             <b-button to="/search/no-such-file" class="ml-0" variant="info">

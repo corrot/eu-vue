@@ -34,6 +34,11 @@ a:hover {
   text-decoration: none;
 }
 
+.flag-icon{
+  width: 26px;
+  line-height: 22px;
+}
+
 .dropdown-menu {
   padding: 0;
   margin-top: 0;

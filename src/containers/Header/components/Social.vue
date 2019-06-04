@@ -6,9 +6,20 @@
           <font-awesome-icon class="fa" :icon="['fab', 'facebook']"/>
         </a>
       </li>
-      <li>
+      <!-- <li>
         <a class="btn-social twitter" href="https://twitter.com" title="Twitter" target="_blank">
           <font-awesome-icon class="fa" :icon="['fab', 'twitter']"/>
+        </a>
+      </li>
+      <li> -->
+      <li>
+        <a class="btn-social instagram" href="https://instagram.com" title="Instagram" target="_blank">
+          <font-awesome-icon class="fa" :icon="['fab', 'instagram']"/>
+        </a>
+      </li>
+      <li>
+        <a class="btn-social linkedin" href="https://linkedin.com" title="LinkedIn" target="_blank">
+          <font-awesome-icon class="fa" :icon="['fab', 'linkedin']"/>
         </a>
       </li>
       <li>
@@ -42,7 +53,7 @@ export default {
 }
 
 .btn-social {
-  padding: 4px 5px;
+  padding: 2px 5px;
   text-align: center;
   color: #fff !important;
 }
@@ -52,6 +63,12 @@ export default {
 .btn-social.twitter {
   background: #1da1f2;
 }
+.btn-social.linkedin {
+  background: #0177af;
+}
+.btn-social.instagram{
+  background: #b60861;
+}
 .btn-social.youtube {
   background: #f01111;
 }
@@ -60,6 +77,12 @@ export default {
 }
 .btn-social.twitter:hover {
   background: #1da1f2cc;
+}
+.btn-social.instagram:hover {
+  background: #b60861cc;
+}
+.btn-social.linkedin:hover {
+  background: #0177afcc;
 }
 .btn-social.youtube:hover {
   background: #f01111cc;
