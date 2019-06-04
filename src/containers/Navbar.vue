@@ -18,8 +18,8 @@
               </template>
               <b-dropdown-item class="dropdown-override" v-for="(item, index) in route.children" :key="index" :to="item.path" v-if="!item.hidden">
                 <span v-if="!item.hidden">{{ $t(item.title) }}
-                  <b-dropdown-item class="dropdown-override" :to="subItem.path" v-for="(subItem, index) in item.children" :key="index">{{ $t(subItem.title) }}
-                  </b-dropdown-item>
+                  <!-- <b-dropdown-item class="dropdown-override" :to="subItem.path" v-for="(subItem, index) in item.children" :key="index">{{ $t(subItem.title) }}
+                  </b-dropdown-item> -->
                 </span>
               </b-dropdown-item>
             </b-nav-item-dropdown>
