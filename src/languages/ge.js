@@ -62,5 +62,6 @@ export const ge = {
   Employees: 'თანამშრომლები',
   Releases: 'რელიზები',
   PhotoGallery: 'ფოტო გალერეა',
-  VideoGallery: 'ვიდეო გალერეა'
+  VideoGallery: 'ვიდეო გალერეა',
+  ViewAll: 'ყველას ნახვა'
 };

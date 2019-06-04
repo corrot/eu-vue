@@ -1,5 +1,5 @@
 <template>
-  <b-container>
+  <b-container class="styled">
     <div :v-if="locale">
       <p>
         <strong>საქართველოს</strong>

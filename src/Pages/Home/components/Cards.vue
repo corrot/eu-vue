@@ -1,5 +1,6 @@
 <template>
   <div class="cards">
+    <h4 style="margin-bottom: 20px;">{{ $t('NewsArchive') }}</h4>
       <!-- <b-card no-body class="overflow-hidden" v-for="newsArticle in news" :key="newsArticle.id">
           <b-row no-gutters>
             <b-col md="4">
@@ -20,7 +21,7 @@
           </b-row>
         </b-card> -->
     <b-row>
-      <b-col cols="6" v-for="newsArticle in news" :key="newsArticle.id">
+      <b-col cols="4" v-for="newsArticle in news" :key="newsArticle.id">
         <div class="card">
           <h4 class="card-title font-weight-bold">{{ newsArticle[`title_${locale}`] }}</h4>
           <div class="card-img-container">
@@ -71,8 +72,8 @@ export default {
     this.$http
       .get(NEWSLETTERS_URL)
       .then(response => {
-        if(response.data.length > 4)
-          this.news = response.data.slice(0, 4);
+        if(response.data.length > 3)
+          this.news = response.data.slice(0, 3);
         else
           this.news = response.data;
       })
@@ -106,27 +107,24 @@ export default {
 }
 
 .card-title{
-  margin: 15px 1.25rem;
+  margin: 8px;
+  font-size: 18px;
   color: #1f345f;
 }
 
 .card-img-container{
   max-height: 200px;
-  height: 200px;
   overflow: hidden;
 }
 
 .card-body{
-  max-height: 70px;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;  
   font-family: 'Open Sans', 'BPG Glaho WEB Caps', sans-serif;
-}
-
-.btn-container{
-  padding: 0.5rem 0 1.25rem 1.25rem;
+  max-height: 46px;
+  padding: 8px;
 }
 
 .btn-read-more{
@@ -139,6 +137,7 @@ export default {
   box-shadow: none;
   height: 30px;
   padding: 0;
+  font-size: 14px;
   color: #DB2323;
   
 }
@@ -152,6 +151,13 @@ export default {
 
 .btn-read-more:hover{
   color:#ff5d43;
+}
+.card-text{
+  font-size: 14px;
+}
+.btn-container{
+  padding: 8px!important;
+  text-align: right;
 }
 
 @media (max-width: 1010px){

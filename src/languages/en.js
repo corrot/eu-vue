@@ -61,5 +61,6 @@ export const en = {
   Employees: 'Employees',
   Releases: 'Releases',
   PhotoGallery: 'Photo gallery',
-  VideoGallery: 'Video gallery'
+  VideoGallery: 'Video gallery',
+  ViewAll: 'View all'
 };
