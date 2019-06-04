@@ -126,38 +126,8 @@ export default {
   max-height: 46px;
   padding: 8px;
 }
-
-.btn-read-more{
-  font-weight: 500;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  background-color: transparent;
-  color: inherit;
-  border: none;
-  box-shadow: none;
-  height: 30px;
-  padding: 0;
-  font-size: 14px;
-  color: #DB2323;
-  
-}
-
-.btn-read-more:active, .btn-read-more:visited{
-  color:#ff5d43!important;
-  background: none!important;
-  border: none!important;
-  box-shadow: none!important;
-}
-
-.btn-read-more:hover{
-  color:#ff5d43;
-}
 .card-text{
   font-size: 14px;
-}
-.btn-container{
-  padding: 8px!important;
-  text-align: right;
 }
 
 @media (max-width: 1010px){

@@ -1,19 +1,15 @@
 <template>
   <div class="cards">
-    <b-card no-body class="overflow-hidden" v-for="video in data" :key="video.id">
-      <b-row no-gutters>
-        <b-col md="6">
-          <!-- <b-card-img src="https://picsum.photos/400/400/?image=20" class="rounded-0"></b-card-img> -->
-          <youtube player-width="360" player-height="220" :video-id="video.link.split('=')[1]"></youtube>
-        </b-col>
-        <b-col md="6">
-          <b-card-body :title="video[`title_${locale}`]">
-            <b-card-text>Video description</b-card-text>
-          </b-card-body>
-        </b-col>
+    <h4 style="margin-bottom: 20px;">{{ $t('VideoGallery') }}</h4>
+    <div v-for="video in data" :key="video.id">
+      <b-row>
+        <b-col rows="6"><youtube player-width="360" player-height="220" :video-id="video.link.split('=')[1]"></youtube></b-col>
       </b-row>
-    </b-card>
+    </div>
 
+    <div style="width: 100%; text-align: right">
+      <a class="btn-read-more" href="https://www.youtube.com/channel/UCS6PSHW37QIJxqiCBwm-YfQ" target="_blank">{{ $t("ViewAll") }}...</a>
+    </div>
     <!-- {{ $t('VideoGallery') }} -->
     <!-- <div v-for="video in data" :key="video.id">
       {{ video[`title_${locale}`] }}
