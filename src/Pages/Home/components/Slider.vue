@@ -7,6 +7,7 @@
       :per-page="1"
       :loop="true"
       :pagination="false"
+      paginationActiveColor="#ff8400"
       paginationPosition="bottom-overlay"
     >
       <slide v-for="item in data" :key="item.id">
