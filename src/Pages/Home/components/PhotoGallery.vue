@@ -1,6 +1,6 @@
 <template>
-  <div>
-    {{ $t('PhotoGallery') }}
+  <div class="cards">
+    <router-link to="/media/events"><h5 class="section-title">{{ $t('PhotoGallery') }}</h5></router-link>
   </div>
 </template>
 

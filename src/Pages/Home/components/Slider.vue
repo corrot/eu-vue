@@ -18,9 +18,9 @@
           <b-container style="height:100%">
             <div style="position: relative; width: 100%; height:100%;">
               <div class="slider-text">
-                <router-link :to="item.link" class="text">
+                <a :href="item.link" class="text">
                   <p class="release-title">{{ item[`text_${locale}`] }}</p>
-                </router-link>
+                </a>
               </div>
             </div>
           </b-container>
@@ -100,8 +100,7 @@ export default {
 
 .slider-text {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: 15%;
   width: 400px;
   background-color: rgba(0, 0, 0, 0.65);
   text-align: center;
@@ -113,7 +112,7 @@ export default {
 .slider-text p {
   font-weight: 100;
   letter-spacing: 1px;
-  font-size: 25px;
+  font-size: 18px;
   display: inline;
 }
 </style>

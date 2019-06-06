@@ -1,5 +1,6 @@
 <template>
   <div v-if="data">
+    <router-link to="/media/events"><h5 class="section-title">{{ $t('Events') }}</h5></router-link>
     <b-card
       :title="data[`title_${locale}`]"
       :img-src="API_BASE_URL + data.photo_gallery.url" :alt="data[`title_${locale}`]"
@@ -13,7 +14,7 @@
       {{ data[`article_${locale}`] }}
       <br />
       <br />
-      <div style="font-size: 12px; width: 100%; text-align: right">{{ data.date }}</div>
+      <div style="font-size: 12px; width: 100%; text-align: right">{{ data.date.split(' ')[0] }}</div>
     </b-card-text>
 
     <!-- <b-button href="#" variant="primary">Go somewhere</b-button> -->

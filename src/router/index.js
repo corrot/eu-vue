@@ -131,16 +131,16 @@ export const routes = [
         component: National,
       },
       {
-        title: 'Guidelines',
-        path: '/legislation/guidelines',
-        name: 'guidelines',
-        component: Guidelines,
-      },
-      {
         title: 'International',
         path: '/legislation/international',
         name: 'international',
         component: International,
+      },
+      {
+        title: 'Guidelines',
+        path: '/legislation/guidelines',
+        name: 'guidelines',
+        component: Guidelines,
       },
     ],
   },

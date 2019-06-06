@@ -1,11 +1,12 @@
 <template>
   <div class="cards">
-    <h4 style="margin-bottom: 20px;">{{ $t('VideoGallery') }}</h4>
-    <div v-for="video in data" :key="video.id">
+    <a href="https://www.youtube.com/channel/UCS6PSHW37QIJxqiCBwm-YfQ" target="_blank"><h4 class="mb-2 section-title">{{ $t('VideoGallery') }}</h4></a>
       <b-row>
-        <b-col rows="6"><youtube player-width="360" player-height="220" :video-id="video.link.split('=')[1]"></youtube></b-col>
+        <b-col cols="6" v-for="video in data" :key="video.id">
+          <youtube player-width="100%" player-height="220" :video-id="video.link.split('=')[1]"></youtube>
+          <div class="video-title">{{ video[`title_${locale}`] }}</div>
+        </b-col>
       </b-row>
-    </div>
 
     <div style="width: 100%; text-align: right">
       <a class="btn-read-more" href="https://www.youtube.com/channel/UCS6PSHW37QIJxqiCBwm-YfQ" target="_blank">{{ $t("ViewAll") }}...</a>
@@ -65,10 +66,11 @@ export default {
 </script>
 
 <style lang='postcss' scoped>
-.cards {
-  margin-top: 30px;
-  background: #fff;
-  padding: 30px;
-  border: 1px solid #ddd;
+
+.video-title{
+  font-size: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 </style>

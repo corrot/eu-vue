@@ -48,12 +48,12 @@ export default {
 <style lang="postcss" scoped>
 .social-container {
   display: flex;
-  margin-top: 20px;
+  margin-top: 19px;
   float: right;
 }
 
 .btn-social {
-  padding: 2px 5px;
+  padding: 3px 5px;
   text-align: center;
   color: #fff !important;
 }

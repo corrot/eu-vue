@@ -11,7 +11,7 @@
     </router-link>
 
     <links-separator/>
-    <b-button id="print-button" @click="print">
+    <b-button id="print-button" @click="print" style="margin-top: -5px;">
       <font-awesome-icon class="mr-1" :icon="['fas', 'print']"/>
       <span class="links">{{ $t('Print') }}</span>
     </b-button>

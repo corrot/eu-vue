@@ -35,6 +35,7 @@ export const MarketMonitoring_URL = `${API_BASE_URL}/decisiontypes/11`;
 export const SLIDERDATA_URL = `${API_BASE_URL}/slidaerdata`;
 export const CALENDARDATA_URL = `${API_BASE_URL}/calendardata`;
 export const LINKS_URL = `${API_BASE_URL}/links`;
+export const LINKTYPES_URL = `${API_BASE_URL}/linktypes`;
 
 // Contact
 export const CONTACT_URL = `${API_BASE_URL}/contacts`;

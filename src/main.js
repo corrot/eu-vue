@@ -2,6 +2,8 @@ import Vue from 'vue';
 import BootstrapVue from 'bootstrap-vue';
 import FlagIcon from 'vue-flag-icon';
 import VCalendar from 'v-calendar';
+import VueMarkdown from 'vue-markdown';
+import VuePureLightbox from 'vue-pure-lightbox';
 
 import App from '@/App';
 import router from '@/router';
@@ -24,6 +26,7 @@ import {
   faSitemap,
   faPrint,
   faSearch,
+  faPlusSquare
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
@@ -40,7 +43,8 @@ library.add(
   faLink,
   faSitemap,
   faPrint,
-  faSearch
+  faSearch,
+  faPlusSquare
 );
 
 Vue.prototype.$http = axios;
@@ -51,6 +55,8 @@ Vue.use(FlagIcon);
 Vue.use(BootstrapVue);
 Vue.use(VueSimpleMarkdown);
 Vue.use(VueYouTubeEmbed);
+Vue.use(VueMarkdown);
+Vue.use(VuePureLightbox);
 
 Vue.config.productionTip = false;
 

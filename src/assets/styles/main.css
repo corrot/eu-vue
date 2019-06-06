@@ -36,6 +36,10 @@ li {
 
 a:hover {
   text-decoration: none;
+  color: #e07400;
+}
+a{
+  color: #ff8400;
 }
 
 .flag-icon{
@@ -122,4 +126,30 @@ a:hover {
 .btn-container{
   padding: 8px!important;
   text-align: right;
+}
+
+.cards {
+  margin-top: 30px;
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+.cards:first-child{
+  margin-top: 0;
+}
+.card{
+  border-radius: 0!important;
+}
+.card-img-top{
+  border-radius: 0!important;
+}
+.card-body{
+  padding:10px;
+}
+.section-title{
+  font-size: 20px;
+  padding-left: 10px;
+  border-left: 3px solid #ff8400;
+  color: #141e3a;
+  font-weight: bold;
 }

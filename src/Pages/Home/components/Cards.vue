@@ -1,25 +1,6 @@
 <template>
   <div class="cards">
-    <h4 style="margin-bottom: 20px;">{{ $t('NewsArchive') }}</h4>
-      <!-- <b-card no-body class="overflow-hidden" v-for="newsArticle in news" :key="newsArticle.id">
-          <b-row no-gutters>
-            <b-col md="4">
-              <b-card-img :src="base_url + newsArticle.image.url" :alt="newsArticle[`title_${locale}`]" class="rounded-0"></b-card-img>
-            </b-col>
-            <b-col md="8">
-              <b-card-body :title="newsArticle[`title_${locale}`]">
-                <b-card-text>
-                  <p>
-                  {{ newsArticle[`article_${locale}`] }}
-                  </p>
-                </b-card-text>
-              <div class="btn-container">
-                <b-button class="btn-read-more" @click="expandArticle(newsArticle.id)">{{ $t("ReadMore") }}...</b-button>
-              </div>
-              </b-card-body>
-            </b-col>
-          </b-row>
-        </b-card> -->
+    <router-link to="/media/news-archive"><h5 class="section-title">{{ $t('News') }}</h5></router-link>
     <b-row>
       <b-col cols="4" v-for="newsArticle in news" :key="newsArticle.id">
         <div class="card">
@@ -97,13 +78,12 @@ export default {
 <style lang="postcss" scoped>
 .cards{
   background: #fff;
-  padding: 30px;
+  padding: 10px;
   border: 1px solid #ddd;
 }
 
 .card{
   border-radius: 0;
-  margin-bottom: 30px;
 }
 
 .card-title{
@@ -120,10 +100,10 @@ export default {
 .card-body{
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;  
   font-family: 'Open Sans', 'BPG Glaho WEB Caps', sans-serif;
-  max-height: 46px;
+  max-height: 90px;
   padding: 8px;
 }
 .card-text{

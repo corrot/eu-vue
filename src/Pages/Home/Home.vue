@@ -3,7 +3,7 @@
     <slider-component/>
     <decisions-cards-component></decisions-cards-component>
 
-    <b-container style="display: flex; padding: 20px 0;">
+    <b-container style="display: flex">
       <div style="width: calc(100% - 286px); padding-right: 30px;" class="page-row">
         <!-- <links-component/> -->
         <!-- <testimonials-component/> -->
@@ -12,10 +12,10 @@
         <photo-gallery-component/>
       </div>
       <div style="width: 286px;" class="page-row">
-        <calendar-component/>
-        <fbwidget-component/>
-        <projects-component/>
-        <events-component/>
+        <calendar-component class="mb-2"/>
+        <fbwidget-component class="mb-2"/>
+        <projects-component class="mb-4"/>
+        <events-component class="mb-4"/>
         <public-survey-component/>
       </div>
     </b-container>

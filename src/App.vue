@@ -13,7 +13,7 @@
       <router-view></router-view>
     </div>
     <footer-component/>
-    <go-top :size="55" :z-index="10000" bg-color="#DB2323" :radius="0"></go-top>
+    <go-top :size="55" :z-index="10000" bg-color="#DB2323cc" :radius="0" :right="40" :bottom="40"></go-top>
   </div>
 </template>
 
