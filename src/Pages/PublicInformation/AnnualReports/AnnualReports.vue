@@ -1,12 +1,11 @@
 <template>
   <b-container>
     <h2>{{ $t('AnnualReports') }}:</h2>
-    
     <div class="cards">
         <div class="card" v-for="report in data" :key="report.id">
           <h4 class="card-title">{{ report[`title_${locale}`] }}</h4>
           <div class="card-img-container">
-            <a v-if="report[`doc_${locale}`]" :href="(report[`doc_${locale}`]).url" target="_blank"><img class="card-img-top rounded-0" src="@/assets/doc-icon.svg" alt="document"></a>
+            <a v-if="report[`doc_${locale}`]" :href="API_BASE_URL + '/uploads/' + report[`doc_${locale}`][0].hash + report[`doc_${locale}`][0].ext" target="_blank"><img class="card-img-top rounded-0" src="@/assets/doc-icon.svg" alt="document"></a>
             <a v-else><img class="card-img-top rounded-0" src="@/assets/doc-icon.svg" alt="document"></a>
           </div>
         </div>
@@ -28,6 +27,7 @@ export default {
       data: null,
       loading: true,
       errored: false,
+      API_BASE_URL
     };
   },
   computed: {

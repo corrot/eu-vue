@@ -85,6 +85,13 @@ export default {
 
 .card{
   border-radius: 0;
+  box-shadow: none;
+  border-color: #efefef;
+}
+
+.btn-read-more{
+  background: transparent;
+  padding: 4px 6px;
 }
 
 .card-title{
@@ -94,7 +101,7 @@ export default {
 }
 
 .card-img-container{
-  max-height: 200px;
+  max-height: 150px;
   overflow: hidden;
 }
 

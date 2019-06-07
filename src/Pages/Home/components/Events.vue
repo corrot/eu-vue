@@ -3,7 +3,7 @@
     <router-link to="/media/events"><h5 class="section-title">{{ $t('Events') }}</h5></router-link>
     <b-card
       :title="data[`title_${locale}`]"
-      :img-src="API_BASE_URL + data.photo_gallery.url" :alt="data[`title_${locale}`]"
+      :img-src="API_BASE_URL + data.photo_gallery[0].url" :alt="data[`title_${locale}`]"
       :img-alt="data[`title_${locale}`]"
       img-top
       tag="article"
@@ -11,9 +11,7 @@
       class="mb-2"
     >
     <b-card-text>
-      <vue-markdown>{{ data[`article_${locale}`] }}</vue-markdown>
-      <br />
-      <br />
+      <!-- <vue-markdown>{{ data[`article_${locale}`] }}</vue-markdown> -->
       <div style="font-size: 12px; width: 100%; text-align: right">{{ data.date.split(' ')[0] }}</div>
     </b-card-text>
 
@@ -34,7 +32,7 @@ export default {
   data() {
     return { 
       i18n,
-      API_BASE_URL: API_BASE_URL,
+      API_BASE_URL,
       data: null,
       loading: true,
       errored: false, };
@@ -48,7 +46,7 @@ export default {
     this.$http
       .get(EVENTS_URL)
       .then(response => {
-        this.data = response.data[0];
+        this.data = response.data[response.data.length - 1];
       })
       .catch(error => {
         console.log(error);
@@ -63,5 +61,10 @@ export default {
 </script>
 
 <style lang='postcss' scoped>
-
+  .card-title{
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .card-text{
+  }
 </style>

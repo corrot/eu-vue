@@ -12,7 +12,7 @@ export const VIDEOS_URL = `${API_BASE_URL}/videos`;
 export const WHATWEDO_URL = `${API_BASE_URL}/whatwedos`;
 export const CHAIRMAN_URL = `${API_BASE_URL}/chairmen`;
 export const EMPLOYEES_URL = `${API_BASE_URL}/employees`;
-export const COOPERATION_URL = `${API_BASE_URL}/cooperation`;
+export const COOPERATION_URL = `${API_BASE_URL}/cooperationtypes`;
 export const VACANCIES_URL = `${API_BASE_URL}/vacancies`;
 export const INTERNSHIPS_URL = `${API_BASE_URL}/internships`;
 export const PROJECTS_URL = `${API_BASE_URL}/projects`;
@@ -53,7 +53,7 @@ export const FORMTYPES_URL = `${API_BASE_URL}/formtypes`;
 export const PRESSRELEASES_URL = `${API_BASE_URL}/pressreleas`;
 export const RELEASES_URL = `${API_BASE_URL}/releases`;
 export const NEWSLETTERS_URL = `${API_BASE_URL}/newsletters`;
-export const NEWSARCHIVE_URL = `${API_BASE_URL}/newsarchive`;
+export const NEWSARCHIVE_URL = `${API_BASE_URL}/newsarchives`;
 export const PUBLICATIONS_URL = `${API_BASE_URL}/publications`;
 export const FAQ_URL = `${API_BASE_URL}/faqs`;
 

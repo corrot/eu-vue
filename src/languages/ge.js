@@ -68,4 +68,5 @@ export const ge = {
   UpcomingEvents: 'მომავალი ღონისძიებები',
   PastEvents: 'გავლილი ღონისძიებები',
   CurriculumVitae: 'რეზიუმე',
+  ItemsInGallery: 'ფოტო',
 };

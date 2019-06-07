@@ -3,12 +3,13 @@
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
     <div v-if="!errored && !loading">
-      {{ data }}
+      <vue-markdown>{{ data[0] }}</vue-markdown>
     </div>
   </b-container>
 </template>
 
 <script>
+import VueMarkdown from 'vue-markdown';
 import i18n from '@/plugins/i18n';
 import { API_BASE_URL, WHATWEDO_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
@@ -46,7 +47,7 @@ export default {
     expandArticle(){
     }
   },
-  components: { LoadingSpinner, ServerError }
+  components: { LoadingSpinner, ServerError, VueMarkdown }
 };
 </script>
 

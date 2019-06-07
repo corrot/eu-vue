@@ -18,7 +18,9 @@ body {
   color: #2c3e50;
   position: relative;
 }
-
+.main{
+  padding-bottom: 30px;
+}
 p{
   text-align: justify;
 }
@@ -149,10 +151,63 @@ a{
 .card-img{
   border-radius: 0;
 }
+.card-title, .card-text{
+  color: #333;
+}
 .section-title{
   font-size: 20px;
   padding-left: 10px;
   border-left: 3px solid #ff8400;
   color: #141e3a;
   font-weight: bold;
+}
+.pagination{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+.lightbox{
+  z-index: 99999;
+}
+.btn{
+  border-radius: 0;
+}
+.btn-secondary.decision-tab{
+  font-size: 18px;
+  font-weight: bold;
+  color: #141e3a;
+  background-color: #ddd;
+  box-shadow: 0 0 3px rgba(0,0,0,.3)!important;
+  border: none;
+  padding: 8px 20px;
+}
+
+.decision-tab:hover{
+  background-color: #ddd;
+  box-shadow: 0 0 5px rgba(0,0,0,.3)!important;
+}
+
+.decision-tab.active{
+  box-shadow: 0 0 5px rgba(0,0,0,.3)!important;
+  border-bottom: 3px solid #db2323!important;
+  color: #141e3a!important;
+  background-color: #ddd!important;
+  border-color: #db2323!important;
+}
+.decision-date{
+  font-weight: bold;
+  font-size: 14px;
+  text-align: right;
+}
+.card-header, .card-footer{
+  padding: 8px;
+}
+.card-title{
+  font-size: 18px;
+  font-weight: bold;
+}
+.card{
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, .1);
+  border: 1px #ddd solid;
 }

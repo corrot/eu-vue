@@ -4,6 +4,7 @@ import FlagIcon from 'vue-flag-icon';
 import VCalendar from 'v-calendar';
 import VueMarkdown from 'vue-markdown';
 import VuePureLightbox from 'vue-pure-lightbox';
+import styles from 'vue-pure-lightbox/dist/VuePureLightbox.css';
 
 import App from '@/App';
 import router from '@/router';
@@ -65,5 +66,6 @@ new Vue({
   el: '#app',
   i18n,
   router,
+  styles,
   render: h => h(App),
 });

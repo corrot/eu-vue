@@ -5,7 +5,6 @@
     <div class="main">
       <b-container
         v-if="this.$router.currentRoute.name !== 'home' && this.$router.currentRoute.name !== 'contact'"
-        class="mt-2"
         id="breadcrumb-container"
       >
         <b-breadcrumb class="container" :items="breadcrumbNames"></b-breadcrumb>

@@ -67,4 +67,5 @@ export const en = {
   UpcomingEvents: 'Upcoming Events',
   PastEvents: 'Past Events',
   CurriculumVitae: 'Resume',
+  ItemsInGallery: 'Photos',
 };

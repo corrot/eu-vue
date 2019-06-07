@@ -3,46 +3,30 @@
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
     <div id="news" class="cards" v-if="!errored && !loading">
-      <div class="card" v-for="newsArticle in news" :key="newsArticle.id">
-        <h5 class="card-title font-weight-bold">{{ newsArticle[`title_${locale}`] }}</h5>
-        <div class="card-img-container">
-          <img v-if="newsArticle.image"
-            class="card-img-top rounded-0"
-            :src="base_url + newsArticle.image.url"
-            :alt="newsArticle[`title_${locale}`]"
-          >
-          <img v-else src="@/assets/noimage.jpg" >
-        </div>
-        <div class="card-body">
-          <p class="card-text"><vue-markdown>{{ newsArticle[`article_${locale}`] }}</vue-markdown></p>
-        </div>
-        <div class="btn-container">
-          <b-button class="btn-read-more" @click="expandArticle">{{ $t("ReadMore") }}...</b-button>
-        </div>
-      </div>
-      <!-- <div v-for="article in data" v-bind:key="article.id">
-        <div>
-          <b-card-group deck>
-            <b-card
-              :title="article[`Title_${locale}`]"
-              header-tag="header"
-              footer-tag="footer"
-              class="mb-5"
-            >
-              <h6 slot="header" class="mb-0">{{ article.Date.split(" ")[0] }}</h6>
-              <b-card-text>{{ article[`Annotation_${locale}`] }}</b-card-text>
-              <b-button
-                :href="article[`Document_${locale}`] && article[`Document_${locale}`].url"
-                :disabled="!article[`Document_${locale}`]"
-                variant="primary"
-              >{{ $t('ViewDocument') }}</b-button>
-              <em slot="footer">{{ article[`Tags_${locale}`] }}</em>
-            </b-card>
-          </b-card-group>
-        </div>
-      </div>-->
+      <b-row>
+        <b-col cols="4" v-for="newsArticle in news" :key="newsArticle.id">
+          <div class="card">
+            <h5 class="card-title font-weight-bold">{{ newsArticle[`title_${locale}`] }}</h5>
+            <div class="card-img-container">
+              <img v-if="newsArticle.image"
+                class="card-img-top rounded-0"
+                :src="API_BASE_URL + newsArticle.image.url"
+                :alt="newsArticle[`title_${locale}`]"
+              >
+              <img v-else src="@/assets/noimage.jpg" >
+            </div>
+            <div class="card-body">
+              <p class="card-text"><vue-markdown>{{ newsArticle[`article_${locale}`] }}</vue-markdown></p>
+            </div>
+            <div class="btn-container">
+              <b-button class="btn-read-more" :to="`/media/news-archive/${newsArticle.id}`">{{ $t("ReadMore") }}...</b-button>
+            </div>
+          </div>
+        </b-col>
+      </b-row>
     </div>
     <b-pagination
+      class="pagination"
       v-model="currentPage"
       :total-rows="news.length"
       :per-page="1"
@@ -104,8 +88,6 @@ export default {
 }
 
 .card{
-  width: 31%;
-  margin: 10px;
   border-radius: 0;
 }
 
@@ -119,7 +101,7 @@ export default {
 }
 
 .card-body{
-  max-height: 70px;
+  max-height: 80px;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -135,11 +117,12 @@ export default {
     -webkit-box-shadow: none;
     box-shadow: none;
     background-color: transparent;
+    background: transparent;
     color: inherit;
     border: none;
     box-shadow: none;
     height: 30px;
-    padding: 0;
+    padding: 4px 6px;
     color: #004996;
 }
 

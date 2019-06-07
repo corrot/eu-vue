@@ -1,5 +1,5 @@
 <template>
-  <div class="inv">
+  <b-container class="inv">
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
     <div v-if="!errored && !loading">
@@ -10,9 +10,9 @@
               :title="article[`title_${locale}`]"
               header-tag="header"
               footer-tag="footer"
-              class="mb-5"
+              class="mb-3"
             >
-              <h6 slot="header" class="mb-0">{{ article.date.split(" ")[0] }}</h6>
+              <h6 slot="header" class="mb-0 decision-date">{{ article.date.split(" ")[0] }}</h6>
               <b-card-text>{{ article[`Annotation_${locale}`] }}</b-card-text>
               <b-button class="doc-button"
                 :href="article[`${API_BASE_URL}/uploads/document_${locale}`] && article[`document_${locale}`].url"
@@ -25,7 +25,7 @@
         <!-- <vue-simple-markdown :source="article.Tags"></vue-simple-markdown> -->
       </div>
     </div>
-  </div>
+  </b-container>
 </template>
 
 <script>

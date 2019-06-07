@@ -3,9 +3,10 @@
     <b-container class="mb-3">
       <b-button
         to="/decisions/anti-competitive-agreements/by-prohibition"
-        class="mr-2"
+        class="mr-5 decision-tab"
       >{{$t('ByProhibition')}}</b-button>
       <b-button
+        class="mr-5 decision-tab"
         to="/decisions/anti-competitive-agreements/by-investigation"
       >{{$t('ByInvestigation')}}</b-button>
     </b-container>
@@ -44,19 +45,5 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.btn-secondary{
-  background-color: rgb(0, 0, 0, 0.03)!important;
-  color: #29479a!important;
-  border-radius: 0;
-  border: none!important;
-  padding: 10px;
-}
 
-.btn-secondary:focus{
-  box-shadow: none!important;
-}
-
-.btn-secondary:hover{
-  background-color: rgb(0, 0, 0, 0.07)!important;
-}
 </style>

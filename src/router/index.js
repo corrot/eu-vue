@@ -153,19 +153,19 @@ export const routes = [
     children: [
       {
         title: 'AbuseOfDominantPosition',
-        path: '/decisions/abuse-of-diminant-position/by-prohibition',
+        path: '/decisions/abuse-of-dominant-position/by-prohibition',
         name: 'abuseOfDominantPosition',
         component: AbuseOfDominantPosition,
         children: [
           {
             title: 'ByProhibition',
-            path: '/decisions/abuse-of-diminant-position/by-prohibition',
+            path: '/decisions/abuse-of-dominant-position/by-prohibition',
             name: 'abuseOfDominantPositionByProhibition',
             component: AbuseOfDominantPositionByProhibition,
           },
           {
             title: 'ByInvestigation',
-            path: '/decisions/abuse-of-diminant-position/by-investigation',
+            path: '/decisions/abuse-of-dominant-position/by-investigation',
             name: 'abuseOfDominantPositionByInvestigation',
             component: AbuseOfDominantPositionByInvestigation,
           },
@@ -353,6 +353,13 @@ export const routes = [
         path: '/media/events',
         name: 'events',
         component: Events,
+      },
+      {
+        title: 'News Details',
+        path: '/media/news-archive/:id',
+        name: 'newsDetails',
+        component: NewsDetails,
+        hidden: true,
       },
       {
         title: 'NewsArchive',
