@@ -40,7 +40,6 @@ export default {
       .get(LINKTYPES_URL + '/2')
       .then(response => {
         this.data = response.data;
-        console.log(this.data)
       })
       .catch(error => {
         this.errored = true;

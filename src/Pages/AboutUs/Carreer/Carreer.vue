@@ -2,15 +2,17 @@
   <div class="carreer" style="padding: 15px 0">
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
-    <div v-if="!errored && !loading">
+    <b-container v-if="!errored && !loading">
       <!-- content -->
-    </div>
+      {{ vacancies }}
+      {{ internships }}
+    </b-container>
   </div>
 </template>
 
 <script>
 import i18n from '@/plugins/i18n';
-import { CARREER_URL } from '@/constants.js';
+import { VACANCIES_URL, INTERNSHIPS_URL, API_BASE_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 
@@ -21,6 +23,7 @@ export default {
       data: null,
       loading: true,
       errored: false,
+      API_BASE_URL
     };
   },
   computed: {
@@ -30,9 +33,20 @@ export default {
   },
   mounted() {
     this.$http
-      .get(CARREER_URL)
+      .get(VACANCIES_URL)
       .then(response => {
-        this.data = response.data;
+        this.vacancies = response.data;
+      })
+      .catch(error => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
+
+    this.$http
+      .get(INTERNSHIPS_URL)
+      .then(response => {
+        this.internships = response.data;
       })
       .catch(error => {
         console.log(error);

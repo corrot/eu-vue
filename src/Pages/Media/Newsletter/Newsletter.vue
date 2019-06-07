@@ -3,9 +3,10 @@
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
     <div v-if="!errored && !loading">
-      <div v-for="newsletter in data" v-bind:key="newsletter.id">
-        <h3>{{ newsletter["Title"] }}</h3>
-        <!-- <p>{{ newsletter["Article"] }}</p> -->
+      <div v-for="newsletter in data" :key="newsletter.id">
+        <h3>{{ newsletter[`title_${locale}`] }}</h3>
+        <p>{{ newsletter.date }}</p>
+        <p>{{ newsletter[`article_${locale}`] }}</p>
         <vue-simple-markdown :source="newsletter.Article"></vue-simple-markdown>
       </div>
     </div>
@@ -13,7 +14,8 @@
 </template>
 
 <script>
-import { NEWSLETTERS_URL } from '@/constants.js';
+import i18n from '@/plugins/i18n';
+import { NEWSLETTERS_URL, API_BASE_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 
@@ -24,7 +26,13 @@ export default {
       data: null,
       loading: true,
       errored: false,
+      API_BASE_URL
     };
+  },
+  computed: {
+    locale: () => {
+      return i18n.locale;
+    }
   },
   mounted() {
     this.$http

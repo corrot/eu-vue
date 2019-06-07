@@ -2,7 +2,7 @@
   <div class="newsArchive">
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
-    <div class="cards" v-if="!errored && !loading">
+    <div id="news" class="cards" v-if="!errored && !loading">
       <div class="card" v-for="newsArticle in news" :key="newsArticle.id">
         <h5 class="card-title font-weight-bold">{{ newsArticle[`title_${locale}`] }}</h5>
         <div class="card-img-container">
@@ -20,7 +20,6 @@
           <b-button class="btn-read-more" @click="expandArticle">{{ $t("ReadMore") }}...</b-button>
         </div>
       </div>
-
       <!-- <div v-for="article in data" v-bind:key="article.id">
         <div>
           <b-card-group deck>
@@ -42,16 +41,19 @@
           </b-card-group>
         </div>
       </div>-->
-
-
     </div>
+    <b-pagination
+      v-model="currentPage"
+      :total-rows="news.length"
+      :per-page="1"
+      aria-controls="news"
+    ></b-pagination>
   </div>
 </template>
 
 <script>
 import i18n from '@/plugins/i18n';
 import { API_BASE_URL, NEWSLETTERS_URL } from '@/constants.js';
-// import { NEWSARCHIVE_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 
@@ -59,17 +61,16 @@ export default {
   name: 'NewsArchive',
   data() {
     return {
+      currentPage: 1,
       news: null,
       loading: true,
       errored: false,
+      API_BASE_URL
     };
   },
   computed: {
     locale: () => {
       return i18n.locale;
-    },
-    base_url: () => {
-      return API_BASE_URL;
     }
   },
   mounted() {

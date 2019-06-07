@@ -1,54 +1,95 @@
 <template>
-  <div>
-    <b-container>
-      <div :v-if="locale">
-        <div class="image-canvas">
-          
-          <div id="base">
-            <img style="width: 100%" :src="structure" alt="Structure">
-          </div>   
+  <b-container>
+    <loading-spinner v-if="loading"/>
+    <server-error v-if="errored"/>
+    <div v-if="!errored && !loading">
+      {{ data }}
+    </div>
+    <!-- <div :v-if="locale">
+      <div class="image-canvas">
+        
+        <div id="base">
+          <img style="width: 100%" :src="structure" alt="Structure">
+        </div>   
 
-          <div class="overlay">
-            <span v-for="(item, index) in tree" :key="index">
-              <b-button :to="'/employees/' + index" :id="index">{{ item.title }}</b-button>
-              <b-tooltip :target="index.toString()">{{ item.name }}</b-tooltip>
-            </span>
-          </div>
-     
+        <div class="overlay">
+          <span v-for="(item, index) in tree" :key="index">
+            <b-button :to="'/employees/' + index" :id="index">{{ item.title }}</b-button>
+            <b-tooltip :target="index.toString()">{{ item.name }}</b-tooltip>
+          </span>
         </div>
-
-        <!-- <div v-for="(item, index) in tree" :key="index" class="mb-2">
-          <b-button :to="'/employees/' + index" :id="index">{{ item.title }}</b-button>
-          <b-tooltip :target="index.toString()">{{ item.name }}</b-tooltip>
-        </div> -->
+    
       </div>
-    </b-container>
-  </div>
+
+      <div v-for="(item, index) in tree" :key="index" class="mb-2">
+        <b-button :to="'/employees/' + index" :id="index">{{ item.title }}</b-button>
+        <b-tooltip :target="index.toString()">{{ item.name }}</b-tooltip>
+      </div>
+    </div> -->
+  </b-container>
 </template>
 
 <script>
 import i18n from '@/plugins/i18n';
-import structure from './structure.jpg';
-import tree from './structure-tree.js';
+import { API_BASE_URL, EMPLOYEES_URL } from '@/constants.js';
+import LoadingSpinner from '@/components/LoadingSpinner';
+import ServerError from '@/components/ServerError';
 
 export default {
   name: 'Structure',
   data() {
     return {
-      structure,
-      tree,
+      currentPage: 1,
+      news: null,
+      loading: true,
+      errored: false,
+      API_BASE_URL
     };
   },
   computed: {
     locale: () => {
-      console.log(i18n.locale);
       return i18n.locale;
     },
   },
   mounted() {
-    
-  }
+    this.$http
+      .get(EMPLOYEES_URL)
+      .then(response => {
+        this.data = response.data;
+      })
+      .catch(error => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
+  },
+  methods: {
+    expandArticle(){
+    }
+  },
+  components: { LoadingSpinner, ServerError }
 };
+// import i18n from '@/plugins/i18n';
+// import structure from './structure.jpg';
+// import tree from './structure-tree.js';
+
+// export default {
+//   name: 'Structure',
+//   data() {
+//     return {
+//       structure,
+//       tree,
+//     };
+//   },
+//   computed: {
+//     locale: () => {
+//       console.log(i18n.locale);
+//       return i18n.locale;
+//     },
+//   },
+//   mounted() {
+//   }
+// };
 </script>
 
 <style lang="postcss" scoped>

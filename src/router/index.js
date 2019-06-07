@@ -38,6 +38,7 @@ import NewsDetails from '@/Pages/Media/NewsArchive/NewsDetails';
 import Newsletter from '@/Pages/Media/Newsletter/Newsletter';
 import Announcement from '@/Pages/Media/Announcement/Announcement';
 import Events from '@/Pages/Media/Events/Events';
+import EventDetails from '@/Pages/Media/Events/EventDetails';
 import Publications from '@/Pages/Media/Publications/Publications';
 import Faq from '@/Pages/Media/Faq/Faq';
 
@@ -301,18 +302,18 @@ export const routes = [
       //   name: 'requestStandard',
       //   component: RequestStandard,
       // },
-      {
-        title: 'ApplicationForm',
-        path: '/public/application-form',
-        name: 'applicationForm',
-        component: ApplicationForm,
-      },
-      {
-        title: 'ComplaintForm',
-        path: '/public/complaint-form',
-        name: 'complaintForm',
-        component: ComplaintForm,
-      },
+      // {
+      //   title: 'ApplicationForm',
+      //   path: '/public/application-form',
+      //   name: 'applicationForm',
+      //   component: ApplicationForm,
+      // },
+      // {
+      //   title: 'ComplaintForm',
+      //   path: '/public/complaint-form',
+      //   name: 'complaintForm',
+      //   component: ComplaintForm,
+      // },
     ],
   },
   {
@@ -321,12 +322,12 @@ export const routes = [
     name: 'media',
     component: Media,
     children: [
-      {
-        title: 'Announcement',
-        path: '/media/announcement',
-        name: 'announcement',
-        component: Announcement,
-      },
+      // {
+      //   title: 'Announcement',
+      //   path: '/media/announcement',
+      //   name: 'announcement',
+      //   component: Announcement,
+      // },
       {
         title: 'Press Releases Detail',
         path: '/media/press-releases/:id',
@@ -339,6 +340,13 @@ export const routes = [
         path: '/media/press-releases',
         name: 'pressReleases',
         component: Releases,
+      },
+      {
+        title: 'Event',
+        path: '/media/events/:id',
+        name: 'eventDetails',
+        component: EventDetails,
+        hidden: true,
       },
       {
         title: 'Events',

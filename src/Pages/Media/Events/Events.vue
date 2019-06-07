@@ -2,13 +2,10 @@
   <div style="padding: 15px 0">
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
-    <div>
-      <!-- content -->
-      
+    <div v-if="!errored && !loading">
       <div class="cards">
         <a href="https://www.youtube.com/channel/UCS6PSHW37QIJxqiCBwm-YfQ" target="_blank"><h4 class="mb-2 section-title">{{ $t('UpcomingEvents') }}</h4></a>
-
-        <b-card v-for="event in data" :key="event.id" v-if="event.forfirtpage" class="mb-3">
+        <b-card v-for="event in data" :key="event.id" class="mb-3" v-if="event.forfirtpage">
           <b-row no-gutters>
             <b-col md="3">
               <img style="width:100%" :src="event.photo_gallery[0] && `${API_BASE_URL}/uploads/${event.photo_gallery[0].hash}${event.photo_gallery[0].ext}`" class="rounded-0" />
@@ -35,8 +32,8 @@
 
       <div class="cards">
         <a href="https://www.youtube.com/channel/UCS6PSHW37QIJxqiCBwm-YfQ" target="_blank"><h4 class="mb-2 section-title">{{ $t('PastEvents') }}</h4></a>
-
-        <b-card v-for="event in data" :key="event.id" v-if="!event.forfirtpage" class="mb-3">
+        <b-card v-for="event in data" :key="event.id" class="mb-3" v-if="!event.forfirtpage">
+        <router-link :to="`/media/events/${event.id}`">asd</router-link>
           <b-row no-gutters>
             <b-col md="3">
               <img style="width:100%" :src="event.photo_gallery[0] && `${API_BASE_URL}/uploads/${event.photo_gallery[0].hash}${event.photo_gallery[0].ext}`" class="rounded-0" />
@@ -86,7 +83,7 @@ export default {
   computed: {
     locale: () => {
       return i18n.locale;
-    },
+    }
   },
   mounted() {
     this.$http

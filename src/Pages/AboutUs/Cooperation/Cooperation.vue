@@ -44,7 +44,7 @@ export default {
       data: null,
       loading: true,
       errored: false,
-      API_BASE_URL: API_BASE_URL
+      API_BASE_URL
     };
   },
   computed: {

@@ -2,11 +2,11 @@
   <div>
     <b-container style="padding: 15px 0">
       <b-button
-        to="/decisions/abuse-of-diminant-position/by-prohibition"
+        to="/decisions/unfair-competition/by-prohibition"
         class="mr-2"
       >{{$t('ByProhibition')}}</b-button>
       <b-button
-        to="/decisions/abuse-of-diminant-position/by-investigation"
+        to="/decisions/unfair-competition/by-investigation"
       >{{$t('ByInvestigation')}}</b-button>
     </b-container>
     <router-view></router-view>

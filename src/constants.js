@@ -1,17 +1,29 @@
 export const API_BASE_URL = `http://188.93.88.26:8866`;
 
+// Home
+export const SLIDERDATA_URL = `${API_BASE_URL}/slidaerdata`;
+export const CALENDARDATA_URL = `${API_BASE_URL}/calendardata`;
+export const LINKS_URL = `${API_BASE_URL}/links`;
+export const LINKTYPES_URL = `${API_BASE_URL}/linktypes`;
+export const EVENTS_URL = `${API_BASE_URL}/events`;
+export const VIDEOS_URL = `${API_BASE_URL}/videos`;
+
 // About Us
-export const CHAIRMAN_URL = `${API_BASE_URL}/chairman`;
-export const COOPERATION_URL = `${API_BASE_URL}/cooperation`;
-export const CARREER_URL = `${API_BASE_URL}/carreer`;
 export const WHATWEDO_URL = `${API_BASE_URL}/whatwedos`;
+export const CHAIRMAN_URL = `${API_BASE_URL}/employees/1`;
+export const EMPLOYEES_URL = `${API_BASE_URL}/employees`;
+export const COOPERATION_URL = `${API_BASE_URL}/cooperation`;
+export const VACANCIES_URL = `${API_BASE_URL}/vacancies`;
+export const INTERNSHIPS_URL = `${API_BASE_URL}/internships`;
+export const PROJECTS_URL = `${API_BASE_URL}/projects`;
 
 // Legislation
-export const NATIONAL_URL = `${API_BASE_URL}/national`;
-export const GUIDELINES_URL = `${API_BASE_URL}/guidelines`;
-export const INTERNATIONAL_URL = `${API_BASE_URL}/international`;
-export const PROACTIVE_INFORMATION_URL = `${API_BASE_URL}/proactive`;
-export const EMPLOYEES_URL = `${API_BASE_URL}/employesses`;
+// export const NATIONAL_URL = `${API_BASE_URL}/national`;
+// export const INTERNATIONAL_URL = `${API_BASE_URL}/international`;
+// export const GUIDELINES_URL = `${API_BASE_URL}/guidelines`;
+export const NATIONAL_URL = `${API_BASE_URL}/legislationtypes/1`;
+export const INTERNATIONAL_URL = `${API_BASE_URL}/legislationtypes/2`;
+export const GUIDELINES_URL = `${API_BASE_URL}/legislationtypes/3`;
 
 // Decisions
 export const DECISIONS_URL = `${API_BASE_URL}/decisions`;
@@ -31,28 +43,19 @@ export const ConcentrationControl_URL = `${API_BASE_URL}/decisiontypes/9`;
 export const StateAid_URL = `${API_BASE_URL}/decisiontypes/10`;
 export const MarketMonitoring_URL = `${API_BASE_URL}/decisiontypes/11`;
 
-// Home
-export const SLIDERDATA_URL = `${API_BASE_URL}/slidaerdata`;
-export const CALENDARDATA_URL = `${API_BASE_URL}/calendardata`;
-export const LINKS_URL = `${API_BASE_URL}/links`;
-export const LINKTYPES_URL = `${API_BASE_URL}/linktypes`;
-
-// Contact
-export const CONTACT_URL = `${API_BASE_URL}/contacts`;
+// Public Information
+export const PROACTIVE_INFORMATION_URL = `${API_BASE_URL}/proactive`;
+export const ANNUALREPORTS_URL = `${API_BASE_URL}/annualreports`;
+export const PUBLICSURVEYS_URL = `${API_BASE_URL}/publicsurveys`;
+export const FORMTYPES_URL = `${API_BASE_URL}/formtypes`;
 
 // Media
-export const ANNUALREPORTS_URL = `${API_BASE_URL}/annualreports`;
 export const PRESSRELEASES_URL = `${API_BASE_URL}/pressreleas`;
 export const RELEASES_URL = `${API_BASE_URL}/releases`;
 export const NEWSLETTERS_URL = `${API_BASE_URL}/newsletters`;
 export const NEWSARCHIVE_URL = `${API_BASE_URL}/newsarchive`;
+export const PUBLICATIONS_URL = `${API_BASE_URL}/publications`;
 export const FAQ_URL = `${API_BASE_URL}/faqs`;
 
-// Events
-export const EVENTS_URL = `${API_BASE_URL}/events`;
-
-// Projects
-export const PROJECTS_URL = `${API_BASE_URL}/projects`;
-
-// Videos
-export const VIDEOS_URL = `${API_BASE_URL}/videos`;
+// Contact
+export const CONTACT_URL = `${API_BASE_URL}/contacts`;

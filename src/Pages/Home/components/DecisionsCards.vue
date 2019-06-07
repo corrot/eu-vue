@@ -34,7 +34,6 @@ export default {
       if(route.title === "Decisions")
         this.decisionsRoutes = route.children;
     });
-    this.decisionsRoutes.forEach(path => console.log(path.path))
   },
   computed: {
     locale: () => {

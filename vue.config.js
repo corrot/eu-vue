@@ -1,4 +1,10 @@
  // vue.config.js
  module.exports = {
-  publicPath: 'eu-vue' 
-} 
+  publicPath: 'eu-vue',
+  // test
+  configureWebpack: {
+    devServer: {
+      historyApiFallback: true
+    }
+  }
+}

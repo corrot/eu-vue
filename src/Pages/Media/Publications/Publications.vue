@@ -4,13 +4,14 @@
     <server-error v-if="errored"/>
     <div v-if="!errored && !loading">
       <!-- content -->
+      {{ data }}
     </div>
   </div>
 </template>
 
 <script>
 import i18n from '@/plugins/i18n';
-import { PROACTIVE_INFORMATION_URL } from '@/constants.js';
+import { PUBLICATIONS_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 
@@ -30,7 +31,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get(PROACTIVE_INFORMATION_URL)
+      .get(PUBLICATIONS_URL)
       .then(response => {
         this.data = response.data;
       })

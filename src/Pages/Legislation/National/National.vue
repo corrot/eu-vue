@@ -1,11 +1,12 @@
 <template>
-  <div class="national" style="padding: 15px 0">
+  <b-container class="national" style="padding: 15px 0">
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
     <div v-if="!errored && !loading">
       <!-- content -->
+      {{ data }}
     </div>
-  </div>
+  </b-container>
 </template>
 
 <script>
