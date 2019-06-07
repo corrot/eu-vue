@@ -123,10 +123,10 @@ export default {
 }
 
 .date-container{
-  /* background: #ff8400; */
+  /* background: #cf4e1f; */
   width:100%;
   height: 100%;
-  color: #ff8400;
+  color: #cf4e1f;
   font-weight: bold;
   font-size: 18px;
   position: relative;

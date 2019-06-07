@@ -41,7 +41,7 @@ a:hover {
   color: #e07400;
 }
 a{
-  color: #ff8400;
+  color: #cf4e1f;
 }
 
 .flag-icon{
@@ -157,7 +157,7 @@ a{
 .section-title{
   font-size: 20px;
   padding-left: 10px;
-  border-left: 3px solid #ff8400;
+  border-left: 3px solid #cf4e1f;
   color: #141e3a;
   font-weight: bold;
 }
