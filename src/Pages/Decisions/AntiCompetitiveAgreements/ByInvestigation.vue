@@ -50,7 +50,6 @@ export default {
   },
   computed: {
     locale: () => {
-      console.log(i18n.locale);
       return i18n.locale;
     },
   },

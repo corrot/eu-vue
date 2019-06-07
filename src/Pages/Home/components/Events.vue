@@ -11,7 +11,7 @@
       class="mb-2"
     >
     <b-card-text>
-      {{ data[`article_${locale}`] }}
+      <vue-markdown>{{ data[`article_${locale}`] }}</vue-markdown>
       <br />
       <br />
       <div style="font-size: 12px; width: 100%; text-align: right">{{ data.date.split(' ')[0] }}</div>
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import VueMarkdown from 'vue-markdown';
 import i18n from '@/plugins/i18n';
 import { API_BASE_URL, EVENTS_URL } from '@/constants.js';
 
@@ -54,6 +55,9 @@ export default {
         this.errored = true;
       })
       .finally(() => (this.loading = false));
+  },
+  components: {
+    VueMarkdown
   }
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-container style="padding: 15px 0">
+    <b-container class="mb-3">
       <b-button
         to="/decisions/distortion-of-competition-by-state-authorities/by-prohibition"
         class="mr-2"

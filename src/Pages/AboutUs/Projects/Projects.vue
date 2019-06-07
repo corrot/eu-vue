@@ -1,6 +1,6 @@
 <template>
   <b-container>
-    <div class="projects" style="padding: 15px 0">
+    <div class="projects">
       <loading-spinner v-if="loading"/>
       <server-error v-if="errored"/>
 
@@ -19,7 +19,7 @@
                 <div style="text-align: center" class="mb-3">
                   <img style="max-width: 100%" :src="article.image && `${API_BASE_URL}/uploads/${article.image.hash}${article.image.ext}`"/>
                 </div>
-                <b-card-text>{{ article[`text_${locale}`] }}</b-card-text>
+                <b-card-text><vue-markdown>{{ article[`text_${locale}`] }}</vue-markdown></b-card-text>
                 <a :href="article.Link"
                 >{{ article.Link }}
               </a>
@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import VueMarkdown from 'vue-markdown';
 import i18n from '@/plugins/i18n';
 import { PROJECTS_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
@@ -60,16 +61,15 @@ export default {
       .get(PROJECTS_URL)
       .then(response => {
         this.data = response.data;
-        // console.log(this.data[0]);
       })
       .catch(error => {
         this.errored = true;
       })
       .finally(() => (this.loading = false));
   },
-  components: { LoadingSpinner, ServerError },
+  components: { LoadingSpinner, ServerError, VueMarkdown },
 };
 </script>
 
 <style lang="postcss" scoped>
-</style>
+</style>6

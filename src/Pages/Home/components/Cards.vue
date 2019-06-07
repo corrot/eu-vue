@@ -11,7 +11,7 @@
           </div>
           <div class="card-body">
             <p class="card-text">
-              {{ newsArticle[`article_${locale}`] }}
+              <vue-markdown>{{ newsArticle[`article_${locale}`] }}</vue-markdown>
             </p>
           </div>
           <div class="btn-container">
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import VueMarkdown from 'vue-markdown';
 import i18n from '@/plugins/i18n';
 import { NEWSLETTERS_URL, API_BASE_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
@@ -71,7 +72,7 @@ export default {
       this.$router.push({ name: 'newsDetails', params: { id } });
     }
   },
-  components: { LoadingSpinner, ServerError },
+  components: { LoadingSpinner, ServerError, VueMarkdown },
 };
 </script>
 

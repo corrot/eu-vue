@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-container style="padding: 15px 0">
+    <b-container class="mb-3">
       <b-button
         to="/decisions/abuse-of-diminant-position/by-prohibition"
         class="mr-2"

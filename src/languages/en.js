@@ -66,4 +66,5 @@ export const en = {
   News: 'News',
   UpcomingEvents: 'Upcoming Events',
   PastEvents: 'Past Events',
+  CurriculumVitae: 'Resume',
 };

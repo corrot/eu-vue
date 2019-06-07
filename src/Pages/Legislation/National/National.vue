@@ -1,5 +1,5 @@
 <template>
-  <b-container class="national" style="padding: 15px 0">
+  <b-container class="national">
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
     <div v-if="!errored && !loading">

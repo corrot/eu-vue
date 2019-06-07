@@ -14,7 +14,7 @@
           <img v-else src="@/assets/noimage.jpg" >
         </div>
         <div class="card-body">
-          <p class="card-text">{{ newsArticle[`article_${locale}`] }}</p>
+          <p class="card-text"><vue-markdown>{{ newsArticle[`article_${locale}`] }}</vue-markdown></p>
         </div>
         <div class="btn-container">
           <b-button class="btn-read-more" @click="expandArticle">{{ $t("ReadMore") }}...</b-button>
@@ -52,6 +52,7 @@
 </template>
 
 <script>
+import VueMarkdown from 'vue-markdown';
 import i18n from '@/plugins/i18n';
 import { API_BASE_URL, NEWSLETTERS_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
@@ -90,7 +91,7 @@ export default {
       
     }
   },
-  components: { LoadingSpinner, ServerError }
+  components: { LoadingSpinner, ServerError, VueMarkdown }
 };
 </script>
 

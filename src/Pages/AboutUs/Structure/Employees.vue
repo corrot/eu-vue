@@ -1,6 +1,6 @@
 <template>
   <b-container>
-    <div style="padding: 15px 0">
+    <div>
       <h3>{{item["title"]}}</h3><br />
       <h4>{{item["name"]}}</h4><br />
       <div>

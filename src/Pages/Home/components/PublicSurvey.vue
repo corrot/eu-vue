@@ -1,5 +1,5 @@
 <template>
-  <div class="projects" style="padding: 15px 0">
+  <div class="projects">
     <loading-spinner v-if="loading"/>
     <!-- <server-error v-if="errored"/> -->
 

@@ -1,6 +1,6 @@
 <template>
   <b-container>
-    <div class="projects" style="padding: 15px 0">
+    <div class="projects">
       <loading-spinner v-if="loading"/>
       <server-error v-if="errored"/>
 
@@ -57,7 +57,6 @@ export default {
       .get(COOPERATION_URL)
       .then(response => {
         this.data = response.data;
-        console.log(this.data[0]);
       })
       .catch(error => {
         this.errored = true;

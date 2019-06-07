@@ -1,5 +1,5 @@
 <template>
-  <div style="padding: 15px 0">
+  <div>
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
     <div v-if="!errored && !loading">
@@ -13,7 +13,7 @@
             <b-col md="7">
               <b-card-body :title="event[`title_${locale}`]">
                 <b-card-text>
-                  {{ event[`article_${locale}`] }}
+                  <vue-markdown>{{ event[`article_${locale}`] }}</vue-markdown>
                 </b-card-text>
               </b-card-body>
             </b-col>
@@ -41,7 +41,7 @@
             <b-col md="7">
               <b-card-body :title="event[`title_${locale}`]">
                 <b-card-text>
-                  {{ event[`article_${locale}`] }}
+                  <vue-markdown>{{ event[`article_${locale}`] }}</vue-markdown>
                 </b-card-text>
               </b-card-body>
             </b-col>
@@ -64,6 +64,7 @@
 </template>
 
 <script>
+import VueMarkdown from 'vue-markdown';
 import i18n from '@/plugins/i18n';
 import { EVENTS_URL, API_BASE_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
@@ -97,7 +98,7 @@ export default {
       })
       .finally(() => (this.loading = false));
   },
-  components: { LoadingSpinner, ServerError, VuePureLightbox },
+  components: { LoadingSpinner, ServerError, VuePureLightbox, VueMarkdown },
 };
 </script>
 
