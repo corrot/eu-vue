@@ -23,16 +23,16 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   // these devServer options should be customized in /config/index.js
   devServer: {
     clientLogLevel: 'warning',
-    // historyApiFallback: {
-    //   rewrites: [
-    //     { from: /.*/, to: path.posix.join(config.dev.assetsPublicPath, 'index.html') },
-    //   ],
-    // },
-    historyApiFallback: true, // test
+    historyApiFallback: {
+      rewrites: [
+        { from: /.*/, to: path.posix.join(config.dev.assetsPublicPath, 'index.html') },
+      ],
+    },
+    // historyApiFallback: true, // test
     hot: true,
-    inline: true, // test
-    // contentBase: false, // since we use CopyWebpackPlugin.
-    contentBase: './appout', // test
+    // inline: true, // test
+    contentBase: false, // since we use CopyWebpackPlugin.
+    // contentBase: './appout', // test
     compress: true,
     host: HOST || config.dev.host,
     port: PORT || config.dev.port,
