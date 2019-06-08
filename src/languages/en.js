@@ -70,4 +70,6 @@ export const en = {
   ItemsInGallery: 'Photos',
   InformationTitle: 'Information title',
   RenewStrategy: 'Renew rule',
+  Internships: 'Internships',
+  Vacancies: 'Vacancies',
 };

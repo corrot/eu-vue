@@ -60,4 +60,16 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+  .article > p > a {
+    color: #007bff!important;
+  }
+  .card-header > a{
+    color: #141e3a;
+    font-weight: bold;
+    transition: .3s ease all;
+  }
+  .card-header > a:active, .card-header > a:focus, .card-header > a:hover{
+    color: #e07400;
+    transition: .3s ease all;
+  }
 </style>

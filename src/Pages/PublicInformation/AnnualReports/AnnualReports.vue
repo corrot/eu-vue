@@ -1,16 +1,18 @@
 <template>
   <b-container>
-    <h2>{{ $t('AnnualReports') }}:</h2>
-    <div class="cards">
-        <div class="card" v-for="report in data" :key="report.id">
-          <h4 class="card-title">{{ report[`title_${locale}`] }}</h4>
-          <div class="card-img-container">
-            <a v-if="report[`doc_${locale}`]" :href="API_BASE_URL + '/uploads/' + report[`doc_${locale}`][0].hash + report[`doc_${locale}`][0].ext" target="_blank"><img class="card-img-top rounded-0" src="@/assets/doc-icon.svg" alt="document"></a>
-            <a v-else><img class="card-img-top rounded-0" src="@/assets/doc-icon.svg" alt="document"></a>
+    <h5 class="section-title">{{ $t('AnnualReports') }}:</h5>
+      <b-row>
+        <b-col cols="3" class="mb-4" v-for="report in data" :key="report.id">
+          <div class="card">
+            <h4 class="card-year">{{ report.date.split('-')[0] }}</h4>
+            <div class="card-img-container">
+              <a v-if="report[`doc_${locale}`]" :href="API_BASE_URL + '/uploads/' + report[`doc_${locale}`][0].hash + report[`doc_${locale}`][0].ext" target="_blank"><img class="card-img-top rounded-0" src="@/assets/doc-icon.svg" alt="document"></a>
+              <a v-else><img class="card-img-top rounded-0" src="@/assets/doc-icon.svg" alt="document"></a>
+            </div>
+            <h4 class="card-title">{{ report[`title_${locale}`] }}</h4>
           </div>
-        </div>
-  </div>
-
+        </b-col>
+      </b-row>
   </b-container>
 </template>
 
@@ -60,20 +62,17 @@ export default {
   flex-wrap: wrap;
 }
 
-.card{
-  margin: 1rem;
-  width: 200px;
-  text-align: center;
-}
-
-.card:nth-child(odd){
-  margin-left: 0;
-}
-
-.card-title{
-  margin: 15px 10px;
+.card-year{
+  padding: 8px;
   color: #DB2323;
   font-size: 19px;
+  text-align: center;
+}
+.card-title{
+  padding: 0 8px;
+  font-size: 16px;
+  font-weight: normal;
+  text-align: center;
 }
 
 .card-img-container{

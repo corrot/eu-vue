@@ -71,4 +71,6 @@ export const ge = {
   ItemsInGallery: 'ფოტო',
   InformationTitle: 'ინფორმაციის დასახელება',
   RenewStrategy: 'განახლების ვადები',
+  Internships: 'სტაჟირება',
+  Vacancies: 'ვაკანსიები',
 };
