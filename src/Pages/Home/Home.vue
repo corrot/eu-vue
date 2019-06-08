@@ -18,7 +18,7 @@
         <events-component class="mb-4"/>
         <public-survey-component/>
       </div>
-    </b-container>
+    </b-container>    
   </div>
 </template>
 

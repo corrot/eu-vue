@@ -2,7 +2,7 @@
   <div class="social">
     <ul class="social-container">
       <li>
-        <a class="btn-social fb" href="https://facebook.com" title="Facebook" target="_blank">
+        <a class="btn-social fb" href="https://www.facebook.com/CompetitionAgencyGeo/" title="Facebook" target="_blank">
           <font-awesome-icon class="fa" :icon="['fab', 'facebook']"/>
         </a>
       </li>
@@ -13,17 +13,17 @@
       </li>
       <li> -->
       <li>
-        <a class="btn-social instagram" href="https://instagram.com" title="Instagram" target="_blank">
+        <a class="btn-social instagram" href="https://www.instagram.com/georgian_competition_agency/" title="Instagram" target="_blank">
           <font-awesome-icon class="fa" :icon="['fab', 'instagram']"/>
         </a>
       </li>
       <li>
-        <a class="btn-social linkedin" href="https://linkedin.com" title="LinkedIn" target="_blank">
+        <a class="btn-social linkedin" href="https://www.linkedin.com/company/18127183/admin/" title="LinkedIn" target="_blank">
           <font-awesome-icon class="fa" :icon="['fab', 'linkedin']"/>
         </a>
       </li>
       <li>
-        <a class="btn-social youtube" href="https://youtube.com" title="Youtube" target="_blank">
+        <a class="btn-social youtube" href="https://www.youtube.com/channel/UCS6PSHW37QIJxqiCBwm-YfQ" title="Youtube" target="_blank">
           <font-awesome-icon class="fa" :icon="['fab', 'youtube']"/>
         </a>
       </li>

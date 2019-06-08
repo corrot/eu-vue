@@ -5,6 +5,7 @@ import VCalendar from 'v-calendar';
 import VueMarkdown from 'vue-markdown';
 import VuePureLightbox from 'vue-pure-lightbox';
 import styles from 'vue-pure-lightbox/dist/VuePureLightbox.css';
+import VueFacebookPage from 'vue-facebook-page';
 
 import App from '@/App';
 import router from '@/router';
@@ -58,6 +59,7 @@ Vue.use(VueSimpleMarkdown);
 Vue.use(VueYouTubeEmbed);
 Vue.use(VueMarkdown);
 Vue.use(VuePureLightbox);
+Vue.use(VueFacebookPage, 872826369728027);
 
 Vue.config.productionTip = false;
 

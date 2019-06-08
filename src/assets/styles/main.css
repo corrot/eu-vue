@@ -9,7 +9,9 @@ html,
 body {
   font-family: 'Open Sans', 'DejaVu Sans Condensed', sans-serif;
 }
-
+input{
+  border-radius: 0!important;
+}
 #app {
   font-family: 'Open Sans', 'DejaVu Sans Condensed', sans-serif;
   /* font-family: 'Roboto Condensed', 'DejaVu Sans Condensed', sans-serif; */
@@ -214,4 +216,7 @@ a{
 }
 .table th{
   border-top: none;
+}
+.custom-file-label{
+  border-radius: 0
 }

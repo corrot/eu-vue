@@ -1,16 +1,74 @@
 <template>
-  <div>
+  <b-container>
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
     <div v-if="!errored && !loading">
       <!-- content -->
+      
+      <div class="mb-5">
+        <h5 class="section-title">{{ $t('RequestPublicInformation') }}</h5>
+        <vue-markdown class="article">{{data[0][`text_${locale}`]}}</vue-markdown>
+      </div>
+
+      <div class="mb-5">
+        <h5 class="section-title">{{ $t('RequestForm') }}</h5>
+        <b-form @submit="onSubmit" style="max-width: 30%;">
+          <b-form-group id="input-group-3" :label="`${$t('FirstName')}:`" label-for="input-3">
+            <b-form-input
+              id="input-3"
+              v-model="form.firstName"
+              required
+              :placeholder="$t('FirstName')"
+            ></b-form-input>
+          </b-form-group>
+          <b-form-group id="input-group-4" :label="`${$t('LastName')}:`" label-for="input-4">
+            <b-form-input
+              id="input-4"
+              v-model="form.lastName"
+              required
+              :placeholder="$t('LastName')"
+            ></b-form-input>
+          </b-form-group>
+          <b-form-group id="input-group-5" :label="`${$t('PersonalNumber')}:`" label-for="input-5">
+            <b-form-input
+              id="input-5"
+              v-model="form.personalId"
+              type="number"
+              required
+              :placeholder="$t('PersonalNumber')"
+            ></b-form-input>
+          </b-form-group>
+          <b-form-group id="input-group-5" :label="`${$t('ScannedDocument')}:`" label-for="input-6" :description="$t('UploadAgreement')">
+            <b-form-file
+              id="input-6"
+              v-model="form.file"
+              :state="Boolean(form.file)"
+              :placeholder="$t('ChooseFile')"
+              :drop-placeholder="$t('DropFileHere')"
+              required
+            ></b-form-file>
+          </b-form-group>
+          <b-button class="mt-3" type="submit" variant="primary">{{ $t('Send')}}</b-button>
+        </b-form>
+      </div>
+
+      <div class="mb-5">
+        <h5 class="section-title">{{ $t('RequestStandards') }}</h5>
+        <div v-if="data[0][`doc_${locale}`].length">
+          <div v-for="doc in data[0][`doc_${locale}`]" :key="doc.id">
+            <a target="_blank" :href="`${API_BASE_URL}/uploads/${doc.hash}${doc.ext}`">{{ doc.name.split('.')[0] }}</a>
+          </div>
+        </div>
+      </div> 
+
     </div>
-  </div>
+  </b-container>
 </template>
 
 <script>
+import VueMarkdown from 'vue-markdown';
 import i18n from '@/plugins/i18n';
-import { PROACTIVE_INFORMATION_URL } from '@/constants.js';
+import { ACCESS_PUBLIC_INFORMATION_URL, API_BASE_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 
@@ -21,6 +79,13 @@ export default {
       data: null,
       loading: true,
       errored: false,
+      API_BASE_URL,
+      form: {
+        email: null,
+        firstName: null,
+        lastName: null,
+        file: null
+      }
     };
   },
   computed: {
@@ -30,7 +95,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get(PROACTIVE_INFORMATION_URL)
+      .get(ACCESS_PUBLIC_INFORMATION_URL)
       .then(response => {
         this.data = response.data;
       })
@@ -40,7 +105,13 @@ export default {
       })
       .finally(() => (this.loading = false));
   },
-  components: { LoadingSpinner, ServerError },
+  components: { LoadingSpinner, ServerError, VueMarkdown },
+  methods: {
+    onSubmit(evt) {
+      evt.preventDefault()
+      alert(JSON.stringify(this.form))
+    },
+  }
 };
 </script>
 

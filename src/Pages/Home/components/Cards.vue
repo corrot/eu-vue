@@ -52,12 +52,9 @@ export default {
   },
   mounted() {
     this.$http
-      .get(NEWSLETTERS_URL)
+      .get(NEWSLETTERS_URL + '?_limit=3')
       .then(response => {
-        if(response.data.length > 3)
-          this.news = response.data.slice(0, 3);
-        else
-          this.news = response.data;
+        this.news = response.data;
       })
       .catch(error => {
         console.log(error);

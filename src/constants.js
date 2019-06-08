@@ -49,6 +49,7 @@ export const PROACTIVE_INFORMATION_TYPES_URL = `${API_BASE_URL}/proactiveinforma
 export const ANNUALREPORTS_URL = `${API_BASE_URL}/annualreports`;
 export const PUBLICSURVEYS_URL = `${API_BASE_URL}/publicsurveys`;
 export const FORMTYPES_URL = `${API_BASE_URL}/formtypes`;
+export const ACCESS_PUBLIC_INFORMATION_URL = `${API_BASE_URL}/accesspublicinformations`;
 
 // Media
 export const PRESSRELEASES_URL = `${API_BASE_URL}/pressreleas`;

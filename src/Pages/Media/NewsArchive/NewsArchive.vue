@@ -28,9 +28,10 @@
     <b-pagination
       class="pagination"
       v-model="currentPage"
-      :total-rows="news.length"
-      :per-page="1"
+      :total-rows="count"
+      :per-page="perPage"
       aria-controls="news"
+      v-on:click.native="goTo(currentPage)"
     ></b-pagination>
   </div>
 </template>
@@ -42,25 +43,28 @@ import { API_BASE_URL, NEWSLETTERS_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 
+
 export default {
   name: 'NewsArchive',
   data() {
     return {
       currentPage: 1,
+      perPage: 3,
       news: null,
       loading: true,
       errored: false,
-      API_BASE_URL
+      API_BASE_URL,
+      count: 0
     };
   },
   computed: {
     locale: () => {
       return i18n.locale;
-    }
+    },
   },
   mounted() {
     this.$http
-      .get(NEWSLETTERS_URL)
+      .get(NEWSLETTERS_URL + `?_start=${this.currentPage - 1}&_limit=${this.perPage}`)
       .then(response => {
         this.news = response.data;
       })
@@ -69,10 +73,30 @@ export default {
         this.errored = true;
       })
       .finally(() => (this.loading = false));
+
+      this.$http
+      .get(NEWSLETTERS_URL + '/count')
+      .then(response => {
+        this.count = response.data;
+      })
+      .catch(error => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
   },
   methods: {
-    expandArticle(){
-      
+    goTo(page){
+    this.$http
+      .get(NEWSLETTERS_URL + `?_start=${page - 1}&_limit=${this.perPage}`)
+      .then(response => {
+        this.news = response.data;
+      })
+      .catch(error => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
     }
   },
   components: { LoadingSpinner, ServerError, VueMarkdown }
