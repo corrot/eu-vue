@@ -7,7 +7,7 @@
       <div v-if="!errored && !loading">
         <div v-for="type in data" :key="type.id">
           <div role="tablist" class="mb-5">
-            <h5 class="section-title">{{ type[`title_${locale}`] }}</h5>
+            <h5 v-if="type.cooperation.length" class="section-title">{{ type[`title_${locale}`] }}</h5>
             <b-card no-body class="mb-2" v-for="article in type.cooperation" :key="article.id">
               <b-card-header header-tag="header" class="p-3" role="tab">
                 <a block href="#" v-b-toggle="'accordion-' + article.id" variant="info">

@@ -3,7 +3,7 @@
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
     <div v-if="!errored && !loading">
-      <vue-markdown>{{ data[0] }}</vue-markdown>
+      <vue-markdown>{{ data[0][`text_${locale}`] }}</vue-markdown>
     </div>
   </b-container>
 </template>

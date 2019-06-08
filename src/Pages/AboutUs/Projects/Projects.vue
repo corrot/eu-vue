@@ -6,6 +6,7 @@
 
       <div v-if="!errored && !loading">
         <div role="tablist">
+          <!-- <h5 class="section-title">{{ type[`title_${locale}`] }}</h5> -->
           <b-card no-body class="mb-2" v-for="article in data" :key="article.id">
             <b-card-header header-tag="header" class="p-3" role="tab">
               <a block href="#" v-b-toggle="'accordion-' + article.id" variant="info">
@@ -72,4 +73,16 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-</style>6
+  .article > p > a {
+    color: #007bff!important;
+  }
+  .card-header > a{
+    color: #141e3a;
+    font-weight: bold;
+    transition: .3s ease all;
+  }
+  .card-header > a:active, .card-header > a:focus, .card-header > a:hover{
+    color: #e07400;
+    transition: .3s ease all;
+  }
+</style>
