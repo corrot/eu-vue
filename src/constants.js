@@ -45,6 +45,7 @@ export const MarketMonitoring_URL = `${API_BASE_URL}/decisiontypes/11`;
 
 // Public Information
 export const PROACTIVE_INFORMATION_URL = `${API_BASE_URL}/proactive`;
+export const PROACTIVE_INFORMATION_TYPES_URL = `${API_BASE_URL}/proactiveinformationtypes`;
 export const ANNUALREPORTS_URL = `${API_BASE_URL}/annualreports`;
 export const PUBLICSURVEYS_URL = `${API_BASE_URL}/publicsurveys`;
 export const FORMTYPES_URL = `${API_BASE_URL}/formtypes`;

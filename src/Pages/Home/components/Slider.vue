@@ -18,7 +18,7 @@
         >
           <b-container style="height:100%">
             <div style="position: relative; width: 100%; height:100%;">
-              <div class="slider-text">
+              <div class="slider-text" v-if="item[`text_${locale}`]">
                 <a :href="item.link" class="text">
                   <p class="release-title">{{ item[`text_${locale}`] }}</p>
                 </a>

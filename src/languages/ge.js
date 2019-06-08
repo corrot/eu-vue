@@ -69,4 +69,6 @@ export const ge = {
   PastEvents: 'გავლილი ღონისძიებები',
   CurriculumVitae: 'რეზიუმე',
   ItemsInGallery: 'ფოტო',
+  InformationTitle: 'ინფორმაციის დასახელება',
+  RenewStrategy: 'განახლების ვადები',
 };

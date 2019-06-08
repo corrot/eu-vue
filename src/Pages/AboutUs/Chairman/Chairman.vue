@@ -19,7 +19,7 @@
                   <a :href="`tel:${data.tel_number}`">{{ data.tel_number }}</a>
                 </p>
                 <p>
-                  <a :href="`mailto:${data.tel_number}`">{{ data.email }}</a>
+                  <a :href="`mailto:${data.email}`">{{ data.email }}</a>
                 </p>
                 <p>
                   <a :href="data[`cv_${locale}`] && `${API_BASE_URL}/uploads/${data[`cv_${locale}`].hash}${data[`cv_${locale}`].ext}`" target="_blank">{{ $t('CurriculumVitae') }}</a>

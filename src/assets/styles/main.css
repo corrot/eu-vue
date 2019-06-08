@@ -212,3 +212,6 @@ a{
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, .1);
   border: 1px #ddd solid;
 }
+.table th{
+  border-top: none;
+}

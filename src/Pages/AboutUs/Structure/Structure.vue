@@ -3,8 +3,36 @@
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
     <div v-if="!errored && !loading">
-      {{ data }}
+      <b-row>
+        <b-col cols="6" v-for="emp in data" :key="emp.id">
+          <b-card no-body class="overflow-hidden mb-3">
+            <b-row no-gutters>
+              <b-col md="4" style="height: 160px">
+                <!-- <b-card-img style="max-width: 100%" :src="emp.photo && `${API_BASE_URL}/uploads/${emp.photo.hash}${emp.photo.ext}`"/> -->
+                <div class="img-100" v-bind:style="{'background-image': emp.photo ? `url(${API_BASE_URL}/uploads/${emp.photo.hash}${emp.photo.ext})` : `url(${noimage})`}"></div>
+              </b-col>
+              <b-col md="8">
+                <b-card-body :title="emp[`name_${locale}`]">
+                  <b-card-text>
+                    <h5 class="position">{{ emp[`position_${locale}`] }}</h5>
+                    <div>
+                      <a :href="`tel:${emp.tel_number}`">{{ emp.tel_number }}</a>
+                    </div>
+                    <div>
+                      <a :href="`mailto:${emp.email}`">{{ emp.email }}</a>
+                    </div>
+                    <div v-if="emp[`cv_${locale}`]">
+                      <a :href="emp[`cv_${locale}`] && `${API_BASE_URL}/uploads/${emp[`cv_${locale}`].hash}${emp[`cv_${locale}`].ext}`" target="_blank">{{ $t('CurriculumVitae') }}</a>
+                    </div>
+                  </b-card-text>
+                </b-card-body>
+              </b-col>
+            </b-row>
+          </b-card>
+        </b-col>
+      </b-row>
     </div>
+
     <!-- <div :v-if="locale">
       <div class="image-canvas">
         
@@ -34,6 +62,7 @@ import i18n from '@/plugins/i18n';
 import { API_BASE_URL, EMPLOYEES_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
+import noimage from '../../../assets/noimage.jpg'
 
 export default {
   name: 'Structure',
@@ -43,7 +72,8 @@ export default {
       news: null,
       loading: true,
       errored: false,
-      API_BASE_URL
+      API_BASE_URL,
+      noimage
     };
   },
   computed: {
@@ -93,6 +123,17 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+.position{
+  font-size: 16px;
+}
+.img-100{
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+}
 .image-canvas{
   position: relative;
   width: 100%;

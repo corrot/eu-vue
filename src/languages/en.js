@@ -68,4 +68,6 @@ export const en = {
   PastEvents: 'Past Events',
   CurriculumVitae: 'Resume',
   ItemsInGallery: 'Photos',
+  InformationTitle: 'Information title',
+  RenewStrategy: 'Renew rule',
 };
