@@ -52,7 +52,7 @@ export const FORMTYPES_URL = `${API_BASE_URL}/formtypes`;
 export const ACCESS_PUBLIC_INFORMATION_URL = `${API_BASE_URL}/accesspublicinformations`;
 
 // Media
-export const PRESSRELEASES_URL = `${API_BASE_URL}/pressreleas`;
+export const PRESSRELEASES_URL = `${API_BASE_URL}/presreleas`;
 export const RELEASES_URL = `${API_BASE_URL}/releases`;
 export const NEWSLETTERS_URL = `${API_BASE_URL}/newsletters`;
 export const NEWSARCHIVE_URL = `${API_BASE_URL}/newsarchives`;

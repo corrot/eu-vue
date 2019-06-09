@@ -1,19 +1,28 @@
 <template>
   <b-container>
-    <h1>Links</h1>
-    <ul class="links-container">
-      <li v-for="link in data" :key="link.id" class="link">
-        <a v-if="link[`title_${locale}`] && link.link" :href="link.link">{{ link[`title_${locale}`] }}</a>
-        <a v-else-if="!(link[`title_${locale}`])" :href="link.link">Link {{ link.id }}</a>
-        <a v-else-if="!link.link" href="#">{{ link[`title_${locale}`] }}</a>
-      </li>
-    </ul>
+    <loading-spinner v-if="loading"/>
+    <server-error v-if="errored"/>
+    <div v-if="!errored && !loading">
+      <ul class="links-container">
+        <li v-for="linkType in data" :key="linkType.id" class="link">
+          <h5 class="section-title" v-if="linkType.links.length">{{ linkType.title }}</h5>
+          <a 
+            v-for="link in linkType.links"
+            :key="link.id"
+            :href="link.link"
+            target="_blank"
+          >
+            {{ link[`title_${locale}`] }}
+          </a>
+        </li>
+      </ul>
+    </div>
   </b-container>
 </template>
 
 <script>
 import i18n from '@/plugins/i18n';
-import { API_BASE_URL, LINKS_URL } from '@/constants.js';
+import { API_BASE_URL, LINKS_URL, LINKTYPES_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 
@@ -34,7 +43,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get(LINKS_URL)
+      .get(LINKTYPES_URL)
       .then(response => {
         this.data = response.data;
       })

@@ -5,11 +5,11 @@
     <div v-if="!errored && !loading">
       <div class="cards">
         <a href="https://www.youtube.com/channel/UCS6PSHW37QIJxqiCBwm-YfQ" target="_blank"><h4 class="mb-2 section-title">{{ $t('UpcomingEvents') }}</h4></a>
-          <b-card v-for="event in data" :key="event.id" class="mb-3" v-if="event.forfirtpage">
+          <b-card v-for="event in data" :key="event.id" class="mb-3" v-if="!event.date_finish || new Date(event.date_finish).getTime() > new Date().getTime()">
             <router-link :to="`/media/events/${event.id}`">
             <b-row no-gutters>
               <b-col md="3">
-                <img style="width:100%" :src="event.photo_gallery[0] && `${API_BASE_URL}/uploads/${event.photo_gallery[0].hash}${event.photo_gallery[0].ext}`" class="rounded-0" />
+                <img style="width:100%" :src="event.cover_image && `${API_BASE_URL}/uploads/${event.cover_image.hash}${event.cover_image.ext}`" class="rounded-0" />
               </b-col>
               <b-col md="7">
                 <b-card-body :title="event[`title_${locale}`]">
@@ -34,11 +34,11 @@
 
       <div class="cards">
         <a href="https://www.youtube.com/channel/UCS6PSHW37QIJxqiCBwm-YfQ" target="_blank"><h4 class="mb-2 section-title">{{ $t('PastEvents') }}</h4></a>
-        <b-card v-for="event in data" :key="event.id" class="mb-3" v-if="!event.forfirtpage">
+        <b-card v-for="event in data" :key="event.id" class="mb-3" v-if="event.date_finish && new Date(event.date_finish).getTime() < new Date().getTime()">
         <router-link :to="`/media/events/${event.id}`">
           <b-row no-gutters>
             <b-col md="3">
-              <img style="width:100%" :src="event.photo_gallery[0] && `${API_BASE_URL}/uploads/${event.photo_gallery[0].hash}${event.photo_gallery[0].ext}`" class="rounded-0" />
+              <img style="width:100%" :src="event.cover_image && `${API_BASE_URL}/uploads/${event.cover_image.hash}${event.cover_image.ext}`" class="rounded-0" />
             </b-col>
             <b-col md="7">
               <b-card-body :title="event[`title_${locale}`]">

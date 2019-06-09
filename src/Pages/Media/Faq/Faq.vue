@@ -12,7 +12,7 @@
               <font-awesome-icon class="mr-1" :icon="['fas', 'fa-plus']"/>
             </a>
           </b-card-header>
-          <b-collapse :id="`accordion-${q.id}`" visible accordion="my-accordion" role="tabpanel">
+          <b-collapse :id="`accordion-${q.id}`" accordion="my-accordion" role="tabpanel">
             <b-card-body>
               <b-card-text>{{ q[`answer_${locale}`] }}</b-card-text>
             </b-card-body>

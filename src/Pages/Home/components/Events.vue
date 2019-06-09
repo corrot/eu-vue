@@ -1,24 +1,22 @@
 <template>
   <div v-if="data">
     <router-link to="/media/events"><h5 class="section-title">{{ $t('Events') }}</h5></router-link>
-    <b-card
-      :title="data[`title_${locale}`]"
-      :img-src="API_BASE_URL + data.photo_gallery[0].url" :alt="data[`title_${locale}`]"
-      :img-alt="data[`title_${locale}`]"
-      img-top
-      tag="article"
-      style="max-width: 20rem;"
-      class="mb-2"
-    >
-    <b-card-text>
-      <!-- <vue-markdown>{{ data[`article_${locale}`] }}</vue-markdown> -->
-      <div style="font-size: 12px; width: 100%; text-align: right">{{ data.date.split(' ')[0] }}</div>
-    </b-card-text>
-
-    <!-- <b-button href="#" variant="primary">Go somewhere</b-button> -->
-  </b-card>
+    <router-link :to="`/media/events/${data.id}`">
+      <b-card
+        :title="data[`title_${locale}`]"
+        :img-src="`${API_BASE_URL}/uploads/${data.cover_image.hash}${data.cover_image.ext}`"
+        :alt="data[`title_${locale}`]"
+        img-top
+        tag="article"
+        style="max-width: 20rem;"
+        class="mb-2"
+      >
+        <b-card-text>
+          <div style="font-size: 12px; width: 100%; text-align: right">{{ data.date_start && data.date_start.split(' ')[0] + ' - ' + data.date_finish && data.date_finish.split(' ')[0]}}</div>
+        </b-card-text>
+      </b-card>
+    </router-link>
   </div>
-
 </template>
 
 <script>
@@ -47,6 +45,7 @@ export default {
       .get(EVENTS_URL)
       .then(response => {
         this.data = response.data[response.data.length - 1];
+        console.log(this.data.cover_image)
       })
       .catch(error => {
         console.log(error);

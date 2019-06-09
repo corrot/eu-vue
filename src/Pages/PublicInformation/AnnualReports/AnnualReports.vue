@@ -6,8 +6,11 @@
           <div class="card">
             <h4 class="card-year">{{ report.date.split('-')[0] }}</h4>
             <div class="card-img-container">
-              <a v-if="report[`doc_${locale}`]" :href="API_BASE_URL + '/uploads/' + report[`doc_${locale}`][0].hash + report[`doc_${locale}`][0].ext" target="_blank"><img class="card-img-top rounded-0" src="@/assets/doc-icon.svg" alt="document"></a>
-              <a v-else><img class="card-img-top rounded-0" src="@/assets/doc-icon.svg" alt="document"></a>
+              <a v-if="report[`doc_${locale}`]" :href="API_BASE_URL + '/uploads/' + report[`doc_${locale}`][0].hash + report[`doc_${locale}`][0].ext" target="_blank">
+                <!-- <img class="card-img-top rounded-0" :src="report.image ? `${API_BASE_URL}/uploads/${report.image.hash}${report.image.ext}` : icon" alt="document"> -->
+                <div class="img-100" v-bind:style="{'background-image': report.image ? `url(${API_BASE_URL}/uploads/${report.image.hash}${report.image.ext})` : `url(${noimage})`}"></div>
+              </a>
+              <!-- <a v-else><img class="card-img-top rounded-0" src="@/assets/doc-icon.svg" alt="document"></a> -->
             </div>
             <h4 class="card-title">{{ report[`title_${locale}`] }}</h4>
           </div>
@@ -21,6 +24,7 @@ import i18n from '@/plugins/i18n';
 import { ANNUALREPORTS_URL, API_BASE_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
+import noimage from '../../../assets/noimage.jpg';
 
 export default {
   name: 'AnnualReports',
@@ -29,12 +33,12 @@ export default {
       data: null,
       loading: true,
       errored: false,
-      API_BASE_URL
+      API_BASE_URL,
+      noimage
     };
   },
   computed: {
     locale: () => {
-      console.log(i18n.locale);
       return i18n.locale;
     },
   },
@@ -42,8 +46,7 @@ export default {
     this.$http
       .get(ANNUALREPORTS_URL)
       .then(response => {
-        console.log(response.data);
-        this.data = response.data;
+        this.data = response.data.reverse();
       })
       .catch(error => {
         console.log(error);
@@ -56,6 +59,14 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+.img-100{
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+  width: 100%;
+  height: 150px;
+  background-repeat: no-repeat;
+}
 .cards{
   margin: 30px 0;
   display: flex;
@@ -69,6 +80,13 @@ export default {
   text-align: center;
 }
 .card-title{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  line-height: 20px;        /* fallback */
+  height: 60px;       /* fallback */
   padding: 0 8px;
   font-size: 16px;
   font-weight: normal;
@@ -77,13 +95,13 @@ export default {
 
 .card-img-container{
   text-align: center;
-  padding: 10px;
   padding-bottom: 20px;
 }
 
 .card-img-container img{
-  width: 100px;
+  width: 100%;
   margin: 0 auto;
+  max-height: 140px;
   height: auto;
 }
 

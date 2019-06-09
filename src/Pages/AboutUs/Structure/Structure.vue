@@ -62,7 +62,7 @@ import i18n from '@/plugins/i18n';
 import { API_BASE_URL, EMPLOYEES_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
-import noimage from '../../../assets/noimage.jpg'
+import noimage from '../../../assets/noimage.jpg';
 
 export default {
   name: 'Structure',

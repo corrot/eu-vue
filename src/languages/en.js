@@ -82,4 +82,7 @@ export const en = {
   UploadAgreement: '* The application shall include the name, request, to be signed and scanned. PDF or JPEG format only allowed to upload a maximum file size of 4 MB.',
   Send: 'Send',
   ChooseFile: 'Choose file',
+  CAGInPress: 'Competition agency of Georgia in press',
+  Ongoing: 'Ongoing',
+  Finished: 'Finished',
 };

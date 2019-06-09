@@ -6,7 +6,6 @@ import VueMarkdown from 'vue-markdown';
 import VuePureLightbox from 'vue-pure-lightbox';
 import styles from 'vue-pure-lightbox/dist/VuePureLightbox.css';
 import VueFacebookPage from 'vue-facebook-page';
-// import history from 'connect-history-api-fallback';
 
 import App from '@/App';
 import router from '@/router';
@@ -63,10 +62,6 @@ Vue.use(VuePureLightbox);
 Vue.use(VueFacebookPage, 872826369728027);
 
 Vue.config.productionTip = false;
-
-// var app = connect()
-//   .use(history())
-//   .listen(3000);
 
 /* eslint-disable no-new */
 new Vue({

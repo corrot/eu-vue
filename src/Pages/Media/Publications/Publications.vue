@@ -3,8 +3,10 @@
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
     <div v-if="!errored && !loading">
-      <!-- content -->
-      {{ data }}
+      <div v-for="p in data" :key="p.id">
+        <a :href="p[`link_${locale}`]" target="_blank">{{ p[`title_${locale}`] }}</a>
+        
+      </div>
     </div>
   </div>
 </template>

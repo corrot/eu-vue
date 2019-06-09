@@ -5,13 +5,13 @@
     <div v-if="!errored && !loading">
       <router-link to="/media/events"><h5 class="section-title">{{ $t('PhotoGallery') }}</h5></router-link>
       <b-row>
-        <b-col cols="4" class="pr-0" style="height: 140px; overflow: hidden"
-        v-for="image in images"
-        :key="image[0]">
+        <b-col cols="4" style="height: 140px; overflow: hidden"
+        v-for="(gallery, index) in images"
+        :key="gallery[0]">
           <vue-pure-lightbox
             style="width: 100%"
-            :thumbnail="image[0]"
-            :images="image"
+            :thumbnail="covers[index]"
+            :images="gallery"
           >
           </vue-pure-lightbox>
         </b-col>
@@ -36,7 +36,8 @@ export default {
       loading: true,
       errored: false,
       API_BASE_URL,
-      images: null
+      images: null,
+      covers: []
     };
   },
   computed: {
@@ -48,8 +49,9 @@ export default {
     this.$http
       .get(EVENTS_URL + '?_limit=3')
       .then(response => {
-        this.data = response.data;
-        this.images = this.data.map(o => {
+        this.data = response.data.reverse();
+        this.images = this.data.map((o, i) => {
+          this.covers.push(`${API_BASE_URL}/uploads/${this.data[i].cover_image.hash}${this.data[i].cover_image.ext}`)
           return o.photo_gallery.map(photo => {
             const image = `${API_BASE_URL}/uploads/${photo.hash}${photo.ext}`;
             return image;
