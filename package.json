@@ -39,6 +39,7 @@
     "vue-pure-lightbox": "^3.1.0",
     "vue-router": "^3.0.1",
     "vue-simple-markdown": "^1.0.9",
+    "vue-social-sharing": "^2.4.5",
     "vue-youtube-embed": "^2.2.1"
   },
   "devDependencies": {

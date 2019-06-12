@@ -86,6 +86,7 @@ export default {
       .get(EMPLOYEES_URL)
       .then(response => {
         this.data = response.data;
+        console.log(this.data)
       })
       .catch(error => {
         console.log(error);

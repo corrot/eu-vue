@@ -2,55 +2,116 @@
   <div class="newsArchive">
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
-    <div id="news" class="cards" v-if="!errored && !loading">
-      <b-row>
-        <b-col cols="4" v-for="newsArticle in news" :key="newsArticle.id">
-          <div class="card">
-            <h5 class="card-title font-weight-bold">{{ newsArticle[`title_${locale}`] }}</h5>
-            <div class="card-img-container">
-              <img v-if="newsArticle.image"
-                class="card-img-top rounded-0"
-                :src="API_BASE_URL + newsArticle.image.url"
-                :alt="newsArticle[`title_${locale}`]"
-              >
-              <img v-else src="@/assets/noimage.jpg" >
+    <div v-if="!errored && !loading">
+      <div class="years-container">
+        <div v-for="year in years" :key="year" :class="year == activeYear && 'active'" @click="setYear(year)">{{ year }}
+          <div class="triangle"></div>
+        </div>
+      </div>
+      <div class="months-container mt-3">
+        <div v-for="month in months" :key="month" :class="month == activeMonth && 'active'" @click="setMonth(month)">{{ month }}
+          <div class="triangle"></div>
+        </div>
+      </div>
+
+      <div class="mt-4">
+        <h5 class="section-title">{{ $t('Events') }}</h5>
+        <div
+          v-for="item in events"
+          :key="item.id"
+        >
+        <router-link
+          :to="`/media/events/${item.id}`"
+          v-if="item.date_finish.split(' ')[0].split('-')[0] == activeYear && parseInt(item.date_finish.split(' ')[0].split('-')[1]) == activeMonth"
+          >
+          {{ item[`title_${locale}`] }}
+        </router-link>
+        </div>
+      </div>
+      <div class="mt-4">
+        <h5 class="section-title">{{ $t('PressReleases') }}</h5>
+        <div v-for="item in pressReleases"
+          :key="item.id">
+          <a
+            v-if="item.date.split(' ')[0].split('-')[0] == activeYear && parseInt(item.date.split(' ')[0].split('-')[1]) == activeMonth"
+            :href="item.image && `${API_BASE_URL}/uploads/${item.image.hash}${item.image.ext}`"
+            target="_blank"
+          >
+            {{ item[`title_${locale}`] }}
+          </a>
+        </div>
+      </div>
+      <div class="mt-4">
+        <h5 class="section-title">{{ $t('Releases') }}</h5>
+        <div v-for="item in releases"
+          :key="item.id">
+          <a
+            v-if="item.date.split(' ')[0].split('-')[0] == activeYear && parseInt(item.date.split(' ')[0].split('-')[1]) == activeMonth"
+            :href="item.image && `${API_BASE_URL}/uploads/${item.image.hash}${item.image.ext}`"
+            target="_blank"
+          >
+            {{ item[`title_${locale}`] }}
+          </a>
+        </div>
+      </div>
+          
+      <!-- <div v-for="item in sortedItems" :key="item.id">{{ item.date || item.date_finish }}{{ item[`title_${locale}`] }}</div> -->
+      <!-- <div id="news" class="cards">
+        <b-row>
+          <b-col cols="4" v-for="newsArticle in news" :key="newsArticle.id">
+            <div class="card">
+              <h5 class="card-title font-weight-bold">{{ newsArticle[`title_${locale}`] }}</h5>
+              <div class="card-img-container">
+                <img v-if="newsArticle.image"
+                  class="card-img-top rounded-0"
+                  :src="API_BASE_URL + newsArticle.image.url"
+                  :alt="newsArticle[`title_${locale}`]"
+                >
+                <img v-else src="@/assets/noimage.jpg" >
+              </div>
+              <div class="card-body">
+                <p class="card-text"><vue-markdown>{{ newsArticle[`article_${locale}`] }}</vue-markdown></p>
+              </div>
+              <div class="btn-container">
+                <b-button class="btn-read-more" :to="`/media/news-archive/${newsArticle.id}`">{{ $t("ReadMore") }}...</b-button>
+              </div>
             </div>
-            <div class="card-body">
-              <p class="card-text"><vue-markdown>{{ newsArticle[`article_${locale}`] }}</vue-markdown></p>
-            </div>
-            <div class="btn-container">
-              <b-button class="btn-read-more" :to="`/media/news-archive/${newsArticle.id}`">{{ $t("ReadMore") }}...</b-button>
-            </div>
-          </div>
-        </b-col>
-      </b-row>
+          </b-col>
+        </b-row>
+      </div> -->
+      <!-- <b-pagination
+        class="pagination"
+        v-model="currentPage"
+        :total-rows="count"
+        :per-page="perPage"
+        aria-controls="news"
+        v-on:click.native="goTo(currentPage)"
+      ></b-pagination> -->
     </div>
-    <b-pagination
-      class="pagination"
-      v-model="currentPage"
-      :total-rows="count"
-      :per-page="perPage"
-      aria-controls="news"
-      v-on:click.native="goTo(currentPage)"
-    ></b-pagination>
   </div>
 </template>
 
 <script>
 import VueMarkdown from 'vue-markdown';
 import i18n from '@/plugins/i18n';
-import { API_BASE_URL, NEWSLETTERS_URL } from '@/constants.js';
+import { API_BASE_URL, NEWSLETTERS_URL, EVENTS_URL, RELEASES_URL, PRESSRELEASES_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
-
 
 export default {
   name: 'NewsArchive',
   data() {
     return {
-      currentPage: 1,
-      perPage: 3,
-      news: null,
+      // currentPage: 1,
+      // perPage: 3,
+      // news: null,
+      activeMonth: 0,
+      activeYear: 0,
+      months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      events: null,
+      releases: null,
+      pressReleases: null,
+      data: [],
       loading: true,
       errored: false,
       API_BASE_URL,
@@ -61,12 +122,48 @@ export default {
     locale: () => {
       return i18n.locale;
     },
+    sortedItems: function() {
+      return this.data.sort((a, b) => new Date(a.date || a.date_finish) - new Date(b.date || b.date_finish))
+    },
+    years: function() {
+      const j = this.data;
+      function onlyUnique(value, index, self) { 
+        return self.indexOf(value) === index;
+      }
+      return this.sortedItems.map(item => item.date && item.date.split(' ')[0].split('-')[0] || item.date_finish && item.date_finish.split(' ')[0].split('-')[0])
+      .filter(onlyUnique);
+    }
   },
   mounted() {
+      this.activeMonth = new Date().getMonth(),
+      this.activeYear = new Date().getFullYear(),
+    // this.$http
+      // .get(NEWSLETTERS_URL + `?_start=${this.currentPage - 1}&_limit=${this.perPage}`)
+      // .then(response => {
+      //   this.news = response.data;
+      // })
+      // .catch(error => {
+      //   console.log(error);
+      //   this.errored = true;
+      // })
+      // .finally(() => (this.loading = false));
+
+      // this.$http
+      // .get(NEWSLETTERS_URL + '/count')
+      // .then(response => {
+      //   this.count = response.data;
+      // })
+      // .catch(error => {
+      //   console.log(error);
+      //   this.errored = true;
+      // })
+      // .finally(() => (this.loading = false));
+
     this.$http
-      .get(NEWSLETTERS_URL + `?_start=${this.currentPage - 1}&_limit=${this.perPage}`)
+      .get(EVENTS_URL)
       .then(response => {
-        this.news = response.data;
+        this.events = response.data;
+        this.data.push(...this.events);
       })
       .catch(error => {
         console.log(error);
@@ -74,10 +171,23 @@ export default {
       })
       .finally(() => (this.loading = false));
 
-      this.$http
-      .get(NEWSLETTERS_URL + '/count')
+    this.$http
+      .get(RELEASES_URL)
       .then(response => {
-        this.count = response.data;
+        this.releases = response.data;
+        this.data.push(...this.releases);
+      })
+      .catch(error => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
+      
+    this.$http
+      .get(PRESSRELEASES_URL)
+      .then(response => {
+        this.pressReleases = response.data;
+        this.data.push(...this.pressReleases);
       })
       .catch(error => {
         console.log(error);
@@ -86,17 +196,27 @@ export default {
       .finally(() => (this.loading = false));
   },
   methods: {
-    goTo(page){
-    this.$http
-      .get(NEWSLETTERS_URL + `?_start=${page - 1}&_limit=${this.perPage}`)
-      .then(response => {
-        this.news = response.data;
-      })
-      .catch(error => {
-        console.log(error);
-        this.errored = true;
-      })
-      .finally(() => (this.loading = false));
+    // goTo(page){
+    // this.$http
+    //   .get(NEWSLETTERS_URL + `?_start=${page - 1}&_limit=${this.perPage}`)
+    //   .then(response => {
+    //     this.news = response.data;
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //     this.errored = true;
+    //   })
+    //   .finally(() => (this.loading = false));
+    // }
+    setMonth(month){
+      console.log(month)
+      this.activeMonth = month;
+      console.log(this.activeMonth)
+      return this.activeMonth;
+    },
+    setYear(year){
+      this.activeYear = year;
+      return this.activeYear;
     }
   },
   components: { LoadingSpinner, ServerError, VueMarkdown }
@@ -159,5 +279,27 @@ export default {
 
 .btn-read-more:hover{
     color:#4080ff;
+}
+
+.months-container, .years-container{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 3px solid #cf4e1f;
+  font-weight: bold;
+  padding: 10px 20px;
+  background: #ffd400;
+  user-select: none;
+  box-shadow: 1px 1px 3px -1px rgba(0,0,0,.3)
+}
+.months-container > div, .years-container > div{
+  position: relative;
+  cursor: pointer;
+}
+.triangle{
+  border-color: transparent transparent #cf4e1f transparent;
+  top: 100%;
+}
+.months-container > div:hover > .triangle, .years-container > div:hover > .triangle, .months-container > div.active > .triangle, .years-container > div.active > .triangle {
+  opacity: 1;
 }
 </style>

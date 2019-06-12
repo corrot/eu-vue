@@ -90,20 +90,6 @@ export default {
   margin-bottom: 10px;
 }
 
-.triangle{
-  position: absolute;
-  top: -20px;
-  left:50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 10px 10px 10px;
-  border-color: transparent transparent #f7f7f7 transparent;
-  opacity: 0;
-  transition: .3s ease all;
-}
-
 .decision-card:hover > a > .card-icon-title > .triangle{
   opacity: 1;
   transition: .3s ease all;

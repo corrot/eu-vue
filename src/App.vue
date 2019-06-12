@@ -6,8 +6,18 @@
       <b-container
         v-if="this.$router.currentRoute.name !== 'home' && this.$router.currentRoute.name !== 'contact'"
         id="breadcrumb-container"
+        style="display: flex; justify-content: space-between"
       >
         <b-breadcrumb class="container" :items="breadcrumbNames"></b-breadcrumb>
+        <social-sharing class="text-right" :url="origin + $route.fullPath" inline-template>
+          <div>
+            <network network="facebook">
+              <div style="width: 115px; padding: 12px 0">
+                <span class="share-text"><font-awesome-icon class="fa" :icon="['fab', 'facebook']"/> {{ $t('Share') }}</span>
+              </div>
+            </network>
+          </div>
+        </social-sharing>
       </b-container>
       <router-view></router-view>
     </div>
@@ -28,6 +38,7 @@ export default {
   data() {
     return {
       routePaths: [],
+      origin: window.location.origin
     };
   },
   computed: {

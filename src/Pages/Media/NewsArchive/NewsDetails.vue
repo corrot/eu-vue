@@ -9,6 +9,9 @@
       </div>
       <img style="max-width: 100%" :src="data.image && `${API_BASE_URL}/uploads/${data.image.hash}${data.image.ext}`"/>
       <vue-markdown class="mt-3">{{ data[`article_${locale}`] }}</vue-markdown>
+      <div class="mt-3" v-if="data.video">
+        <youtube player-width="300" player-height="180" :video-id="data.video.split('=')[1]"></youtube>
+      </div>
     </div>
   </b-container>
 </template>

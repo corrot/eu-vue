@@ -220,3 +220,21 @@ a{
 .custom-file-label{
   border-radius: 0
 }
+.share-text{
+  font-size: 16px;
+  cursor: pointer;
+  color: #405d9b;
+}
+.triangle{
+  position: absolute;
+  top: -20px;
+  left:50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent #f7f7f7 transparent;
+  opacity: 0;
+  transition: .3s ease all;
+}

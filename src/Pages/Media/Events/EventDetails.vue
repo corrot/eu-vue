@@ -25,6 +25,9 @@
           </vue-pure-lightbox>
         </b-col>
       </b-row>
+      <div class="mt-3" v-if="data.video">
+        <youtube player-width="300" player-height="180" :video-id="data.video && data.video.split('=')[1]"></youtube>
+      </div>
     </div>
   </b-container>
 </template>
@@ -47,7 +50,7 @@ export default {
       loading: true,
       errored: false,
       API_BASE_URL,
-      id: this.$route.params.id
+      id: this.$route.params.id,
     };
   },
   computed: {

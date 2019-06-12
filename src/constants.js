@@ -1,4 +1,4 @@
-export const API_BASE_URL = `http://188.93.88.26:8866`;
+export const API_BASE_URL = `https://188.93.88.26:8866`;
 
 // Home
 export const SLIDERDATA_URL = `${API_BASE_URL}/slidaerdata`;

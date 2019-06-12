@@ -38,7 +38,7 @@
                 <font-awesome-icon class="mr-1" :icon="['fas', 'fa-plus']"/>
               </a>
             </b-card-header>
-            <b-collapse :id="`accordion-${article.id}`" visible accordion="my-accordion" role="tabpanel">
+            <b-collapse :id="`accordion-${article.id}`" accordion="my-accordion" role="tabpanel">
               <b-card-body>
                 <h5 class="mb-3">{{ article.date_start.split(' ')[0] + ' - ' + article.date_finish.split(' ')[0] }}</h5>
                 <div style="text-align: center" class="mb-3">

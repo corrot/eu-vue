@@ -85,4 +85,5 @@ export const en = {
   CAGInPress: 'Competition agency of Georgia in press',
   Ongoing: 'Ongoing',
   Finished: 'Finished',
+  Share: 'Share',
 };
