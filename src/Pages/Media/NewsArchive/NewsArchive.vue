@@ -135,7 +135,7 @@ export default {
     }
   },
   mounted() {
-      this.activeMonth = new Date().getMonth(),
+      this.activeMonth = parseInt(new Date().getMonth()) + 1,
       this.activeYear = new Date().getFullYear(),
     // this.$http
       // .get(NEWSLETTERS_URL + `?_start=${this.currentPage - 1}&_limit=${this.perPage}`)
