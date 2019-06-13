@@ -15,7 +15,7 @@
             <b-collapse :id="`accordion-1-${vacancy.id}`" accordion="my-accordion" role="tabpanel">
               <b-card-body>
                 <b-card-text><vue-markdown class="article">{{ vacancy[`article_${locale}`] }}</vue-markdown></b-card-text>
-                <b-button :href="vacancy.image && `${API_BASE_URL}/uploads/${vacancy.image.hash}${vacancy.image.ext}`" target="_blank">{{ $t('ViewDocument') }}</b-button>
+                <b-button :href="vacancy[`document_${locale}`] && `${API_BASE_URL}/uploads/${vacancy[`document_${locale}`].hash}${vacancy[`document_${locale}`].ext}`" target="_blank">{{ $t('ViewDocument') }}</b-button>
               </b-card-body>
             </b-collapse>
           </b-card>
@@ -33,7 +33,7 @@
             <b-collapse :id="`accordion-2-${internship.id}`" accordion="my-accordion" role="tabpanel">
               <b-card-body>
                 <b-card-text><vue-markdown class="article">{{ internship[`article_${locale}`] }}</vue-markdown></b-card-text>
-                <b-button :href="internship.image && `${API_BASE_URL}/uploads/${internship.image.hash}${internship.image.ext}`" target="_blank">{{ $t('ViewDocument') }}</b-button>
+                <b-button :href="internship[`document_${locale}`] && `${API_BASE_URL}/uploads/${internship[`document_${locale}`].hash}${internship[`document_${locale}`].ext}`" target="_blank">{{ $t('ViewDocument') }}</b-button>
               </b-card-body>
             </b-collapse>
           </b-card>

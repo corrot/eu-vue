@@ -3,8 +3,30 @@
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
     <div v-if="!errored && !loading">
+      <div :v-if="locale">
+        <div class="image-canvas">
+          <div id="base" class="structure-image mb-4">
+            <img :src="structureImage" :alt="$t('Structure')" />
+          </div>
+          <div class="overlay">
+            <a v-for="(item, index) in data" v-if="item.show" :key="index" :href="`#${item.id}`">
+              <span  :style="{'top': item.top + 'px', 'left': item.left + 'px', 'width': item.width + 'px', 'height': item.height + 'px'}">
+                <!-- <b-button :to="'/employees/' + index" :id="index">{{ item[`position_${locale}`] }}</b-button> -->
+                <b-tooltip :target="index.toString()">
+                  <div>{{ item[`position_${locale}`] }}</div>
+                  <div>{{ item[`name_${locale}`] }}</div>
+                </b-tooltip>
+              </span>
+            </a>
+          </div>
+        </div>
+        <!-- <div v-for="(item, index) in tree" :key="index" class="mb-2">
+          <b-button :to="'/employees/' + index" :id="index">{{ item.title }}</b-button>
+          <b-tooltip :target="index.toString()">{{ item.name }}</b-tooltip>
+        </div> -->
+      </div>
       <b-row>
-        <b-col cols="6" v-for="emp in data" :key="emp.id">
+        <b-col :id="emp.id" cols="6" v-for="emp in data" :key="emp.id">
           <b-card no-body class="overflow-hidden mb-3">
             <b-row no-gutters>
               <b-col md="4" style="height: 160px">
@@ -33,33 +55,12 @@
       </b-row>
     </div>
 
-    <!-- <div :v-if="locale">
-      <div class="image-canvas">
-        
-        <div id="base">
-          <img style="width: 100%" :src="structure" alt="Structure">
-        </div>   
-
-        <div class="overlay">
-          <span v-for="(item, index) in tree" :key="index">
-            <b-button :to="'/employees/' + index" :id="index">{{ item.title }}</b-button>
-            <b-tooltip :target="index.toString()">{{ item.name }}</b-tooltip>
-          </span>
-        </div>
-    
-      </div>
-
-      <div v-for="(item, index) in tree" :key="index" class="mb-2">
-        <b-button :to="'/employees/' + index" :id="index">{{ item.title }}</b-button>
-        <b-tooltip :target="index.toString()">{{ item.name }}</b-tooltip>
-      </div>
-    </div> -->
   </b-container>
 </template>
 
 <script>
 import i18n from '@/plugins/i18n';
-import { API_BASE_URL, EMPLOYEES_URL } from '@/constants.js';
+import { API_BASE_URL, EMPLOYEES_URL, STRUCTURE_IMAGE_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 import noimage from '../../../assets/noimage.jpg';
@@ -69,6 +70,7 @@ export default {
   data() {
     return {
       currentPage: 1,
+      structureImage: 0,
       news: null,
       loading: true,
       errored: false,
@@ -85,8 +87,20 @@ export default {
     this.$http
       .get(EMPLOYEES_URL)
       .then(response => {
+        console.log(response);
         this.data = response.data;
-        console.log(this.data)
+      })
+      .catch(error => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
+
+    this.$http
+      .get(STRUCTURE_IMAGE_URL)
+      .then(response => {
+        const image = response.data[0].image[0];
+        this.structureImage = API_BASE_URL + '/uploads/' + image.hash + image.ext;
       })
       .catch(error => {
         console.log(error);
@@ -100,32 +114,14 @@ export default {
   },
   components: { LoadingSpinner, ServerError }
 };
-// import i18n from '@/plugins/i18n';
-// import structure from './structure.jpg';
-// import tree from './structure-tree.js';
-
-// export default {
-//   name: 'Structure',
-//   data() {
-//     return {
-//       structure,
-//       tree,
-//     };
-//   },
-//   computed: {
-//     locale: () => {
-//       console.log(i18n.locale);
-//       return i18n.locale;
-//     },
-//   },
-//   mounted() {
-//   }
-// };
 </script>
 
 <style lang="postcss" scoped>
 .position{
   font-size: 16px;
+}
+.structure-image > img{
+  width: 100%;
 }
 .img-100{
   background-size: cover;
@@ -149,6 +145,8 @@ export default {
 .overlay span{
   position: absolute;
   z-index: 10;
+  /* background-color: rgba(255,0,0,.3) */
+  border: solid 1px rgba(0,0,0,.1)
 }
 
 .overlay span a{
@@ -164,57 +162,6 @@ export default {
   box-shadow: none!important;
   color: transparent!important;
   border: none!important;
-}
-
-.overlay span:nth-child(1){
-  top: 220px;
-  left: 460px;
-}
-
-.overlay span:nth-child(2){
-  top: 312px;
-  left: 200px;
-}
-
-.overlay span:nth-child(3){
-  top: 325px;
-  left: 600px;
-}
-
-.overlay span:nth-child(4){
-  top: 425px;
-  left: 360px;
-}
-
-.overlay span:nth-child(4) a,
-.overlay span:nth-child(6) a,
-.overlay span:nth-child(7) a{
-  font-size: 0;
-}
-
-.overlay span:nth-child(5){
-  top: 425px;
-  left: 205px;
-}
-
-.overlay span:nth-child(6){
-  top: 425px;
-  left: 695px;
-}
-
-.overlay span:nth-child(7){
-  top: 425px;
-  left: 535px;
-}
-
-.overlay span:nth-child(8){
-  top: 425px;
-  left: 835px;
-}
-
-.overlay span:nth-child(9){
-  top: 520px;
-  left: 105px;
 }
 
 #base {
