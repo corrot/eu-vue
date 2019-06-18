@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <b-container>
     <p>{{ $t('Search') }}</p>
-  </div>
+  </b-container>
 </template>
 
 <script>

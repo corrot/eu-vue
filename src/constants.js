@@ -10,6 +10,7 @@ export const VIDEOS_URL = `${API_BASE_URL}/videos`;
 
 // About Us
 export const WHATWEDO_URL = `${API_BASE_URL}/whatwedos`;
+export const HISTORY_URL = `${API_BASE_URL}/history`;
 export const CHAIRMAN_URL = `${API_BASE_URL}/chairmen`;
 export const EMPLOYEES_URL = `${API_BASE_URL}/employees`;
 export const COOPERATION_URL = `${API_BASE_URL}/cooperationtypes`;

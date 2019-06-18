@@ -9,6 +9,7 @@ import Projects from '@/Pages/AboutUs/Projects/Projects';
 import Structure from '@/Pages/AboutUs/Structure/Structure.vue';
 import Chairman from '@/Pages/AboutUs/Chairman/Chairman';
 import Carreer from '@/Pages/AboutUs/Carreer/Carreer';
+import History from '@/Pages/AboutUs/History/History';
 import Cooperation from '@/Pages/AboutUs/Cooperation/Cooperation';
 import Employees from '@/Pages/AboutUs/Structure/Employees';
 
@@ -110,6 +111,12 @@ export const routes = [
         path: '/about-us/carreer',
         name: 'career',
         component: Carreer,
+      },
+      {
+        title: 'History',
+        path: '/about-us/history',
+        name: 'history',
+        component: History,
       },
       {
         title: 'Projects',
@@ -322,12 +329,12 @@ export const routes = [
     name: 'media',
     component: Media,
     children: [
-      // {
-      //   title: 'Announcement',
-      //   path: '/media/announcement',
-      //   name: 'announcement',
-      //   component: Announcement,
-      // },
+      {
+        title: 'Announcement',
+        path: '/media/announcement',
+        name: 'announcement',
+        component: Announcement,
+      },
       {
         title: 'Press Releases Detail',
         path: '/media/press-releases/:id',

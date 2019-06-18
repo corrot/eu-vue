@@ -2,7 +2,8 @@ export const en = {
   Home: 'Home',
   AboutUs: 'About us',
   Contact: 'Contact',
-  FOOTER_TEXT_1: 'This website has been produced with the assistance of the European Union. Its contents are the sole responsibility of the Competition Agency of Georgia and do not necessarily reflect the views of the European Union.',
+  FOOTER_TEXT_1:
+    'This website has been produced with the assistance of the European Union. Its contents are the sole responsibility of the Competition Agency of Georgia and do not necessarily reflect the views of the European Union.',
   FOOTER_TEXT_2: '© 2019, Competition Agency of Georgia, All rights reserved',
   CompetitionAgencyOfGeorgia: 'Competition Agency Of Georgia',
   ReadMore: 'Read more',
@@ -79,11 +80,13 @@ export const en = {
   LastName: 'Last Name',
   PersonalNumber: 'Personal number',
   ScannedDocument: 'Scanned document',
-  UploadAgreement: '* The application shall include the name, request, to be signed and scanned. PDF or JPEG format only allowed to upload a maximum file size of 4 MB.',
+  UploadAgreement:
+    '* The application shall include the name, request, to be signed and scanned. PDF or JPEG format only allowed to upload a maximum file size of 4 MB.',
   Send: 'Send',
   ChooseFile: 'Choose file',
   CAGInPress: 'Competition agency of Georgia in press',
   Ongoing: 'Ongoing',
   Finished: 'Finished',
   Share: 'Share',
+  History: 'History',
 };

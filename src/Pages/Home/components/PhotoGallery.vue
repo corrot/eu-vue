@@ -3,19 +3,29 @@
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
     <div v-if="!errored && !loading">
-      <router-link to="/media/events"><h5 class="section-title">{{ $t('PhotoGallery') }}</h5></router-link>
+      <router-link to="/media/events">
+        <h5 class="section-title">{{ $t('PhotoGallery') }}</h5>
+      </router-link>
       <b-row>
-        <b-col cols="4" style="height: 140px; overflow: hidden"
-        v-for="(gallery, index) in images"
-        :key="gallery[0]">
-          <vue-pure-lightbox
-            style="width: 100%"
-            :thumbnail="covers[index]"
-            :images="gallery"
-          >
-          </vue-pure-lightbox>
+        <b-col
+          cols="4"
+          style="height: 140px; overflow: hidden"
+          v-for="(gallery, index) in images"
+          :key="gallery[0]"
+        >
+          <vue-pure-lightbox class="gallery-thumbnail" :thumbnail="covers[index]" :images="gallery"></vue-pure-lightbox>
         </b-col>
       </b-row>
+      <div style="width: 100%; text-align: right">
+        <!-- <a
+          class="btn-read-more"
+          href="https://www.youtube.com/channel/UCS6PSHW37QIJxqiCBwm-YfQ"
+          target="_blank"
+        >{{ $t("ViewAll") }}...</a>-->
+        <router-link to="/media/events" class="btn-read-more">
+          <span>{{ $t("ViewAll") }}...</span>
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -37,13 +47,13 @@ export default {
       errored: false,
       API_BASE_URL,
       images: null,
-      covers: []
+      covers: [],
     };
   },
   computed: {
     locale: () => {
       return i18n.locale;
-    }
+    },
   },
   mounted() {
     this.$http
@@ -51,12 +61,16 @@ export default {
       .then(response => {
         this.data = response.data.reverse();
         this.images = this.data.map((o, i) => {
-          this.covers.push(`${API_BASE_URL}/uploads/${this.data[i].cover_image.hash}${this.data[i].cover_image.ext}`)
+          this.covers.push(
+            `${API_BASE_URL}/uploads/${this.data[i].cover_image.hash}${
+              this.data[i].cover_image.ext
+            }`
+          );
           return o.photo_gallery.map(photo => {
             const image = `${API_BASE_URL}/uploads/${photo.hash}${photo.ext}`;
             return image;
-          })
-        })
+          });
+        });
       })
       .catch(error => {
         console.log(error);
@@ -69,5 +83,11 @@ export default {
 </script>
 
 <style lang='postcss' scoped>
-
+.gallery-thumbnail {
+  width: 100%;
+  background: #141e3a;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
 </style>

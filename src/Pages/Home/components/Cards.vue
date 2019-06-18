@@ -1,13 +1,25 @@
 <template>
   <div class="cards">
-    <router-link to="/media/news-archive"><h5 class="section-title">{{ $t('News') }}</h5></router-link>
+    <router-link to="/media/news-archive">
+      <h5 class="section-title">{{ $t('News') }}</h5>
+    </router-link>
     <b-row>
       <b-col cols="4" v-for="newsArticle in news" :key="newsArticle.id">
         <div class="card">
-          <h4 class="card-title font-weight-bold">{{ newsArticle[`title_${locale}`] }}</h4>
+          <h4
+            class="card-title font-weight-bold line-limit-2"
+            :title="newsArticle[`title_${locale}`]"
+          >{{ newsArticle[`title_${locale}`] }}</h4>
           <div class="card-img-container">
-            <img class="card-img-top rounded-0" 
-            :src="base_url + newsArticle.image.url" :alt="newsArticle[`title_${locale}`]">
+            <!-- <img
+              class="card-img-top rounded-0"
+              :src="base_url + newsArticle.image.url"
+              :alt="newsArticle[`title_${locale}`]"
+            >-->
+            <div
+              class="img-100"
+              v-bind:style="{'background-image': newsArticle.image ? `url(${base_url}${newsArticle.image.url})` : `url(${noimage})`}"
+            ></div>
           </div>
           <div class="card-body">
             <p class="card-text">
@@ -15,7 +27,10 @@
             </p>
           </div>
           <div class="btn-container">
-            <b-button class="btn-read-more" @click="expandArticle(newsArticle.id)">{{ $t("ReadMore") }}...</b-button>
+            <b-button
+              class="btn-read-more"
+              @click="expandArticle(newsArticle.id)"
+            >{{ $t("ReadMore") }}...</b-button>
           </div>
         </div>
       </b-col>
@@ -48,7 +63,7 @@ export default {
     },
     base_url: () => {
       return API_BASE_URL;
-    }
+    },
   },
   mounted() {
     this.$http
@@ -61,66 +76,65 @@ export default {
         this.errored = true;
       })
       .finally(() => (this.loading = false));
-      return true;
+    return true;
   },
   methods: {
     expandArticle(id) {
       // alert(id);
       this.$router.push({ name: 'newsDetails', params: { id } });
-    }
+    },
   },
   components: { LoadingSpinner, ServerError, VueMarkdown },
 };
 </script>
 
 <style lang="postcss" scoped>
-.cards{
+.cards {
   background: #fff;
   padding: 10px;
   border: 1px solid #ddd;
 }
 
-.card{
+.card {
   border-radius: 0;
   box-shadow: none;
   border-color: #efefef;
 }
 
-.btn-read-more{
+.btn-read-more {
   background: transparent;
   padding: 4px 6px;
 }
 
-.card-title{
+.card-title {
   margin: 8px;
   font-size: 18px;
   color: #1f345f;
 }
 
-.card-img-container{
+.card-img-container {
   max-height: 150px;
   overflow: hidden;
 }
 
-.card-body{
+.card-body {
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;  
+  -webkit-box-orient: vertical;
   font-family: 'Open Sans', 'BPG Glaho WEB Caps', sans-serif;
   max-height: 90px;
   padding: 8px;
 }
-.card-text{
+.card-text {
   font-size: 14px;
 }
 
-@media (max-width: 1010px){
-  .card{
+@media (max-width: 1010px) {
+  .card {
     width: 92%;
     /* margin: 10px 0; */
     border-radius: 0;
   }
 }
-
 </style>

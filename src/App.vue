@@ -9,11 +9,22 @@
         style="display: flex; justify-content: space-between"
       >
         <b-breadcrumb class="container" :items="breadcrumbNames"></b-breadcrumb>
-        <social-sharing class="text-right" :url="origin + $route.fullPath" inline-template>
+        <social-sharing
+          v-if="this.$router.currentRoute.name === 'pressReleases' 
+          || this.$router.currentRoute.name === 'events' 
+          || this.$router.currentRoute.name === 'announcement' 
+          || this.$router.currentRoute.name === 'eventDetails'"
+          class="text-right"
+          :url="origin + $route.fullPath"
+          inline-template
+        >
           <div>
             <network network="facebook">
               <div style="width: 115px; padding: 12px 0">
-                <span class="share-text"><font-awesome-icon class="fa" :icon="['fab', 'facebook']"/> {{ $t('Share') }}</span>
+                <span class="share-text">
+                  <font-awesome-icon class="fa" :icon="['fab', 'facebook']"/>
+                  {{ $t('Share') }}
+                </span>
               </div>
             </network>
           </div>
@@ -38,7 +49,7 @@ export default {
   data() {
     return {
       routePaths: [],
-      origin: window.location.origin
+      origin: window.location.origin,
     };
   },
   computed: {
@@ -53,6 +64,7 @@ export default {
       this.routePaths.forEach((routePath, index, arr) => {
         arr[index] = routePath.split('-').join(' ');
       });
+      console.log('route: ', this.$router.currentRoute.name);
       return this.routePaths;
     },
   },

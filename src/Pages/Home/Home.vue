@@ -12,13 +12,13 @@
         <photo-gallery-component/>
       </div>
       <div style="width: 286px;" class="page-row">
-        <calendar-component class="mb-2"/>
+        <public-survey-component/>
         <fbwidget-component class="mb-2"/>
         <projects-component class="mb-4"/>
         <events-component class="mb-4"/>
-        <public-survey-component/>
+        <calendar-component class="mb-2"/>
       </div>
-    </b-container>    
+    </b-container>
   </div>
 </template>
 
