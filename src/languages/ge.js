@@ -44,7 +44,7 @@ export const ge = {
   RequestStandard: 'საჯარო ინფორმაციის ელექტრონულად მოთხოვნის სტანდარტი',
   ApplicationForm: 'განაცხადის ფორმა',
   ComplaintForm: 'სასაჩივრე ფორმა',
-  Announcement: 'განცხადებები',
+  Announcement: 'ანონსი',
   Events: 'ღონისძიებები',
   NewsArchive: 'ახალი ამბების არქივი',
   Newsletter: 'საინფორმაციო ბიულეტენი',
