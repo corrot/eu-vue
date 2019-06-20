@@ -3,21 +3,45 @@
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
     <div v-if="!errored && !loading">
-      <div :v-if="locale">
+      <div>
         <div class="image-canvas">
           <div id="base" class="structure-image mb-4">
             <img :src="structureImage" :alt="$t('Structure')" />
-          </div>
-          <div class="overlay">
-            <a v-for="(item, index) in data" v-if="item.show" :key="index" :href="`#${item.id}`">
-              <span  :style="{'top': item.top + 'px', 'left': item.left + 'px', 'width': item.width + 'px', 'height': item.height + 'px'}">
-                <!-- <b-button :to="'/employees/' + index" :id="index">{{ item[`position_${locale}`] }}</b-button> -->
-                <b-tooltip :target="index.toString()">
-                  <div>{{ item[`position_${locale}`] }}</div>
-                  <div>{{ item[`name_${locale}`] }}</div>
-                </b-tooltip>
-              </span>
-            </a>
+            <div class="overlay">
+              <a v-for="(item, index) in data" v-if="item.show" :key="index" :href="`#${item.id}`">
+                <span class="indicator" :style="{'top': item.top + 'px', 'left': item.left + 'px', 'width': item.width + 'px', 'height': item.height + 'px'}">
+                  <!-- <b-button :to="'/employees/' + index" :id="index">{{ item[`position_${locale}`] }}</b-button> -->
+                  <!-- <b-tooltip :target="index.toString()">
+                    <div>{{ item[`position_${locale}`] }}</div>
+                    <div>{{ item[`name_${locale}`] }}</div>
+                  </b-tooltip> -->
+                  <b-card no-body class="overflow-hidden mb-3 card" style="position: absolute; width: 400px; left: 50%; transform: translate(-50%, -100%)">
+                    <b-row no-gutters>
+                      <b-col md="4" style="height: 160px">
+                        <!-- <b-card-img style="max-width: 100%" :src="emp.photo && `${API_BASE_URL}/uploads/${emp.photo.hash}${emp.photo.ext}`"/> -->
+                        <div class="img-100" v-bind:style="{'background-image': item.photo ? `url(${API_BASE_URL}/uploads/${item.photo.hash}${item.photo.ext})` : `url(${noimage})`}"></div>
+                      </b-col>
+                      <b-col md="8">
+                        <b-card-body :title="item[`name_${locale}`]">
+                          <b-card-text>
+                            <h5 class="position">{{ item[`position_${locale}`] }}</h5>
+                            <div>
+                              <a :href="`tel:${item.tel_number}`">{{ item.tel_number }}</a>
+                            </div>
+                            <div>
+                              <a :href="`mailto:${item.email}`">{{ item.email }}</a>
+                            </div>
+                            <div v-if="item[`cv_${locale}`]">
+                              <a :href="item[`cv_${locale}`] && `${API_BASE_URL}/uploads/${item[`cv_${locale}`].hash}${item[`cv_${locale}`].ext}`" target="_blank">{{ $t('CurriculumVitae') }}</a>
+                            </div>
+                          </b-card-text>
+                        </b-card-body>
+                      </b-col>
+                    </b-row>
+                  </b-card>
+                </span>
+              </a>
+            </div>
           </div>
         </div>
         <!-- <div v-for="(item, index) in tree" :key="index" class="mb-2">
@@ -26,11 +50,10 @@
         </div> -->
       </div>
       <b-row>
-        <b-col :id="emp.id" cols="6" v-for="emp in data" :key="emp.id">
+        <!-- <b-col :id="emp.id" cols="6" v-for="emp in data" :key="emp.id">
           <b-card no-body class="overflow-hidden mb-3">
             <b-row no-gutters>
               <b-col md="4" style="height: 160px">
-                <!-- <b-card-img style="max-width: 100%" :src="emp.photo && `${API_BASE_URL}/uploads/${emp.photo.hash}${emp.photo.ext}`"/> -->
                 <div class="img-100" v-bind:style="{'background-image': emp.photo ? `url(${API_BASE_URL}/uploads/${emp.photo.hash}${emp.photo.ext})` : `url(${noimage})`}"></div>
               </b-col>
               <b-col md="8">
@@ -51,7 +74,7 @@
               </b-col>
             </b-row>
           </b-card>
-        </b-col>
+        </b-col> -->
       </b-row>
     </div>
 
@@ -110,6 +133,13 @@ export default {
   },
   methods: {
     expandArticle(){
+    },
+    disableByRef() {
+      if (this.disabled) {
+        this.$refs.tooltip.$emit('enable')
+      } else {
+        this.$refs.tooltip.$emit('disable')
+      }
     }
   },
   components: { LoadingSpinner, ServerError }
@@ -117,6 +147,19 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+.indicator{
+  position: relative;
+}
+.indicator>.card{
+  opacity: 0;
+  display: none;
+  transition: .3s ease all;
+}
+.indicator:hover > .card{
+  opacity: 1;
+  display: block;
+  transition: .3s ease all;
+}
 .position{
   font-size: 16px;
 }
@@ -140,33 +183,38 @@ export default {
 .overlay{
   width: 100%;
   height: 100%;
+  position: absolute;
+  min-height: 600px;
+  top: 0;
+  left: 0;
 }
 
-.overlay span{
+.overlay > a > span{
   position: absolute;
   z-index: 10;
   /* background-color: rgba(255,0,0,.3) */
   border: solid 1px rgba(0,0,0,.1)
 }
 
-.overlay span a{
+/* .overlay span a{
   background-color: transparent;
   border: none;
   width: 110px;
   height: 60px;
   color: transparent;
-}
+} */
 
-.overlay span a:active, .overlay span a:focus{
+/* .overlay span a:active, .overlay span a:focus{
   background-color: transparent!important;
   box-shadow: none!important;
   color: transparent!important;
   border: none!important;
-}
+} */
 
 #base {
   width: 1120px;
   height: auto;
+  position: relative;
 }
 
 </style>

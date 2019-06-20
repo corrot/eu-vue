@@ -1,5 +1,5 @@
 <template>
-  <div class="calendar">
+  <div class="calendar" v-on:click="clicker">
     <v-calendar style="width: 100%;" :attributes="attrs"></v-calendar>
   </div>
 </template>
@@ -8,31 +8,63 @@
 import router from '@/router';
 import TooltipComponent from './Tooltip';
 
+import i18n from '@/plugins/i18n';
+import { EVENTS_URL, API_BASE_URL } from '@/constants.js';
+
 export default {
   name: 'Calendar',
   components: {},
   data() {
     return {
-      attrs: [
-        {
-          key: 'independence',
-          dates: new Date(2019, 4, 26),
-          popover: {
-            label: 'Independence Day',
-          },
-          bar: {},
-        },
-        {
-          key: 'children',
-          dates: new Date(2019, 5, 1),
-          popover: {
-            label: 'Childrens` Day',
-          },
-          bar: {},
-        },
-      ],
+      data: null,
+      attrs: []
+      // [
+      //   {
+      //     key: 'independence',
+      //     dates: new Date(2019, 4, 26),
+      //     popover: {
+      //       label: 'Independence Day',
+      //     },
+      //     bar: {},
+      //   }
+      // ],
     };
   },
+  computed: {
+    locale: () => {
+      return i18n.locale;
+    },
+  },
+  mounted() {
+    this.$http
+      .get(EVENTS_URL)
+      .then(response => {
+        this.data = response.data;
+        this.attrs = this.data && this.data.map(event => {
+        return {
+          key: event.id,
+          dates: event.date_start,
+          popover: {
+            label: event[`title_${this.locale}`],
+          },
+          customData: {
+          },
+          bar: {}
+        }
+      })
+        console.log(this.data);
+      })
+      .catch(error => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
+  },
+  methods: {
+    clicker: (e) => {
+      console.log(e);
+    }
+  }
 };
 </script>
 

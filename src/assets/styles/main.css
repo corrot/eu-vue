@@ -247,7 +247,7 @@ a {
 .line-limit-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: vertical!important;
   overflow: hidden;
   line-height: 28px;
 }

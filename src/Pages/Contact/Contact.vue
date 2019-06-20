@@ -11,10 +11,7 @@
       </b-col>
       <b-col>
         <b-card class="text-center" style="border: none; margin-top: none;">
-          <p class="title"> {{ $t('CompetitionAgencyOfGeorgia') }} </p>
-          <p> {{ data[`adrress_${locale}`] }} </p>
-          <p>{{ $t('Phone') }}: {{ data[`Tel_number`] }} </p>
-          <p>{{ $t('Email') }}: {{ data[`email_${locale}`] }}</p>
+          <p>{{ data[`text_${locale}`] }}</p>
         </b-card>
         
         <!-- <div class="mt-3 input-container">
@@ -114,10 +111,6 @@ export default {
 <style lang="postcss" scoped>
 .col{
   height: 30rem;
-}
-
-p{
-  font-size: 18px;
 }
 
 p.title{
