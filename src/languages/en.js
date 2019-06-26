@@ -89,4 +89,5 @@ export const en = {
   Finished: 'Finished',
   Share: 'Share',
   History: 'History',
+  GoToLink: 'Go to the link',
 };

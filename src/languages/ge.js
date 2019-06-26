@@ -91,4 +91,5 @@ export const ge = {
   Finished: 'დასრულებული',
   Share: 'გაზიარება',
   History: 'ისტორია',
+  GoToLink: 'გადადით ლინკზე',
 };

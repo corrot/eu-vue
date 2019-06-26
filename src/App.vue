@@ -13,6 +13,7 @@
           v-if="this.$router.currentRoute.name === 'pressReleases' 
           || this.$router.currentRoute.name === 'events' 
           || this.$router.currentRoute.name === 'announcement' 
+          || this.$router.currentRoute.name === 'publicSurvey' 
           || this.$router.currentRoute.name === 'eventDetails'"
           class="text-right"
           :url="origin + $route.fullPath"

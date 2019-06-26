@@ -5,7 +5,6 @@
     <div v-if="!errored && !loading">
       <div v-for="p in data" :key="p.id">
         <a :href="p[`link_${locale}`]" target="_blank">{{ p[`title_${locale}`] }}</a>
-        
       </div>
     </div>
   </div>

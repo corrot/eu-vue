@@ -29,9 +29,9 @@
       <div style="position: absolute" class="w-100">
         <social-component class="ml-2"/>
         <b-input-group class="mt-3 ml-2 input-search" size="sm" style="max-width: 200px">
-          <b-form-input placeholder="Search"></b-form-input>
+          <b-form-input v-model="searchQuery" placeholder="Search"></b-form-input>
           <b-input-group-append>
-            <b-button to="/search/no-such-file" class="ml-0" variant="info">
+            <b-button :to="`/search/${searchQuery}`" class="ml-0" variant="info">
               <font-awesome-icon class="icon-search mr-1" :icon="['fas', 'search']"/>
             </b-button>
           </b-input-group-append>
@@ -72,6 +72,7 @@ export default {
   },
   data() {
     return {
+      searchQuery: '',
       languages: [
         { flag: 'gb', language: 'en', title: 'English' },
         { flag: 'ge', language: 'ge', title: 'ქართული' },

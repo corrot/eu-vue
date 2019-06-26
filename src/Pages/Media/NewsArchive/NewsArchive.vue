@@ -15,6 +15,20 @@
       </div>
 
       <div class="mt-4">
+        <h5 class="section-title">{{ $t('News') }}</h5>
+        <div
+          v-for="item in news"
+          :key="item.id"
+        >
+        <router-link
+          :to="`/media/news-archive/${item.id}`"
+          v-if="item.date.split(' ')[0].split('-')[0] == activeYear && parseInt(item.date.split(' ')[0].split('-')[1]) == activeMonth"
+          >
+          {{ item[`title_${locale}`] }}
+        </router-link>
+        </div>
+      </div>
+      <div class="mt-4">
         <h5 class="section-title">{{ $t('Events') }}</h5>
         <div
           v-for="item in events"
@@ -94,7 +108,7 @@
 <script>
 import VueMarkdown from 'vue-markdown';
 import i18n from '@/plugins/i18n';
-import { API_BASE_URL, NEWSLETTERS_URL, EVENTS_URL, RELEASES_URL, PRESSRELEASES_URL } from '@/constants.js';
+import { API_BASE_URL, NEWSLETTERS_URL, EVENTS_URL, RELEASES_URL, NEWSARCHIVE_URL, PRESSRELEASES_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 
@@ -109,6 +123,7 @@ export default {
       activeYear: 0,
       months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
       events: null,
+      news: null,
       releases: null,
       pressReleases: null,
       data: [],
@@ -158,6 +173,18 @@ export default {
       //   this.errored = true;
       // })
       // .finally(() => (this.loading = false));
+    this.$http
+      .get(NEWSARCHIVE_URL)
+      .then(response => {
+        this.news = response.data;
+        console.log(this.news)
+        this.data.push(...this.news);
+      })
+      .catch(error => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
 
     this.$http
       .get(EVENTS_URL)
@@ -209,9 +236,7 @@ export default {
     //   .finally(() => (this.loading = false));
     // }
     setMonth(month){
-      console.log(month)
       this.activeMonth = month;
-      console.log(this.activeMonth)
       return this.activeMonth;
     },
     setYear(year){

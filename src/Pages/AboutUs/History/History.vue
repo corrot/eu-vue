@@ -19,8 +19,7 @@ export default {
   name: 'History',
   data() {
     return {
-      currentPage: 1,
-      news: null,
+      data: null,
       loading: true,
       errored: false,
       API_BASE_URL,

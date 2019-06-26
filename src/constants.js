@@ -1,4 +1,4 @@
-export const API_BASE_URL = `http://188.93.88.26:8866`;
+export const API_BASE_URL = `http://competition.lambda.ge`;
 
 // Home
 export const SLIDERDATA_URL = `${API_BASE_URL}/slidaerdata`;
@@ -6,11 +6,12 @@ export const CALENDARDATA_URL = `${API_BASE_URL}/calendardata`;
 export const LINKS_URL = `${API_BASE_URL}/links`;
 export const LINKTYPES_URL = `${API_BASE_URL}/linktypes`;
 export const EVENTS_URL = `${API_BASE_URL}/events`;
+export const ANNOUNCEMENTS_URL = `${API_BASE_URL}/announcements`;
 export const VIDEOS_URL = `${API_BASE_URL}/videos`;
 
 // About Us
 export const WHATWEDO_URL = `${API_BASE_URL}/whatwedos`;
-export const HISTORY_URL = `${API_BASE_URL}/history`;
+export const HISTORY_URL = `${API_BASE_URL}/histories`;
 export const CHAIRMAN_URL = `${API_BASE_URL}/chairmen`;
 export const EMPLOYEES_URL = `${API_BASE_URL}/employees`;
 export const COOPERATION_URL = `${API_BASE_URL}/cooperationtypes`;
@@ -23,6 +24,7 @@ export const STRUCTURE_IMAGE_URL = `${API_BASE_URL}/stuctureimages`;
 // export const NATIONAL_URL = `${API_BASE_URL}/national`;
 // export const INTERNATIONAL_URL = `${API_BASE_URL}/international`;
 // export const GUIDELINES_URL = `${API_BASE_URL}/guidelines`;
+export const LEGISLATIONS_URL = `${API_BASE_URL}/legislations`;
 export const NATIONAL_URL = `${API_BASE_URL}/legislationtypes/1`;
 export const INTERNATIONAL_URL = `${API_BASE_URL}/legislationtypes/2`;
 export const GUIDELINES_URL = `${API_BASE_URL}/legislationtypes/3`;

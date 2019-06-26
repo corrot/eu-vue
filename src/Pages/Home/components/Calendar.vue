@@ -9,7 +9,7 @@ import router from '@/router';
 import TooltipComponent from './Tooltip';
 
 import i18n from '@/plugins/i18n';
-import { EVENTS_URL, API_BASE_URL } from '@/constants.js';
+import { ANNOUNCEMENTS_URL, API_BASE_URL } from '@/constants.js';
 
 export default {
   name: 'Calendar',
@@ -37,13 +37,13 @@ export default {
   },
   mounted() {
     this.$http
-      .get(EVENTS_URL)
+      .get(ANNOUNCEMENTS_URL)
       .then(response => {
         this.data = response.data;
         this.attrs = this.data && this.data.map(event => {
         return {
           key: event.id,
-          dates: event.date_start,
+          dates: event.date,
           popover: {
             label: event[`title_${this.locale}`],
           },

@@ -18,7 +18,11 @@
                 :href="article[`${API_BASE_URL}/uploads/document_${locale}`] && article[`document_${locale}`].url"
                 :disabled="!article[`document_${locale}`]"
               >{{ $t('ViewDocument') }}</b-button>
-              <em slot="footer">{{ article[`tags_${locale}`] }}</em>
+              <em slot="footer">
+                <span v-for="tag in article[`tags_${locale}`].split('#')" :key="tag">
+                  <router-link :to="`/search/${tag}`">#{{ tag }}</router-link>
+                </span>
+              </em>
             </b-card>
           </b-card-group>
         </div>

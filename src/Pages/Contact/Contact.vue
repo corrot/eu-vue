@@ -11,57 +11,8 @@
       </b-col>
       <b-col>
         <b-card class="text-center" style="border: none; margin-top: none;">
-          <p>{{ data[`text_${locale}`] }}</p>
+          <vue-markdown>{{ data[`text_${locale}`] }}</vue-markdown>
         </b-card>
-        
-        <!-- <div class="mt-3 input-container">
-          <b-form-group
-            label-cols-sm="3"
-            :label=" $t('FullName') + ':'"
-            label-align-sm="right"
-            label-for="nested-street"
-          >
-            <b-form-input id="nested-street"></b-form-input>
-          </b-form-group>
-
-          <b-form-group
-            label-cols-sm="3"
-            :label=" $t('Email') + ':'"
-            label-align-sm="right"
-            label-for="nested-city"
-          >
-            <b-form-input id="nested-city"></b-form-input>
-          </b-form-group>
-
-          <b-form-group
-            label-cols-sm="3"
-            :label=" $t('Tel') + ':'"
-            label-align-sm="right"
-            label-for="nested-state"
-          >
-            <b-form-input id="nested-state"></b-form-input>
-          </b-form-group>
-
-          <b-form-group
-            label-cols-sm="3"
-            :label=" $t('Message') + ':'"
-            label-align-sm="right"
-            label-for="nested-country"
-          >
-            <b-form-textarea
-              id="textarea"
-              v-model="text"
-              placeholder="Enter something..."
-              rows="3"
-              max-rows="6"
-            ></b-form-textarea>
-          </b-form-group>
-        </div>
-        <div class="text-center">
-          <b-button type="submit" class="btn-submit-message">{{ $t('Submit') }}</b-button>
-        </div> -->
-
-
       </b-col>
     </b-row>
     <router-view></router-view>
@@ -73,6 +24,7 @@ import i18n from '@/plugins/i18n';
 import { API_BASE_URL, CONTACT_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
+import VueMarkdown from 'vue-markdown';
 
 export default {
   name: 'Contact',
@@ -104,7 +56,7 @@ export default {
       })
       .finally(() => (this.loading = false));
   },
-  components: { LoadingSpinner, ServerError },
+  components: { LoadingSpinner, ServerError, VueMarkdown },
 };
 </script>
 

@@ -3,42 +3,11 @@
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
     <div v-if="!errored && !loading">
-      <!-- <div class="cards">
-        <a href="https://www.youtube.com/channel/UCS6PSHW37QIJxqiCBwm-YfQ" target="_blank"><h4 class="mb-2 section-title">{{ $t('UpcomingEvents') }}</h4></a>
-          <b-card v-for="event in data" :key="event.id" class="mb-3" v-if="!event.date_finish || new Date(event.date_finish).getTime() > new Date().getTime()">
-            <router-link :to="`/media/events/${event.id}`">
-            <b-row no-gutters>
-              <b-col md="3">
-                <img style="width:100%" :src="event.cover_image && `${API_BASE_URL}/uploads/${event.cover_image.hash}${event.cover_image.ext}`" class="rounded-0" />
-              </b-col>
-              <b-col md="7">
-                <b-card-body :title="event[`title_${locale}`]">
-                  <b-card-text>
-                    <vue-markdown>{{ event[`article_${locale}`] }}</vue-markdown>
-                  </b-card-text>
-                </b-card-body>
-              </b-col>
-              <b-col md="2">
-                <div class="date-container">
-                  <div class="date-wrapper">
-                    <div>{{ event.date_start && event.date_start.split(' ')[0].split('-').reverse().join('.') }}</div>
-                    <div v-if="event.date_finish">-</div>
-                    <div v-if="event.date_finish">{{ event.date_finish && event.date_finish.split(' ')[0].split('-').reverse().join('.') }}</div>
-                  </div>
-                </div>
-              </b-col>
-            </b-row>
-          </router-link>
-        </b-card>
-      </div>-->
-
       <div class="cards">
-        <!-- <a href="https://www.youtube.com/channel/UCS6PSHW37QIJxqiCBwm-YfQ" target="_blank"><h4 class="mb-2 section-title">{{ $t('PastEvents') }}</h4></a> -->
         <b-card
           v-for="event in data"
           :key="event.id"
           class="mb-3"
-          v-if="event.date_finish && new Date(event.date_finish).getTime() < new Date().getTime()"
         >
           <router-link :to="`/media/events/${event.id}`">
             <b-row no-gutters>
@@ -104,7 +73,7 @@ export default {
     this.$http
       .get(EVENTS_URL)
       .then(response => {
-        this.data = response.data;
+        this.data = response.data.slice(0, 4);
       })
       .catch(error => {
         console.log(error);
@@ -124,6 +93,10 @@ export default {
 .card-text {
   padding: 10px;
   padding-top: 0;
+}
+.card-text>div{
+  max-height: 100px!important;
+  overflow: hidden;
 }
 .card-title {
   padding-top: 10px;

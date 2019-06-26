@@ -12,6 +12,7 @@ import Carreer from '@/Pages/AboutUs/Carreer/Carreer';
 import History from '@/Pages/AboutUs/History/History';
 import Cooperation from '@/Pages/AboutUs/Cooperation/Cooperation';
 import Employees from '@/Pages/AboutUs/Structure/Employees';
+import EmployDetail from '@/Pages/AboutUs/Structure/EmployDetail';
 
 import Legislation from '@/Pages/Legislation/Legislation';
 import National from '@/Pages/Legislation/National/National';
@@ -38,6 +39,7 @@ import NewsArchive from '@/Pages/Media/NewsArchive/NewsArchive';
 import NewsDetails from '@/Pages/Media/NewsArchive/NewsDetails';
 import Newsletter from '@/Pages/Media/Newsletter/Newsletter';
 import Announcement from '@/Pages/Media/Announcement/Announcement';
+import AnnouncementDetails from '@/Pages/Media/Announcement/AnnouncementDetails';
 import Events from '@/Pages/Media/Events/Events';
 import EventDetails from '@/Pages/Media/Events/EventDetails';
 import Publications from '@/Pages/Media/Publications/Publications';
@@ -93,6 +95,14 @@ export const routes = [
         path: '/about-us/chairman',
         name: 'chairman',
         component: Chairman,
+      },
+      {
+        title: 'Employ',
+        path: '/about-us/employ-detail/:id',
+        name: 'employdetails',
+        component: EmployDetail,
+        children: [],
+        hidden: true,
       },
       {
         title: 'Structure',
@@ -329,6 +339,13 @@ export const routes = [
     name: 'media',
     component: Media,
     children: [
+      {
+        title: 'Announcement',
+        path: '/media/announcement/:id',
+        name: 'announcementDetails',
+        component: AnnouncementDetails,
+        hidden: true,
+      },
       {
         title: 'Announcement',
         path: '/media/announcement',

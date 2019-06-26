@@ -9,8 +9,8 @@
           <div role="tablist" class="mb-5">
             <h5 v-if="type.cooperation.length" class="section-title">{{ type[`title_${locale}`] }}</h5>
             <b-card no-body class="mb-2" v-for="article in type.cooperation" :key="article.id">
-              <b-card-header header-tag="header" class="p-3" role="tab">
-                <a block href="#" v-b-toggle="'accordion-' + article.id" variant="info">
+              <b-card-header :id="`anchor-${article.id}`" header-tag="header" class="p-3" role="tab">
+                <a block :href="`#anchor-${article.id}`" v-b-toggle="'accordion-' + article.id" variant="info">
                   <span>{{ article[`title_${locale}`] }}</span>
                   <font-awesome-icon class="mr-1" :icon="['fas', 'fa-plus']"/>
                 </a>

@@ -13,7 +13,7 @@
           v-for="(gallery, index) in images"
           :key="gallery[0]"
         >
-          <vue-pure-lightbox class="gallery-thumbnail" :thumbnail="covers[index]" :images="gallery"></vue-pure-lightbox>
+          <vue-pure-lightbox :thumbnail="covers[index]" :images="gallery"></vue-pure-lightbox>
         </b-col>
       </b-row>
       <div style="width: 100%; text-align: right">

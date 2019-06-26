@@ -4,7 +4,7 @@
     <server-error v-if="errored"/>
       <div v-if="!errored && !loading">
         <div role="tablist" class="mb-5" v-if="pressReleases.length">
-          <h5 class="section-title">{{ $t('PressReleases') }}</h5>
+        <h5 class="section-title">{{ $t('CAGInPress') }}</h5>
           <b-card no-body class="mb-2" v-for="internship in pressReleases" :key="internship.id">
             <b-card-header header-tag="header" class="p-3" role="tab">
               <a block href="#" v-b-toggle="'accordion-2-' + internship.id" variant="info">
@@ -21,7 +21,7 @@
           </b-card>
         </div>
 
-        <h5 class="section-title">{{ $t('CAGInPress') }}</h5>
+          <h5 class="section-title">{{ $t('PressReleases') }}</h5>
         <div role="tablist" class="mb-5" v-if="cagInPress.length">
           <b-card no-body class="mb-2" v-for="vacancy in cagInPress" :key="vacancy.id">
             <b-card-header header-tag="header" class="p-3" role="tab">
@@ -47,6 +47,7 @@ import i18n from '@/plugins/i18n';
 import { RELEASES_URL, PRESSRELEASES_URL, API_BASE_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
+import VueMarkdown from 'vue-markdown';
 
 export default {
   name: 'Events',
@@ -69,7 +70,7 @@ export default {
     this.$http
       .get(RELEASES_URL)
       .then(response => {
-        this.pressReleases = response.data;
+        this.pressReleases = response.data.slice(0, 4);
       })
       .catch(error => {
         console.log(error);
@@ -80,7 +81,7 @@ export default {
     this.$http
       .get(PRESSRELEASES_URL)
       .then(response => {
-        this.cagInPress = response.data;
+        this.cagInPress = response.data.slice(0, 4);
       })
       .catch(error => {
         console.log(error);
@@ -88,7 +89,7 @@ export default {
       })
       .finally(() => (this.loading = false));
   },
-  components: { LoadingSpinner, ServerError },
+  components: { LoadingSpinner, ServerError, VueMarkdown },
 };
 </script>
 

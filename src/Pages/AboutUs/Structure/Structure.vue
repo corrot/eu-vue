@@ -8,37 +8,39 @@
           <div id="base" class="structure-image mb-4">
             <img :src="structureImage" :alt="$t('Structure')" />
             <div class="overlay">
-              <a v-for="(item, index) in data" v-if="item.show" :key="index" :href="`#${item.id}`">
+              <a v-for="(item, index) in data" v-if="item.show" :key="index">
                 <span class="indicator" :style="{'top': item.top + 'px', 'left': item.left + 'px', 'width': item.width + 'px', 'height': item.height + 'px'}">
                   <!-- <b-button :to="'/employees/' + index" :id="index">{{ item[`position_${locale}`] }}</b-button> -->
                   <!-- <b-tooltip :target="index.toString()">
                     <div>{{ item[`position_${locale}`] }}</div>
                     <div>{{ item[`name_${locale}`] }}</div>
                   </b-tooltip> -->
-                  <b-card no-body class="overflow-hidden mb-3 card" style="position: absolute; width: 400px; left: 50%; transform: translate(-50%, -100%)">
-                    <b-row no-gutters>
-                      <b-col md="4" style="height: 160px">
-                        <!-- <b-card-img style="max-width: 100%" :src="emp.photo && `${API_BASE_URL}/uploads/${emp.photo.hash}${emp.photo.ext}`"/> -->
-                        <div class="img-100" v-bind:style="{'background-image': item.photo ? `url(${API_BASE_URL}/uploads/${item.photo.hash}${item.photo.ext})` : `url(${noimage})`}"></div>
-                      </b-col>
-                      <b-col md="8">
-                        <b-card-body :title="item[`name_${locale}`]">
-                          <b-card-text>
-                            <h5 class="position">{{ item[`position_${locale}`] }}</h5>
-                            <div>
-                              <a :href="`tel:${item.tel_number}`">{{ item.tel_number }}</a>
-                            </div>
-                            <div>
-                              <a :href="`mailto:${item.email}`">{{ item.email }}</a>
-                            </div>
-                            <div v-if="item[`cv_${locale}`]">
-                              <a :href="item[`cv_${locale}`] && `${API_BASE_URL}/uploads/${item[`cv_${locale}`].hash}${item[`cv_${locale}`].ext}`" target="_blank">{{ $t('CurriculumVitae') }}</a>
-                            </div>
-                          </b-card-text>
-                        </b-card-body>
-                      </b-col>
-                    </b-row>
-                  </b-card>
+                  <router-link :to="`employ-detail/${item.id}`">
+                    <b-card no-body class="overflow-hidden mb-3 card" style="position: absolute; width: 400px; left: 50%; transform: translate(-50%, -100%)">
+                      <b-row no-gutters>
+                        <b-col md="4" style="height: 160px">
+                          <!-- <b-card-img style="max-width: 100%" :src="emp.photo && `${API_BASE_URL}/uploads/${emp.photo.hash}${emp.photo.ext}`"/> -->
+                          <div class="img-100" v-bind:style="{'background-image': item.photo ? `url(${API_BASE_URL}/uploads/${item.photo.hash}${item.photo.ext})` : `url(${noimage})`}"></div>
+                        </b-col>
+                        <b-col md="8">
+                          <b-card-body :title="item[`name_${locale}`]">
+                            <b-card-text>
+                              <h5 class="position">{{ item[`position_${locale}`] }}</h5>
+                              <div>
+                                <a :href="`tel:${item.tel_number}`">{{ item.tel_number }}</a>
+                              </div>
+                              <div>
+                                <a :href="`mailto:${item.email}`">{{ item.email }}</a>
+                              </div>
+                              <div v-if="item[`cv_${locale}`]">
+                                <a :href="item[`cv_${locale}`] && `${API_BASE_URL}/uploads/${item[`cv_${locale}`].hash}${item[`cv_${locale}`].ext}`" target="_blank">{{ $t('CurriculumVitae') }}</a>
+                              </div>
+                            </b-card-text>
+                          </b-card-body>
+                        </b-col>
+                      </b-row>
+                    </b-card>
+                  </router-link>
                 </span>
               </a>
             </div>
@@ -150,12 +152,12 @@ export default {
 .indicator{
   position: relative;
 }
-.indicator>.card{
+.indicator > a > .card{
   opacity: 0;
   display: none;
   transition: .3s ease all;
 }
-.indicator:hover > .card{
+.indicator:hover > a > .card{
   opacity: 1;
   display: block;
   transition: .3s ease all;

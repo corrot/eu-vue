@@ -5,7 +5,7 @@
 
     <div v-if="!errored && !loading">
       <router-link to="/about-us/projects"><h5 class="section-title">{{ $t('Projects') }}</h5></router-link>
-      <div v-for="item in data.links" :key="item.id">
+      <div v-for="item in data.links" :key="item.id" v-if="item.image">
         <a :href="item.link" target="_blank"><img style="width: 100%" :src="item.image && `${API_BASE_URL}/uploads/${item.image.hash}${item.image.ext}`"/></a>
       </div>
     </div>

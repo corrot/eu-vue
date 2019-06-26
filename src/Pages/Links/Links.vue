@@ -5,15 +5,15 @@
     <div v-if="!errored && !loading">
       <ul class="links-container">
         <li v-for="linkType in data" :key="linkType.id" class="link">
-          <h5 class="section-title" v-if="linkType.links.length">{{ linkType.title }}</h5>
-          <a 
-            v-for="link in linkType.links"
-            :key="link.id"
-            :href="link.link"
-            target="_blank"
-          >
-            {{ link[`title_${locale}`] }}
-          </a>
+          <h5 class="section-title" v-if="linkType.links.length">{{ linkType[`title_${locale}`] }}</h5>
+          <div v-for="link in linkType.links" :key="link.id">
+            <a
+              :href="link.link"
+              target="_blank"
+            >
+              {{ link[`title_${locale}`] }}
+            </a>
+          </div>
         </li>
       </ul>
     </div>

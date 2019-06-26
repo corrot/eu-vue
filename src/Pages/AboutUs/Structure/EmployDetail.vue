@@ -36,19 +36,20 @@
 
 <script>
 import i18n from '@/plugins/i18n';
-import { CHAIRMAN_URL, API_BASE_URL } from '@/constants.js';
+import { EMPLOYEES_URL, API_BASE_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 import VueMarkdown from 'vue-markdown';
 
 export default {
-  name: 'Chairman',
+  name: 'Employ',
   data() {
     return {
       data: null,
       loading: true,
       errored: false,
-      API_BASE_URL
+      API_BASE_URL,
+      id: this.$route.params.id,
     };
   },
   computed: {
@@ -58,9 +59,10 @@ export default {
   },
   mounted() {
     this.$http
-      .get(CHAIRMAN_URL)
+      .get(EMPLOYEES_URL + '/' + this.$route.params.id)
       .then(response => {
-        this.data = response.data[0];
+        this.data = response.data;
+        console.log(this.data)
       })
       .catch(error => {
         console.log(error);

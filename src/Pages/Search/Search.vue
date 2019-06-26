@@ -1,12 +1,55 @@
 <template>
   <b-container>
-    <p>{{ $t('Search') }}</p>
+    <p>{{ $t('Search') }}: {{ id }}</p>
+    {{data}}
   </b-container>
 </template>
 
 <script>
+import VueMarkdown from 'vue-markdown';
+import i18n from '@/plugins/i18n';
+import LoadingSpinner from '@/components/LoadingSpinner';
+import ServerError from '@/components/ServerError';
+import VuePureLightbox from 'vue-pure-lightbox';
+import endpoints from './searchHelper'; 
+
 export default {
   name: 'Search',
+  data() {
+    return {
+      data: ['asf'],
+      items: [],
+      loading: true,
+      errored: false,
+      API_BASE_URL,
+      id: this.$route.params.id
+    };
+  },
+  computed: {
+    locale: () => {
+      return i18n.locale;
+    },
+  },
+  mounted() {
+    let j = [];
+    endpoints.map(e => {
+      const path = `${e}${i18n.locale}_contains=${(this.$route.params.id).toString()}`;
+
+      this.$http
+      .get(path)
+      .then(response => {
+        j = [ ...j, ...response.data];
+      })
+      .catch(error => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
+      return null;
+    })
+    console.log(j);
+  },
+  components: { LoadingSpinner, ServerError, VuePureLightbox, VueMarkdown },
 };
 </script>
 

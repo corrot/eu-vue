@@ -53,7 +53,7 @@ export default {
     this.$http
       .get(VIDEOS_URL)
       .then(response => {
-        this.data = response.data;
+        this.data = response.data.slice(0, 2);
       })
       .catch(error => {
         console.log(error);

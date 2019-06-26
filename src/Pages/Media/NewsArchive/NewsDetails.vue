@@ -19,7 +19,7 @@
 <script>
 import VueMarkdown from 'vue-markdown';
 import i18n from '@/plugins/i18n';
-import { NEWSLETTERS_URL, API_BASE_URL } from '@/constants.js';
+import { NEWSARCHIVE_URL, API_BASE_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 import VuePureLightbox from 'vue-pure-lightbox';
@@ -42,7 +42,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get(NEWSLETTERS_URL + '/' + this.$route.params.id)
+      .get(NEWSARCHIVE_URL + '/' + this.$route.params.id)
       .then(response => {
         this.data = response.data;
       })
