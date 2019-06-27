@@ -14,7 +14,7 @@
         </div>
       </div>
 
-      <div class="mt-4">
+      <!-- <div class="mt-4">
         <h5 class="section-title">{{ $t('News') }}</h5>
         <div
           v-for="item in news"
@@ -27,7 +27,23 @@
           {{ item[`title_${locale}`] }}
         </router-link>
         </div>
+      </div> -->
+
+      <div class="mt-4">
+        <h5 class="section-title">{{ $t('Announcement') }}</h5>
+        <div
+          v-for="item in announcements"
+          :key="item.id"
+        >
+        <router-link
+          :to="`/media/announcement/${item.id}`"
+          v-if="item.date.split(' ')[0].split('-')[0] == activeYear && parseInt(item.date.split(' ')[0].split('-')[1]) == activeMonth"
+          >
+          {{ item[`title_${locale}`] }}
+        </router-link>
+        </div>
       </div>
+
       <div class="mt-4">
         <h5 class="section-title">{{ $t('Events') }}</h5>
         <div
@@ -44,7 +60,7 @@
       </div>
       <div class="mt-4">
         <h5 class="section-title">{{ $t('PressReleases') }}</h5>
-        <div v-for="item in pressReleases"
+        <div v-for="item in announcements"
           :key="item.id">
           <a
             v-if="item.date.split(' ')[0].split('-')[0] == activeYear && parseInt(item.date.split(' ')[0].split('-')[1]) == activeMonth"
@@ -55,7 +71,7 @@
           </a>
         </div>
       </div>
-      <div class="mt-4">
+      <!-- <div class="mt-4">
         <h5 class="section-title">{{ $t('Releases') }}</h5>
         <div v-for="item in releases"
           :key="item.id">
@@ -67,7 +83,7 @@
             {{ item[`title_${locale}`] }}
           </a>
         </div>
-      </div>
+      </div> -->
           
       <!-- <div v-for="item in sortedItems" :key="item.id">{{ item.date || item.date_finish }}{{ item[`title_${locale}`] }}</div> -->
       <!-- <div id="news" class="cards">
@@ -108,7 +124,7 @@
 <script>
 import VueMarkdown from 'vue-markdown';
 import i18n from '@/plugins/i18n';
-import { API_BASE_URL, NEWSLETTERS_URL, EVENTS_URL, RELEASES_URL, NEWSARCHIVE_URL, PRESSRELEASES_URL } from '@/constants.js';
+import { API_BASE_URL, NEWSLETTERS_URL, EVENTS_URL, RELEASES_URL, NEWSARCHIVE_URL, PRESSRELEASES_URL, ANNOUNCEMENTS_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 
@@ -126,6 +142,7 @@ export default {
       news: null,
       releases: null,
       pressReleases: null,
+      announcements: null,
       data: [],
       loading: true,
       errored: false,
@@ -173,18 +190,32 @@ export default {
       //   this.errored = true;
       // })
       // .finally(() => (this.loading = false));
+    // this.$http
+    //   .get(NEWSARCHIVE_URL)
+    //   .then(response => {
+    //     this.news = response.data;
+    //     console.log(this.news)
+    //     this.data.push(...this.news);
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //     this.errored = true;
+    //   })
+    //   .finally(() => (this.loading = false));
+
+      
     this.$http
-      .get(NEWSARCHIVE_URL)
-      .then(response => {
-        this.news = response.data;
-        console.log(this.news)
-        this.data.push(...this.news);
-      })
-      .catch(error => {
-        console.log(error);
-        this.errored = true;
-      })
-      .finally(() => (this.loading = false));
+    .get(ANNOUNCEMENTS_URL)
+    .then(response => {
+      this.announcements = response.data;
+      this.data.push(...this.announcements);
+      console.log(response.data)
+    })
+    .catch(error => {
+      console.log(error);
+      this.errored = true;
+    })
+    .finally(() => (this.loading = false));
 
     this.$http
       .get(EVENTS_URL)
@@ -198,17 +229,17 @@ export default {
       })
       .finally(() => (this.loading = false));
 
-    this.$http
-      .get(RELEASES_URL)
-      .then(response => {
-        this.releases = response.data;
-        this.data.push(...this.releases);
-      })
-      .catch(error => {
-        console.log(error);
-        this.errored = true;
-      })
-      .finally(() => (this.loading = false));
+    // this.$http
+    //   .get(RELEASES_URL)
+    //   .then(response => {
+    //     this.releases = response.data;
+    //     this.data.push(...this.releases);
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //     this.errored = true;
+    //   })
+    //   .finally(() => (this.loading = false));
       
     this.$http
       .get(PRESSRELEASES_URL)
