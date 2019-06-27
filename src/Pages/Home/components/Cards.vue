@@ -4,18 +4,13 @@
       <h5 class="section-title">{{ $t('News') }}</h5>
     </router-link>
     <b-row>
-      <b-col cols="4" v-for="newsArticle in news" :key="newsArticle.id">
+      <b-col cols="4" v-for="newsArticle in data" :key="newsArticle.id">
         <div class="card">
           <h4
             class="card-title font-weight-bold line-limit-2"
             :title="newsArticle[`title_${locale}`]"
           >{{ newsArticle[`title_${locale}`] }}</h4>
           <div class="card-img-container">
-            <!-- <img
-              class="card-img-top rounded-0"
-              :src="base_url + newsArticle.image.url"
-              :alt="newsArticle[`title_${locale}`]"
-            >-->
             <div
               class="img-100"
               v-bind:style="{'background-image': newsArticle.image ? `url(${base_url}${newsArticle.image.url})` : `url(${noimage})`}"
@@ -34,6 +29,31 @@
           </div>
         </div>
       </b-col>
+      <!-- <b-col cols="4" v-for="newsArticle in news" :key="newsArticle.id">
+        <div class="card">
+          <h4
+            class="card-title font-weight-bold line-limit-2"
+            :title="newsArticle[`title_${locale}`]"
+          >{{ newsArticle[`title_${locale}`] }}</h4>
+          <div class="card-img-container">
+            <div
+              class="img-100"
+              v-bind:style="{'background-image': newsArticle.image ? `url(${base_url}${newsArticle.image.url})` : `url(${noimage})`}"
+            ></div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">
+              <vue-markdown>{{ newsArticle[`article_${locale}`] }}</vue-markdown>
+            </p>
+          </div>
+          <div class="btn-container">
+            <b-button
+              class="btn-read-more"
+              @click="expandArticle(newsArticle.id)"
+            >{{ $t("ReadMore") }}...</b-button>
+          </div>
+        </div>
+      </b-col> -->
     </b-row>
     <div style="width: 100%; text-align: right">
       <router-link class="btn-read-more" to="/media/news-archive">{{ $t("ViewAll") }}...</router-link>
@@ -44,7 +64,7 @@
 <script>
 import VueMarkdown from 'vue-markdown';
 import i18n from '@/plugins/i18n';
-import { NEWSLETTERS_URL, API_BASE_URL } from '@/constants.js';
+import { PRESSRELEASES_URL, API_BASE_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 
@@ -52,7 +72,7 @@ export default {
   name: 'Cards',
   data() {
     return {
-      news: null,
+      data: null,
       loading: true,
       errored: false,
     };
@@ -67,9 +87,9 @@ export default {
   },
   mounted() {
     this.$http
-      .get(NEWSLETTERS_URL + '?_limit=3')
+      .get(PRESSRELEASES_URL + '?_limit=3')
       .then(response => {
-        this.news = response.data;
+        this.data = response.data;
       })
       .catch(error => {
         console.log(error);
@@ -81,7 +101,7 @@ export default {
   methods: {
     expandArticle(id) {
       // alert(id);
-      this.$router.push({ name: 'newsDetails', params: { id } });
+      this.$router.push({ name: 'pressReleases', params: { id } });
     },
   },
   components: { LoadingSpinner, ServerError, VueMarkdown },
