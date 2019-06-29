@@ -1,6 +1,6 @@
 <template>
-  <div class="calendar" v-on:click="clicker">
-    <v-calendar style="width: 100%;" :attributes="attrs"></v-calendar>
+  <div class="calendar">
+    <v-calendar @dayclick="clicker" style="width: 100%;" :attributes="attrs"></v-calendar>
   </div>
 </template>
 
@@ -17,17 +17,7 @@ export default {
   data() {
     return {
       data: null,
-      attrs: []
-      // [
-      //   {
-      //     key: 'independence',
-      //     dates: new Date(2019, 4, 26),
-      //     popover: {
-      //       label: 'Independence Day',
-      //     },
-      //     bar: {},
-      //   }
-      // ],
+      attrs: [],
     };
   },
   computed: {
@@ -40,19 +30,21 @@ export default {
       .get(ANNOUNCEMENTS_URL)
       .then(response => {
         this.data = response.data;
-        this.attrs = this.data && this.data.map(event => {
-        return {
-          key: event.id,
-          dates: event.date,
-          popover: {
-            label: event[`title_${this.locale}`],
-          },
-          customData: {
-          },
-          bar: {}
-        }
-      })
-        console.log(this.data);
+        this.attrs =
+          this.data &&
+          this.data.map(event => {
+            return {
+              key: event.id,
+              dates: event.date,
+              popover: {
+                label: event[`title_${this.locale}`],
+              },
+              customData: {
+                key: event.id,
+              },
+              bar: {},
+            };
+          });
       })
       .catch(error => {
         console.log(error);
@@ -61,10 +53,13 @@ export default {
       .finally(() => (this.loading = false));
   },
   methods: {
-    clicker: (e) => {
-      console.log(e);
-    }
-  }
+    clicker: day => {
+      if (day.popovers) {
+        router.push(`/media/announcement/${day.popovers[0].customData.key}`);
+      }
+      console.log(day.popovers[0].customData.key);
+    },
+  },
 };
 </script>
 
