@@ -9,11 +9,12 @@
       <b-row>
         <b-col
           cols="4"
-          style="height: 140px; overflow: hidden"
+          style=" overflow: hidden"
           v-for="(gallery, index) in images"
           :key="gallery[0]"
         >
           <vue-pure-lightbox :thumbnail="covers[index]" :images="gallery"></vue-pure-lightbox>
+          <div class="card-body">{{ data[index][`title_${locale}`] }}</div>
         </b-col>
       </b-row>
       <div style="width: 100%; text-align: right">
@@ -89,5 +90,15 @@ export default {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+}
+.card-body {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-height: 70px;
+  padding: 8px;
+  font-size: 14px;
+  font-weight: bold;
 }
 </style>
