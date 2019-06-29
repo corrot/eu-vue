@@ -439,7 +439,7 @@ export const routes = [
     name: 'links',
     component: Links,
     children: [],
-    // hidden: true,
+    hidden: true,
   },
   {
     title: 'Employees',
