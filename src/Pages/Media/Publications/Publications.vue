@@ -3,16 +3,41 @@
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
     <div v-if="!errored && !loading">
-      <div v-for="p in data" :key="p.id">
+      <b-card no-body class="mb-2" v-for="p in data" :key="p.id">
+        <b-card-header header-tag="header" class="p-3" role="tab">
+          <a block :href="'#accordion-' + p.id" v-b-toggle="'accordion-' + p.id" variant="info">
+            <span>{{ p[`title_${locale}`] }}</span>
+            <font-awesome-icon class="mr-1" :icon="['fas', 'fa-plus']"/>
+          </a>
+        </b-card-header>
+        <b-collapse :id="`accordion-${p.id}`" accordion="my-accordion" role="tabpanel">
+          <b-card-body>
+            <img
+              class="mb-3 mt-3"
+              style="max-width: 100%"
+              :src="p.image && `${API_BASE_URL}/uploads/${p.image.hash}${p.image.ext}`"
+            >
+            <b-card-text>
+              <vue-markdown class="article">{{ p[`article_${locale}`] }}</vue-markdown>
+            </b-card-text>
+            <b-button
+              v-if="p[`doc_${locale}`]"
+              :href="p[`doc_${locale}`] && `${API_BASE_URL}/uploads/${p[`doc_${locale}`].hash}${p[`doc_${locale}`].ext}`"
+              target="_blank"
+            >{{ $t('ViewDocument') }}</b-button>
+          </b-card-body>
+        </b-collapse>
+      </b-card>
+      <!-- <div v-for="p in data" :key="p.id">
         <a :href="p[`link_${locale}`]" target="_blank">{{ p[`title_${locale}`] }}</a>
-      </div>
+      </div>-->
     </div>
   </div>
 </template>
 
 <script>
 import i18n from '@/plugins/i18n';
-import { PUBLICATIONS_URL } from '@/constants.js';
+import { PUBLICATIONS_URL, API_BASE_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 
@@ -23,6 +48,7 @@ export default {
       data: null,
       loading: true,
       errored: false,
+      API_BASE_URL,
     };
   },
   computed: {
@@ -35,6 +61,7 @@ export default {
       .get(PUBLICATIONS_URL)
       .then(response => {
         this.data = response.data;
+        console.log(response.data[0]);
       })
       .catch(error => {
         console.log(error);
