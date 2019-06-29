@@ -1,12 +1,16 @@
 <template>
   <b-container>
-    <div class="app-top-header">
+    <div class="app-top-header hidden-print">
       <div class="header-left">
         <logo-component/>
         <div class="euca-title">
-          <div style="margin-bottom: 10px; font-family: 'Open Sans', 'BPG Glaho WEB Caps', sans-serif; font-size: 18px;">საქართველოს კონკურენციის სააგენტო</div>
+          <div
+            style="margin-bottom: 10px; font-family: 'Open Sans', 'BPG Glaho WEB Caps', sans-serif; font-size: 18px;"
+          >საქართველოს კონკურენციის სააგენტო</div>
           <br>
-          <div style="font-family: 'Open Sans', 'BPG Glaho WEB Caps', sans-serif; font-size: 18px;">COMPETITION AGENCY OF GEORGIA</div>
+          <div
+            style="font-family: 'Open Sans', 'BPG Glaho WEB Caps', sans-serif; font-size: 18px;"
+          >COMPETITION AGENCY OF GEORGIA</div>
         </div>
       </div>
       <span class="lang-social">
