@@ -356,10 +356,10 @@ export default {
 .years-container {
   display: flex;
   justify-content: space-between;
-  border-bottom: 3px solid #cf4e1f;
+  border-bottom: 3px solid #141e3a;
   font-weight: bold;
   padding: 10px 20px;
-  background: #ffd400;
+  background: #0082bf;
   user-select: none;
   box-shadow: 1px 1px 3px -1px rgba(0, 0, 0, 0.3);
 }
@@ -367,9 +367,10 @@ export default {
 .years-container > div {
   position: relative;
   cursor: pointer;
+  color: #141e3a;
 }
 .triangle {
-  border-color: transparent transparent #cf4e1f transparent;
+  border-color: transparent transparent #141e3a transparent;
   top: 100%;
 }
 .months-container > div:hover > .triangle,
