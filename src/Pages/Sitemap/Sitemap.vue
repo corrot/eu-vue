@@ -4,10 +4,10 @@
     <div v-for="route in routes" :key="route.name" class="route-title">
       <span class="dot"></span>
       <span :text="$t(route.title)" v-if="!route.children.length">
-        <router-link :to="route.path" class="dark-blue">{{ $t(route.title) }}</router-link>
+        <router-link :to="route.path" v-if="!route.hidden" class="dark-blue">{{ $t(route.title) }}</router-link>
       </span>
       <span v-if="route.children.length">
-        <router-link :to="route.path" class="dark-blue">{{ $t(route.title) }}</router-link>
+        <router-link v-if="!route.hidden" :to="route.path" class="dark-blue">{{ $t(route.title) }}</router-link>
         <br>
         <span
           v-for="item in route.children"
@@ -15,7 +15,7 @@
           class="child-title"
           v-if="!item.hidden"
         >
-          <router-link :to="item.path" class="light-blue">{{ $t(item.title) }}</router-link>
+          <router-link :to="item.path" v-if="!route.hidden" class="light-blue">{{ $t(item.title) }}</router-link>
           <br>
         </span>
       </span>

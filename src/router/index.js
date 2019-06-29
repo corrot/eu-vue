@@ -398,12 +398,12 @@ export const routes = [
         component: NewsDetails,
         hidden: true,
       },
-      {
-        title: 'Newsletter',
-        path: '/media/newsletter',
-        name: 'newsletter',
-        component: Newsletter,
-      },
+      // {
+      //   title: 'Newsletter',
+      //   path: '/media/newsletter',
+      //   name: 'newsletter',
+      //   component: Newsletter,
+      // },
       {
         title: 'Publications',
         path: '/media/publications',
