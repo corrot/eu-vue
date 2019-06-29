@@ -4,30 +4,52 @@
     <!-- <server-error v-if="errored"/> -->
 
     <div v-if="!errored && !loading">
-      <router-link to="/public/public-survey"><h5 class="section-title">{{ $t('PublicSurvey') }}</h5></router-link>
-      <div v-for="item in data.links" :key="item.id">
-        <a :href="item.link" target="_blank"><img style="width: 100%" :src="item.image && `${API_BASE_URL}/uploads/${item.image.hash}${item.image.ext}`"/></a>
+      <router-link to="/public/public-survey">
+        <h5 class="section-title">{{ $t('PublicSurvey') }}</h5>
+      </router-link>
+      <div v-for="item in data" :key="item.id">
+        <a :href="item.Link" target="_blank">
+          <!-- <img
+            style="width: 100%"
+            :src="item.image && `${API_BASE_URL}/uploads/${item.image.hash}${item.image.ext}`"
+          >
+          <div>{{ item[`title_${locale}`] }}</div>-->
+          <b-card
+            :title="item[`title_${locale}`]"
+            :img-src="`${API_BASE_URL}/uploads/${item.image.hash}${item.image.ext}`"
+            :alt="item[`title_${locale}`]"
+            img-top
+            tag="article"
+            style="max-width: 20rem;"
+            class="mb-2"
+          >
+            <b-card-text>
+              <div
+                style="font-size: 12px; width: 100%; text-align: right"
+              >{{ item.date_start && item.date_start.split(' ')[0] + ' - ' + item.date_finish && item.date_finish.split(' ')[0]}}</div>
+            </b-card-text>
+          </b-card>
+        </a>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
 import VueMarkdown from 'vue-markdown';
 import i18n from '@/plugins/i18n';
-import { LINKTYPES_URL, API_BASE_URL } from '@/constants.js';
+import { PUBLICSURVEYS_URL, API_BASE_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 
 export default {
- name: 'PublicSurvey',
+  name: 'PublicSurvey',
   data() {
     return {
       data: null,
       loading: true,
       errored: false,
-      API_BASE_URL: API_BASE_URL
+      API_BASE_URL: API_BASE_URL,
     };
   },
   computed: {
@@ -37,9 +59,10 @@ export default {
   },
   mounted() {
     this.$http
-      .get(LINKTYPES_URL + '/2')
+      .get(PUBLICSURVEYS_URL)
       .then(response => {
         this.data = response.data;
+        console.log(this.data[0]);
       })
       .catch(error => {
         this.errored = true;
@@ -69,5 +92,9 @@ export default {
   color: #fff;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
   margin-top: -120px;
+}
+.card-title {
+  font-size: 16px;
+  font-weight: bold;
 }
 </style>

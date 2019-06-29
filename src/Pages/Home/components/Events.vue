@@ -1,6 +1,8 @@
 <template>
   <div v-if="data">
-    <router-link to="/media/events"><h5 class="section-title">{{ $t('Events') }}</h5></router-link>
+    <router-link to="/media/events">
+      <h5 class="section-title">{{ $t('Events') }}</h5>
+    </router-link>
     <router-link :to="`/media/events/${data.id}`">
       <b-card
         :title="data[`title_${locale}`]"
@@ -12,7 +14,9 @@
         class="mb-2"
       >
         <b-card-text>
-          <div style="font-size: 12px; width: 100%; text-align: right">{{ data.date_start && data.date_start.split(' ')[0] + ' - ' + data.date_finish && data.date_finish.split(' ')[0]}}</div>
+          <div
+            style="font-size: 12px; width: 100%; text-align: right"
+          >{{ data.date_start && data.date_start.split(' ')[0] + ' - ' + data.date_finish && data.date_finish.split(' ')[0]}}</div>
         </b-card-text>
       </b-card>
     </router-link>
@@ -28,12 +32,13 @@ export default {
   name: 'Events',
   components: {},
   data() {
-    return { 
+    return {
       i18n,
       API_BASE_URL,
       data: null,
       loading: true,
-      errored: false, };
+      errored: false,
+    };
   },
   computed: {
     locale: () => {
@@ -45,7 +50,6 @@ export default {
       .get(EVENTS_URL)
       .then(response => {
         this.data = response.data[response.data.length - 1];
-        console.log(this.data.cover_image)
       })
       .catch(error => {
         console.log(error);
@@ -54,16 +58,16 @@ export default {
       .finally(() => (this.loading = false));
   },
   components: {
-    VueMarkdown
-  }
+    VueMarkdown,
+  },
 };
 </script>
 
 <style lang='postcss' scoped>
-  .card-title{
-    font-size: 16px;
-    font-weight: bold;
-  }
-  .card-text{
-  }
+.card-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+.card-text {
+}
 </style>

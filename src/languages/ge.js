@@ -66,7 +66,7 @@ export const ge = {
   PhotoGallery: 'ფოტო გალერეა',
   VideoGallery: 'ვიდეო გალერეა',
   ViewAll: 'ყველას ნახვა',
-  News: 'ახალი ამბები',
+  News: 'სიახლეები',
   UpcomingEvents: 'დაგეგმილი',
   PastEvents: 'განხორციელებული',
   CurriculumVitae: 'რეზიუმე',
