@@ -49,7 +49,7 @@ export default {
     this.$http
       .get(EVENTS_URL)
       .then(response => {
-        this.data = response.data[response.data.length - 1];
+        this.data = response.data.filter(o => o.forfirtpage)[0];
       })
       .catch(error => {
         console.log(error);
