@@ -4,13 +4,13 @@
     <server-error v-if="errored"/>
     <div v-if="!errored && !loading">
       <!-- content -->
-      
+
       <div class="mb-5">
         <h5 class="section-title">{{ $t('RequestPublicInformation') }}</h5>
         <vue-markdown class="article">{{data[0][`text_${locale}`]}}</vue-markdown>
       </div>
 
-      <div class="mb-5">
+      <!-- <div class="mb-5">
         <h5 class="section-title">{{ $t('RequestForm') }}</h5>
         <b-form @submit="onSubmit" style="max-width: 30%;">
           <b-form-group id="input-group-3" :label="`${$t('FirstName')}:`" label-for="input-3">
@@ -50,17 +50,19 @@
           </b-form-group>
           <b-button class="mt-3" type="submit" variant="primary">{{ $t('Send')}}</b-button>
         </b-form>
-      </div>
+      </div>-->
 
       <div class="mb-5">
         <h5 class="section-title">{{ $t('RequestStandards') }}</h5>
         <div v-if="data[0][`doc_${locale}`].length">
           <div v-for="doc in data[0][`doc_${locale}`]" :key="doc.id">
-            <a target="_blank" :href="`${API_BASE_URL}/uploads/${doc.hash}${doc.ext}`">{{ doc.name.split('.')[0] }}</a>
+            <a
+              target="_blank"
+              :href="`${API_BASE_URL}/uploads/${doc.hash}${doc.ext}`"
+            >{{ doc.name.split('.')[0] }}</a>
           </div>
         </div>
-      </div> 
-
+      </div>
     </div>
   </b-container>
 </template>
@@ -84,8 +86,8 @@ export default {
         email: null,
         firstName: null,
         lastName: null,
-        file: null
-      }
+        file: null,
+      },
     };
   },
   computed: {
@@ -108,10 +110,10 @@ export default {
   components: { LoadingSpinner, ServerError, VueMarkdown },
   methods: {
     onSubmit(evt) {
-      evt.preventDefault()
-      alert(JSON.stringify(this.form))
+      evt.preventDefault();
+      alert(JSON.stringify(this.form));
     },
-  }
+  },
 };
 </script>
 
