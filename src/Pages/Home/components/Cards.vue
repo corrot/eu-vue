@@ -5,29 +5,27 @@
     </router-link>
     <b-row>
       <b-col cols="4" v-for="newsArticle in data" :key="newsArticle.id">
-        <div class="card">
-          <h4
-            class="card-title font-weight-bold line-limit-2"
-            :title="newsArticle[`title_${locale}`]"
-          >{{ newsArticle[`title_${locale}`] }}</h4>
-          <div class="card-img-container">
-            <div
-              class="img-100"
-              v-bind:style="{'background-image': newsArticle.image ? `url(${base_url}${newsArticle.image.url})` : `url(${noimage})`}"
-            ></div>
+        <router-link :to="`media/press-releases#accordion-1-${newsArticle.id}`">
+          <div class="card">
+            <!-- <h4
+              class="card-title font-weight-bold line-limit-2"
+              :title="newsArticle[`title_${locale}`]"
+            >{{ newsArticle[`title_${locale}`] }}</h4>-->
+            <div class="card-img-container">
+              <div
+                class="img-100"
+                v-bind:style="{'background-image': newsArticle.image ? `url(${base_url}${newsArticle.image.url})` : `url(${noimage})`}"
+              ></div>
+            </div>
+            <div class="card-body">{{ newsArticle[`title_${locale}`] }}</div>
+            <div class="btn-container">
+              <b-button
+                class="btn-read-more"
+                @click="expandArticle(newsArticle.id)"
+              >{{ $t("ReadMore") }}...</b-button>
+            </div>
           </div>
-          <div class="card-body">
-            <p class="card-text">
-              <vue-markdown>{{ newsArticle[`article_${locale}`] }}</vue-markdown>
-            </p>
-          </div>
-          <div class="btn-container">
-            <b-button
-              class="btn-read-more"
-              @click="expandArticle(newsArticle.id)"
-            >{{ $t("ReadMore") }}...</b-button>
-          </div>
-        </div>
+        </router-link>
       </b-col>
       <!-- <b-col cols="4" v-for="newsArticle in news" :key="newsArticle.id">
         <div class="card">
@@ -53,7 +51,7 @@
             >{{ $t("ReadMore") }}...</b-button>
           </div>
         </div>
-      </b-col> -->
+      </b-col>-->
     </b-row>
     <div style="width: 100%; text-align: right">
       <router-link class="btn-read-more" to="/media/news-archive">{{ $t("ViewAll") }}...</router-link>
@@ -140,14 +138,13 @@ export default {
 .card-body {
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  font-family: 'Open Sans', 'BPG Glaho WEB Caps', sans-serif;
-  max-height: 90px;
+  max-height: 70px;
   padding: 8px;
-}
-.card-text {
   font-size: 14px;
+  font-weight: bold;
+  color: #141e3a;
 }
 
 @media (max-width: 1010px) {
