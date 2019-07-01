@@ -62,7 +62,6 @@ export default {
       .get(EMPLOYEES_URL + '/' + this.$route.params.id)
       .then(response => {
         this.data = response.data;
-        console.log(this.data)
       })
       .catch(error => {
         console.log(error);

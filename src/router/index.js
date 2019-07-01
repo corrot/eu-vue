@@ -22,6 +22,7 @@ import International from '@/Pages/Legislation/International/International';
 import PublicInformation from '@/Pages/PublicInformation/PublicInformation';
 import AnnualReports from '@/Pages/PublicInformation/AnnualReports/AnnualReports';
 import ProactiveInformation from '@/Pages/PublicInformation/ProactiveInformation/ProactiveInformation';
+import ProactiveInformationDetails from '@/Pages/PublicInformation/ProactiveInformation/ProactiveInformationDetails';
 import Statistics from '@/Pages/PublicInformation/Statistics/Statistics';
 import PublicSurvey from '@/Pages/PublicInformation/PublicSurvey/PublicSurvey';
 import RequestRelatedActs from '@/Pages/PublicInformation/RequestRelatedActs/RequestRelatedActs';
@@ -277,6 +278,13 @@ export const routes = [
     name: 'public',
     component: PublicInformation,
     children: [
+      {
+        title: 'ProactiveInformationDetails',
+        path: '/public/proactive-information-details/:type/:id',
+        name: 'proactiveInformationDetails',
+        component: ProactiveInformationDetails,
+        hidden: true
+      },
       {
         title: 'ProactiveInformation',
         path: '/public/proactive-information',

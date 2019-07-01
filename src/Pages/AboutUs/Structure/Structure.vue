@@ -112,7 +112,6 @@ export default {
     this.$http
       .get(EMPLOYEES_URL)
       .then(response => {
-        console.log(response);
         this.data = response.data;
       })
       .catch(error => {

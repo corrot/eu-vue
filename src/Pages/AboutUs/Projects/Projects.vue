@@ -7,7 +7,7 @@
       <div v-if="!errored && !loading">
         <div role="tablist" class="mb-4">
           <h5 class="section-title">{{ $t('Ongoing') }}</h5>
-          <b-card no-body class="mb-2" v-for="article in data" :key="article.id" v-if="!article.date_finish || new Date(article.date_finish).getTime() > new Date().getTime()">
+          <b-card no-body class="mb-2" v-for="article in data" :key="article.id" v-if="!article.isfinished">
             <b-card-header header-tag="header" class="p-3" role="tab">
               <a block href="#" v-b-toggle="'accordion-' + article.id" variant="info">
                 <span>{{ article[`title_${locale}`] }}</span>
@@ -31,7 +31,7 @@
 
         <div role="tablist">
           <h5 class="section-title">{{ $t('Finished') }}</h5>
-          <b-card no-body class="mb-2" v-for="article in data" :key="article.id" v-if="!article.date_finish || new Date(article.date_finish).getTime() < new Date().getTime()">
+          <b-card no-body class="mb-2" v-for="article in data" :key="article.id" v-if="article.isfinished">
             <b-card-header header-tag="header" class="p-3" role="tab">
               <a block href="#" v-b-toggle="'accordion-' + article.id" variant="info">
                 <span>{{ article[`title_${locale}`] }}</span>

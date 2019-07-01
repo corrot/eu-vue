@@ -17,7 +17,7 @@ export default {
   name: 'Search',
   data() {
     return {
-      data: ['asf'],
+      data: [],
       items: [],
       loading: true,
       errored: false,
@@ -38,13 +38,14 @@ export default {
       this.$http
       .get(path)
       .then(response => {
-        j = [ ...j, ...response.data];
+        this.data = [ ...this.data, ...response.data];
       })
-      .catch(error => {
-        console.log(error);
-        this.errored = true;
-      })
-      .finally(() => (this.loading = false));
+      // .catch(error => {
+      //   console.log(error);
+      //   alert();
+      //   this.errored = true;
+      // })
+      // .finally(() => (this.loading = false));
       return null;
     })
     console.log(j);

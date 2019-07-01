@@ -57,7 +57,6 @@ export default {
       if (day.popovers) {
         router.push(`/media/announcement/${day.popovers[0].customData.key}`);
       }
-      console.log(day.popovers[0].customData.key);
     },
   },
 };

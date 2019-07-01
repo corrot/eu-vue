@@ -10,7 +10,7 @@
           <b-card no-body class="mb-2"
             v-for="article in data"
             :key="article.id"
-            v-if="!article.date || new Date(article.date_finish).getTime() > new Date().getTime()"
+            v-if="!article.IsEnded"
             >
             <b-card-header header-tag="header" class="p-3" role="tab">
               <a block href="#" v-b-toggle="'accordion-1-' + article.id" variant="info">
@@ -20,7 +20,7 @@
             </b-card-header>
             <b-collapse :id="`accordion-1-${article.id}`" accordion="my-accordion" role="tabpanel">
               <b-card-body>
-                <h5 class="mb-3">{{ article.date_start.split(' ')[0] + ' - ' + article.date_finish.split(' ')[0] }}</h5>
+                <h5 class="mb-3">{{ article.date_start.split(' ')[0] }}</h5>
                 <div style="text-align: center" class="mb-3">
                   <img style="max-width: 100%" :src="article.image && `${API_BASE_URL}/uploads/${article.image.hash}${article.image.ext}`"/>
                 </div>
@@ -38,7 +38,7 @@
           <b-card no-body class="mb-2"
             v-for="article in data"
             :key="article.id"
-            v-if="!article.date || new Date(article.date_finish).getTime() < new Date().getTime()"
+            v-if="article.IsEnded"
             >
             <b-card-header header-tag="header" class="p-3" role="tab">
               <a block href="#" v-b-toggle="'accordion-2-' + article.id" variant="info">
@@ -48,7 +48,7 @@
             </b-card-header>
             <b-collapse :id="`accordion-2-${article.id}`" accordion="my-accordion" role="tabpanel">
               <b-card-body>
-                <h5 class="mb-3">{{ article.date_start.split(' ')[0] + ' - ' + article.date_finish.split(' ')[0] }}</h5>
+                <h5 class="mb-3">{{ article.date_start.split(' ')[0] }}</h5>
                 <div style="text-align: center" class="mb-3">
                   <img style="max-width: 100%" :src="article.image && `${API_BASE_URL}/uploads/${article.image.hash}${article.image.ext}`"/>
                 </div>

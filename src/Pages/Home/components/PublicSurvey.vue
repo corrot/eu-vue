@@ -20,13 +20,12 @@
             :alt="item[`title_${locale}`]"
             img-top
             tag="article"
-            style="max-width: 20rem;"
             class="mb-2"
           >
             <b-card-text>
               <div
                 style="font-size: 12px; width: 100%; text-align: right"
-              >{{ item.date_start && item.date_start.split(' ')[0] + ' - ' + item.date_finish && item.date_finish.split(' ')[0]}}</div>
+              >{{ item.date_start && item.date_start.split(' ')[0]}}</div>
             </b-card-text>
           </b-card>
         </a>
@@ -62,7 +61,6 @@ export default {
       .get(PUBLICSURVEYS_URL)
       .then(response => {
         this.data = response.data;
-        console.log(this.data[0]);
       })
       .catch(error => {
         this.errored = true;

@@ -30,10 +30,10 @@
                   <div class="date-wrapper">
                     <div>
                       <div>{{ event.date_start && event.date_start.split(' ')[0].split('-').reverse().join('.') }}</div>
-                      <div v-if="event.date_finish">-</div>
+                      <!-- <div v-if="event.date_finish">-</div>
                       <div
                         v-if="event.date_finish"
-                      >{{ event.date_finish && event.date_finish.split(' ')[0].split('-').reverse().join('.') }}</div>
+                      >{{ event.date_finish && event.date_finish.split(' ')[0].split('-').reverse().join('.') }}</div> -->
                     </div>
                   </div>
                 </div>

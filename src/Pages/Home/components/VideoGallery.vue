@@ -2,7 +2,7 @@
   <div class="cards">
     <a href="https://www.youtube.com/channel/UCS6PSHW37QIJxqiCBwm-YfQ" target="_blank"><h4 class="mb-2 section-title">{{ $t('VideoGallery') }}</h4></a>
       <b-row>
-        <b-col cols="6" v-for="video in data" :key="video.id">
+        <b-col lg="6" v-for="video in data" :key="video.id">
           <youtube player-width="100%" player-height="220" :video-id="video.link.split('=')[1]"></youtube>
           <div class="video-title">{{ video[`title_${locale}`] }}</div>
         </b-col>

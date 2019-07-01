@@ -3,13 +3,14 @@
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
     <div v-if="!errored && !loading">
+      {{type}}{{id}}
       <!-- content -->
-      <div v-for="(type, index) in data" :key="type.id" class="mb-4">
+      <!-- <div v-for="(type, index) in data" :key="type.id" class="mb-4">
         <h5 class="section-title" v-if="type.proactiveinformations.length">{{ type[`title_${locale}`] }}</h5>
         <table class="table table-hover" v-if="type.proactiveinformations.length">
           <thead>
             <tr>
-              <th scope="col">{{index + 1}})</th>
+              <th scope="col">#</th>
               <th scope="col">{{ $t('InformationTitle') }}</th>
               <th scope="col">{{ $t('RenewStrategy') }}</th>
             </tr>
@@ -17,19 +18,19 @@
           <tbody>
             <tr v-for="(o, i) in type.proactiveinformations" :key="o.id">
               <td scope="row">{{ `${index + 1}.${i + 1}` }}</td>
-              <td><router-link :to="`/public/proactive-information-details/${index}/${i}`">{{ o[`title_${locale}`] }}</router-link></td>
+              <td><router-link :to="`/public/proactive-information/${index + 1}/${i + 1}`">{{ o[`title_${locale}`] }}</router-link></td>
               <td>{{ o[`comment_${locale}`] }}</td>
             </tr>
           </tbody>
         </table>
-      </div>
+      </div> -->
     </div>
   </b-container>
 </template>
 
 <script>
 import i18n from '@/plugins/i18n';
-import { PROACTIVE_INFORMATION_TYPES_URL } from '@/constants.js';
+import { PROACTIVE_INFORMATION_ARCHIVE } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 
@@ -41,7 +42,9 @@ export default {
       loading: true,
       errored: false,
       items: null,
-      fields: null
+      fields: null,
+      id: this.$route.params.id,
+      type: this.$route.params.type,
     };
   },
   computed: {
@@ -51,7 +54,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get(PROACTIVE_INFORMATION_TYPES_URL)
+      .get(PROACTIVE_INFORMATION_ARCHIVE)
       .then(response => {
         this.data = response.data;
         // this.data.forEach((type, index) => {

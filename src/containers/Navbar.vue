@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable="md" type="dark" variant="dark" :sticky="true" class="navbar">
+  <b-navbar toggleable="lg" type="dark" variant="dark" :sticky="true" class="navbar">
     <b-container style="height: 3em;">
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
@@ -55,7 +55,7 @@ export default {
 <style scoped lang="postcss">
 .navbar {
   background: #141e3a !important;
-  height: 3em;
+  /* height: 3em; */
 }
 
 .navbar-title {
@@ -74,7 +74,16 @@ export default {
 }
 
 .main-nav-item{
-  margin-right: 20px;
+  margin-right: 7px;
+}
+
+@media screen and (max-width: 992px) {
+  .navbar-collapse.collapse.show {
+    background-color: #081227;
+    height: unset;
+    width: 100%;
+    padding: 0 20px;
+  }
 }
 
 </style>

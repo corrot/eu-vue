@@ -209,7 +209,6 @@ export default {
       //   .get(NEWSARCHIVE_URL)
       //   .then(response => {
       //     this.news = response.data;
-      //     console.log(this.news)
       //     this.data.push(...this.news);
       //   })
       //   .catch(error => {
@@ -223,10 +222,8 @@ export default {
         .then(response => {
           this.announcements = response.data;
           this.data.push(...this.announcements);
-          console.log(response.data);
         })
         .catch(error => {
-          console.log(error);
           this.errored = true;
         })
         .finally(() => (this.loading = false));

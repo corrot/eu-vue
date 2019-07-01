@@ -4,7 +4,7 @@
       <h5 class="section-title">{{ $t('News') }}</h5>
     </router-link>
     <b-row>
-      <b-col cols="4" v-for="newsArticle in data" :key="newsArticle.id">
+      <b-col lg="4" class="mb-2" v-for="newsArticle in data" :key="newsArticle.id">
         <router-link :to="`media/press-releases#accordion-1-${newsArticle.id}`">
           <div class="card">
             <!-- <h4

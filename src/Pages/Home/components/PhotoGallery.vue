@@ -8,7 +8,8 @@
       </router-link>
       <b-row>
         <b-col
-          cols="4"
+          lg="4"
+          class="mb-2"
           style=" overflow: hidden"
           v-for="(gallery, index) in images"
           :key="gallery[0]"

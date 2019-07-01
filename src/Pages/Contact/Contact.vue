@@ -38,7 +38,6 @@ export default {
   },
   computed: {
     locale: () => {
-      console.log(i18n.locale);
       return i18n.locale;
     },
   },
@@ -48,7 +47,6 @@ export default {
       .then(response => {
         debugger;
         this.data = response.data[0];
-        console.log(this.data);
       })
       .catch(error => {
         console.log(error);

@@ -3,15 +3,15 @@
     <slider-component/>
     <decisions-cards-component></decisions-cards-component>
 
-    <b-container style="display: flex">
-      <div style="width: calc(100% - 286px); padding-right: 30px;" class="page-row">
+    <b-container class="rows-container">
+      <div class="page-row left">
         <!-- <links-component/> -->
         <!-- <testimonials-component/> -->
         <cards-component/>
         <video-gallery-component/>
         <photo-gallery-component/>
       </div>
-      <div style="width: 286px;" class="page-row">
+      <div class="page-row right">
         <public-survey-component/>
         <fbwidget-component class="mb-2"/>
         <projects-component class="mb-4"/>
@@ -61,4 +61,27 @@ export default {
 </script>
 
 <style scoped>
+ .rows-container{
+   display: flex;
+ }
+.page-row.right{
+  width: 286px;
+}
+.page-row.left{
+  width: calc(100% - 286px); 
+  padding-right: 30px;
+}
+@media screen and (max-width: 992px) {
+ .rows-container{
+   display: block;
+ }
+  .page-row.right{
+    width: 100%;
+    margin-top: 30px;
+  }
+  .page-row.left{
+    width: 100%;
+    padding-right: 0;
+  }
+}
 </style>

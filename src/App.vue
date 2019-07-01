@@ -65,7 +65,6 @@ export default {
       this.routePaths.forEach((routePath, index, arr) => {
         arr[index] = routePath.split('-').join(' ');
       });
-      console.log('route: ', this.$router.currentRoute.name);
       return this.routePaths;
     },
   },

@@ -22,7 +22,7 @@ input {
 }
 .main {
   padding-bottom: 30px;
-  min-height: calc(100vh - 327px);
+  min-height: calc(100vh - 343px);
 }
 p {
   text-align: justify;
@@ -93,11 +93,6 @@ a {
   border-radius: 0;
   background-color: #081227;
   border: none;
-}
-
-#nav-collapse,
-.navbar-nav {
-  height: 3rem;
 }
 
 .nav-link {

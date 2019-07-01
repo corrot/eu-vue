@@ -103,7 +103,6 @@ export default {
       .get(RELEASES_URL)
       .then(response => {
         this.pressReleases = response.data.slice(0, 4);
-        console.log(this.pressReleases.map(o => o.doc_ge));
       })
       .catch(error => {
         console.log(error);
