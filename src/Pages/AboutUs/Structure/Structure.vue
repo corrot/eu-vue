@@ -8,99 +8,68 @@
           <div id="base" class="structure-image mb-4">
             <img :src="structureImage" :alt="$t('Structure')" />
             <div class="overlay">
-              <a v-for="(item, index) in data" v-if="item.show" :key="index">
-                <span class="indicator" :style="{'top': item.top + 'px', 'left': item.left + 'px', 'width': item.width + 'px', 'height': item.height + 'px'}">
+              <a v-for="item in data" :key="item.id">
+                <span class="indicator"
+                :style="{'top': item.Ycoordinate + 'px','left': item.Xcoordinate + 'px','width': item.Width ? item.Width + 'px' : '20px','height': item.Height ? item.Height + 'px' : '20px'}">
                   <!-- <b-button :to="'/employees/' + index" :id="index">{{ item[`position_${locale}`] }}</b-button> -->
                   <!-- <b-tooltip :target="index.toString()">
                     <div>{{ item[`position_${locale}`] }}</div>
                     <div>{{ item[`name_${locale}`] }}</div>
                   </b-tooltip> -->
-                  <router-link :to="`employ-detail/${item.id}`">
-                    <b-card no-body class="overflow-hidden mb-3 card" style="position: absolute; width: 400px; left: 50%; transform: translate(-50%, -100%)">
-                      <b-row no-gutters>
-                        <b-col md="4" style="height: 160px">
-                          <!-- <b-card-img style="max-width: 100%" :src="emp.photo && `${API_BASE_URL}/uploads/${emp.photo.hash}${emp.photo.ext}`"/> -->
-                          <div class="img-100" v-bind:style="{'background-image': item.photo ? `url(${API_BASE_URL}/uploads/${item.photo.hash}${item.photo.ext})` : `url(${noimage})`}"></div>
-                        </b-col>
-                        <b-col md="8">
-                          <b-card-body :title="item[`name_${locale}`]">
-                            <b-card-text>
-                              <h5 class="position">{{ item[`position_${locale}`] }}</h5>
-                              <div>
-                                <a :href="`tel:${item.tel_number}`">{{ item.tel_number }}</a>
-                              </div>
-                              <div>
-                                <a :href="`mailto:${item.email}`">{{ item.email }}</a>
-                              </div>
-                              <div v-if="item[`cv_${locale}`]">
-                                <a :href="item[`cv_${locale}`] && `${API_BASE_URL}/uploads/${item[`cv_${locale}`].hash}${item[`cv_${locale}`].ext}`" target="_blank">{{ $t('CurriculumVitae') }}</a>
-                              </div>
-                            </b-card-text>
-                          </b-card-body>
-                        </b-col>
-                      </b-row>
-                    </b-card>
-                  </router-link>
+                  <div v-for="(employee, i) in item.employees" :key="i">
+                    <router-link :to="`employ-detail/${employee.id}`">
+                      <b-card no-body class="overflow-hidden mb-3 card" style="position: relative; width: 400px; left: 50%; transform: translate(-50%, -100%)">
+                        <b-row no-gutters>
+                          <b-col md="4" style="height: 160px">
+                            <div class="img-100" v-bind:style="{'background-image': employee.photo ? `url(${API_BASE_URL}/uploads/${employee.photo.hash}${employee.photo.ext})` : `url(${noimage})`}"></div>
+                          </b-col>
+                          <b-col md="8">
+                            <b-card-body :title="employee[`name_${locale}`]">
+                              <b-card-text>
+                                <h5 class="position">{{ employee[`position_${locale}`] }}</h5>
+                                <div>
+                                  <a :href="`tel:${employee.tel_number}`">{{ employee.tel_number }}</a>
+                                </div>
+                                <div>
+                                  <a :href="`mailto:${employee.email}`">{{ employee.email }}</a>
+                                </div>
+                                <div v-if="employee[`cv_${locale}`]">
+                                  <a :href="employee[`cv_${locale}`] && `${API_BASE_URL}/uploads/${employee[`cv_${locale}`].hash}${employee[`cv_${locale}`].ext}`" target="_blank">{{ $t('CurriculumVitae') }}</a>
+                                </div>
+                              </b-card-text>
+                            </b-card-body>
+                          </b-col>
+                        </b-row>
+                      </b-card>
+                    </router-link>
+                  </div>
                 </span>
               </a>
             </div>
           </div>
         </div>
-        <!-- <div v-for="(item, index) in tree" :key="index" class="mb-2">
-          <b-button :to="'/employees/' + index" :id="index">{{ item.title }}</b-button>
-          <b-tooltip :target="index.toString()">{{ item.name }}</b-tooltip>
-        </div> -->
       </div>
       <b-row>
-        <!-- <b-col :id="emp.id" cols="6" v-for="emp in data" :key="emp.id">
-          <b-card no-body class="overflow-hidden mb-3">
-            <b-row no-gutters>
-              <b-col md="4" style="height: 160px">
-                <div class="img-100" v-bind:style="{'background-image': emp.photo ? `url(${API_BASE_URL}/uploads/${emp.photo.hash}${emp.photo.ext})` : `url(${noimage})`}"></div>
-              </b-col>
-              <b-col md="8">
-                <b-card-body :title="emp[`name_${locale}`]">
-                  <b-card-text>
-                    <h5 class="position">{{ emp[`position_${locale}`] }}</h5>
-                    <div>
-                      <a :href="`tel:${emp.tel_number}`">{{ emp.tel_number }}</a>
-                    </div>
-                    <div>
-                      <a :href="`mailto:${emp.email}`">{{ emp.email }}</a>
-                    </div>
-                    <div v-if="emp[`cv_${locale}`]">
-                      <a :href="emp[`cv_${locale}`] && `${API_BASE_URL}/uploads/${emp[`cv_${locale}`].hash}${emp[`cv_${locale}`].ext}`" target="_blank">{{ $t('CurriculumVitae') }}</a>
-                    </div>
-                  </b-card-text>
-                </b-card-body>
-              </b-col>
-            </b-row>
-          </b-card>
-        </b-col> -->
       </b-row>
     </div>
-
   </b-container>
 </template>
 
 <script>
 import i18n from '@/plugins/i18n';
-import { API_BASE_URL, EMPLOYEES_URL, STRUCTURE_IMAGE_URL } from '@/constants.js';
+import { API_BASE_URL, STRUCTURE_URL, STRUCTURE_IMAGE_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
-import noimage from '../../../assets/noimage.jpg';
 
 export default {
   name: 'Structure',
   data() {
     return {
-      currentPage: 1,
-      structureImage: 0,
-      news: null,
+      structureImage: '',
+      data: null,
       loading: true,
       errored: false,
-      API_BASE_URL,
-      noimage
+      API_BASE_URL
     };
   },
   computed: {
@@ -109,17 +78,6 @@ export default {
     },
   },
   mounted() {
-    this.$http
-      .get(EMPLOYEES_URL)
-      .then(response => {
-        this.data = response.data;
-      })
-      .catch(error => {
-        console.log(error);
-        this.errored = true;
-      })
-      .finally(() => (this.loading = false));
-
     this.$http
       .get(STRUCTURE_IMAGE_URL)
       .then(response => {
@@ -131,17 +89,18 @@ export default {
         this.errored = true;
       })
       .finally(() => (this.loading = false));
+    this.$http
+      .get(STRUCTURE_URL)
+      .then(response => {
+        this.data = response.data;
+      })
+      .catch(error => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
   },
   methods: {
-    expandArticle(){
-    },
-    disableByRef() {
-      if (this.disabled) {
-        this.$refs.tooltip.$emit('enable')
-      } else {
-        this.$refs.tooltip.$emit('disable')
-      }
-    }
   },
   components: { LoadingSpinner, ServerError }
 };
@@ -151,12 +110,12 @@ export default {
 .indicator{
   position: relative;
 }
-.indicator > a > .card{
+.indicator > div > a > .card{
   opacity: 0;
   display: none;
   transition: .3s ease all;
 }
-.indicator:hover > a > .card{
+.indicator:hover > div > a > .card{
   opacity: 1;
   display: block;
   transition: .3s ease all;

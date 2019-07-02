@@ -16,7 +16,7 @@
             </b-card-header>
             <b-collapse :id="`accordion-${article.id}`" accordion="my-accordion" role="tabpanel">
               <b-card-body>
-                <h5 class="mb-3">{{ article.date_start.split(' ')[0] + ' - ' + article.date_finish.split(' ')[0] }}</h5>
+                <!-- <h5 class="mb-3">{{ article.date_start.split(' ')[0] + ' - ' + article.date_finish.split(' ')[0] }}</h5> -->
                 <div style="text-align: center" class="mb-3">
                   <img style="max-width: 100%" :src="article.image && `${API_BASE_URL}/uploads/${article.image.hash}${article.image.ext}`"/>
                 </div>
@@ -40,7 +40,7 @@
             </b-card-header>
             <b-collapse :id="`accordion-${article.id}`" accordion="my-accordion" role="tabpanel">
               <b-card-body>
-                <h5 class="mb-3">{{ article.date_start.split(' ')[0] + ' - ' + article.date_finish.split(' ')[0] }}</h5>
+                <!-- <h5 class="mb-3">{{ article.date_start.split(' ')[0] + ' - ' + article.date_finish.split(' ')[0] }}</h5> -->
                 <div style="text-align: center" class="mb-3">
                   <img style="max-width: 100%" :src="article.image && `${API_BASE_URL}/uploads/${article.image.hash}${article.image.ext}`"/>
                 </div>

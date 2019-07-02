@@ -19,6 +19,7 @@ export const VACANCIES_URL = `${API_BASE_URL}/vacancies`;
 export const INTERNSHIPS_URL = `${API_BASE_URL}/internships`;
 export const PROJECTS_URL = `${API_BASE_URL}/projects`;
 export const STRUCTURE_IMAGE_URL = `${API_BASE_URL}/stuctureimages`;
+export const STRUCTURE_URL = `${API_BASE_URL}/structures`;
 
 // Legislation
 // export const NATIONAL_URL = `${API_BASE_URL}/national`;
