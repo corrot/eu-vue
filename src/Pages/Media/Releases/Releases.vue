@@ -7,7 +7,7 @@
         <h5 class="section-title">{{ $t('PressReleases') }}</h5>
         <b-card no-body class="mb-2" v-for="vacancy in cagInPress" :key="vacancy.id">
           <b-card-header header-tag="header" class="p-3" role="tab">
-            <a
+            <!-- <a
               block
               :href="'#accordion-1-' + vacancy.id"
               v-b-toggle="'accordion-1-' + vacancy.id"
@@ -15,9 +15,10 @@
             >
               <span>{{ vacancy[`title_${locale}`] }}</span>
               <font-awesome-icon class="mr-1" :icon="['fas', 'fa-plus']"/>
-            </a>
+            </a> -->
+            <router-link :to="`/media/press-releases/${vacancy.id}`"><span>{{ vacancy[`title_${locale}`] }}</span></router-link>
           </b-card-header>
-          <b-collapse :id="`accordion-1-${vacancy.id}`" accordion="my-accordion" role="tabpanel">
+          <!-- <b-collapse :id="`accordion-1-${vacancy.id}`" accordion="my-accordion" role="tabpanel">
             <b-card-body>
               <img
                 class="mb-3 mt-3"
@@ -33,7 +34,7 @@
                 target="_blank"
               >{{ $t('ViewDocument') }}</b-button>
             </b-card-body>
-          </b-collapse>
+          </b-collapse> -->
         </b-card>
       </div>
 

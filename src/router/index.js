@@ -36,6 +36,7 @@ import Sitemap from '@/Pages/Sitemap/Sitemap';
 
 import Media from '@/Pages/Media/Media';
 import Releases from '@/Pages/Media/Releases/Releases';
+import ReleaseDetails from '@/Pages/Media/Releases/ReleaseDetails';
 import NewsArchive from '@/Pages/Media/NewsArchive/NewsArchive';
 import NewsDetails from '@/Pages/Media/NewsArchive/NewsDetails';
 import Newsletter from '@/Pages/Media/Newsletter/Newsletter';
@@ -361,10 +362,10 @@ export const routes = [
         component: Announcement,
       },
       {
-        title: 'Press Releases Detail',
+        title: 'PressReleasesDetail',
         path: '/media/press-releases/:id',
         name: 'pressReleasesDetail',
-        component: { template: '<div>asfasf</div>' },
+        component: ReleaseDetails,
         hidden: true,
       },
       {
@@ -399,13 +400,13 @@ export const routes = [
         name: 'newsArchive',
         component: NewsArchive,
       },
-      {
-        title: 'News Details',
-        path: '/media/news-archive/:id',
-        name: 'newsDetails',
-        component: NewsDetails,
-        hidden: true,
-      },
+      // {
+      //   title: 'News Details',
+      //   path: '/media/news-archive/:id',
+      //   name: 'newsDetails',
+      //   component: NewsDetails,
+      //   hidden: true,
+      // },
       // {
       //   title: 'Newsletter',
       //   path: '/media/newsletter',

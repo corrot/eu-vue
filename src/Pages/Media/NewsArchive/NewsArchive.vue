@@ -60,14 +60,19 @@
           >{{ item[`title_${locale}`] }}</router-link>
         </div>
       </div>
+
       <div class="mt-4">
         <h5 class="section-title">{{ $t('PressReleases') }}</h5>
         <div v-for="item in pressReleases" :key="item.id">
-          <a
+          <router-link
+            :to="`/media/press-releases/${item.id}`"
+            v-if="item.date.split(' ')[0].split('-')[0] == activeYear && parseInt(item.date.split(' ')[0].split('-')[1]) == activeMonth"
+          >{{ item[`title_${locale}`] }}</router-link>
+          <!-- <a
             v-if="item.date.split(' ')[0].split('-')[0] == activeYear && parseInt(item.date.split(' ')[0].split('-')[1]) == activeMonth"
             :href="item.image && `${API_BASE_URL}/uploads/${item.image.hash}${item.image.ext}`"
             target="_blank"
-          >{{ item[`title_${locale}`] }}</a>
+          >{{ item[`title_${locale}`] }}</a> -->
         </div>
       </div>
       <!-- <div class="mt-4">
