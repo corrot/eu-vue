@@ -90,4 +90,7 @@ export const en = {
   Share: 'Share',
   History: 'History',
   GoToLink: 'Go to the link',
+  FileTitle: 'File Title',
+  UploadDate: 'Upload Date',
+  FileLink: 'File Link',
 };

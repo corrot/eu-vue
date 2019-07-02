@@ -17,7 +17,7 @@
           <tbody>
             <tr v-for="(o, i) in type.proactiveinformations" :key="o.id">
               <td scope="row">{{ `${index + 1}.${i + 1}` }}</td>
-              <td><router-link :to="`/public/proactive-information-details/${index}/${i}`">{{ o[`title_${locale}`] }}</router-link></td>
+              <td><router-link :to="`/public/proactive-information-details/${o.id}`">{{ o[`title_${locale}`] }}</router-link></td>
               <td>{{ o[`comment_${locale}`] }}</td>
             </tr>
           </tbody>

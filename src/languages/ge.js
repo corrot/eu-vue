@@ -92,4 +92,7 @@ export const ge = {
   Share: 'გაზიარება',
   History: 'ისტორია',
   GoToLink: 'გადადით ლინკზე',
+  FileTitle: 'ფაილის დასახელება',
+  UploadDate: 'განთავსების თარიღი',
+  FileLink: 'ფაილის ბმული',
 };

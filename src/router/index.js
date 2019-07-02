@@ -281,7 +281,7 @@ export const routes = [
     children: [
       {
         title: 'ProactiveInformationDetails',
-        path: '/public/proactive-information-details/:type/:id',
+        path: '/public/proactive-information-details/:id',
         name: 'proactiveInformationDetails',
         component: ProactiveInformationDetails,
         hidden: true
