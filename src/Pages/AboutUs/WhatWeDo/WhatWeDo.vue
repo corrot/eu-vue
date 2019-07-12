@@ -3,7 +3,10 @@
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
     <div v-if="!errored && !loading">
-      <vue-markdown>{{ data[0][`text_${locale}`] }}</vue-markdown>
+      <div v-for="item in data" :key="item.id">
+        <h5 class="section-title mb-4">{{item[`title_${locale}`]}}</h5>
+        <vue-markdown>{{ item[`text_${locale}`] }}</vue-markdown>
+      </div>
     </div>
   </b-container>
 </template>
@@ -23,7 +26,7 @@ export default {
       news: null,
       loading: true,
       errored: false,
-      API_BASE_URL
+      API_BASE_URL,
     };
   },
   computed: {
@@ -44,10 +47,9 @@ export default {
       .finally(() => (this.loading = false));
   },
   methods: {
-    expandArticle(){
-    }
+    expandArticle() {},
   },
-  components: { LoadingSpinner, ServerError, VueMarkdown }
+  components: { LoadingSpinner, ServerError, VueMarkdown },
 };
 </script>
 
