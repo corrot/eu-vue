@@ -28,7 +28,7 @@ export const ge = {
   PublicInformation: 'საჯარო ინფორმაცია',
   AnnualReports: 'წლიური ანგარიშები',
   Media: 'მედია',
-  PressReleases: 'პრეს რელიზები',
+  PressReleases: 'სიახლეები',
   Legislation: 'კანონმდებლობა',
   PageNotFound: 'ასეთი გვერდი არ არსებობს',
   InternalServerError: 'სერვერზე შეფერხებაა',

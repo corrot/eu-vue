@@ -5,9 +5,9 @@
     <div v-if="!errored && !loading">
       <div v-for="newsletter in data" :key="newsletter.id">
         <h3>{{ newsletter[`title_${locale}`] }}</h3>
-        <p>{{ newsletter.date }}</p>
-        <p><vue-markdown>{{ newsletter[`article_${locale}`] }}</vue-markdown></p>
-        <vue-simple-markdown :source="newsletter.Article"></vue-simple-markdown>
+        <p>{{ newsletter.date.split(' ')[0] }}</p>
+        <img style="width: 100%; object-fit: cover" :src="newsletter.image && `${API_BASE_URL}/uploads/${newsletter.image.hash}${newsletter.image.ext}`"/>
+        <p class="mb-3"><vue-markdown>{{ newsletter[`article_${locale}`] }}</vue-markdown></p>
       </div>
     </div>
   </b-container>
@@ -40,6 +40,7 @@ export default {
       .get(NEWSLETTERS_URL)
       .then(response => {
         this.data = response.data;
+        console.log(this.data )
       })
       .catch(error => {
         console.log(error);

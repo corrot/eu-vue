@@ -248,7 +248,7 @@ a {
 }
 
 .img-100 {
-  background-size: cover;
+  background-size: auto;
   background-position-x: center;
   background-position-y: center;
   width: 100%;

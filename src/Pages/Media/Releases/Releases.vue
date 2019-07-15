@@ -7,34 +7,8 @@
         <h5 class="section-title">{{ $t('PressReleases') }}</h5>
         <b-card no-body class="mb-2" v-for="vacancy in cagInPress" :key="vacancy.id">
           <b-card-header header-tag="header" class="p-3" role="tab">
-            <!-- <a
-              block
-              :href="'#accordion-1-' + vacancy.id"
-              v-b-toggle="'accordion-1-' + vacancy.id"
-              variant="info"
-            >
-              <span>{{ vacancy[`title_${locale}`] }}</span>
-              <font-awesome-icon class="mr-1" :icon="['fas', 'fa-plus']"/>
-            </a> -->
             <router-link :to="`/media/press-releases/${vacancy.id}`"><span>{{ vacancy[`title_${locale}`] }}</span></router-link>
           </b-card-header>
-          <!-- <b-collapse :id="`accordion-1-${vacancy.id}`" accordion="my-accordion" role="tabpanel">
-            <b-card-body>
-              <img
-                class="mb-3 mt-3"
-                style="max-width: 100%"
-                :src="vacancy.image && `${API_BASE_URL}/uploads/${vacancy.image.hash}${vacancy.image.ext}`"
-              >
-              <b-card-text>
-                <vue-markdown class="article">{{ vacancy[`article_${locale}`] }}</vue-markdown>
-              </b-card-text>
-              <b-button
-                v-if="vacancy[`doc_${locale}`].length"
-                :href="vacancy[`doc_${locale}`] && `${API_BASE_URL}/uploads/${vacancy[`doc_${locale}`][0].hash}${vacancy[`doc_${locale}`][0].ext}`"
-                target="_blank"
-              >{{ $t('ViewDocument') }}</b-button>
-            </b-card-body>
-          </b-collapse> -->
         </b-card>
       </div>
 

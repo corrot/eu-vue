@@ -17,10 +17,10 @@ export default {
   name: 'Search',
   data() {
     return {
-      data: [],
+      data: null,
       items: [],
-      loading: true,
-      errored: false,
+      // loading: true,
+      // errored: false,
       API_BASE_URL,
       id: this.$route.params.id
     };

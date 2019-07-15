@@ -6,7 +6,7 @@
       <div>
         <div class="image-canvas">
           <div id="base" class="structure-image mb-4">
-            <img :src="structureImage" :alt="$t('Structure')">
+            <img :src="structureImage" :alt="$t('Structure')" style="margin-top: 60px">
             <div class="overlay">
               <a v-for="item in data" :key="item.id">
                 <span
@@ -23,16 +23,16 @@
                       <b-card
                         no-body
                         class="overflow-hidden mb-3 card"
-                        style="position: relative; width: 400px; left: 50%; transform: translate(-50%, -100%); z-index: 99999"
+                        style="position: relative; min-width: 450px; left: 50%; transform: translate(-50%, -100%); z-index: 99999;"
                       >
                         <b-row no-gutters>
-                          <b-col md="4" style="height: 160px">
+                          <b-col md="5" style="height: 160px">
                             <div
                               class="img-100"
                               v-bind:style="{'background-image': employee.photo ? `url(${API_BASE_URL}/uploads/${employee.photo.hash}${employee.photo.ext})` : `url(${noimage})`}"
                             ></div>
                           </b-col>
-                          <b-col md="8">
+                          <b-col md="7">
                             <b-card-body :title="employee[`name_${locale}`]">
                               <b-card-text>
                                 <h5 class="position">{{ employee[`position_${locale}`] }}</h5>
@@ -164,6 +164,7 @@ export default {
   min-height: 600px;
   top: 0;
   left: 0;
+  margin-top: 60px;
 }
 
 .overlay > a > span {

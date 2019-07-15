@@ -131,7 +131,6 @@ export default {
 }
 
 .card-img-container {
-  max-height: 150px;
   overflow: hidden;
 }
 

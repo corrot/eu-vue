@@ -1,22 +1,14 @@
 <template>
   <div class="projects">
-    <loading-spinner v-if="loading"/>
-    <!-- <server-error v-if="errored"/> -->
-
-    <div v-if="!errored && !loading">
-      <router-link to="/about-us/projects"><h5 class="section-title">{{ $t('Projects') }}</h5></router-link>
-      <div v-for="item in data.links" :key="item.id" v-if="item.image">
-        <a :href="item.link" target="_blank"><img style="width: 100%" :src="item.image && `${API_BASE_URL}/uploads/${item.image.hash}${item.image.ext}`"/></a>
-      </div>
-    </div>
-
+    <router-link to="/about-us/projects"><h5 class="section-title">{{ $t('Projects') }}</h5></router-link>
+    <a :href="data.Link" target="_blank"><img style="width: 100%; object-fit: cover" :src="data.image && `${API_BASE_URL}/uploads/${data.image.hash}${data.image.ext}`"/></a>
   </div>
 </template>
 
 <script>
 import VueMarkdown from 'vue-markdown';
 import i18n from '@/plugins/i18n';
-import { LINKTYPES_URL, API_BASE_URL } from '@/constants.js';
+import { PROJECTS_URL, API_BASE_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 
@@ -37,9 +29,9 @@ export default {
   },
   mounted() {
     this.$http
-      .get(LINKTYPES_URL + '/1')
+      .get(PROJECTS_URL)
       .then(response => {
-        this.data = response.data;
+        this.data = response.data.filter(o => o.forfirtpage)[0];
       })
       .catch(error => {
         this.errored = true;
