@@ -5,7 +5,7 @@
     </router-link>
     <b-row>
       <b-col lg="4" class="mb-2" v-for="newsArticle in data" :key="newsArticle.id">
-        <router-link :to="`media/press-releases#accordion-1-${newsArticle.id}`">
+        <router-link :to="`media/press-releases/${newsArticle.id}`">
           <div class="card">
             <!-- <h4
               class="card-title font-weight-bold line-limit-2"
