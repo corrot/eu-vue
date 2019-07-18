@@ -5,14 +5,26 @@
     <div v-if="!errored && !loading">
       <div role="tablist" class="mb-5" v-if="cagInPress.length">
         <h5 class="section-title">{{ $t('PressReleases') }}</h5>
-        <b-card no-body class="mb-2" v-for="vacancy in cagInPress" :key="vacancy.id">
+        <b-card no-body class="mb-2" v-for="release in cagInPress" :key="release.id">
           <b-card-header header-tag="header" class="p-3" role="tab">
-            <router-link :to="`/media/press-releases/${vacancy.id}`"><span>{{ vacancy[`title_${locale}`] }}</span></router-link>
+            <router-link :to="`/media/press-releases/${release.id}`">
+              <span>{{ release[`title_${locale}`] }}</span>
+            </router-link>
           </b-card-header>
         </b-card>
       </div>
 
       <div role="tablist" class="mb-5" v-if="pressReleases.length">
+        <h5 class="section-title">{{ $t('CAGInPress') }}</h5>
+        <b-card no-body class="mb-2" v-for="article in pressReleases" :key="article.id">
+          <b-card-header header-tag="header" class="p-3" role="tab">
+            <router-link :to="`/media/cag-in-press/${article.id}`">
+              <span>{{ article[`title_${locale}`] }}</span>
+            </router-link>
+          </b-card-header>
+        </b-card>
+      </div>
+      <!-- <div role="tablist" class="mb-5" v-if="pressReleases.length">
         <h5 class="section-title">{{ $t('CAGInPress') }}</h5>
         <b-card no-body class="mb-2" v-for="internship in pressReleases" :key="internship.id">
           <b-card-header header-tag="header" class="p-3" role="tab">
@@ -44,7 +56,7 @@
             </b-card-body>
           </b-collapse>
         </b-card>
-      </div>
+      </div>-->
     </div>
   </b-container>
 </template>
