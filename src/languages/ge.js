@@ -95,4 +95,6 @@ export const ge = {
   FileTitle: 'ფაილის დასახელება',
   UploadDate: 'განთავსების თარიღი',
   FileLink: 'ფაილის ბმული',
+  ApplicationForms: 'სააგენტოსთან მიმართვის ფორმა',
+  Forms: 'სააგენტოსთან მიმართვის ფორმა',
 };

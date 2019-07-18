@@ -11,18 +11,18 @@ import i18n from '@/plugins/i18n';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 import VuePureLightbox from 'vue-pure-lightbox';
-import endpoints from './searchHelper'; 
+import endpoints from './searchHelper';
 
 export default {
   name: 'Search',
   data() {
     return {
-      data: null,
+      data: [],
       items: [],
       // loading: true,
       // errored: false,
       API_BASE_URL,
-      id: this.$route.params.id
+      id: this.$route.params.id,
     };
   },
   computed: {
@@ -31,24 +31,25 @@ export default {
     },
   },
   mounted() {
-    let j = [];
     endpoints.map(e => {
-      const path = `${e}${i18n.locale}_contains=${(this.$route.params.id).toString()}`;
+      const path = `${e}${
+        i18n.locale
+      }_contains=${this.$route.params.id.toString()}`;
 
       this.$http
-      .get(path)
-      .then(response => {
-        this.data = [ ...this.data, ...response.data];
-      })
-      // .catch(error => {
-      //   console.log(error);
-      //   alert();
-      //   this.errored = true;
-      // })
-      // .finally(() => (this.loading = false));
-      return null;
-    })
-    console.log(j);
+        .get(path)
+        .then(response => {
+          // this.data = [...this.data, ...response.data];
+          console.log(response.data || ':O');
+          // this.data.push(response.data);
+        })
+        .catch(error => {
+          // console.log(error);
+          this.errored = true;
+        })
+        .finally(() => (this.loading = false));
+    });
+    console.log(this.data);
   },
   components: { LoadingSpinner, ServerError, VuePureLightbox, VueMarkdown },
 };

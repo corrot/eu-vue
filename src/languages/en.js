@@ -93,4 +93,6 @@ export const en = {
   FileTitle: 'File Title',
   UploadDate: 'Upload Date',
   FileLink: 'File Link',
+  ApplicationForms: 'Application Forms',
+  Forms: 'Application Forms',
 };

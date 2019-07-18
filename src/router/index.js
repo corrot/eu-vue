@@ -21,6 +21,7 @@ import International from '@/Pages/Legislation/International/International';
 
 import PublicInformation from '@/Pages/PublicInformation/PublicInformation';
 import AnnualReports from '@/Pages/PublicInformation/AnnualReports/AnnualReports';
+import Forms from '@/Pages/PublicInformation/Forms/Forms';
 import ProactiveInformation from '@/Pages/PublicInformation/ProactiveInformation/ProactiveInformation';
 import ProactiveInformationDetails from '@/Pages/PublicInformation/ProactiveInformation/ProactiveInformationDetails';
 import Statistics from '@/Pages/PublicInformation/Statistics/Statistics';
@@ -298,6 +299,12 @@ export const routes = [
         path: '/public/annual-reports',
         name: 'annualReports',
         component: AnnualReports,
+      },
+      {
+        title: 'Forms',
+        path: '/public/applicaton-forms',
+        name: 'applicationForms',
+        component: Forms,
       },
       // {
       //   title: 'Statistics',
