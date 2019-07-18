@@ -11,10 +11,12 @@
         <b-breadcrumb class="container" :items="breadcrumbNames"></b-breadcrumb>
         <social-sharing
           v-if="this.$router.currentRoute.name === 'pressReleases' 
+          || this.$router.currentRoute.name === 'PressReleasesDetail' 
           || this.$router.currentRoute.name === 'events' 
+          || this.$router.currentRoute.name === 'eventDetails' 
           || this.$router.currentRoute.name === 'announcement' 
-          || this.$router.currentRoute.name === 'publicSurvey' 
-          || this.$router.currentRoute.name === 'eventDetails'"
+          || this.$router.currentRoute.name === 'announcementDetails' 
+          || this.$router.currentRoute.name === 'publicSurvey'"
           class="text-right"
           :url="origin + $route.fullPath"
           inline-template
