@@ -37,6 +37,7 @@ import Sitemap from '@/Pages/Sitemap/Sitemap';
 import Media from '@/Pages/Media/Media';
 import Releases from '@/Pages/Media/Releases/Releases';
 import ReleaseDetails from '@/Pages/Media/Releases/ReleaseDetails';
+import CAGInPressDetails from '@/Pages/Media/Releases/CAGInPressDetails';
 import NewsArchive from '@/Pages/Media/NewsArchive/NewsArchive';
 import NewsDetails from '@/Pages/Media/NewsArchive/NewsDetails';
 import Newsletter from '@/Pages/Media/Newsletter/Newsletter';
@@ -284,7 +285,7 @@ export const routes = [
         path: '/public/proactive-information-details/:id',
         name: 'proactiveInformationDetails',
         component: ProactiveInformationDetails,
-        hidden: true
+        hidden: true,
       },
       {
         title: 'ProactiveInformation',
@@ -360,6 +361,13 @@ export const routes = [
         path: '/media/announcement',
         name: 'announcement',
         component: Announcement,
+      },
+      {
+        title: 'CAGInPressDetails',
+        path: '/media/cag-in-press/:id',
+        name: 'cagInPressDetails',
+        component: CAGInPressDetails,
+        hidden: true,
       },
       {
         title: 'PressReleasesDetail',
