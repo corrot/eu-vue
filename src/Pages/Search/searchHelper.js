@@ -56,7 +56,7 @@ let arr = [];
 
 endpoints.map(o => {
   paths.map(i => {
-    arr.push(`${o.toString()}?${i.toString()}`);
+    arr.push({ path: `${o.toString()}?${i.toString()}`, name: o });
   });
 });
 

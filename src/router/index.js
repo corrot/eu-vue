@@ -302,7 +302,7 @@ export const routes = [
       },
       {
         title: 'Forms',
-        path: '/public/applicaton-forms',
+        path: '/public/application-forms',
         name: 'applicationForms',
         component: Forms,
       },

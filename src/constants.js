@@ -8,6 +8,7 @@ export const LINKTYPES_URL = `${API_BASE_URL}/linktypes`;
 export const EVENTS_URL = `${API_BASE_URL}/events`;
 export const ANNOUNCEMENTS_URL = `${API_BASE_URL}/announcements`;
 export const VIDEOS_URL = `${API_BASE_URL}/videos`;
+export const HOME_FORMS_URL = `${API_BASE_URL}/homeforms`;
 
 // About Us
 export const WHATWEDO_URL = `${API_BASE_URL}/whatwedos`;

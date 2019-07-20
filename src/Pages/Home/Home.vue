@@ -7,6 +7,7 @@
       <div class="page-row left">
         <!-- <links-component/> -->
         <!-- <testimonials-component/> -->
+        <home-forms-component/>
         <cards-component/>
         <video-gallery-component/>
         <photo-gallery-component/>
@@ -35,6 +36,7 @@ import CardsComponent from './components/Cards';
 import DecisionsCardsComponent from './components/DecisionsCards';
 import PhotoGalleryComponent from './components/PhotoGallery';
 import VideoGalleryComponent from './components/VideoGallery';
+import HomeFormsComponent from './components/HomeForms';
 
 export default {
   name: 'Home',
@@ -51,6 +53,7 @@ export default {
     EventsComponent,
     PhotoGalleryComponent,
     VideoGalleryComponent,
+    HomeFormsComponent,
   },
   data() {
     return {
@@ -61,25 +64,25 @@ export default {
 </script>
 
 <style scoped>
- .rows-container{
-   display: flex;
- }
-.page-row.right{
+.rows-container {
+  display: flex;
+}
+.page-row.right {
   width: 286px;
 }
-.page-row.left{
-  width: calc(100% - 286px); 
+.page-row.left {
+  width: calc(100% - 286px);
   padding-right: 30px;
 }
 @media screen and (max-width: 992px) {
- .rows-container{
-   display: block;
- }
-  .page-row.right{
+  .rows-container {
+    display: block;
+  }
+  .page-row.right {
     width: 100%;
     margin-top: 30px;
   }
-  .page-row.left{
+  .page-row.left {
     width: 100%;
     padding-right: 0;
   }

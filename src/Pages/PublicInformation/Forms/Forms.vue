@@ -59,7 +59,6 @@ export default {
       .get(FORMS_URL)
       .then(response => {
         this.data = response.data.reverse();
-        console.log(this.data);
       })
       .catch(error => {
         console.log(error);

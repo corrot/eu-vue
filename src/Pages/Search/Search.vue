@@ -17,7 +17,7 @@ export default {
   name: 'Search',
   data() {
     return {
-      data: [],
+      data: null,
       items: [],
       // loading: true,
       // errored: false,
@@ -31,25 +31,20 @@ export default {
     },
   },
   mounted() {
-    endpoints.map(e => {
-      const path = `${e}${
+    let collectedData = [];
+    endpoints.forEach(e => {
+      const path = `${e.path}${
         i18n.locale
       }_contains=${this.$route.params.id.toString()}`;
 
-      this.$http
-        .get(path)
-        .then(response => {
-          // this.data = [...this.data, ...response.data];
-          console.log(response.data || ':O');
-          // this.data.push(response.data);
-        })
-        .catch(error => {
-          // console.log(error);
-          this.errored = true;
-        })
-        .finally(() => (this.loading = false));
+      this.$http.get(path).then(response => {
+        collectedData[e.name] = response.data;
+        console.log('a data: ', collectedData);
+      });
     });
-    console.log(this.data);
+
+    this.data = collectedData;
+    console.log('b data: ', this.data);
   },
   components: { LoadingSpinner, ServerError, VuePureLightbox, VueMarkdown },
 };
