@@ -46,7 +46,7 @@ export const ge = {
   ComplaintForm: 'სასაჩივრე ფორმა',
   Announcement: 'ანონსი',
   Events: 'ღონისძიებები',
-  NewsArchive: 'ახალი ამბების არქივი',
+  NewsArchive: 'არქივი',
   Newsletter: 'საინფორმაციო ბიულეტენი',
   Publications: 'პუბლიკაციები',
   FAQ: 'ხშირად დასმული კითხვები',
@@ -57,7 +57,7 @@ export const ge = {
   Message: 'ტექსტი',
   Submit: 'გაგზავნა',
   ProactiveInformation: 'პროაქტიული ინფორმაცია',
-  PublicSurvey: 'საჯარო გამოკითხვები',
+  PublicSurvey: 'საჯარო გამოკითხვა',
   Print: 'ბეჭდვა',
   AccessToPublicInformation: 'საჯარო ინფორმაციასთან წვდომა',
   Search: 'ძიება',
@@ -97,4 +97,5 @@ export const ge = {
   FileLink: 'ფაილის ბმული',
   ApplicationForms: 'სააგენტოსთან მიმართვის ფორმა',
   Forms: 'სააგენტოსთან მიმართვის ფორმა',
+  Public: 'საჯარო ინფორმაცია',
 };

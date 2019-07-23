@@ -95,4 +95,5 @@ export const en = {
   FileLink: 'File Link',
   ApplicationForms: 'Application Forms',
   Forms: 'Application Forms',
+  Public: 'Public Information',
 };

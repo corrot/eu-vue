@@ -268,3 +268,12 @@ a {
   min-height: 200px;
   object-fit: cover;
 }
+.card-header > a{
+  color: #141e3a;
+  font-weight: bold;
+  transition: .3s ease all;
+}
+.card-header > a:active, .card-header > a:focus, .card-header > a:hover{
+  color: #e07400;
+  transition: .3s ease all;
+}

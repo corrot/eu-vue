@@ -9,14 +9,9 @@
         style="display: flex; justify-content: space-between"
       >
         <b-breadcrumb class="container" :items="breadcrumbNames"></b-breadcrumb>
+        
         <social-sharing
-          v-if="this.$router.currentRoute.name === 'pressReleases' 
-          || this.$router.currentRoute.name === 'PressReleasesDetail' 
-          || this.$router.currentRoute.name === 'events' 
-          || this.$router.currentRoute.name === 'eventDetails' 
-          || this.$router.currentRoute.name === 'announcement' 
-          || this.$router.currentRoute.name === 'announcementDetails' 
-          || this.$router.currentRoute.name === 'publicSurvey'"
+          v-if="['pressReleases', 'pressReleasesDetail', 'events', 'eventDetails', 'announcement', 'announcementDetails', 'publicSurvey'].includes(this.$router.currentRoute.name)"
           class="text-right"
           :url="origin + $route.fullPath"
           inline-template
@@ -45,6 +40,7 @@ import HeaderComponent from './containers/Header/Header';
 import NavbarComponent from './containers/Navbar';
 import FooterComponent from './containers/Footer';
 import GoTop from '@inotom/vue-go-top';
+import i18n from '@/plugins/i18n';
 
 export default {
   name: 'App',
@@ -65,7 +61,8 @@ export default {
       this.routePaths = this.$router.currentRoute.path.split('/');
       this.routePaths.shift();
       this.routePaths.forEach((routePath, index, arr) => {
-        arr[index] = routePath.split('-').join(' ');
+        const res = this.$t(routePath.split('-').map(e => capitalize(e)).join(''))
+        arr[index] = res.length <= 3 ? res.toUpperCase() : res;
       });
       return this.routePaths;
     },
@@ -94,7 +91,7 @@ export default {
 }
 
 .breadcrumb-item {
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
   font-size: 15px;
 }
 

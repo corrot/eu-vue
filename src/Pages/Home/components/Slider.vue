@@ -1,7 +1,7 @@
 <template>
   <div class="carousel-wrapper" v-if="data">
     <carousel
-      :autoplay="false"
+      :autoplay="true"
       :autoplayHoverPause="true"
       :centerMode="true"
       :per-page="1"
@@ -9,6 +9,7 @@
       :pagination="false"
       paginationActiveColor="#cf4e1f"
       paginationPosition="bottom-overlay"
+      autoplayTimeout="4000"
     >
       <slide v-for="item in data" :key="item.id">
         <div

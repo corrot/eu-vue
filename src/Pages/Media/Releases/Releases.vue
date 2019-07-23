@@ -12,8 +12,12 @@
             </router-link>
           </b-card-header>
         </b-card>
+        <div style="text-align: right">
+          <router-link to="/media/news-archive" class="btn-read-more mb-5 pull-right">
+            <span>{{ $t("ViewAll") }}...</span>
+          </router-link>
+        </div>
       </div>
-
       <div role="tablist" class="mb-5" v-if="pressReleases.length">
         <h5 class="section-title">{{ $t('CAGInPress') }}</h5>
         <b-card no-body class="mb-2" v-for="article in pressReleases" :key="article.id">

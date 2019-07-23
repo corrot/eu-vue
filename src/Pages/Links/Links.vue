@@ -45,6 +45,9 @@ export default {
       .get(LINKTYPES_URL)
       .then(response => {
         this.data = response.data;
+        response.data.map(e => {
+          return e.links.sort((a, b) => a[`title_${this.locale}`].localeCompare(b[`title_${this.locale}`]));
+        });
       })
       .catch(error => {
         console.log(error);

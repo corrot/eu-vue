@@ -7,7 +7,7 @@
       <div role="tablist">
         <b-card no-body class="mb-2" v-for="q in data" :key="q.id">
           <b-card-header header-tag="header" class="p-3" role="tab">
-            <a block href="#" v-b-toggle="'accordion-' + q.id" variant="info">
+            <a block :href="`#accordion-${q.id}`" v-b-toggle="'accordion-' + q.id" variant="info">
               <span>{{ q[`question_${locale}`] }}</span>
               <font-awesome-icon class="mr-1" :icon="['fas', 'fa-plus']"/>
             </a>

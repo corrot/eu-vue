@@ -3,7 +3,7 @@
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
     <div v-if="!errored && !loading">
-      <router-link to="/media/events">
+      <router-link to="/media/news-archive">
         <h5 class="section-title">{{ $t('PhotoGallery') }}</h5>
       </router-link>
       <b-row>
@@ -24,7 +24,7 @@
           href="https://www.youtube.com/channel/UCS6PSHW37QIJxqiCBwm-YfQ"
           target="_blank"
         >{{ $t("ViewAll") }}...</a>-->
-        <router-link to="/media/events" class="btn-read-more">
+        <router-link to="/media/news-archive" class="btn-read-more">
           <span>{{ $t("ViewAll") }}...</span>
         </router-link>
       </div>

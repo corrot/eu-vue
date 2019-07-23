@@ -4,23 +4,24 @@
     <server-error v-if="errored"/>
     <div v-if="!errored && !loading">
       <h4 style="max-width: 80%">{{ data[`title_${locale}`] }}</h4>
-      <h5>{{ data.date_start && data.date_start.split(' ')[0].split('-').reverse().join('.') }} {{ data.date_finish && ' - ' }} {{ data.date_finish && data.date_finish.split(' ')[0].split('-').reverse().join('.') }}</h5>
+      <h5>{{ data.date_start && data.date_start.split(' ')[0].split('-').reverse().join('.') }}</h5>
       <vue-pure-lightbox
+        v-if="images.length"
         style="width: 100%"
         :thumbnail="images[0]"
         :images="images"
       >
       </vue-pure-lightbox>
-      <div class="image-count"><div class="p-3">{{ images.length }} {{ $t('ItemsInGallery') }}</div></div>
+      <div v-if="images.length" class="image-count"><div class="p-3">{{ images.length }} {{ $t('ItemsInGallery') }}</div></div>
       <vue-markdown class="mt-3">{{ data[`article_${locale}`] }}</vue-markdown>
       <b-row>
-        <b-col cols="2" class="pr-0" style="height: 90px; overflow: hidden"
+        <b-col cols="3" class="pr-0" style="max-height: 200px; overflow: hidden"
         v-for="image in images"
         :key="image">
           <vue-pure-lightbox
             style="width: 100%"
             :thumbnail="image"
-            :images="images"
+            :images="[image]"
           >
           </vue-pure-lightbox>
         </b-col>
@@ -128,6 +129,9 @@ export default {
   display: flex;
   justify-items: center;
   flex-direction: column;
+}
+.lightbox__thumbnail img{
+  min-height: 200px;
 }
 
 </style>
