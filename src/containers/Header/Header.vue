@@ -71,9 +71,11 @@ export default {
 /* 
 @media (max-width: 1200px) {
   
-}
+} */
 
 @media (max-width: 992px) {
-  
-} */
+  .lang-social{
+    display: none;
+  }
+}
 </style>

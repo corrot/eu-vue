@@ -1,5 +1,5 @@
 <template>
-  <div class="page-row fb-widget" style="min-width: 180px; width: 286px;">
+  <div class="page-row fb-widget" style="min-width: 180px; width: 286px; text-align: center">
     <div
       class="fb-page"
       data-href="https://www.facebook.com/CompetitionAgencyGeo"
