@@ -13,7 +13,7 @@
               class="mb-3"
             >
               <h6 slot="header" class="mb-0 decision-date">{{ article.date.split(" ")[0] }}</h6>
-              <b-card-text>{{ article[`short_description_${locale}`] }}</b-card-text>
+              <b-card-text>{{ article[`article_${locale}`] }}</b-card-text>
               <b-button
                 class="doc-button"
                 :href="article[`document_${locale}`] && `${API_BASE_URL}/uploads/${article[`document_${locale}`].hash}${article[`document_${locale}`].ext}`"
