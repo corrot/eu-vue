@@ -1,7 +1,13 @@
 <template>
   <b-container>
     <p>{{ $t('Search') }}: {{ id }}</p>
-    {{data}}
+    <div v-for="a in data" :key="a.id">
+      <div v-for="item in a.data" :key="item.id">
+        <router-link
+          :to="a.redirectTo.substring(0, a.redirectTo.length - 3) + item.id"
+        >{{item[`title_${locale}`]}}</router-link>
+      </div>
+    </div>
   </b-container>
 </template>
 
@@ -11,18 +17,17 @@ import i18n from '@/plugins/i18n';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 import VuePureLightbox from 'vue-pure-lightbox';
-import endpoints from './searchHelper';
+import endpoints, { searchEndpoints } from './searchHelper';
 
 export default {
   name: 'Search',
   data() {
     return {
-      data: null,
+      data: [],
       items: [],
+      id: this.$route.params.id,
       // loading: true,
       // errored: false,
-      API_BASE_URL,
-      id: this.$route.params.id,
     };
   },
   computed: {
@@ -30,21 +35,40 @@ export default {
       return i18n.locale;
     },
   },
+  watch: {
+    '$route.params.id': function(id) {
+      this.id = this.$route.params.id;
+      this.fetch('watch');
+    },
+    data: function() {
+      this.forceRerender();
+    },
+    deep: true,
+  },
   mounted() {
-    let collectedData = [];
-    endpoints.forEach(e => {
-      const path = `${e.path}${
-        i18n.locale
-      }_contains=${this.$route.params.id.toString()}`;
-
-      this.$http.get(path).then(response => {
-        collectedData[e.name] = response.data;
-        console.log('a data: ', collectedData);
+    this.fetch('mount');
+  },
+  methods: {
+    fetch: async function(from) {
+      await searchEndpoints(i18n.locale, this.id).forEach(e => {
+        this.$http.get(e.link).then(response => {
+          console.log(from, response.data);
+          this.data.push({
+            redirectTo: e.redirectTo.path,
+            data: response.data,
+          });
+        });
       });
-    });
+    },
+    forceRerender() {
+      // Remove my-component from the DOM
+      this.renderComponent = false;
 
-    this.data = collectedData;
-    console.log('b data: ', this.data);
+      this.$nextTick(() => {
+        // Add the component back in
+        this.renderComponent = true;
+      });
+    },
   },
   components: { LoadingSpinner, ServerError, VuePureLightbox, VueMarkdown },
 };
