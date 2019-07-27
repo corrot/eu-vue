@@ -41,7 +41,7 @@ export default {
       this.fetch('watch');
     },
     data: function() {
-      this.forceRerender();
+      // this.forceRerender();
     },
     deep: true,
   },
@@ -49,8 +49,8 @@ export default {
     this.fetch('mount');
   },
   methods: {
-    fetch: async function(from) {
-      await searchEndpoints(i18n.locale, this.id).forEach(e => {
+    fetch: function(from) {
+      searchEndpoints(i18n.locale, this.id).forEach(e => {
         this.$http.get(e.link).then(response => {
           console.log(from, response.data);
           this.data.push({
@@ -60,15 +60,15 @@ export default {
         });
       });
     },
-    forceRerender() {
-      // Remove my-component from the DOM
-      this.renderComponent = false;
+    // forceRerender() {
+    //   // Remove my-component from the DOM
+    //   this.renderComponent = false;
 
-      this.$nextTick(() => {
-        // Add the component back in
-        this.renderComponent = true;
-      });
-    },
+    //   this.$nextTick(() => {
+    //     // Add the component back in
+    //     this.renderComponent = true;
+    //   });
+    // },
   },
   components: { LoadingSpinner, ServerError, VuePureLightbox, VueMarkdown },
 };
