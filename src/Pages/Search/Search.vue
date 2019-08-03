@@ -50,6 +50,7 @@ export default {
   },
   methods: {
     fetch: function(from) {
+      this.data = [];
       searchEndpoints(i18n.locale, this.id).forEach(e => {
         this.$http.get(e.link).then(response => {
           console.log(from, response.data);
