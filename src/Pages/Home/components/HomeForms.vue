@@ -20,19 +20,13 @@
 <script>
 import i18n from '@/plugins/i18n';
 import { FORMS_URL, API_BASE_URL } from '@/constants.js';
-import LoadingSpinner from '@/components/LoadingSpinner';
-import ServerError from '@/components/ServerError';
-import noimage from '../../../assets/noimage.jpg';
 
 export default {
   name: 'AnnualReports',
   data() {
     return {
       data: null,
-      loading: true,
-      errored: false,
       API_BASE_URL,
-      noimage,
     };
   },
   computed: {
@@ -41,18 +35,10 @@ export default {
     },
   },
   mounted() {
-    this.$http
-      .get(FORMS_URL)
-      .then(response => {
-        this.data = response.data.reverse();
-      })
-      .catch(error => {
-        console.log(error);
-        this.errored = true;
-      })
-      .finally(() => (this.loading = false));
+    this.$http.get(FORMS_URL).then(response => {
+      this.data = response.data.reverse();
+    });
   },
-  components: { LoadingSpinner, ServerError },
 };
 </script>
 
@@ -71,42 +57,5 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-}
-.cards {
-  margin: 30px 0;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.card-year {
-  padding: 8px;
-  color: #db2323;
-  font-size: 19px;
-  text-align: center;
-}
-.card-title {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3; /* number of lines to show */
-  line-height: 20px; /* fallback */
-  height: 60px; /* fallback */
-  padding: 0 8px;
-  font-size: 16px;
-  font-weight: normal;
-  text-align: center;
-}
-
-.card-img-container {
-  text-align: center;
-  padding-bottom: 20px;
-}
-
-.card-img-container img {
-  width: 100%;
-  margin: 0 auto;
-  max-height: 140px;
-  height: auto;
 }
 </style>
