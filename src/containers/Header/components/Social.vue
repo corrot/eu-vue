@@ -2,8 +2,13 @@
   <div class="social">
     <ul class="social-container">
       <li>
-        <a class="btn-social fb" href="https://www.facebook.com/CompetitionAgencyGeo/" title="Facebook" target="_blank">
-          <font-awesome-icon class="fa" :icon="['fab', 'facebook']"/>
+        <a
+          class="btn-social fb"
+          href="https://www.facebook.com/CompetitionAgencyGeo/"
+          title="Facebook"
+          target="_blank"
+        >
+          <font-awesome-icon class="fa" :icon="['fab', 'facebook']" />
         </a>
       </li>
       <!-- <li>
@@ -11,20 +16,35 @@
           <font-awesome-icon class="fa" :icon="['fab', 'twitter']"/>
         </a>
       </li>
-      <li> -->
+      <li>-->
       <li>
-        <a class="btn-social instagram" href="https://www.instagram.com/georgian_competition_agency/" title="Instagram" target="_blank">
-          <font-awesome-icon class="fa" :icon="['fab', 'instagram']"/>
+        <a
+          class="btn-social instagram"
+          href="https://www.instagram.com/georgian_competition_agency/"
+          title="Instagram"
+          target="_blank"
+        >
+          <font-awesome-icon class="fa" :icon="['fab', 'instagram']" />
         </a>
       </li>
       <li>
-        <a class="btn-social linkedin" href="https://www.linkedin.com/company/18127183/admin/" title="LinkedIn" target="_blank">
-          <font-awesome-icon class="fa" :icon="['fab', 'linkedin']"/>
+        <a
+          class="btn-social linkedin"
+          href="https://www.linkedin.com/company/18127183/admin/"
+          title="LinkedIn"
+          target="_blank"
+        >
+          <font-awesome-icon class="fa" :icon="['fab', 'linkedin']" />
         </a>
       </li>
       <li>
-        <a class="btn-social youtube" href="https://www.youtube.com/channel/UCS6PSHW37QIJxqiCBwm-YfQ" title="Youtube" target="_blank">
-          <font-awesome-icon class="fa" :icon="['fab', 'youtube']"/>
+        <a
+          class="btn-social youtube"
+          href="https://www.youtube.com/channel/UCS6PSHW37QIJxqiCBwm-YfQ"
+          title="Youtube"
+          target="_blank"
+        >
+          <font-awesome-icon class="fa" :icon="['fab', 'youtube']" />
         </a>
       </li>
     </ul>
@@ -32,7 +52,7 @@
 </template>
 
 <script>
-import headerLogo from '@/assets/logo.png';
+import headerLogo from '@/assets/cag_logo.png';
 
 export default {
   name: 'Social',
@@ -66,7 +86,7 @@ export default {
 .btn-social.linkedin {
   background: #0177af;
 }
-.btn-social.instagram{
+.btn-social.instagram {
   background: #b60861;
 }
 .btn-social.youtube {

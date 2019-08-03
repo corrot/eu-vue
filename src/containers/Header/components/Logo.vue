@@ -1,13 +1,13 @@
 <template>
   <div class="logo">
     <router-link :to="`/`" class="logo-wrapper">
-      <img :src="headerLogo" id="logo-image">
+      <img :src="headerLogo" id="logo-image" />
     </router-link>
   </div>
 </template>
 
 <script>
-import headerLogo from '@/assets/logo.png';
+import headerLogo from '@/assets/cag_logo.png';
 
 export default {
   name: 'Logo',
@@ -24,9 +24,8 @@ export default {
   display: inline;
 }
 
-#logo-image{
+#logo-image {
   width: 100px;
   height: auto;
 }
-
 </style>
