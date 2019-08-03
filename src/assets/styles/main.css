@@ -22,7 +22,7 @@ input {
 }
 .main {
   padding-bottom: 30px;
-  min-height: calc(100vh - 343px);
+  min-height: calc(100vh - 339px);
 }
 p {
   text-align: justify;
@@ -268,12 +268,14 @@ a {
   min-height: 200px;
   object-fit: cover;
 }
-.card-header > a{
+.card-header > a {
   color: #141e3a;
   font-weight: bold;
-  transition: .3s ease all;
+  transition: 0.3s ease all;
 }
-.card-header > a:active, .card-header > a:focus, .card-header > a:hover{
+.card-header > a:active,
+.card-header > a:focus,
+.card-header > a:hover {
   color: #e07400;
-  transition: .3s ease all;
+  transition: 0.3s ease all;
 }
