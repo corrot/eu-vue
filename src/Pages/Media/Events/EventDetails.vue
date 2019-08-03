@@ -1,7 +1,7 @@
 <template>
   <b-container>
-    <loading-spinner v-if="loading"/>
-    <server-error v-if="errored"/>
+    <loading-spinner v-if="loading" />
+    <server-error v-if="errored" />
     <div v-if="!errored && !loading">
       <h4 style="max-width: 80%">{{ data[`title_${locale}`] }}</h4>
       <h5>{{ data.date_start && data.date_start.split(' ')[0].split('-').reverse().join('.') }}</h5>
@@ -10,24 +10,28 @@
         style="width: 100%"
         :thumbnail="images[0]"
         :images="images"
-      >
-      </vue-pure-lightbox>
-      <div v-if="images.length" class="image-count"><div class="p-3">{{ images.length }} {{ $t('ItemsInGallery') }}</div></div>
+      ></vue-pure-lightbox>
+      <div v-if="images.length" class="image-count">
+        <div class="p-3">{{ images.length }} {{ $t('ItemsInGallery') }}</div>
+      </div>
       <vue-markdown class="mt-3">{{ data[`article_${locale}`] }}</vue-markdown>
       <b-row>
-        <b-col cols="3" class="pr-0" style="max-height: 200px; overflow: hidden"
-        v-for="image in images"
-        :key="image">
-          <vue-pure-lightbox
-            style="width: 100%"
-            :thumbnail="image"
-            :images="[image]"
-          >
-          </vue-pure-lightbox>
+        <b-col
+          cols="3"
+          class="pr-0"
+          style="max-height: 200px; overflow: hidden"
+          v-for="image in images"
+          :key="image"
+        >
+          <vue-pure-lightbox style="width: 100%" :thumbnail="image" :images="[image]"></vue-pure-lightbox>
         </b-col>
       </b-row>
       <div class="mt-3" v-if="data.video">
-        <youtube player-width="300" player-height="180" :video-id="data.video && data.video.split('=')[1]"></youtube>
+        <youtube
+          player-width="300"
+          player-height="180"
+          :video-id="data.video && data.video.split('=')[1]"
+        ></youtube>
       </div>
     </div>
   </b-container>
@@ -80,34 +84,35 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.card-body{
+.card-body {
   padding: 0;
 }
-.image-count{
+.image-count {
   text-align: right;
   margin-top: -56px;
   color: #fff;
 }
-.image-count > div{
-    display: inline-block;
-    background: #00000099;
-  }
-.card-title, .card-text{
+.image-count > div {
+  display: inline-block;
+  background: #00000099;
+}
+.card-title,
+.card-text {
   padding: 10px;
   padding-top: 0;
 }
-.card-title{
+.card-title {
   padding-top: 10px;
 }
-.card-text{
+.card-text {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-.date-container{
+.date-container {
   /* background: #cf4e1f; */
-  width:100%;
+  width: 100%;
   height: 100%;
   color: #cf4e1f;
   font-weight: bold;
@@ -115,8 +120,8 @@ export default {
   position: relative;
   line-height: 16px;
 }
-.date-wrapper{
-  width:100%;
+.date-wrapper {
+  width: 100%;
   text-align: center;
   position: absolute;
   top: 50%;
@@ -130,8 +135,7 @@ export default {
   justify-items: center;
   flex-direction: column;
 }
-.lightbox__thumbnail img{
+.lightbox__thumbnail img {
   min-height: 200px;
 }
-
 </style>
