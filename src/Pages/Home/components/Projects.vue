@@ -1,7 +1,14 @@
 <template>
   <div class="projects">
-    <router-link to="/about-us/projects"><h5 class="section-title">{{ $t('Projects') }}</h5></router-link>
-    <a :href="data.Link" target="_blank"><img style="width: 100%; object-fit: cover" :src="data.image && `${API_BASE_URL}/uploads/${data.image.hash}${data.image.ext}`"/></a>
+    <router-link to="/about-us/projects">
+      <h5 class="section-title">{{ $t('Projects') }}</h5>
+    </router-link>
+    <a :href="data && data.Link" target="_blank">
+      <img
+        style="width: 100%; object-fit: cover"
+        :src="data && data.image && `${API_BASE_URL}/uploads/${data.image.hash}${data.image.ext}`"
+      />
+    </a>
   </div>
 </template>
 
@@ -13,13 +20,13 @@ import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 
 export default {
- name: 'Projects',
+  name: 'Projects',
   data() {
     return {
       data: null,
       loading: true,
       errored: false,
-      API_BASE_URL: API_BASE_URL
+      API_BASE_URL: API_BASE_URL,
     };
   },
   computed: {

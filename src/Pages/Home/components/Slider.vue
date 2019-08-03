@@ -9,7 +9,7 @@
       :pagination="false"
       paginationActiveColor="#cf4e1f"
       paginationPosition="bottom-overlay"
-      autoplayTimeout="4000"
+      :autoplayTimeout="4000"
     >
       <slide v-for="item in data" :key="item.id">
         <div
