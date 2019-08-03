@@ -1,12 +1,12 @@
 <template>
   <b-container>
-    <loading-spinner v-if="loading"/>
-    <server-error v-if="errored"/>
+    <loading-spinner v-if="loading" />
+    <server-error v-if="errored" />
     <div v-if="!errored && !loading">
       <div>
         <div class="image-canvas">
           <div id="base" class="structure-image mb-4">
-            <img :src="structureImage" :alt="$t('Structure')" style="margin-top: 60px">
+            <img :src="structureImage" :alt="$t('Structure')" style="margin-top: 60px" />
             <div class="overlay">
               <a v-for="item in data" :key="item.id">
                 <span
@@ -139,6 +139,7 @@ export default {
 }
 .position {
   font-size: 16px;
+  text-align: left;
 }
 .structure-image > img {
   width: 100%;
