@@ -28,7 +28,7 @@ import {
   faSitemap,
   faPrint,
   faSearch,
-  faPlusSquare
+  faPlusSquare,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
