@@ -1,7 +1,7 @@
 <template>
   <div>
-    <loading-spinner v-if="loading"/>
-    <server-error v-if="errored"/>
+    <loading-spinner v-if="loading" />
+    <server-error v-if="errored" />
     <div v-if="!errored && !loading">
       <!-- content -->
       <div role="tablist">
@@ -9,7 +9,7 @@
           <b-card-header header-tag="header" class="p-3" role="tab">
             <a block :href="`#accordion-${q.id}`" v-b-toggle="'accordion-' + q.id" variant="info">
               <span>{{ q[`question_${locale}`] }}</span>
-              <font-awesome-icon class="mr-1" :icon="['fas', 'fa-plus']"/>
+              <font-awesome-icon class="mr-1" :icon="['fas', 'fa-plus']" />
             </a>
           </b-card-header>
           <b-collapse :id="`accordion-${q.id}`" accordion="my-accordion" role="tabpanel">
@@ -60,16 +60,18 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-  .article > p > a {
-    color: #007bff!important;
-  }
-  .card-header > a{
-    color: #141e3a;
-    font-weight: bold;
-    transition: .3s ease all;
-  }
-  .card-header > a:active, .card-header > a:focus, .card-header > a:hover{
-    color: #e07400;
-    transition: .3s ease all;
-  }
+.article > p > a {
+  color: #007bff !important;
+}
+.card-header > a {
+  color: #141e3a;
+  font-weight: bold;
+  transition: 0.3s ease all;
+}
+.card-header > a:active,
+.card-header > a:focus,
+.card-header > a:hover {
+  color: #e07400;
+  transition: 0.3s ease all;
+}
 </style>

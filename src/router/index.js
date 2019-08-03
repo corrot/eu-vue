@@ -403,7 +403,7 @@ export const routes = [
         component: Events,
       },
       {
-        title: 'News Details',
+        title: 'NewsDetails',
         path: '/media/news-archive/:id',
         name: 'newsDetails',
         component: NewsDetails,

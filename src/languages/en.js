@@ -96,4 +96,11 @@ export const en = {
   ApplicationForms: 'Application Forms',
   Forms: 'Application Forms',
   Public: 'Public Information',
+  LinkToProject: 'Link to project',
+  ProactiveInformationDetails: 'Proactive Information',
+  AnnouncementDetails: 'Announcement',
+  CagInPressDetails: 'CAG In Press',
+  PressReleasesDetail: 'Press Releases',
+  EventDetails: 'Events',
+  NewsDetails: 'News',
 };
