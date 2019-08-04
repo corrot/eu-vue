@@ -12,8 +12,8 @@ export const en = {
   ViewDocument: 'View Document',
   Decisions: 'Decisions',
   AbuseOfDominantPosition: 'Abuse of dominant position',
-  ByProhibition: 'Decisions based on investigation',
-  ByInvestigation: 'Decisions on inadmissibility',
+  ByInvestigation: 'Decisions based on investigation',
+  ByProhibition: 'Decisions on inadmissibility',
   AntiCompetitiveAgreements: 'Anticompetitive agreements',
   DistortionOfCompetitionByStateAuthorities:
     'Distortion of competition by state authorities',

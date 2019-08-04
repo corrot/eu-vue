@@ -13,8 +13,8 @@ export const ge = {
   ViewDocument: 'დოკუმენტის ნახვა',
   Decisions: 'გადაწყვეტილებები',
   AbuseOfDominantPosition: 'დომინირებული მდგომარეობის ბოროტად გამოყენება',
-  ByProhibition: 'მოკვლევის შედეგად მიღებული გადაწყვეტილებები',
-  ByInvestigation: 'დაუშვებლობის გადაწყვეტილებები',
+  ByInvestigation: 'მოკვლევის შედეგად მიღებული გადაწყვეტილებები',
+  ByProhibition: 'დაუშვებლობის გადაწყვეტილებები',
   AntiCompetitiveAgreements: 'კონკურენციის შემზღუდველი შეთანხმებები',
   DistortionOfCompetitionByStateAuthorities:
     'სახელმწიფო უწყებების მხრიდან კონკურენციის შეზღუდვა',
