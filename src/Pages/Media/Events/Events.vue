@@ -1,10 +1,14 @@
 <template>
   <div>
-    <loading-spinner v-if="loading" />
-    <server-error v-if="errored" />
+    <loading-spinner v-if="loading"/>
+    <server-error v-if="errored"/>
     <div v-if="!errored && !loading">
       <div class="cards">
-        <b-card v-for="event in data" :key="event.id" class="mb-3">
+        <b-card
+          v-for="event in data"
+          :key="event.id"
+          class="mb-3"
+        >
           <router-link :to="`/media/events/${event.id}`">
             <b-row no-gutters>
               <b-col md="3">
@@ -12,7 +16,7 @@
                   style="width:100%"
                   :src="event.cover_image && `${API_BASE_URL}/uploads/${event.cover_image.hash}${event.cover_image.ext}`"
                   class="rounded-0"
-                />
+                >
               </b-col>
               <b-col md="7">
                 <b-card-body :title="event[`title_${locale}`]">
@@ -29,7 +33,7 @@
                       <!-- <div v-if="event.date_finish">-</div>
                       <div
                         v-if="event.date_finish"
-                      >{{ event.date_finish && event.date_finish.split(' ')[0].split('-').reverse().join('.') }}</div>-->
+                      >{{ event.date_finish && event.date_finish.split(' ')[0].split('-').reverse().join('.') }}</div> -->
                     </div>
                   </div>
                 </div>
@@ -37,9 +41,6 @@
             </b-row>
           </router-link>
         </b-card>
-      </div>
-      <div class="mt-3" style="text-align: right">
-        <router-link to="news-archive">{{ $t('ViewAll') }}...</router-link>
       </div>
     </div>
   </div>
@@ -93,8 +94,8 @@ export default {
   padding: 10px;
   padding-top: 0;
 }
-.card-text > div {
-  max-height: 100px !important;
+.card-text>div{
+  max-height: 100px!important;
   overflow: hidden;
 }
 .card-title {

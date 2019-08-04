@@ -1,9 +1,8 @@
 <template>
   <b-container class="styled">
-    <loading-spinner v-if="loading" />
-    <server-error v-if="errored" />
+    <loading-spinner v-if="loading"/>
+    <server-error v-if="errored"/>
     <div v-if="!errored && !loading">
-      <h5 class="section-title mb-4">{{data[0][`title_${locale}`]}}</h5>
       <vue-markdown>{{ data[0][`text_${locale}`] }}</vue-markdown>
     </div>
   </b-container>
