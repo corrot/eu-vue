@@ -1,6 +1,8 @@
 <template>
   <b-container>
-    <h5 class="section-title mb-4">{{ $t('ApplicationForms') }}:</h5>
+    <router-link to="/public/application-forms">
+      <h5 class="section-title mb-4">{{ $t('ApplicationForms') }}:</h5>
+    </router-link>
     <b-row>
       <b-col cols="3" class="mb-4" v-for="report in data" :key="report.id">
         <a
@@ -44,7 +46,7 @@ export default {
 
 <style lang="postcss" scoped>
 .title-container {
-  background-color: #cf4e1f;
+  background-color: #b74f29;
   color: #fff !important;
   font-family: 'Open Sans', 'BPG Glaho WEB Caps', sans-serif;
   height: 150px;

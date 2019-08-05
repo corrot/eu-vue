@@ -60,7 +60,7 @@ export default {
 
 <style lang="postcss" scoped>
 .img-100{
-  background-size: cover;
+  background-size: contain;
   background-position-x: center;
   background-position-y: center;
   width: 100%;

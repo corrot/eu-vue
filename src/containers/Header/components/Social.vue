@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import headerLogo from '@/assets/cag_logo.png';
+import headerLogo from '@/assets/logo.png';
 
 export default {
   name: 'Social',

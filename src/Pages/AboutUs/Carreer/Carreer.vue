@@ -9,7 +9,7 @@
             <h5 class="section-title">{{ $t('Vacancies') }}</h5>
             <b-card no-body class="mb-2" v-for="vacancy in vacancies" :key="vacancy.id">
               <b-card-header header-tag="header" class="p-3" role="tab">
-                <a block href="#" v-b-toggle="'accordion-1-' + vacancy.id" variant="info">
+                <a v-b-toggle="'accordion-1-' + vacancy.id" variant="info">
                   <span>{{ vacancy[`title_${locale}`] }}</span>
                   <font-awesome-icon class="mr-1" :icon="['fas', 'fa-plus']"/>
                 </a>
@@ -28,7 +28,7 @@
             <h5 class="section-title">{{ $t('Internships') }}</h5>
             <b-card no-body class="mb-2" v-for="internship in internships" :key="internship.id">
               <b-card-header header-tag="header" class="p-3" role="tab">
-                <a block href="#" v-b-toggle="'accordion-2-' + internship.id" variant="info">
+                <a v-b-toggle="'accordion-2-' + internship.id" variant="info">
                   <span>{{ internship[`title_${locale}`] }}</span>
                   <font-awesome-icon class="mr-1" :icon="['fas', 'fa-plus']"/>
                 </a>

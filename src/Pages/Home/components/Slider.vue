@@ -7,7 +7,7 @@
       :per-page="1"
       :loop="true"
       :pagination="false"
-      paginationActiveColor="#cf4e1f"
+      paginationActiveColor="#b74f29"
       paginationPosition="bottom-overlay"
       :autoplayTimeout="4000"
     >

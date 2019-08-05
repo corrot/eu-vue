@@ -74,10 +74,10 @@ export default {
 }
 
 .date-container{
-  /* background: #cf4e1f; */
+  /* background: #b74f29; */
   width:100%;
   height: 100%;
-  color: #cf4e1f;
+  color: #b74f29;
   font-weight: bold;
   font-size: 18px;
   position: relative;

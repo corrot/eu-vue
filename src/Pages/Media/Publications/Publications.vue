@@ -5,7 +5,7 @@
     <div v-if="!errored && !loading">
       <b-card no-body class="mb-2" v-for="p in data" :key="p.id">
         <b-card-header header-tag="header" class="p-3" role="tab">
-          <a block :href="'#accordion-' + p.id" v-b-toggle="'accordion-' + p.id" variant="info">
+          <a v-b-toggle="'accordion-' + p.id" variant="info">
             <span>{{ p[`title_${locale}`] }}</span>
             <font-awesome-icon class="mr-1" :icon="['fas', 'fa-plus']"/>
           </a>

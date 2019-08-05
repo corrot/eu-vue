@@ -13,7 +13,7 @@
             v-if="!article.IsEnded"
             >
             <b-card-header header-tag="header" class="p-3" role="tab">
-              <a block href="#" v-b-toggle="'accordion-1-' + article.id" variant="info">
+              <a v-b-toggle="'accordion-1-' + article.id" variant="info">
                 <span>{{ article[`title_${locale}`] }}</span>
                 <font-awesome-icon class="mr-1" :icon="['fas', 'fa-plus']"/>
               </a>

@@ -30,53 +30,17 @@ const endpoints = [
     url: EVENTS_URL,
     fields: ['title', 'article', 'tags'],
   },
-  //   { redirectTo: 'annualReports', url: ANNUALREPORTS_URL, fields: [] },
-  //   {
-  //     redirectTo: 'eventDetails',
-  //     url: DECISIONS_URL,
-  //     fields: ['title', 'article', 'tags'],
-  //   },
-  //   { redirectTo: 'faq', url: FAQ_URL, fields: ['question', 'answer'] },
-  //   { redirectTo: 'cooperation', url: COOPERATION_URL, fields: [] },
   {
     redirectTo: 'pressReleasesDetail',
     url: PRESSRELEASES_URL,
     fields: ['title', 'article'],
   },
-  //   {
-  //     redirectTo: 'releases',
-  //     url: RELEASES_URL,
-  //     fields: ['title', 'article'],
-  //   },
   {
     redirectTo: 'proactiveInformationDetails',
     url: PROACTIVE_INFORMATION_ARCHIVE,
     fields: ['title', 'comment'],
   },
-  //   { redirectTo: 'projects', url: PROJECTS_URL, fields: ['title', 'text'] },
-  //   { redirectTo: 'publicSurvey', url: PUBLICSURVEYS_URL, fields: ['title'] },
-  //   {
-  //     redirectTo: 'employees',
-  //     url: EMPLOYEES_URL,
-  //     fields: ['name', 'position', 'biography'],
-  //   },
-  //   { redirectTo: 'career', url: VACANCIES_URL, fields: [] },
-  //   { redirectTo: 'eventDetails', url: INTERNSHIPS_URL, fields: [] },
   { redirectTo: 'announcementDetails', url: ANNOUNCEMENTS_URL, fields: [] },
-  //   { redirectTo: 'legislation', url: LEGISLATIONS_URL, fields: ['title'] },
-  //   { redirectTo: 'chairman', url: CHAIRMAN_URL, fields: [] },
-  //   { redirectTo: 'applicationForms', url: FORMS_URL, fields: ['title'] },
-  //   { redirectTo: 'links', url: LINKS_URL, fields: ['title'] },
-  //   {
-  //     redirectTo: 'newsletter',
-  //     url: NEWSLETTERS_URL,
-  //     fields: ['title', 'article'],
-  //   },
-  //   {
-  //     redirectTo: 'publications',
-  //     url: PUBLICATIONS_URL,
-  //     fields: ['title', 'article'],
-  //   },
 ];
 
 const getStringWithLocaleFromArray = (arr, locale, query) => {

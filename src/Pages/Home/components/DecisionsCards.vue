@@ -84,7 +84,7 @@ export default {
   background-position: center;
   width: 70px;
   height: 70px;
-  background-color: #30b1e0;
+  background-color: #48b0d6;
   margin-bottom: 20px;
   filter: invert(100%);
   margin-bottom: 10px;
@@ -96,7 +96,7 @@ export default {
 }
 
 .decision-card:hover > a > .card-icon-title{
-  color: #cf4e1f;
+  color: #b74f29;
   transition: .3s ease all;
 }
 
