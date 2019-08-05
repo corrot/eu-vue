@@ -77,7 +77,7 @@ export default {
 
 <style lang='postcss' scoped>
 .carousel-wrapper {
-  height: calc(vh - 192px);
+  /* height: calc( vh - 192px ); */
   width: 100%;
   overflow: hidden;
 }
