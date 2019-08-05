@@ -22,9 +22,9 @@
         <h5 class="section-title">{{ $t('CAGInPress') }}</h5>
         <b-card no-body class="mb-2" v-for="article in pressReleases" :key="article.id">
           <b-card-header header-tag="header" class="p-3" role="tab">
-            <router-link :to="`/media/cag-in-press/${article.id}`">
+            <a :href="article[`doc_${locale}`] && `${API_BASE_URL}/uploads/${article[`doc_${locale}`][0].hash}${article[`doc_${locale}`][0].ext}`">
               <span>{{ article[`title_${locale}`] }}</span>
-            </router-link>
+            </a>
           </b-card-header>
         </b-card>
       </div>
