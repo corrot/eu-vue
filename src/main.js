@@ -51,7 +51,19 @@ library.add(
 
 Vue.prototype.$http = axios;
 
-Vue.use(VCalendar);
+Vue.use(VCalendar, {
+  locales: {
+    'ge': {
+      firstDayOfWeek: 2,
+      masks: {
+        L: 'YYYY-MM-DD',
+        // ...optional `title`, `weekdays`, `navMonths`, etc
+      },
+      // dayNames: ['as', 'qa', 'wq', 'fd', 'wr', 'et', 'yr'],
+      // monthNames: ['asfa']
+    }
+  }
+});
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.use(FlagIcon);
 Vue.use(BootstrapVue);

@@ -1,6 +1,6 @@
 <template>
   <div class="calendar">
-    <v-calendar @dayclick="clicker" style="width: 100%;" :attributes="attrs"></v-calendar>
+    <v-calendar :locale="locale == 'ge' ? 'ka-GE' : 'en'" @dayclick="clicker" style="width: 100%;" :attributes="attrs" />
   </div>
 </template>
 
