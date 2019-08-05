@@ -103,4 +103,5 @@ export const en = {
   PressReleasesDetail: 'Press Releases',
   EventDetails: 'Events',
   NewsDetails: 'News',
+  EmployDetail: 'Structure',
 };

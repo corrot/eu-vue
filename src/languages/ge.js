@@ -105,4 +105,5 @@ export const ge = {
   PressReleasesDetail: 'პრესრელიზები',
   EventDetails: 'ღონისძიებები',
   NewsDetails: 'სიახლეები',
+  EmployDetail: 'სტრუქტურა',
 };
