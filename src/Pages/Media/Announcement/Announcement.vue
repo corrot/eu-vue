@@ -21,7 +21,7 @@
               <b-col md="7">
                 <b-card-body :title="event[`title_${locale}`]">
                   <b-card-text>
-                    <vue-markdown>{{ event[`article_${locale}`] }}</vue-markdown>
+                    <vue-markdown>{{ event[`article_${locale}`].substring(0, 140).concat('...') }}</vue-markdown>
                   </b-card-text>
                 </b-card-body>
               </b-col>
@@ -95,11 +95,6 @@ export default {
 }
 .card-title {
   padding-top: 10px;
-}
-.card-text {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
 
 .date-container {
