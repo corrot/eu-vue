@@ -3,9 +3,20 @@
     <p>{{ $t('Search') }}: {{ id }}</p>
     <div v-for="a in data" :key="a.id">
       <div v-for="item in a.data" :key="item.id">
-        <router-link
-          :to="a.redirectTo.substring(0, a.redirectTo.length - 3) + item.id"
-        >{{item[`title_${locale}`]}}</router-link>
+        <b-row class="mb-3">
+          <b-col class="date-label" md="2">
+            <router-link :to="a.redirectTo.substring(0, a.redirectTo.length - 3) + item.id">
+              <span
+                class="date"
+              >{{(item.date && item.date.split(' ')[0]) || (item.date_start && item.date_start.split(' ')[0])}}</span>
+            </router-link>
+          </b-col>
+          <b-col md="10">
+            <router-link
+              :to="a.redirectTo.substring(0, a.redirectTo.length - 3) + item.id"
+            >{{item[`title_${locale}`]}}</router-link>
+          </b-col>
+        </b-row>
       </div>
     </div>
   </b-container>
@@ -103,5 +114,18 @@ h1,
 h2 {
   -webkit-transition: opacity 0.5s linear, margin-top 0.5s linear; /* Safari */
   transition: opacity 0.5s linear, margin-top 0.5s linear;
+}
+.date-label {
+  position: relative;
+}
+.date {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #0082bf;
+  color: #141e3a;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 5px 20px;
 }
 </style>

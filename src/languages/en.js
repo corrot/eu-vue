@@ -104,4 +104,5 @@ export const en = {
   EventDetails: 'Events',
   NewsDetails: 'News',
   EmployDetail: 'Structure',
+  GoBack: 'Go Back',
 };

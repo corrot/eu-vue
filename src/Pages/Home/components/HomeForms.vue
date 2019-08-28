@@ -5,7 +5,7 @@
     </router-link>
     <b-row>
       <b-col cols="3" class="mb-4" v-for="report in data" :key="report.id">
-        <a
+        <!-- <a
           v-if="report[`doc_${locale}`] && report[`doc_${locale}`].hash"
           :href="API_BASE_URL + '/uploads/' + report[`doc_${locale}`].hash + report[`doc_${locale}`].ext"
           target="_blank"
@@ -13,7 +13,12 @@
           <div class="title-container">
             <span>{{ report[`title_${locale}`] }}</span>
           </div>
-        </a>
+        </a>-->
+        <router-link to="/public/application-forms">
+          <div class="title-container">
+            <span>{{ report[`title_${locale}`] }}</span>
+          </div>
+        </router-link>
       </b-col>
     </b-row>
   </b-container>

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <header-component/>
-    <navbar-component/>
+    <header-component />
+    <navbar-component />
     <div class="main">
       <b-container
         v-if="this.$router.currentRoute.name !== 'home' && this.$router.currentRoute.name !== 'contact'"
@@ -9,7 +9,7 @@
         style="display: flex; justify-content: space-between"
       >
         <b-breadcrumb class="container" :items="breadcrumbNames"></b-breadcrumb>
-        
+
         <social-sharing
           v-if="['pressReleases', 'pressReleasesDetail', 'events', 'eventDetails', 'announcement', 'announcementDetails', 'publicSurvey'].includes(this.$router.currentRoute.name)"
           class="text-right"
@@ -20,7 +20,7 @@
             <network network="facebook">
               <div style="width: 115px; padding: 12px 0">
                 <span class="share-text">
-                  <font-awesome-icon class="fa" :icon="['fab', 'facebook']"/>
+                  <font-awesome-icon class="fa" :icon="['fab', 'facebook']" />
                   {{ $t('Share') }}
                 </span>
               </div>
@@ -30,7 +30,7 @@
       </b-container>
       <router-view></router-view>
     </div>
-    <footer-component/>
+    <footer-component />
     <go-top :size="55" :z-index="10000" bg-color="#DB2323cc" :radius="0" :right="40" :bottom="40"></go-top>
   </div>
 </template>
@@ -41,6 +41,7 @@ import NavbarComponent from './containers/Navbar';
 import FooterComponent from './containers/Footer';
 import GoTop from '@inotom/vue-go-top';
 import i18n from '@/plugins/i18n';
+import { routes } from '@/router';
 
 export default {
   name: 'App',
@@ -49,6 +50,7 @@ export default {
     return {
       routePaths: [],
       origin: window.location.origin,
+      link: {},
     };
   },
   computed: {
@@ -61,8 +63,17 @@ export default {
       this.routePaths = this.$router.currentRoute.path.split('/');
       this.routePaths.shift();
       this.routePaths.forEach((routePath, index, arr) => {
-        const res = this.$t(routePath.split('-').map(e => capitalize(e)).join(''))
+        const res = this.$t(
+          routePath
+            .split('-')
+            .map(e => capitalize(e))
+            .join('')
+        );
         arr[index] = res.length <= 3 ? res.toUpperCase() : res;
+      });
+
+      this.link = routes.find(r => {
+        return r.path === `/${this.$router.currentRoute.path.split('/')[1]}`;
       });
       return this.routePaths;
     },

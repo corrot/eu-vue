@@ -29,6 +29,7 @@ import {
   faPrint,
   faSearch,
   faPlusSquare,
+  faArrowLeft,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
@@ -46,14 +47,15 @@ library.add(
   faSitemap,
   faPrint,
   faSearch,
-  faPlusSquare
+  faPlusSquare,
+  faArrowLeft
 );
 
 Vue.prototype.$http = axios;
 
 Vue.use(VCalendar, {
   locales: {
-    'ge': {
+    ge: {
       firstDayOfWeek: 2,
       masks: {
         L: 'YYYY-MM-DD',
@@ -61,8 +63,8 @@ Vue.use(VCalendar, {
       },
       // dayNames: ['as', 'qa', 'wq', 'fd', 'wr', 'et', 'yr'],
       // monthNames: ['asfa']
-    }
-  }
+    },
+  },
 });
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.use(FlagIcon);

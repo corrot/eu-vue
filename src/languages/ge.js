@@ -106,4 +106,5 @@ export const ge = {
   EventDetails: 'ღონისძიებები',
   NewsDetails: 'სიახლეები',
   EmployDetail: 'სტრუქტურა',
+  GoBack: 'უკან დაბრუნება',
 };

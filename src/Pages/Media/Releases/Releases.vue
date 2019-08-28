@@ -1,7 +1,7 @@
 <template>
   <b-container>
-    <loading-spinner v-if="loading"/>
-    <server-error v-if="errored"/>
+    <loading-spinner v-if="loading" />
+    <server-error v-if="errored" />
     <div v-if="!errored && !loading">
       <div role="tablist" class="mb-5" v-if="cagInPress.length">
         <h5 class="section-title">{{ $t('PressReleases') }}</h5>
@@ -22,7 +22,9 @@
         <h5 class="section-title">{{ $t('CAGInPress') }}</h5>
         <b-card no-body class="mb-2" v-for="article in pressReleases" :key="article.id">
           <b-card-header header-tag="header" class="p-3" role="tab">
-            <a :href="article[`doc_${locale}`] && `${API_BASE_URL}/uploads/${article[`doc_${locale}`][0].hash}${article[`doc_${locale}`][0].ext}`">
+            <a
+              :href="article[`doc_${locale}`] && `${API_BASE_URL}/uploads/${article[`doc_${locale}`][0].hash}${article[`doc_${locale}`][0].ext}`"
+            >
               <span>{{ article[`title_${locale}`] }}</span>
             </a>
           </b-card-header>
@@ -93,7 +95,7 @@ export default {
     this.$http
       .get(RELEASES_URL)
       .then(response => {
-        this.pressReleases = response.data.slice(0, 4);
+        this.pressReleases = response.data.slice(0, 4).reverse();
       })
       .catch(error => {
         console.log(error);
