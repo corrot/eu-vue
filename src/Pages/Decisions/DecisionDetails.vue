@@ -3,8 +3,8 @@
     <loading-spinner v-if="loading"/>
     <server-error v-if="errored"/>
     <div v-if="!errored && !loading">
-      <div v-if="data.decisiontype">
-      <router-link class="mb-3" :to="decisionTypes[data.decisiontype.id - 1].path">
+      <div class="mt-2" v-if="data.decisiontype">
+      <router-link :to="decisionTypes[data.decisiontype.id - 1].path">
         {{ $t(decisionTypes[data.decisiontype.id - 1].title) }}
         {{ decisionTypes[data.decisiontype.id - 1].type ? ' / ' + $t(decisionTypes[data.decisiontype.id - 1].type) : '' }}</router-link>
          </div>
