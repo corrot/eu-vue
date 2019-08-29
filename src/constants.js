@@ -69,3 +69,61 @@ export const FAQ_URL = `${API_BASE_URL}/faqs`;
 
 // Contact
 export const CONTACT_URL = `${API_BASE_URL}/contacts`;
+
+export const decisionTypes = [
+    {
+    title: 'AbuseOfDominantPosition',
+    path: '/decisions/abuse-of-dominant-position/by-prohibition',
+    type: 'ByProhibition'
+  },
+    {
+    title: 'AbuseOfDominantPosition',
+    path: '/decisions/abuse-of-dominant-position/by-investigation',
+    type: 'ByInvestigation'
+  },
+    {
+    title: 'AntiCompetitiveAgreements',
+    path: '/decisions/anti-competitive-agreements/by-prohibition',
+    type: 'ByProhibition'
+  },
+    {
+    title: 'AntiCompetitiveAgreements',
+    path: '/decisions/anti-competitive-agreements/by-investigation',
+    type: 'ByInvestigation'
+  },
+    {
+    title: 'DistortionOfCompetitionByStateAuthorities',
+    path: '/decisions/distortion-of-competition-by-state-authorities/by-prohibition',
+    type: 'ByProhibition'
+  },
+    {
+    title: 'DistortionOfCompetitionByStateAuthorities',
+    path: '/decisions/distortion-of-competition-by-state-authorities/by-investigation',
+    type: 'ByInvestigation'
+  },
+    {
+    title: 'UnfairCompetition',
+    path: '/decisions/unfair-competition/by-prohibition',
+    type: 'ByProhibition'
+  },
+    {
+    title: 'UnfairCompetition',
+    path: '/decisions/unfair-competition/by-investigation',
+    type: 'ByInvestigation'
+  },
+    {
+    title: 'ConcentrationControl',
+    path: '/decisions/concentration-control',
+    type: ''
+  },
+    {
+    title: 'StateAid',
+    path: '/decisions/state-aid',
+    type: ''
+  },
+    {
+    title: 'MarketMonitoring',
+    path: '/decisions/market-monitoring',
+    type: ''
+  },
+  ]
