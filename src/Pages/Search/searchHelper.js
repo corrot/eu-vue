@@ -67,7 +67,7 @@ const getStringWithLocaleFromArray = (arr, locale, query) => {
 
 const flat = [
   {
-    title: 'Decision',
+    title: 'Decisions',
     path: '/decisions/:id',
     name: 'decisionDetails',
     hidden: true,
@@ -79,7 +79,7 @@ const flat = [
     hidden: true,
   },
   {
-    title: 'Event',
+    title: 'Events',
     path: '/media/events/:id',
     name: 'eventDetails',
     hidden: true,

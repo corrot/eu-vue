@@ -1,7 +1,8 @@
 <template>
   <b-container>
-    <p>{{ $t('Search') }}: {{ id }}</p>
+    <h4 style="text-align: center; font-weight: bold" class="mb-4 pt-5">{{ $t('Search') }}: {{ id }}</h4>
     <div v-for="a in data" :key="a.id">
+      <h5 class="mb-2 section-title" v-if="a.data.length">{{ $t(a.name) }}</h5>
       <div v-for="item in a.data" :key="item.id">
         <b-row class="mb-3">
           <b-col class="date-label" md="2">
@@ -14,11 +15,21 @@
           <b-col md="10">
             <router-link
               :to="a.redirectTo.substring(0, a.redirectTo.length - 3) + item.id"
-            >{{item[`title_${locale}`]}}</router-link>
+            >
+              {{item[`title_${locale}`]}}
+            </router-link>
+            <div style="text-align: justify">{{ item[`article_${locale}`].substring(0, 170) }}...</div>
           </b-col>
         </b-row>
       </div>
     </div>
+    <b-pagination
+      class="pagination mt-5"
+      v-model="currentPage"
+      :total-rows="data.map(a => a.data.length).reduce((a, b) => a + b)"
+      per-page="10"
+      aria-controls="data"
+    ></b-pagination>
   </b-container>
 </template>
 
@@ -35,10 +46,8 @@ export default {
   data() {
     return {
       data: [],
-      items: [],
       id: this.$route.params.id,
-      // loading: true,
-      // errored: false,
+      currentPage: 1,
     };
   },
   computed: {
@@ -51,9 +60,6 @@ export default {
       this.id = this.$route.params.id;
       this.fetch('watch');
     },
-    data: function() {
-      // this.forceRerender();
-    },
     deep: true,
   },
   mounted() {
@@ -64,24 +70,14 @@ export default {
       this.data = [];
       searchEndpoints(i18n.locale, this.id).forEach(e => {
         this.$http.get(e.link).then(response => {
-          // console.log(from, response.data);
           this.data.push({
             redirectTo: e.redirectTo.path,
             data: response.data,
+            name: e.redirectTo.title
           });
         });
       });
-      console.log(this.data);
     },
-    // forceRerender() {
-    //   // Remove my-component from the DOM
-    //   this.renderComponent = false;
-
-    //   this.$nextTick(() => {
-    //     // Add the component back in
-    //     this.renderComponent = true;
-    //   });
-    // },
   },
   components: { LoadingSpinner, ServerError, VuePureLightbox, VueMarkdown },
 };

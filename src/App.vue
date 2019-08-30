@@ -4,7 +4,7 @@
     <navbar-component />
     <div class="main">
       <b-container
-        v-if="this.$router.currentRoute.name !== 'home' && this.$router.currentRoute.name !== 'contact' && this.$router.currentRoute.name !== 'decisionDetails'"
+        v-if="this.$router.currentRoute.name !== 'home' && this.$router.currentRoute.name !== 'contact' && this.$router.currentRoute.name !== 'decisionDetails'&& this.$router.currentRoute.name !== 'search'"
         id="breadcrumb-container"
         style="display: flex; justify-content: space-between"
       >

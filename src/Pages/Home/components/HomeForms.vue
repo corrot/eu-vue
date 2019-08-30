@@ -32,7 +32,7 @@
 
 <script>
 import i18n from '@/plugins/i18n';
-import { FORMS_URL, API_BASE_URL } from '@/constants.js';
+import { HOME_FORMS_URL, API_BASE_URL } from '@/constants.js';
 
 export default {
   name: 'AnnualReports',
@@ -48,8 +48,8 @@ export default {
     },
   },
   mounted() {
-    this.$http.get(FORMS_URL).then(response => {
-      this.data = response.data.reverse();
+    this.$http.get(HOME_FORMS_URL).then(response => {
+      this.data = response.data[0];
     });
   },
 };
