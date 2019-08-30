@@ -4,9 +4,44 @@ import {
   PRESSRELEASES_URL,
   PROACTIVE_INFORMATION_ARCHIVE,
   ANNOUNCEMENTS_URL,
+  DECISIONS_URL,
+  ABUSEOFDOMINITIONBYPROHIBITION_URL,
+ABUSEOFDOMINITIONBYINVESTIGATION_URL,
+AntiCompetitiveAgreementsByProhibition_URL,
+AntiCompetitiveAgreementsByInvestigation_URL,
+DistortionOfCompetitionByStateAuthoritiesByProhibition_URL,
+DistortionOfCompetitionByStateAuthoritiesByInvestigation_URL,
+UnfairCompetitionByProhibition_URL,
+UnfairCompetitionByInvestigation_URL,
+ConcentrationControl_URL,
+StateAid_URL,
+MarketMonitoring_URL
 } from '@/constants.js';
 
+
+
+
+
+
+
+
+
+
+
+
 const endpoints = [
+  // { redirectTo: 'abuseOfDominantPositionByProhibition', url: ABUSEOFDOMINITIONBYPROHIBITION_URL, fields: ['title', 'article', 'tags'] },
+  // { redirectTo: 'abuseOfDominantPositionByInvestigation', url: ABUSEOFDOMINITIONBYINVESTIGATION_URL, fields: ['title', 'article', 'tags'] },
+  // { redirectTo: 'antiCompetitiveAgreementsByProhibition', url: AntiCompetitiveAgreementsByProhibition_URL, fields: ['title', 'article', 'tags'] },
+  // { redirectTo: 'antiCompetitiveAgreementsByInvestigation', url: AntiCompetitiveAgreementsByInvestigation_URL, fields: ['title', 'article', 'tags'] },
+  // { redirectTo: 'distortionOfCompetitionByStateAuthoritiesByProhibition', url: DistortionOfCompetitionByStateAuthoritiesByProhibition_URL, fields: ['title', 'article', 'tags'] },
+  // { redirectTo: 'distortionOfCompetitionByStateAuthoritiesByInvestigation', url: DistortionOfCompetitionByStateAuthoritiesByInvestigation_URL, fields: ['title', 'article', 'tags'] },
+  // { redirectTo: 'unfairCompetitionByProhibition', url: UnfairCompetitionByProhibition_URL, fields: ['title', 'article', 'tags'] },
+  // { redirectTo: 'unfairCompetitionByInvestigation', url: UnfairCompetitionByInvestigation_URL, fields: ['title', 'article', 'tags'] },
+  // { redirectTo: 'concentrationControl', url: ConcentrationControl_URL, fields: ['title', 'article', 'tags'] },
+  // { redirectTo: 'stateAid', url: StateAid_URL, fields: ['title', 'article', 'tags'] },
+  // { redirectTo: 'marketMonitoring', url: MarketMonitoring_URL, fields: ['title', 'article', 'tags'] },
+  { redirectTo: 'decisionDetails', url: DECISIONS_URL, fields: ['title'] },
   { redirectTo: 'newsDetails', url: NEWSARCHIVE_URL, fields: [] },
   {
     redirectTo: 'eventDetails',
@@ -31,6 +66,12 @@ const getStringWithLocaleFromArray = (arr, locale, query) => {
 };
 
 const flat = [
+  {
+    title: 'Decision',
+    path: '/decisions/:id',
+    name: 'decisionDetails',
+    hidden: true,
+  },
   {
     title: 'News Details',
     path: '/media/news-archive/:id',

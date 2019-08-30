@@ -50,6 +50,7 @@ import Publications from '@/Pages/Media/Publications/Publications';
 import Faq from '@/Pages/Media/Faq/Faq';
 
 import Decisions from '@/Pages/Decisions/Decisions';
+import DecisionDetails from '@/Pages/Decisions/DecisionDetails';
 import AbuseOfDominantPosition from '@/Pages/Decisions/AbuseOfDominantPosition/AbuseOfDominantPosition.vue';
 import AbuseOfDominantPositionByProhibition from '@/Pages/Decisions/AbuseOfDominantPosition/ByProhibition.vue';
 import AbuseOfDominantPositionByInvestigation from '@/Pages/Decisions/AbuseOfDominantPosition/ByInvestigation.vue';
@@ -274,6 +275,14 @@ export const routes = [
         component: MarketMonitoring,
       },
     ],
+  },
+  {
+    title: 'DecisionDetails',
+    path: '/decisions/:id',
+    name: 'decisionDetails',
+    component: DecisionDetails,
+    children: [],
+    hidden: true,
   },
   {
     title: 'PublicInformation',

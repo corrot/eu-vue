@@ -4,7 +4,7 @@
       <h5 class="section-title mb-4">{{ $t('ApplicationForms') }}:</h5>
     </router-link>
     <b-row>
-      <b-col cols="3" class="mb-4" v-for="report in data" :key="report.id">
+      <b-col md="3" sm="6" class="mb-4" v-for="report in data" :key="report.id">
         <!-- <a
           v-if="report[`doc_${locale}`] && report[`doc_${locale}`].hash"
           :href="API_BASE_URL + '/uploads/' + report[`doc_${locale}`].hash + report[`doc_${locale}`].ext"

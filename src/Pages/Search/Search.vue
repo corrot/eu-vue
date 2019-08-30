@@ -64,13 +64,14 @@ export default {
       this.data = [];
       searchEndpoints(i18n.locale, this.id).forEach(e => {
         this.$http.get(e.link).then(response => {
-          console.log(from, response.data);
+          // console.log(from, response.data);
           this.data.push({
             redirectTo: e.redirectTo.path,
             data: response.data,
           });
         });
       });
+      console.log(this.data);
     },
     // forceRerender() {
     //   // Remove my-component from the DOM
