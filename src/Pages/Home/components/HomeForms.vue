@@ -1,11 +1,17 @@
 <template>
   <b-container>
-    <router-link to="/public/application-forms">
+    <div v-if="data">
+      <router-link to="/public/application-forms">
+        <h5 class="section-title">{{ $t('ApplicationForms') }}</h5>
+        <img class="img-100" :src="`${API_BASE_URL}/uploads/${data.image.hash}${data.image.ext}`">
+      </router-link>
+    </div>
+    <!-- <router-link to="/public/application-forms">
       <h5 class="section-title mb-4">{{ $t('ApplicationForms') }}:</h5>
     </router-link>
     <b-row>
       <b-col md="3" sm="6" class="mb-4" v-for="report in data" :key="report.id">
-        <!-- <a
+        <a
           v-if="report[`doc_${locale}`] && report[`doc_${locale}`].hash"
           :href="API_BASE_URL + '/uploads/' + report[`doc_${locale}`].hash + report[`doc_${locale}`].ext"
           target="_blank"
@@ -13,14 +19,14 @@
           <div class="title-container">
             <span>{{ report[`title_${locale}`] }}</span>
           </div>
-        </a>-->
+        </a>
         <router-link to="/public/application-forms">
           <div class="title-container">
             <span>{{ report[`title_${locale}`] }}</span>
           </div>
         </router-link>
       </b-col>
-    </b-row>
+    </b-row> -->
   </b-container>
 </template>
 

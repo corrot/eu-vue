@@ -104,13 +104,9 @@ export default {
       .finally(() => (this.loading = false));
 
     this.$http
-      .get(PRESSRELEASES_URL)
+      .get(PRESSRELEASES_URL + '?_sort=date:DESC')
       .then(response => {
-        this.cagInPress = response.data
-          .sort(function(a, b) {
-            return new Date(b.date) - new Date(a.date);
-          })
-          .slice(0, 4);
+        this.cagInPress = response.data.slice(0, 4);
       })
       .catch(error => {
         console.log(error);

@@ -76,7 +76,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get(EVENTS_URL)
+      .get(EVENTS_URL + '?_sort=date_start:DESC')
       .then(response => {
         this.data = response.data.slice(0, 4);
       })
