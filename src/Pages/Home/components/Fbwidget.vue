@@ -1,6 +1,19 @@
 <template>
-  <div class="page-row fb-widget" style="min-width: 180px; width: 286px; text-align: center">
-    <div
+  <div
+    class="page-row fb-widget"
+    style="min-width: 180px; width: 286px; text-align: center; overflow-y: auto"
+  >
+    <iframe
+      src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcompetitionagencygeo&tabs=timeline&width=286&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+      width="286"
+      height="500"
+      style="border:none;overflow:hidden"
+      scrolling="no"
+      frameborder="0"
+      allowtransparency="true"
+      allow="encrypted-media"
+    ></iframe>
+    <!-- <div
       class="fb-page"
       data-href="https://www.facebook.com/CompetitionAgencyGeo"
       data-tabs="timeline"
@@ -15,7 +28,7 @@
       >
         <a href="https://www.facebook.com/CompetitionAgencyGeo">{{$t('CompetitionAgencyOfGeorgia')}}</a>
       </blockquote>
-    </div>
+    </div>-->
   </div>
 </template>
 
