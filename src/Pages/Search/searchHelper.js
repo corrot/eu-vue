@@ -5,6 +5,7 @@ import {
   PROACTIVE_INFORMATION_ARCHIVE,
   ANNOUNCEMENTS_URL,
   DECISIONS_URL,
+  EMPLOYEES_URL,
   ABUSEOFDOMINITIONBYPROHIBITION_URL,
 ABUSEOFDOMINITIONBYINVESTIGATION_URL,
 AntiCompetitiveAgreementsByProhibition_URL,
@@ -42,7 +43,6 @@ const endpoints = [
   // { redirectTo: 'stateAid', url: StateAid_URL, fields: ['title', 'article', 'tags'] },
   // { redirectTo: 'marketMonitoring', url: MarketMonitoring_URL, fields: ['title', 'article', 'tags'] },
   { redirectTo: 'decisionDetails', url: DECISIONS_URL, fields: ['title'] },
-  { redirectTo: 'newsDetails', url: NEWSARCHIVE_URL, fields: ['title'] },
   {
     redirectTo: 'eventDetails',
     url: EVENTS_URL,
@@ -59,6 +59,7 @@ const endpoints = [
     fields: ['title', 'comment'],
   },
   { redirectTo: 'announcementDetails', url: ANNOUNCEMENTS_URL, fields: ['title', 'article'] },
+  { redirectTo: 'employDetail', url: EMPLOYEES_URL, fields: ['name', 'biography'] },
 ];
 
 const getStringWithLocaleFromArray = (arr, locale, query) => {
@@ -70,12 +71,6 @@ const flat = [
     title: 'Decisions',
     path: '/decisions/:id',
     name: 'decisionDetails',
-    hidden: true,
-  },
-  {
-    title: 'News Details',
-    path: '/media/news-archive/:id',
-    name: 'newsDetails',
     hidden: true,
   },
   {
@@ -102,6 +97,12 @@ const flat = [
     name: 'announcementDetails',
     hidden: true,
   },
+  {
+    title: 'Structure',
+    path: '/about-us/employ-detail/:id',
+    name: 'employDetail',
+    hidden: true,
+  },
 ];
 // routes.forEach(route => {
 //   if (route.children) {
@@ -121,7 +122,7 @@ export const searchEndpoints = (locale, query) => {
           e.fields,
           locale,
           query.toString()
-        )}`,
+        )}&_limit=1000`,
       };
     });
 };

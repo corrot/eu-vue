@@ -1,11 +1,11 @@
 <template>
   <b-container>
     <!-- <b-pagination v-model="currentPage" :total-rows="rows" per-page="3" aria-controls="my-table" />
-    <b-table id="my-table" :items="items" :per-page="perPage" :current-page="currentPage" small></b-table>-->
+    <b-table id="my-table" :items="items" per-page="3" :current-page="currentPage" small></b-table> -->
 
     <h4 style="text-align: center; font-weight: bold" class="mb-4 pt-5">{{ $t('Search') }}: {{ id }}</h4>
     <b-tabs pills card vertical :sticky="true">
-      <b-tab :active="i==0" v-for="(a, i) in data" :key="a.id" v-if="a.data.length">
+      <b-tab v-on:click="currentPage=1" :active="i==0" v-for="(a, i) in data" :key="a.id" v-if="a.data.length">
         <template slot="title">
           <div class="mb-2" v-if="a.data.length">
             {{ $t(a.name) }}
@@ -13,31 +13,39 @@
           </div>
         </template>
         <div class="pl-3 pr-3">
-          <div :id="`data-${a.name}`" class="mb-4" v-for="item in a.data" :key="item.id">
-            <div class="mb-2">
+          <div :id="`data-${a.name}`" v-if="index >= (currentPage - 1) * 10 && index < (currentPage - 1) * 10 + 10" class="mb-4" v-for="(item, index) in a.data" :key="item.id">
+            <div class="mb-2" v-if="item.date || item.date_start">
               <router-link :to="a.redirectTo.substring(0, a.redirectTo.length - 3) + item.id">
                 <span
                   class="date"
                 >{{(item.date && item.date.split(' ')[0]) || (item.date_start && item.date_start.split(' ')[0])}}</span>
               </router-link>
             </div>
-            <div>
+            <div v-if="item[`name_${locale}`]">
+              <router-link
+                :to="a.redirectTo.substring(0, a.redirectTo.length - 3) + item.id"
+              >{{item[`name_${locale}`]}}</router-link>
+            </div>
+            <div v-if="item[`title_${locale}`]">
               <router-link
                 :to="a.redirectTo.substring(0, a.redirectTo.length - 3) + item.id"
               >{{item[`title_${locale}`]}}</router-link>
             </div>
-            <div
-              style="text-align: justify"
-            >{{ item[`article_${locale}`] && item[`article_${locale}`].substring(0, 170) }}...</div>
+            <div v-if="item[`article_${locale}`]" style="text-align: justify">
+              {{ item[`article_${locale}`] && item[`article_${locale}`].substring(0, 170) }}...
+            </div>
+            <div v-if="item[`position_${locale}`]">
+              {{ item[`position_${locale}`]}}
+            </div>
           </div>
-          <!-- <b-pagination
+          <b-pagination
             v-if="a.data.length > 10"
             class="pagination mt-5"
             v-model="currentPage"
             :total-rows="a.data.length"
             per-page="10"
             :aria-controls="`#data-${a.name}`"
-          />-->
+          />
         </div>
       </b-tab>
     </b-tabs>

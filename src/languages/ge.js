@@ -102,7 +102,7 @@ export const ge = {
   ProactiveInformationDetails: 'პროაქტიული ინფორმაცია',
   AnnouncementDetails: 'ანონსი',
   CagInPressDetails: 'სკს პრესაში',
-  PressReleasesDetail: 'პრესრელიზები',
+  PressReleasesDetail: 'სიახლეები',
   EventDetails: 'ღონისძიებები',
   NewsDetails: 'სიახლეები',
   EmployDetail: 'სტრუქტურა',
