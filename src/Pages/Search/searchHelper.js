@@ -42,7 +42,7 @@ const endpoints = [
   // { redirectTo: 'stateAid', url: StateAid_URL, fields: ['title', 'article', 'tags'] },
   // { redirectTo: 'marketMonitoring', url: MarketMonitoring_URL, fields: ['title', 'article', 'tags'] },
   { redirectTo: 'decisionDetails', url: DECISIONS_URL, fields: ['title'] },
-  { redirectTo: 'newsDetails', url: NEWSARCHIVE_URL, fields: [] },
+  { redirectTo: 'newsDetails', url: NEWSARCHIVE_URL, fields: ['title'] },
   {
     redirectTo: 'eventDetails',
     url: EVENTS_URL,
