@@ -107,4 +107,5 @@ export const ge = {
   NewsDetails: 'სიახლეები',
   EmployDetail: 'სტრუქტურა',
   GoBack: 'უკან დაბრუნება',
+  NoResults: 'შედეგები არ მოიძებნა'
 };

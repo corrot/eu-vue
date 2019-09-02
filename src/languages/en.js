@@ -105,4 +105,5 @@ export const en = {
   NewsDetails: 'News',
   EmployDetail: 'Structure',
   GoBack: 'Go Back',
+  NoResults: 'Results for search query not found'
 };

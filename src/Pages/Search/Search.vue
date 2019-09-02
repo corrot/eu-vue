@@ -1,11 +1,15 @@
 <template>
   <b-container>
+    <loading-spinner v-if="loading" />
+    <server-error v-if="errored" />
+    <div v-if="!errored && !loading">
     <!-- <b-pagination v-model="currentPage" :total-rows="rows" per-page="3" aria-controls="my-table" />
     <b-table id="my-table" :items="items" per-page="3" :current-page="currentPage" small></b-table> -->
 
     <h4 style="text-align: center; font-weight: bold" class="mb-4 pt-5">{{ $t('Search') }}: {{ id }}</h4>
-    <b-tabs pills card vertical :sticky="true">
-      <b-tab v-on:click="currentPage=1" :active="i==0" v-for="(a, i) in data" :key="a.id" v-if="a.data.length">
+    <h5 style="text-align: center; font-weight: bold" class="mt-5" v-if="!data.map(a => a.data.length).reduce((a, b) => a + b)">{{ $t('NoResults') }}</h5>
+    <b-tabs v-if="data.map(a => a.data.length).reduce((a, b) => a + b)" pills card vertical :sticky="true">
+      <b-tab class="btn-nav" v-on:click="currentPage=1" :active="i==0" v-for="(a, i) in data" :key="a.id" v-if="a.data.length">
         <template slot="title">
           <div class="mb-2" v-if="a.data.length">
             {{ $t(a.name) }}
@@ -49,6 +53,7 @@
         </div>
       </b-tab>
     </b-tabs>
+    </div>
   </b-container>
 </template>
 
@@ -65,6 +70,7 @@ export default {
   data() {
     return {
       data: [],
+      loading: true,
       id: this.$route.params.id,
       currentPage: 1,
       items: [
@@ -110,6 +116,7 @@ export default {
           });
         });
       });
+      this.loading = false
     },
   },
   components: { LoadingSpinner, ServerError, VuePureLightbox, VueMarkdown },
@@ -120,6 +127,10 @@ export default {
 .server-error {
   text-align: center;
   font-size: 20px;
+}
+
+.nav-link .active {
+    background: #b74f29!important;
 }
 
 h1 {
