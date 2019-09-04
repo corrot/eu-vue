@@ -4,11 +4,12 @@
     <navbar-component />
     <div class="main">
       <b-container
-        v-if="this.$router.currentRoute.name !== 'home' && this.$router.currentRoute.name !== 'contact' && this.$router.currentRoute.name !== 'decisionDetails'&& this.$router.currentRoute.name !== 'search'"
         id="breadcrumb-container"
         style="display: flex; justify-content: space-between"
       >
-        <b-breadcrumb class="container" :items="breadcrumbNames"></b-breadcrumb>
+        <b-breadcrumb 
+                v-if="this.$router.currentRoute.name !== 'home' && this.$router.currentRoute.name !== 'contact' && this.$router.currentRoute.name !== 'decisionDetails'&& this.$router.currentRoute.name !== 'search'"
+        class="container" :items="breadcrumbNames"></b-breadcrumb>
 
         <social-sharing
           v-if="['pressReleases', 'pressReleasesDetail', 'events', 'eventDetails', 'announcement', 'announcementDetails', 'publicSurvey'].includes(this.$router.currentRoute.name)"
@@ -51,6 +52,7 @@ export default {
       routePaths: [],
       origin: window.location.origin,
       link: {},
+      crumbs: []
     };
   },
   computed: {
@@ -62,18 +64,22 @@ export default {
 
       this.routePaths = this.$router.currentRoute.path.split('/');
       this.routePaths.shift();
+      // hotfix not to show numbers
+      if(this.routePaths.length >= 3){
+        this.routePaths.pop();
+      }
       this.routePaths.forEach((routePath, index, arr) => {
-        const res = this.$t(
+        let res = this.$t(
           routePath
             .split('-')
             .map(e => capitalize(e))
             .join('')
         );
+        console.log(res);
+        if(res === "Faq"){
+          res = this.$t("FAQ")
+        }
         arr[index] = res.length <= 3 ? res.toUpperCase() : res;
-      });
-
-      this.link = routes.find(r => {
-        return r.path === `/${this.$router.currentRoute.path.split('/')[1]}`;
       });
       return this.routePaths;
     },
