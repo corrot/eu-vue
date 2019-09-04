@@ -20,7 +20,7 @@
               <b-collapse :id="`accordion-${article.id}`" accordion="my-accordion" role="tabpanel">
                 <b-card-body>
                   <div style="text-align: center" class="mb-3">
-                    <img style="max-width: 100%" :src="article.image && `${API_BASE_URL}/uploads/${article.image.hash}${article.image.ext}`"/>
+                    <img style="width: 50%" :src="article.image && `${API_BASE_URL}/uploads/${article.image.hash}${article.image.ext}`"/>
                   </div>
                   <b-card-text><vue-markdown class="article">{{ article[`text_${locale}`] }}</vue-markdown></b-card-text>
                   <b-button :href="article[`doc_${locale}`] && `${API_BASE_URL}/uploads/${article[`doc_${locale}`].hash}${article[`doc_${locale}`].ext}`" target="_blank">{{ $t('ViewDocument') }}</b-button>
