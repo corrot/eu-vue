@@ -3,9 +3,6 @@
     <loading-spinner v-if="loading" />
     <server-error v-if="errored" />
     <div v-if="!errored && !loading">
-    <!-- <b-pagination v-model="currentPage" :total-rows="rows" per-page="3" aria-controls="my-table" />
-    <b-table id="my-table" :items="items" per-page="3" :current-page="currentPage" small></b-table> -->
-
     <h4 style="text-align: center; font-weight: bold" class="mb-4 pt-5">{{ $t('Search') }}: {{ id }}</h4>
     <h5 style="text-align: center; font-weight: bold" class="mt-5" v-if="!data.map(a => a.data.length).reduce((a, b) => a + b)">{{ $t('NoResults') }}</h5>
     <b-tabs v-if="data.map(a => a.data.length).reduce((a, b) => a + b)" pills card vertical :sticky="true">
@@ -73,17 +70,6 @@ export default {
       loading: true,
       id: this.$route.params.id,
       currentPage: 1,
-      items: [
-        { id: 1, first_name: 'Fred', last_name: 'Flintstone' },
-        { id: 2, first_name: 'Wilma', last_name: 'Flintstone' },
-        { id: 3, first_name: 'Barney', last_name: 'Rubble' },
-        { id: 4, first_name: 'Betty', last_name: 'Rubble' },
-        { id: 5, first_name: 'Pebbles', last_name: 'Flintstone' },
-        { id: 6, first_name: 'Bamm Bamm', last_name: 'Rubble' },
-        { id: 7, first_name: 'The Great', last_name: 'Gazzoo' },
-        { id: 8, first_name: 'Rockhead', last_name: 'Slate' },
-        { id: 9, first_name: 'Pearl', last_name: 'Slaghoople' },
-      ],
     };
   },
   computed: {
@@ -102,6 +88,7 @@ export default {
     deep: true,
   },
   mounted() {
+    console.log(this.id);
     this.fetch('mount');
   },
   methods: {

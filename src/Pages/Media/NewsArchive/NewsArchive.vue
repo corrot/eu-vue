@@ -138,7 +138,7 @@ export default {
       (this.activeYear = new Date().getFullYear()),
 
     this.$http
-      .get(EVENTS_URL)
+      .get(EVENTS_URL + "?_limit=1000")
       .then(response => {
         this.events = response.data;
         this.data.push(...this.events);
@@ -150,7 +150,7 @@ export default {
       .finally(() => (this.loading = false));
 
     this.$http
-      .get(PRESSRELEASES_URL)
+      .get(PRESSRELEASES_URL + "?_limit=1000")
       .then(response => {
         this.pressReleases = response.data;
         this.data.push(...this.pressReleases);
@@ -160,6 +160,7 @@ export default {
         this.errored = true;
       })
       .finally(() => (this.loading = false));
+      console.log(this.data);
   },
   methods: {
     setMonth(month) {

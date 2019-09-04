@@ -75,7 +75,6 @@ export default {
             .map(e => capitalize(e))
             .join('')
         );
-        console.log(res);
         if(res === "Faq"){
           res = this.$t("FAQ")
         }
