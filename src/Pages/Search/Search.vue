@@ -60,7 +60,7 @@ import i18n from '@/plugins/i18n';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 import VuePureLightbox from 'vue-pure-lightbox';
-import endpoints, { searchEndpoints } from './searchHelper';
+import endpoints, { searchEndpoints, searchEndpointsAlt } from './searchHelper';
 
 export default {
   name: 'Search',
@@ -88,13 +88,13 @@ export default {
     deep: true,
   },
   mounted() {
-    console.log(this.id);
     this.fetch('mount');
   },
   methods: {
     fetch: function(from) {
       this.data = [];
       searchEndpoints(i18n.locale, this.id).forEach(e => {
+        console.log(e);
         this.$http.get(e.link).then(response => {
           this.data.push({
             redirectTo: e.redirectTo.path,
@@ -105,6 +105,20 @@ export default {
       });
       this.loading = false
     },
+    // fetch: function(from) {
+    //   this.data = [];
+    //   searchEndpointsAlt(i18n.locale, this.id).forEach(e => {
+    //     console.log(e);
+    //     this.$http.get(e.link).then(response => {
+    //       this.data.push({
+    //         redirectTo: e.redirectTo.path,
+    //         data: response.data,
+    //         name: e.redirectTo.title,
+    //       });
+    //     });
+    //   });
+    //   this.loading = false
+    // },
   },
   components: { LoadingSpinner, ServerError, VuePureLightbox, VueMarkdown },
 };

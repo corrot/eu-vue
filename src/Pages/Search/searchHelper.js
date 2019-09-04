@@ -42,7 +42,7 @@ const endpoints = [
   // { redirectTo: 'concentrationControl', url: ConcentrationControl_URL, fields: ['title', 'article', 'tags'] },
   // { redirectTo: 'stateAid', url: StateAid_URL, fields: ['title', 'article', 'tags'] },
   // { redirectTo: 'marketMonitoring', url: MarketMonitoring_URL, fields: ['title', 'article', 'tags'] },
-  { redirectTo: 'decisionDetails', url: DECISIONS_URL, fields: ['title'] },
+  { redirectTo: 'decisionDetails', url: DECISIONS_URL, fields: ['tags'] },
   {
     redirectTo: 'eventDetails',
     url: EVENTS_URL,
@@ -104,13 +104,6 @@ const flat = [
     hidden: true,
   },
 ];
-// routes.forEach(route => {
-//   if (route.children) {
-//     flattenArray(route.children);
-//   } else {
-//     flat.push(route);
-//   }
-// });
 
 export const searchEndpoints = (locale, query) => {
   return endpoints
@@ -124,5 +117,21 @@ export const searchEndpoints = (locale, query) => {
           query.toString()
         )}&_limit=1000`,
       };
+    });
+};
+
+const getPath = (field, locale, query) => {
+  return `${field}_${locale}_contains=${query}`;
+}
+
+export const searchEndpointsAlt = (locale, query) => {
+  return endpoints
+    .filter(e => e.fields.length).forEach(e => {
+      return e.fields.map(o => {
+        return {
+          redirectTo: flat.find(o => e.redirectTo == o.name),
+          link: `${e.url}?${getPath(o, locale, query.toString())}&_limit=1000`
+        }
+      })
     });
 };
