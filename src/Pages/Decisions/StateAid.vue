@@ -56,7 +56,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get(StateAid_URL)
+      .get(StateAid_URL + '?_sort=date:DESC')
       .then(response => {
         this.data = response.data.decisions;
       })

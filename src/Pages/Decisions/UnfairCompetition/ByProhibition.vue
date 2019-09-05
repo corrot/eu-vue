@@ -1,7 +1,7 @@
 <template>
   <b-container>
-    <loading-spinner v-if="loading"/>
-    <server-error v-if="errored"/>
+    <loading-spinner v-if="loading" />
+    <server-error v-if="errored" />
     <div v-if="!errored && !loading">
       <div v-for="article in data" v-bind:key="article.id">
         <div>
@@ -59,7 +59,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get(UnfairCompetitionByProhibition_URL)
+      .get(UnfairCompetitionByProhibition_URL + '?_sort=date:DESC')
       .then(response => {
         this.data = response.data.decisions;
       })

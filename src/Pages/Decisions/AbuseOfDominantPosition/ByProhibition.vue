@@ -59,7 +59,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get(ABUSEOFDOMINITIONBYPROHIBITION_URL)
+      .get(ABUSEOFDOMINITIONBYPROHIBITION_URL + '?_sort=date:DESC')
       .then(response => {
         this.data = response.data.decisions;
       })
