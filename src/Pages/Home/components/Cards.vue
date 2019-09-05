@@ -85,7 +85,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get(PRESSRELEASES_URL + '?_limit=3')
+      .get(PRESSRELEASES_URL + '?_limit=3&_sort=date:DESC')
       .then(response => {
         this.data = response.data;
       })
