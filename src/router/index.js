@@ -69,6 +69,7 @@ import StateAid from '@/Pages/Decisions/StateAid';
 import MarketMonitoring from '@/Pages/Decisions/MarketMonitoring';
 
 import Search from '@/Pages/Search/Search';
+import SearchDetails from '@/Pages/Search/SearchDetails.vue';
 
 import PageNotFound from '@/Pages/PageNotFound/PageNotFound';
 
@@ -487,6 +488,14 @@ export const routes = [
     path: '/search/:id',
     name: 'search',
     component: Search,
+    children: [],
+    hidden: true,
+  },
+  {
+    title: 'SearchDetails',
+    path: '/search/:id/:index',
+    name: 'searchDetails',
+    component: SearchDetails,
     children: [],
     hidden: true,
   },

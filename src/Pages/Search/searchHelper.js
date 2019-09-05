@@ -7,28 +7,17 @@ import {
   DECISIONS_URL,
   EMPLOYEES_URL,
   ABUSEOFDOMINITIONBYPROHIBITION_URL,
-ABUSEOFDOMINITIONBYINVESTIGATION_URL,
-AntiCompetitiveAgreementsByProhibition_URL,
-AntiCompetitiveAgreementsByInvestigation_URL,
-DistortionOfCompetitionByStateAuthoritiesByProhibition_URL,
-DistortionOfCompetitionByStateAuthoritiesByInvestigation_URL,
-UnfairCompetitionByProhibition_URL,
-UnfairCompetitionByInvestigation_URL,
-ConcentrationControl_URL,
-StateAid_URL,
-MarketMonitoring_URL
+  ABUSEOFDOMINITIONBYINVESTIGATION_URL,
+  AntiCompetitiveAgreementsByProhibition_URL,
+  AntiCompetitiveAgreementsByInvestigation_URL,
+  DistortionOfCompetitionByStateAuthoritiesByProhibition_URL,
+  DistortionOfCompetitionByStateAuthoritiesByInvestigation_URL,
+  UnfairCompetitionByProhibition_URL,
+  UnfairCompetitionByInvestigation_URL,
+  ConcentrationControl_URL,
+  StateAid_URL,
+  MarketMonitoring_URL,
 } from '@/constants.js';
-
-
-
-
-
-
-
-
-
-
-
 
 const endpoints = [
   // { redirectTo: 'abuseOfDominantPositionByProhibition', url: ABUSEOFDOMINITIONBYPROHIBITION_URL, fields: ['title', 'article', 'tags'] },
@@ -58,13 +47,17 @@ const endpoints = [
     url: PROACTIVE_INFORMATION_ARCHIVE,
     fields: ['title', 'comment'],
   },
-  { redirectTo: 'announcementDetails', url: ANNOUNCEMENTS_URL, fields: ['title', 'article'] },
-  { redirectTo: 'employDetail', url: EMPLOYEES_URL, fields: ['name', 'biography'] },
+  {
+    redirectTo: 'announcementDetails',
+    url: ANNOUNCEMENTS_URL,
+    fields: ['title', 'article'],
+  },
+  {
+    redirectTo: 'employDetail',
+    url: EMPLOYEES_URL,
+    fields: ['name', 'biography'],
+  },
 ];
-
-const getStringWithLocaleFromArray = (arr, locale, query) => {
-  return arr.map(e => `${e}_${locale}_contains=${query}`).join('&');
-};
 
 const flat = [
   {
@@ -105,33 +98,21 @@ const flat = [
   },
 ];
 
-export const searchEndpoints = (locale, query) => {
-  return endpoints
-    .filter(e => e.fields.length)
-    .map(e => {
-      return {
-        redirectTo: flat.find(o => e.redirectTo == o.name),
-        link: `${e.url}?${getStringWithLocaleFromArray(
-          e.fields,
-          locale,
-          query.toString()
-        )}&_limit=1000`,
-      };
-    });
-};
-
 const getPath = (field, locale, query) => {
   return `${field}_${locale}_contains=${query}`;
-}
+};
 
-export const searchEndpointsAlt = (locale, query) => {
-  return endpoints
-    .filter(e => e.fields.length).forEach(e => {
-      return e.fields.map(o => {
-        return {
-          redirectTo: flat.find(o => e.redirectTo == o.name),
-          link: `${e.url}?${getPath(o, locale, query.toString())}&_limit=1000`
-        }
-      })
+export const searchEndpoints = (locale, query) => {
+  let arr = [];
+  endpoints.forEach(e => {
+    return e.fields.map(o => {
+      const j = {
+        name: flat.find(o => e.redirectTo == o.name).title,
+        link: `${e.url}?${getPath(o, locale, query.toString())}&_limit=1000`,
+      };
+      arr.push(j);
     });
+  });
+
+  return arr;
 };

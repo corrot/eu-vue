@@ -3,53 +3,75 @@
     <loading-spinner v-if="loading" />
     <server-error v-if="errored" />
     <div v-if="!errored && !loading">
-    <h4 style="text-align: center; font-weight: bold" class="mb-4 pt-5">{{ $t('Search') }}: {{ id }}</h4>
-    <h5 style="text-align: center; font-weight: bold" class="mt-5" v-if="!data.map(a => a.data.length).reduce((a, b) => a + b)">{{ $t('NoResults') }}</h5>
-    <b-tabs v-if="data.map(a => a.data.length).reduce((a, b) => a + b)" pills card vertical :sticky="true">
-      <b-tab class="btn-nav" v-on:click="currentPage=1" :active="i==0" v-for="(a, i) in data" :key="a.id" v-if="a.data.length">
-        <template slot="title">
-          <div class="mb-2" v-if="a.data.length">
-            {{ $t(a.name) }}
-            <b-badge variant="dark">{{a.data.length}}</b-badge>
-          </div>
-        </template>
-        <div class="pl-3 pr-3">
-          <div :id="`data-${a.name}`" v-if="index >= (currentPage - 1) * 10 && index < (currentPage - 1) * 10 + 10" class="mb-4" v-for="(item, index) in a.data" :key="item.id">
-            <div class="mb-2" v-if="item.date || item.date_start">
-              <router-link :to="a.redirectTo.substring(0, a.redirectTo.length - 3) + item.id">
-                <span
-                  class="date"
-                >{{(item.date && item.date.split(' ')[0]) || (item.date_start && item.date_start.split(' ')[0])}}</span>
-              </router-link>
-            </div>
-            <div v-if="item[`name_${locale}`]">
-              <router-link
-                :to="a.redirectTo.substring(0, a.redirectTo.length - 3) + item.id"
-              >{{item[`name_${locale}`]}}</router-link>
-            </div>
-            <div v-if="item[`title_${locale}`]">
-              <router-link
-                :to="a.redirectTo.substring(0, a.redirectTo.length - 3) + item.id"
-              >{{item[`title_${locale}`]}}</router-link>
-            </div>
-            <div v-if="item[`article_${locale}`]" style="text-align: justify">
-              {{ item[`article_${locale}`] && item[`article_${locale}`].substring(0, 170) }}...
-            </div>
-            <div v-if="item[`position_${locale}`]">
-              {{ item[`position_${locale}`]}}
-            </div>
-          </div>
-          <b-pagination
-            v-if="a.data.length > 10"
-            class="pagination mt-5"
-            v-model="currentPage"
-            :total-rows="a.data.length"
-            per-page="10"
-            :aria-controls="`#data-${a.name}`"
-          />
-        </div>
-      </b-tab>
-    </b-tabs>
+      <h4
+        style="text-align: center; font-weight: bold"
+        class="mb-4 pt-5"
+      >{{ $t('Search') }}: {{ id }}</h4>
+      <h5
+        style="text-align: center; font-weight: bold"
+        class="mt-5"
+        v-if="!data.length"
+      >{{ $t('NoResults') }}</h5>
+      <div
+        id="search"
+        v-for="(i, index) in data"
+        :key="i.id"
+        v-if="index >= (currentPage - 1) * 10 && index < (currentPage - 1) * 10 + 10"
+        class="mb-4"
+      >
+        <b-row>
+          <b-col sm="2">
+            <router-link :to="'/search/' + id + '/' + index" v-if="i.date || i.date_start">
+              <span
+                class="date"
+              >{{(i.date && i.date.split(' ')[0]) || (i.date_start && i.date_start.split(' ')[0])}}</span>
+            </router-link>
+          </b-col>
+          <b-col sm="10">
+            <router-link :to="'/search/' + id + '/' + index" v-if="i.date || i.date_start">
+              <div style="font-weight: bold" v-if="i[`title_${locale}`]">{{i[`title_${locale}`]}}</div>
+              <div
+                style="font-weight: bold"
+                v-if="i[`name_${locale}`]"
+              >{{i[`name_${locale}`].substring(0, 100)}}...</div>
+              <div v-if="i[`article_${locale}`]">
+                <vue-markdown>{{i[`article_${locale}`].substring(0, 200)}}...</vue-markdown>
+              </div>
+              <div
+                style="font-weight: bold"
+                v-if="i[`question_${locale}`]"
+              >{{i[`question_${locale}`]}}...</div>
+              <div v-if="i[`answer_${locale}`]">
+                <vue-markdown>{{i[`answer_${locale}`].substring(0, 200)}}...</vue-markdown>
+              </div>
+              <div v-if="i[`biography_${locale}`]">
+                <vue-markdown>{{i[`biography_${locale}`].substring(0, 200)}}...</vue-markdown>
+              </div>
+              <div v-if="i[`doc_${locale}`]">
+                <a
+                  class="link"
+                  :href="`${API_BASE_URL}/uploads/${i[`doc_${locale}`].hash}${i[`doc_${locale}`].ext}`"
+                >{{ $t('ViewDocument') }}</a>
+              </div>
+              <div v-if="i[`document_${locale}`]">
+                <a
+                  class="link"
+                  :href="`${API_BASE_URL}/uploads/${i[`document_${locale}`].hash}${i[`document_${locale}`].ext}`"
+                >{{ $t('ViewDocument') }}</a>
+              </div>
+            </router-link>
+          </b-col>
+        </b-row>
+      </div>
+
+      <b-pagination
+        v-if="data.length > 10"
+        class="pagination mt-5"
+        v-model="currentPage"
+        :total-rows="data.length"
+        per-page="10"
+        :aria-controls="search"
+      />
     </div>
   </b-container>
 </template>
@@ -60,7 +82,8 @@ import i18n from '@/plugins/i18n';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 import VuePureLightbox from 'vue-pure-lightbox';
-import endpoints, { searchEndpoints, searchEndpointsAlt } from './searchHelper';
+import endpoints, { searchEndpoints } from './searchHelper';
+import { API_BASE_URL } from '@/constants.js';
 
 export default {
   name: 'Search',
@@ -70,6 +93,8 @@ export default {
       loading: true,
       id: this.$route.params.id,
       currentPage: 1,
+      all: [],
+      API_BASE_URL,
     };
   },
   computed: {
@@ -94,31 +119,12 @@ export default {
     fetch: function(from) {
       this.data = [];
       searchEndpoints(i18n.locale, this.id).forEach(e => {
-        console.log(e);
         this.$http.get(e.link).then(response => {
-          this.data.push({
-            redirectTo: e.redirectTo.path,
-            data: response.data,
-            name: e.redirectTo.title,
-          });
+          this.data = [...this.data, ...response.data];
         });
       });
-      this.loading = false
+      this.loading = false;
     },
-    // fetch: function(from) {
-    //   this.data = [];
-    //   searchEndpointsAlt(i18n.locale, this.id).forEach(e => {
-    //     console.log(e);
-    //     this.$http.get(e.link).then(response => {
-    //       this.data.push({
-    //         redirectTo: e.redirectTo.path,
-    //         data: response.data,
-    //         name: e.redirectTo.title,
-    //       });
-    //     });
-    //   });
-    //   this.loading = false
-    // },
   },
   components: { LoadingSpinner, ServerError, VuePureLightbox, VueMarkdown },
 };
@@ -130,32 +136,14 @@ export default {
   font-size: 20px;
 }
 
-.nav-link .active {
-    background: #b74f29!important;
+a,
+a:hover {
+  color: unset;
 }
 
-h1 {
-  margin: 30px auto 0 auto;
-  color: var(--stroke-color);
-  font-family: 'Encode Sans Semi Condensed', 'DejaVu Sans Condensed', Verdana,
-    sans-serif;
-  font-size: 8rem;
-  line-height: 10rem;
-  font-weight: 200;
-  text-align: center;
-}
-h2 {
-  margin: 20px auto 30px auto;
-  font-family: 'Encode Sans Semi Condensed', 'DejaVu Sans Condensed', Verdana,
-    sans-serif;
-  font-size: 1.5rem;
-  font-weight: 200;
-  text-align: center;
-}
-h1,
-h2 {
-  -webkit-transition: opacity 0.5s linear, margin-top 0.5s linear; /* Safari */
-  transition: opacity 0.5s linear, margin-top 0.5s linear;
+.link,
+.link:active {
+  color: #b74f29 !important;
 }
 .date-label {
   position: relative;
@@ -166,5 +154,8 @@ h2 {
   font-weight: bold;
   font-size: 14px;
   padding: 5px 20px;
+  top: 50%;
+  position: absolute;
+  transform: translateY(-50%);
 }
 </style>
