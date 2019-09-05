@@ -1,7 +1,7 @@
 <template>
   <div class="cards">
-    <loading-spinner v-if="loading"/>
-    <server-error v-if="errored"/>
+    <loading-spinner v-if="loading" />
+    <server-error v-if="errored" />
     <div v-if="!errored && !loading">
       <router-link to="/media/news-archive">
         <h5 class="section-title">{{ $t('PhotoGallery') }}</h5>
@@ -59,7 +59,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get(EVENTS_URL + '?_limit=3')
+      .get(EVENTS_URL + '?_limit=3&_sort=date_start:DESC')
       .then(response => {
         this.data = response.data.reverse();
         this.images = this.data.map((o, i) => {
