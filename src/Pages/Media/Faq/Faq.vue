@@ -14,7 +14,9 @@
           </b-card-header>
           <b-collapse :id="`accordion-${q.id}`" accordion="my-accordion" role="tabpanel">
             <b-card-body>
-              <b-card-text>{{ q[`answer_${locale}`] }}</b-card-text>
+              <b-card-text>
+                <vue-markdown>{{ q[`answer_${locale}`] }}</vue-markdown>
+              </b-card-text>
             </b-card-body>
           </b-collapse>
         </b-card>
@@ -28,6 +30,7 @@ import i18n from '@/plugins/i18n';
 import { FAQ_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
+import VueMarkdown from 'vue-markdown';
 
 export default {
   name: 'Faq',
@@ -55,7 +58,7 @@ export default {
       })
       .finally(() => (this.loading = false));
   },
-  components: { LoadingSpinner, ServerError },
+  components: { LoadingSpinner, ServerError, VueMarkdown },
 };
 </script>
 
