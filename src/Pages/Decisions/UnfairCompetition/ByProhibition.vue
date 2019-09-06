@@ -61,7 +61,9 @@ export default {
     this.$http
       .get(UnfairCompetitionByProhibition_URL + '?_sort=date:DESC')
       .then(response => {
-        this.data = response.data.decisions;
+        this.data = response.data.decisions.sort(
+          (a, b) => new Date(b.date) - new Date(a.date)
+        );
       })
       .catch(error => {
         console.log(error);
