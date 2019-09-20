@@ -132,6 +132,7 @@ export default {
 }
 .lightbox__thumbnail img{
   min-height: 200px;
+  max-height: 200px;
 }
 
 </style>

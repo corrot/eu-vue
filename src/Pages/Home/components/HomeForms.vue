@@ -1,10 +1,12 @@
 <template>
-  <b-container>
     <div v-if="data">
+  <div class="cards">
+
       <router-link to="/public/application-forms">
         <h5 class="section-title">{{ $t('ApplicationForms') }}</h5>
         <img class="img-100" :src="`${API_BASE_URL}/uploads/${data.image.hash}${data.image.ext}`">
       </router-link>
+    </div>
     </div>
     <!-- <router-link to="/public/application-forms">
       <h5 class="section-title mb-4">{{ $t('ApplicationForms') }}:</h5>
@@ -27,7 +29,6 @@
         </router-link>
       </b-col>
     </b-row> -->
-  </b-container>
 </template>
 
 <script>
