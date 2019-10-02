@@ -1,7 +1,7 @@
 <template>
   <b-container>
-    <loading-spinner v-if="loading"/>
-    <server-error v-if="errored"/>
+    <loading-spinner v-if="loading" />
+    <server-error v-if="errored" />
     <div v-if="!errored && !loading">
       <div v-for="article in data" v-bind:key="article.id">
         <div>
@@ -15,12 +15,15 @@
               <h6 slot="header" class="mb-0 decision-date">{{ article.date.split(" ")[0] }}</h6>
               <b-card-text>{{ article[`article_${locale}`] }}</b-card-text>
               <b-button
-              class="doc-button"
+                class="doc-button"
                 :href="article[`document_${locale}`] && `${API_BASE_URL}/uploads/${article[`document_${locale}`].hash}${article[`document_${locale}`].ext}`"
                 :disabled="!article[`document_${locale}`]"
               >{{ $t('ViewDocument') }}</b-button>
               <em slot="footer">
-                <span v-for="tag in article[`tags_${locale}`].split('#')" :key="tag">
+                <span
+                  v-for="tag in article[`tags_${locale}`] && article[`tags_${locale}`].split('#')"
+                  :key="tag"
+                >
                   <router-link :to="`/search/${tag}`">#{{ tag }}</router-link>
                 </span>
               </em>
@@ -41,6 +44,7 @@ import {
 } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
+import { sortArrayByDate } from '@/utils';
 
 export default {
   name: 'ByProhibition',
@@ -61,7 +65,7 @@ export default {
     this.$http
       .get(ABUSEOFDOMINITIONBYPROHIBITION_URL + '?_sort=date:DESC')
       .then(response => {
-        this.data = response.data.decisions;
+        this.data = sortArrayByDate(response.data.decisions);
       })
       .catch(error => {
         console.log(error);
@@ -74,19 +78,18 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.card{
-  border-radius: 0!important;
+.card {
+  border-radius: 0 !important;
 }
 
-.doc-button{
+.doc-button {
   background: transparent;
-  color: #DB2323;
+  color: #db2323;
   border: none;
   padding: 0;
 }
 
-.doc-button:hover{
+.doc-button:hover {
   color: #ff5d43;
 }
-
 </style>

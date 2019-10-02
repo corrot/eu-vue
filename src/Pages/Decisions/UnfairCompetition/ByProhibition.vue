@@ -20,7 +20,7 @@
                 :disabled="!article[`document_${locale}`]"
               >{{ $t('ViewDocument') }}</b-button>
               <em slot="footer">
-                <span v-for="tag in article[`tags_${locale}`].split('#')" :key="tag">
+                <span v-for="tag in article[`tags_${locale}`] && article[`tags_${locale}`].split('#')" :key="tag">
                   <router-link :to="`/search/${tag}`">#{{ tag }}</router-link>
                 </span>
               </em>

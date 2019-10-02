@@ -9,7 +9,6 @@
           <b-card-header header-tag="header" class="p-3" role="tab">
             <a block v-b-toggle="'accordion-' + q.id" variant="info">
               <span>{{ q[`question_${locale}`] }}</span>
-              <font-awesome-icon class="mr-1" :icon="['fas', 'fa-plus']" />
             </a>
           </b-card-header>
           <b-collapse :id="`accordion-${q.id}`" accordion="my-accordion" role="tabpanel">
@@ -31,6 +30,7 @@ import { FAQ_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 import VueMarkdown from 'vue-markdown';
+// import { sortArrayByDate } from '@/utils';
 
 export default {
   name: 'Faq',
@@ -48,8 +48,9 @@ export default {
   },
   mounted() {
     this.$http
-      .get(FAQ_URL)
+      .get(FAQ_URL + `?_sort=date:DESC`)
       .then(response => {
+        // this.data = sortArrayByDate(response.data);
         this.data = response.data;
       })
       .catch(error => {

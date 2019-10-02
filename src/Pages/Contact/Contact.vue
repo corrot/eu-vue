@@ -33,7 +33,7 @@ export default {
       data: null,
       loading: true,
       errored: false,
-      text: ''
+      text: '',
     };
   },
   computed: {
@@ -59,12 +59,12 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.col{
+.col {
   height: 30rem;
 }
 
-p.title{
-  border-bottom: #DB2323;
+p.title {
+  border-bottom: #db2323;
 }
 
 .input-container {
@@ -73,7 +73,7 @@ p.title{
 
 .btn-submit-message {
   border: none;
-  border-bottom: 4px solid #DB2323;
+  border-bottom: 4px solid #db2323;
   background: none;
   color: #000;
   border-radius: 0;
@@ -84,14 +84,12 @@ p.title{
 }
 
 .btn-submit-message:hover {
-  color: #DB2323;
+  color: #db2323;
 }
 
-.col:nth-child(2){
+.col:nth-child(2) {
   background: #fff;
   padding: 20px;
 }
-
-
 </style>
 

@@ -20,7 +20,10 @@
                 :disabled="!article[`document_${locale}`]"
               >{{ $t('ViewDocument') }}</b-button>
               <em slot="footer">
-                <span v-for="tag in article[`tags_${locale}`].split('#')" :key="tag">
+                <span
+                  v-for="tag in article[`tags_${locale}`] && article[`tags_${locale}`].split('#')"
+                  :key="tag"
+                >
                   <router-link :to="`/search/${tag}`">#{{ tag }}</router-link>
                 </span>
               </em>
@@ -41,6 +44,7 @@ import {
 } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
+import { sortArrayByDate } from '@/utils';
 
 export default {
   name: 'ByInvestigation',
@@ -63,9 +67,7 @@ export default {
         `${DistortionOfCompetitionByStateAuthoritiesByInvestigation_URL}?_sort=date:DESC`
       )
       .then(response => {
-        this.data = response.data.decisions.sort(
-          (a, b) => new Date(b.date) - new Date(a.date)
-        );
+        this.data = sortArrayByDate(response.data.decisions);
       })
       .catch(error => {
         console.log(error);

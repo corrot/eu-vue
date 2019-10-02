@@ -1,14 +1,10 @@
 <template>
   <div>
-    <loading-spinner v-if="loading"/>
-    <server-error v-if="errored"/>
+    <loading-spinner v-if="loading" />
+    <server-error v-if="errored" />
     <div v-if="!errored && !loading">
       <div class="cards">
-        <b-card
-          v-for="event in data"
-          :key="event.id"
-          class="mb-3"
-        >
+        <b-card v-for="event in data" :key="event.id" class="mb-3">
           <router-link :to="`/media/announcement/${event.id}`">
             <b-row no-gutters>
               <b-col md="3">
@@ -16,12 +12,12 @@
                   style="width:100%"
                   :src="event.image && `${API_BASE_URL}/uploads/${event.image.hash}${event.image.ext}`"
                   class="rounded-0"
-                >
+                />
               </b-col>
               <b-col md="7">
                 <b-card-body :title="event[`title_${locale}`]">
                   <b-card-text>
-                    <vue-markdown>{{ event[`article_${locale}`].substring(0, 140).concat('...') }}</vue-markdown>
+                    <vue-markdown>{{ event[`article_${locale}`] && event[`article_${locale}`].substring(0, 140).concat('...') }}</vue-markdown>
                   </b-card-text>
                 </b-card-body>
               </b-col>
@@ -39,7 +35,7 @@
       <div style="text-align: right" class="mt-3">
         <!-- <router-link to="/media/news-archive" class="btn-read-more mb-5 pull-right">
           <span>{{ $t("ViewAll") }}...</span>
-        </router-link> -->
+        </router-link>-->
       </div>
     </div>
   </div>
