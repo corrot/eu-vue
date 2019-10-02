@@ -98,6 +98,7 @@ export default {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   max-height: 70px;
+  min-height: 70px;
   padding: 8px;
   font-size: 14px;
   font-weight: bold;
