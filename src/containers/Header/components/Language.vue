@@ -1,21 +1,21 @@
 <template>
   <div class="language">
     <router-link to="/links">
-      <font-awesome-icon class="icon-link mr-1" :icon="['fas', 'link']"/>
+      <font-awesome-icon class="icon-link mr-1" :icon="['fas', 'link']" />
       <span class="links">{{ $t('Links') }}</span>
     </router-link>
-    <links-separator/>
+    <links-separator />
     <router-link to="/sitemap">
-      <font-awesome-icon class="icon-sitemap mr-1" :icon="['fas', 'sitemap']"/>
+      <font-awesome-icon class="icon-sitemap mr-1" :icon="['fas', 'sitemap']" />
       <span class="links">{{ $t('Sitemap') }}</span>
     </router-link>
 
-    <links-separator/>
+    <links-separator />
     <b-button id="print-button" @click="print" style="margin-top: -5px;">
-      <font-awesome-icon class="mr-1" :icon="['fas', 'print']"/>
+      <font-awesome-icon class="mr-1" :icon="['fas', 'print']" />
       <span class="links">{{ $t('Print') }}</span>
     </b-button>
-    <links-separator/>
+    <links-separator />
     <div
       class="language-toggler"
       v-for="entry in languages"
@@ -27,7 +27,7 @@
     </div>
     <div>
       <div style="position: absolute" class="w-100">
-        <social-component class="ml-2"/>
+        <social-component class="ml-2" />
         <b-input-group class="mt-3 ml-2 input-search" size="sm" style="max-width: 200px">
           <b-form-input v-model="searchQuery" placeholder="Search"></b-form-input>
           <b-input-group-append>
@@ -37,7 +37,7 @@
               class="ml-0"
               variant="info"
             >
-              <font-awesome-icon class="icon-search mr-1" :icon="['fas', 'search']"/>
+              <font-awesome-icon class="icon-search mr-1" :icon="['fas', 'search']" />
             </b-button>
           </b-input-group-append>
         </b-input-group>
@@ -66,6 +66,7 @@ export default {
     changeLocale(locale) {
       i18n.locale = locale;
       localStorage.setItem('activeLocale', locale);
+      this.$router.go();
     },
     print() {
       window.print();
