@@ -6,7 +6,7 @@
       <!-- content -->
 
       <div class="mb-5">
-        <h5 class="section-title">{{ $t('RequestPublicInformation') }}</h5>
+        <h5 class="section-title">{{ data[0][`title_${locale}`] }}</h5>
         <vue-markdown class="article">{{data[0][`text_${locale}`]}}</vue-markdown>
       </div>
 
