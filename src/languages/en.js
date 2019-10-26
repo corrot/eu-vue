@@ -86,7 +86,7 @@ export const en = {
   ChooseFile: 'Choose file',
   CAGInPress: 'Competition agency of Georgia in press',
   Ongoing: 'Ongoing',
-  Finished: 'Finished',
+  Finished: 'Completed Projects',
   Share: 'Share',
   History: 'History',
   GoToLink: 'Go to the link',
@@ -105,5 +105,5 @@ export const en = {
   NewsDetails: 'News',
   EmployDetail: 'Structure',
   GoBack: 'Go Back',
-  NoResults: 'Results for search query not found'
+  NoResults: 'Results for search query not found',
 };

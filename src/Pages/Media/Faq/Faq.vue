@@ -48,7 +48,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get(FAQ_URL + `?_sort=date:DESC`)
+      .get(FAQ_URL + `?_sort=date:ASC`)
       .then(response => {
         // this.data = sortArrayByDate(response.data);
         this.data = response.data;

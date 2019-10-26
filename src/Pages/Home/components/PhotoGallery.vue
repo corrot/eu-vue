@@ -61,7 +61,7 @@ export default {
     this.$http
       .get(EVENTS_URL + '?_limit=3&_sort=date_start:DESC')
       .then(response => {
-        this.data = response.data.reverse();
+        this.data = response.data;
         this.images = this.data.map((o, i) => {
           this.covers.push(
             `${API_BASE_URL}/uploads/${this.data[i].cover_image.hash}${

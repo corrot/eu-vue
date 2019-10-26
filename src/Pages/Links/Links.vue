@@ -1,18 +1,13 @@
 <template>
   <b-container>
-    <loading-spinner v-if="loading"/>
-    <server-error v-if="errored"/>
+    <loading-spinner v-if="loading" />
+    <server-error v-if="errored" />
     <div v-if="!errored && !loading">
       <ul class="links-container">
         <li v-for="linkType in data" :key="linkType.id" class="link">
           <h5 class="section-title" v-if="linkType.links.length">{{ linkType[`title_${locale}`] }}</h5>
           <div v-for="link in linkType.links" :key="link.id">
-            <a
-              :href="link.link"
-              target="_blank"
-            >
-              {{ link[`title_${locale}`] }}
-            </a>
+            <a :href="link.link" target="_blank">{{ link[`title_${locale}`] }}</a>
           </div>
         </li>
       </ul>
@@ -46,7 +41,13 @@ export default {
       .then(response => {
         this.data = response.data;
         response.data.map(e => {
-          return e.links.sort((a, b) => a[`title_${this.locale}`].localeCompare(b[`title_${this.locale}`]));
+          return e.links.sort((a, b) =>
+            a[`title_${this.locale}`] && b[`title_${this.locale}`]
+              ? a[`title_${this.locale}`]
+                  .toString()
+                  .localeCompare(b[`title_${this.locale}`].toString())
+              : ''
+          );
         });
       })
       .catch(error => {
@@ -65,11 +66,11 @@ export default {
   margin-bottom: 50px;
 }
 
-a{
+a {
   list-style-type: disc;
 }
 
-h1{
+h1 {
   margin-bottom: 30px;
 }
 
