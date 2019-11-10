@@ -66,7 +66,7 @@ export default {
     changeLocale(locale) {
       i18n.locale = locale;
       localStorage.setItem('activeLocale', locale);
-      this.$router.go();
+      // this.$router.go();
     },
     print() {
       window.print();

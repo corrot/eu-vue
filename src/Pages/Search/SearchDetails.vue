@@ -21,7 +21,7 @@
         <div style="font-weight: bold" v-if="i[`name_${locale}`]">{{i[`title_${locale}`]}}</div>
         <div style="font-weight: bold" v-if="i[`position_${locale}`]">{{i[`position_${locale}`]}}</div>
         <div v-if="i[`article_${locale}`]">
-          <vue-markdown>{{i[`article_${locale}`]}}</vue-markdown>
+          <vue-markdown :source="i[`article_${locale}`]"></vue-markdown>
         </div>
         <div style="font-weight: bold" v-if="i[`question_${locale}`]">{{i[`question_${locale}`]}}</div>
         <div v-if="i[`answer_${locale}`]">
