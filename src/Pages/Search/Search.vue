@@ -35,7 +35,7 @@
                 v-if="i[`name_${locale}`]"
               >{{i[`name_${locale}`].substring(0, 100)}}...</div>
               <div v-if="i[`article_${locale}`]">
-                <vue-markdown>{{i[`article_${locale}`].substring(0, 200)}}...</vue-markdown>
+                <vue-markdown :source="i[`article_${locale}`].substring(0, 200)"></vue-markdown>
               </div>
               <div
                 style="font-weight: bold"
