@@ -8,7 +8,10 @@
         style="display: flex; justify-content: space-between"
       >
         <b-breadcrumb 
-                v-if="this.$router.currentRoute.name !== 'home' && this.$router.currentRoute.name !== 'contact' && this.$router.currentRoute.name !== 'decisionDetails'&& this.$router.currentRoute.name !== 'search'"
+                v-if="this.$router.currentRoute.name !== 'home' &&
+                this.$router.currentRoute.name !== 'contact' &&
+                this.$router.currentRoute.name !== 'decisionDetails' &&
+                this.$router.currentRoute.name !== 'search'"
         class="container" :items="breadcrumbNames"></b-breadcrumb>
 
         <social-sharing
@@ -59,7 +62,8 @@ export default {
     breadcrumbNames: function() {
       const capitalize = s => {
         if (typeof s !== 'string') return '';
-        return s.charAt(0).toUpperCase() + s.slice(1);
+        const word = s.toString();
+        return word.slice(0, 1).toUpperCase() + word.slice(1);
       };
 
       this.routePaths = this.$router.currentRoute.path.split('/');
@@ -69,7 +73,13 @@ export default {
         this.routePaths.pop();
       }
       this.routePaths.forEach((routePath, index, arr) => {
-        let res = this.$t(
+        let res = i18n.locale === 'ge' && this.$router.currentRoute.name === 'searchDetails' ?
+        this.$t(
+          routePath
+            .split('-')
+            .map(e => e)
+            .join('')
+        ) : this.$t(
           routePath
             .split('-')
             .map(e => capitalize(e))

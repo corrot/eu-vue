@@ -31,7 +31,7 @@ const endpoints = [
   // { redirectTo: 'concentrationControl', url: ConcentrationControl_URL, fields: ['title', 'article', 'tags'] },
   // { redirectTo: 'stateAid', url: StateAid_URL, fields: ['title', 'article', 'tags'] },
   // { redirectTo: 'marketMonitoring', url: MarketMonitoring_URL, fields: ['title', 'article', 'tags'] },
-  { redirectTo: 'decisionDetails', url: DECISIONS_URL, fields: ['tags'] },
+  { redirectTo: 'decisionDetails', url: DECISIONS_URL, fields: ['tags', 'title', 'article'] },
   {
     redirectTo: 'eventDetails',
     url: EVENTS_URL,
