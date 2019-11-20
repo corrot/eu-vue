@@ -102,12 +102,14 @@ export default {
 
 .slider-text {
   position: absolute;
-  bottom: 15%;
-  width: 400px;
+  bottom: 8%;
+  width: 1000px;
   background-color: rgba(0, 0, 0, 0.65);
   text-align: center;
   z-index: 100;
   padding: 2%;
+  left: 50%;
+  transform: translateX(-50%);
   font-family: 'Open Sans', 'BPG Glaho WEB Caps', sans-serif;
 }
 

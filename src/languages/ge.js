@@ -61,6 +61,7 @@ export const ge = {
   Print: 'ბეჭდვა',
   AccessToPublicInformation: 'საჯარო ინფორმაციასთან წვდომა',
   Search: 'ძიება',
+  search: 'ძიება',
   Employees: 'თანამშრომლები',
   Releases: 'რელიზები',
   PhotoGallery: 'ფოტო გალერეა',

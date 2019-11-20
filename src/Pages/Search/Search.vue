@@ -124,6 +124,7 @@ export default {
         });
       });
       this.loading = false;
+      this.errored = false;
     },
   },
   components: { LoadingSpinner, ServerError, VuePureLightbox, VueMarkdown },

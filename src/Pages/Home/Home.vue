@@ -9,14 +9,14 @@
         <!-- <testimonials-component/> -->
         <home-forms-component/>
         <cards-component/>
-        <video-gallery-component/>
         <photo-gallery-component/>
+        <video-gallery-component/>
       </div>
       <div class="page-row right">
         <public-survey-component/>
         <fbwidget-component class="mb-2"/>
         <projects-component class="mb-4"/>
-        <events-component class="mb-4"/>
+        <!-- <events-component class="mb-4"/> -->
         <calendar-component class="mb-2"/>
       </div>
     </b-container>

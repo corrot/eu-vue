@@ -6,7 +6,7 @@
       <div>
         <div class="image-canvas">
           <div id="base" class="structure-image mb-4">
-            <img :src="structureImage" :alt="$t('Structure')" style="margin-top: 60px" />
+            <img :src="imageData[`image_${locale}`] && `${API_BASE_URL}/uploads/${imageData[`image_${locale}`].hash}${imageData[`image_${locale}`].ext}`" :alt="$t('Structure')" style="margin-top: 60px" />
             <div class="overlay">
               <a v-for="item in data" :key="item.id">
                 <span
@@ -80,7 +80,7 @@ export default {
   name: 'Structure',
   data() {
     return {
-      structureImage: '',
+      imageData: '',
       data: null,
       loading: true,
       errored: false,
@@ -96,9 +96,7 @@ export default {
     this.$http
       .get(STRUCTURE_IMAGE_URL)
       .then(response => {
-        const image = response.data[0].image[0];
-        this.structureImage =
-          API_BASE_URL + '/uploads/' + image.hash + image.ext;
+        this.imageData = response.data[0];
       })
       .catch(error => {
         console.log(error);

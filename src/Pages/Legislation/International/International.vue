@@ -7,7 +7,12 @@
             <h5 class="section-title">{{ data[`title_${locale}`] }}</h5>
             <b-card no-body class="mb-2" v-for="article in data.legislations" :key="article.id">
               <b-card-header header-tag="header" class="p-3" role="tab">
-                <a target="_blank" :href="article.link" v-b-toggle="'accordion-' + article.id" variant="info">
+                <a
+                  target="_blank"
+                  :href="article[`doc_${locale}`] && `${API_BASE_URL}/uploads/${article[`doc_${locale}`].hash}${article[`doc_${locale}`].ext}`"
+                  v-b-toggle="'accordion-' + article.id"
+                  variant="info"
+                >
                   <span>{{ article[`title_${locale}`] }}</span>
                   <font-awesome-icon class="mr-1" :icon="['fas', 'fa-plus']"/>
                 </a>
