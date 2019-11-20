@@ -14,7 +14,7 @@
           <b-collapse :id="`accordion-${q.id}`" accordion="my-accordion" role="tabpanel">
             <b-card-body>
               <b-card-text>
-                <vue-markdown>{{ q[`answer_${locale}`] }}</vue-markdown>
+                <vue-markdown :source="q[`answer_${locale}`]"></vue-markdown>
               </b-card-text>
             </b-card-body>
           </b-collapse>

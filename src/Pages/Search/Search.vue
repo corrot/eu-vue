@@ -42,10 +42,10 @@
                 v-if="i[`question_${locale}`]"
               >{{i[`question_${locale}`]}}...</div>
               <div v-if="i[`answer_${locale}`]">
-                <vue-markdown>{{i[`answer_${locale}`].substring(0, 200)}}...</vue-markdown>
+                <vue-markdown :source="i[`answer_${locale}`].substring(0, 200)"></vue-markdown>...
               </div>
               <div v-if="i[`biography_${locale}`]">
-                <vue-markdown>{{i[`biography_${locale}`].substring(0, 200)}}...</vue-markdown>
+                <vue-markdown :source="i[`biography_${locale}`].substring(0, 200)"></vue-markdown>...
               </div>
               <div v-if="i[`doc_${locale}`]">
                 <a

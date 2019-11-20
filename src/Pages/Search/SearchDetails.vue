@@ -25,10 +25,10 @@
         </div>
         <div style="font-weight: bold" v-if="i[`question_${locale}`]">{{i[`question_${locale}`]}}</div>
         <div v-if="i[`answer_${locale}`]">
-          <vue-markdown>{{i[`answer_${locale}`]}}</vue-markdown>
+          <vue-markdown :source="i[`answer_${locale}`]"></vue-markdown>
         </div>
         <div v-if="i[`biography_${locale}`]">
-          <vue-markdown>{{i[`biography_${locale}`]}}</vue-markdown>
+          <vue-markdown :source="i[`biography_${locale}`]"></vue-markdown>
         </div>
         <div class="mt-2" v-if="i[`doc_${locale}`]">
           <a

@@ -27,7 +27,7 @@
                 <!-- <p>
                   <a :href="data[`cv_${locale}`] && `${API_BASE_URL}/uploads/${data[`cv_${locale}`].hash}${data[`cv_${locale}`].ext}`" target="_blank">{{ $t('CurriculumVitae') }}</a>
                 </p>-->
-                <vue-markdown>{{ data[`biography_${locale}`] }}</vue-markdown>
+                <vue-markdown :source="data[`biography_${locale}`]"></vue-markdown>
               </b-card-text>
             </b-card-body>
           </b-col>

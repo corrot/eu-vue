@@ -11,7 +11,7 @@
       </b-col>
       <b-col>
         <b-card class="text-center" style="border: none; margin-top: none;">
-          <vue-markdown>{{ data[`text_${locale}`] }}</vue-markdown>
+          <vue-markdown :source="data[`text_${locale}`]"></vue-markdown>
         </b-card>
       </b-col>
     </b-row>

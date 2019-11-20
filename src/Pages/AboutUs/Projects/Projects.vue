@@ -30,7 +30,7 @@
                   />
                 </div>
                 <b-card-text>
-                  <vue-markdown>{{ article[`text_${locale}`] }}</vue-markdown>
+                  <vue-markdown :source="article[`text_${locale}`]"></vue-markdown>
                 </b-card-text>
                 <a :href="article.Link" target="_blank">{{ $t('LinkToProject') }}</a>
               </b-card-body>
@@ -63,7 +63,7 @@
                   />
                 </div>
                 <b-card-text>
-                  <vue-markdown>{{ article[`text_${locale}`] }}</vue-markdown>
+                  <vue-markdown :source="article[`text_${locale}`]"></vue-markdown>
                 </b-card-text>
                 <a :href="article.Link">{{ article.Link }}</a>
               </b-card-body>

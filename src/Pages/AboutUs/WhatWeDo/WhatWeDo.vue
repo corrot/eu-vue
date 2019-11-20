@@ -1,11 +1,11 @@
 <template>
   <b-container class="styled">
-    <loading-spinner v-if="loading"/>
-    <server-error v-if="errored"/>
+    <loading-spinner v-if="loading" />
+    <server-error v-if="errored" />
     <div v-if="!errored && !loading">
       <div v-for="item in data" :key="item.id">
         <h5 class="section-title mb-4">{{item[`title_${locale}`]}}</h5>
-        <vue-markdown>{{ item[`text_${locale}`] }}</vue-markdown>
+        <vue-markdown :source="item[`text_${locale}`]"></vue-markdown>
       </div>
     </div>
   </b-container>

@@ -7,10 +7,6 @@
       <b-col lg="4" class="mb-2" v-for="newsArticle in data" :key="newsArticle.id">
         <router-link :to="`media/press-releases/${newsArticle.id}`">
           <div class="card">
-            <!-- <h4
-              class="card-title font-weight-bold line-limit-2"
-              :title="newsArticle[`title_${locale}`]"
-            >{{ newsArticle[`title_${locale}`] }}</h4>-->
             <div class="card-img-container">
               <div
                 class="img-100"
@@ -27,31 +23,6 @@
           </div>
         </router-link>
       </b-col>
-      <!-- <b-col cols="4" v-for="newsArticle in news" :key="newsArticle.id">
-        <div class="card">
-          <h4
-            class="card-title font-weight-bold line-limit-2"
-            :title="newsArticle[`title_${locale}`]"
-          >{{ newsArticle[`title_${locale}`] }}</h4>
-          <div class="card-img-container">
-            <div
-              class="img-100"
-              v-bind:style="{'background-image': newsArticle.image ? `url(${base_url}${newsArticle.image.url})` : `url(${noimage})`}"
-            ></div>
-          </div>
-          <div class="card-body">
-            <p class="card-text">
-              <vue-markdown>{{ newsArticle[`article_${locale}`] }}</vue-markdown>
-            </p>
-          </div>
-          <div class="btn-container">
-            <b-button
-              class="btn-read-more"
-              @click="expandArticle(newsArticle.id)"
-            >{{ $t("ReadMore") }}...</b-button>
-          </div>
-        </div>
-      </b-col>-->
     </b-row>
     <div style="width: 100%; text-align: right">
       <router-link class="btn-read-more" to="/media/news-archive">{{ $t("ViewAll") }}...</router-link>

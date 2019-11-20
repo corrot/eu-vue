@@ -17,7 +17,9 @@
               <b-col md="7">
                 <b-card-body :title="event[`title_${locale}`]">
                   <b-card-text>
-                    <vue-markdown>{{ event[`article_${locale}`] && event[`article_${locale}`].substring(0, 150).concat('...') }}</vue-markdown>
+                    <vue-markdown
+                      :source="event[`article_${locale}`] && event[`article_${locale}`].substring(0, 150).concat('...')"
+                    ></vue-markdown>
                   </b-card-text>
                 </b-card-body>
               </b-col>

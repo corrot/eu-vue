@@ -1,9 +1,9 @@
 <template>
   <b-container class="styled">
-    <loading-spinner v-if="loading"/>
-    <server-error v-if="errored"/>
+    <loading-spinner v-if="loading" />
+    <server-error v-if="errored" />
     <div v-if="!errored && !loading">
-      <vue-markdown>{{ data[0][`text_${locale}`] }}</vue-markdown>
+      <vue-markdown :source="data[0][`text_${locale}`]"></vue-markdown>
     </div>
   </b-container>
 </template>
