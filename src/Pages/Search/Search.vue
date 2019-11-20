@@ -123,7 +123,9 @@ export default {
           this.data = [...this.data, ...response.data];
         });
       });
-      this.loading = false;
+      setTimeout(() => {
+        this.loading = false;
+      }, 3000);
       this.errored = false;
     },
   },

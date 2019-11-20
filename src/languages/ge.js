@@ -47,7 +47,7 @@ export const ge = {
   Announcement: 'ანონსი',
   Events: 'ღონისძიებები',
   NewsArchive: 'არქივი',
-  Newsletter: 'საინფორმაციო ბიულეტენი',
+  Newsletter: 'კონფერენციები',
   Publications: 'პუბლიკაციები',
   FAQ: 'ხშირად დასმული კითხვები',
   Phone: 'ტელეფონი',
@@ -108,5 +108,5 @@ export const ge = {
   NewsDetails: 'სიახლეები',
   EmployDetail: 'სტრუქტურა',
   GoBack: 'უკან დაბრუნება',
-  NoResults: 'შედეგები არ მოიძებნა'
+  NoResults: 'შედეგები არ მოიძებნა',
 };
