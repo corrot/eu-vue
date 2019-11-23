@@ -47,7 +47,7 @@ export const en = {
   Announcement: 'Announcements',
   Events: 'Events',
   NewsArchive: 'News archive',
-  Newsletter: 'Newsletter',
+  Newsletter: 'Conferences',
   Publications: 'Publications',
   FAQ: 'FAQ',
   Phone: 'Phone',

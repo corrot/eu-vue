@@ -84,6 +84,7 @@ import ServerError from '@/components/ServerError';
 import VuePureLightbox from 'vue-pure-lightbox';
 import endpoints, { searchEndpoints } from './searchHelper';
 import { API_BASE_URL } from '@/constants.js';
+import { sortArrayByDate } from '@/utils.js';
 
 export default {
   name: 'Search',
@@ -120,7 +121,7 @@ export default {
       this.data = [];
       searchEndpoints(i18n.locale, this.id).forEach(e => {
         this.$http.get(e.link).then(response => {
-          this.data = [...this.data, ...response.data];
+          this.data = sortArrayByDate([...this.data, ...response.data]);
         });
       });
       setTimeout(() => {
