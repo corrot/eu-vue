@@ -22,7 +22,7 @@
             </b-card-header>
             <b-collapse :id="`accordion-1-${article.id}`" accordion="my-accordion" role="tabpanel">
               <b-card-body>
-                <h5 class="mb-3">{{ article.date_start.split(' ')[0] }}</h5>
+                <h5 class="mb-3">{{ article.date && article.date.split(' ')[0] }}</h5>
                 <div style="text-align: center" class="mb-3">
                   <img
                     style="max-width: 100%"
@@ -55,7 +55,7 @@
             </b-card-header>
             <b-collapse :id="`accordion-2-${article.id}`" accordion="my-accordion" role="tabpanel">
               <b-card-body>
-                <h5 class="mb-3">{{ article.date_start.split(' ')[0] }}</h5>
+                <h5 class="mb-3">{{ article.date && article.date.split(' ')[0] }}</h5>
                 <div style="text-align: center" class="mb-3">
                   <img
                     style="max-width: 100%"
