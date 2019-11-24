@@ -26,7 +26,7 @@
                 class="date"
               >{{(i.date && i.date.split(' ')[0]) || (i.date_start && i.date_start.split(' ')[0])}}</span>
             </router-link>-->
-            <div @click="gotoDetail(id, index, i)">
+            <div @click="gotoDetail(id, i[`title_${locale}`], i)">
               <span
                 class="date"
               >{{(i.date && i.date.split(' ')[0]) || (i.date_start && i.date_start.split(' ')[0])}}</span>
@@ -34,7 +34,7 @@
           </b-col>
           <b-col sm="10">
             <div
-              @click="gotoDetail(id, index, i)"
+              @click="gotoDetail(id, i[`title_${locale}`], i)"
               v-if="i.date || i.date_start"
               style="cursor: pointer"
             >
@@ -130,7 +130,14 @@ export default {
       this.data = [];
       searchEndpoints(i18n.locale, this.id).forEach(e => {
         this.$http.get(e.link).then(response => {
-          this.data = sortArrayByDate([...this.data, ...response.data]);
+          this.data = sortArrayByDate(
+            [
+              ...new Set([
+                ...this.data,
+                ...response.data.map(a => JSON.stringify(a)),
+              ]),
+            ].map(a => JSON.parse(a))
+          );
         });
       });
       setTimeout(() => {
