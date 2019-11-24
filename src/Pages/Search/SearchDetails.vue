@@ -1,15 +1,7 @@
 <template>
   <b-container>
-    <loading-spinner v-if="loading" />
-    <server-error v-if="errored" />
-    <div v-if="!errored && !loading">
-      <div
-        id="search"
-        v-for="(i, index) in data"
-        :key="i.id"
-        v-if="index == resultIndex"
-        class="mb-4"
-      >
+    <div>
+      <div id="search" v-for="(i, index) in data" :key="i.id" class="mb-4">
         <div
           class="mb-2"
         >{{(i.date && i.date.split(' ')[0]) || (i.date_start && i.date_start.split(' ')[0])}}</div>
@@ -60,7 +52,7 @@ export default {
   name: 'Search',
   data() {
     return {
-      data: [],
+      data: [window.searchResult.i],
       loading: true,
       id: this.$route.params.id,
       resultIndex: this.$route.params.index,
@@ -72,31 +64,6 @@ export default {
   computed: {
     locale: () => {
       return i18n.locale;
-    },
-    rows() {
-      return this.items.length;
-    },
-  },
-  watch: {
-    '$route.params.id': function(id) {
-      this.id = this.$route.params.id;
-      this.fetch('watch');
-    },
-    deep: true,
-  },
-  mounted() {
-    this.fetch('mount');
-  },
-  methods: {
-    fetch: function(from) {
-      this.data = [];
-      searchEndpoints(i18n.locale, this.id).forEach(e => {
-        this.$http.get(e.link).then(response => {
-          this.data = [...this.data, ...response.data];
-        });
-      });
-      console.log(this.data);
-      this.loading = false;
     },
   },
   components: { LoadingSpinner, ServerError, VuePureLightbox, VueMarkdown },

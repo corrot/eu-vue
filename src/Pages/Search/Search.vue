@@ -21,14 +21,23 @@
       >
         <b-row>
           <b-col sm="2">
-            <router-link :to="'/search/' + id + '/' + index" v-if="i.date || i.date_start">
+            <!-- <router-link :to="'/search/' + id + '/' + index" v-if="i.date || i.date_start">
               <span
                 class="date"
               >{{(i.date && i.date.split(' ')[0]) || (i.date_start && i.date_start.split(' ')[0])}}</span>
-            </router-link>
+            </router-link>-->
+            <div @click="gotoDetail(id, index, i)">
+              <span
+                class="date"
+              >{{(i.date && i.date.split(' ')[0]) || (i.date_start && i.date_start.split(' ')[0])}}</span>
+            </div>
           </b-col>
           <b-col sm="10">
-            <router-link :to="'/search/' + id + '/' + index" v-if="i.date || i.date_start">
+            <div
+              @click="gotoDetail(id, index, i)"
+              v-if="i.date || i.date_start"
+              style="cursor: pointer"
+            >
               <div style="font-weight: bold" v-if="i[`title_${locale}`]">{{i[`title_${locale}`]}}</div>
               <div
                 style="font-weight: bold"
@@ -59,7 +68,7 @@
                   :href="`${API_BASE_URL}/uploads/${i[`document_${locale}`].hash}${i[`document_${locale}`].ext}`"
                 >{{ $t('ViewDocument') }}</a>
               </div>
-            </router-link>
+            </div>
           </b-col>
         </b-row>
       </div>
@@ -129,6 +138,11 @@ export default {
       }, 3000);
       this.errored = false;
     },
+    gotoDetail: function(id, index, i) {
+      // console.log(id, index, i);
+      window.searchResult = { id, index, i };
+      this.$router.push('/search/' + 1 + '/' + 1);
+    },
   },
   components: { LoadingSpinner, ServerError, VuePureLightbox, VueMarkdown },
 };
@@ -161,5 +175,6 @@ a:hover {
   top: 50%;
   position: absolute;
   transform: translateY(-50%);
+  cursor: pointer;
 }
 </style>
