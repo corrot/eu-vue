@@ -1,8 +1,7 @@
 <template>
   <b-container>
     <loading-spinner v-if="loading" />
-    <server-error v-if="errored" />
-    <div v-if="!errored && !loading">
+    <div v-if="!loading">
       <h4
         style="text-align: center; font-weight: bold"
         class="mb-4 pt-5"
@@ -126,14 +125,14 @@ export default {
     this.fetch('mount');
   },
   methods: {
-    fetch: function(from) {
+    fetch: async function(from) {
       this.data = [];
-      searchEndpoints(i18n.locale, this.id).forEach(e => {
+      await searchEndpoints(i18n.locale, this.id).forEach(e => {
         this.$http.get(e.link).then(response => {
           this.data = sortArrayByDate(
             [
               ...new Set([
-                ...this.data,
+                ...this.data.map(a => JSON.stringify(a)),
                 ...response.data.map(a => JSON.stringify(a)),
               ]),
             ].map(a => JSON.parse(a))
@@ -143,7 +142,6 @@ export default {
       setTimeout(() => {
         this.loading = false;
       }, 3000);
-      this.errored = false;
     },
     gotoDetail: function(id, index, i) {
       // console.log(id, index, i);
