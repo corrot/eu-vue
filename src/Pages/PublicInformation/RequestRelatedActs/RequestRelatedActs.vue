@@ -1,13 +1,13 @@
 <template>
   <b-container>
-    <loading-spinner v-if="loading"/>
-    <server-error v-if="errored"/>
+    <loading-spinner v-if="loading" />
+    <server-error v-if="errored" />
     <div v-if="!errored && !loading">
       <!-- content -->
 
       <div class="mb-5">
         <h5 class="section-title">{{ data[0][`title_${locale}`] }}</h5>
-        <vue-markdown class="article">{{data[0][`text_${locale}`]}}</vue-markdown>
+        <vue-markdown class="article" :source="data[0][`text_${locale}`]"></vue-markdown>
       </div>
 
       <!-- <div class="mb-5">

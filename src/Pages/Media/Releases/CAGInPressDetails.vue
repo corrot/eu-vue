@@ -1,7 +1,7 @@
 <template>
   <b-container>
-    <loading-spinner v-if="loading"/>
-    <server-error v-if="errored"/>
+    <loading-spinner v-if="loading" />
+    <server-error v-if="errored" />
     <div v-if="!errored && !loading">
       <h4 style="max-width: 80%">{{ data[`title_${locale}`] }}</h4>
       <h5>{{ data.date && data.date.split(' ')[0].split('-').reverse().join('.') }}</h5>
@@ -9,9 +9,9 @@
         <img
           style="max-width: 100%"
           :src="data.image && `${API_BASE_URL}/uploads/${data.image.hash}${data.image.ext}`"
-        >
+        />
       </div>
-      <vue-markdown class="mt-3">{{ data[`article_${locale}`] }}</vue-markdown>
+      <vue-markdown class="mt-3" :source="data[`article_${locale}`]"></vue-markdown>
       <div class="mt-3" v-if="data.video">
         <youtube
           player-width="300"
