@@ -8,6 +8,8 @@ import {
   PROJECTS_URL,
   COOPERATION_URL,
   PUBLICATIONS_URL,
+  LEGISLATIONS_URL,
+  FAQ_URL,
 } from '@/constants.js';
 
 const endpoints = [
@@ -46,6 +48,14 @@ const endpoints = [
   {
     url: PUBLICATIONS_URL,
     fields: ['article', 'title'],
+  },
+  {
+    url: LEGISLATIONS_URL,
+    fields: ['title'],
+  },
+  {
+    url: FAQ_URL,
+    fields: ['question', 'answer'],
   },
 ];
 
