@@ -32,28 +32,21 @@ const endpoints = [
     fields: ['title', 'article'],
   },
   {
-    url: PROACTIVE_INFORMATION_ARCHIVE,
-    fields: ['title', 'comment'],
-  },
-  {
     url: ANNOUNCEMENTS_URL,
     fields: ['title', 'article'],
-  },
-  {
-    url: EMPLOYEES_URL,
-    fields: ['name', 'biography'],
   },
   {
     url: PROJECTS_URL,
     fields: ['title', 'text'],
   },
-  {
-    url: COOPERATIONS_URL,
-    fields: ['title', 'text'],
-  },
+ 
   {
     url: PUBLICATIONS_URL,
     fields: ['article', 'title'],
+  },
+  {
+    url: COOPERATIONS_URL,
+    fields: ['title', 'text'],
   },
   {
     url: LEGISLATIONS_URL,
@@ -86,6 +79,14 @@ const endpoints = [
   {
     url: CONTACT_URL,
     fields: ['text'],
+  },
+  {
+    url: PROACTIVE_INFORMATION_ARCHIVE,
+    fields: ['title', 'comment'],
+  },
+  {
+    url: EMPLOYEES_URL,
+    fields: ['name', 'biography'],
   },
 ];
 
