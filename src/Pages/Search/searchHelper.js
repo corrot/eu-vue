@@ -10,6 +10,12 @@ import {
   PUBLICATIONS_URL,
   LEGISLATIONS_URL,
   FAQ_URL,
+  WHATWEDO_URL,
+  HISTORY_URL,
+  FORMS_URL,
+  PUBLICSURVEYS_URL,
+  PROACTIVE_INFORMATION_TYPES_URL,
+  CONTACT_URL
 } from '@/constants.js';
 
 const endpoints = [
@@ -56,6 +62,30 @@ const endpoints = [
   {
     url: FAQ_URL,
     fields: ['question', 'answer'],
+  },
+  {
+    url: WHATWEDO_URL,
+    fields: ['title', 'text'],
+  },
+  {
+    url: HISTORY_URL,
+    fields: ['title', 'text'],
+  },
+  {
+    url: FORMS_URL,
+    fields: ['title'],
+  },
+  {
+    url: PUBLICSURVEYS_URL,
+    fields: ['title'],
+  },
+  {
+    url: PROACTIVE_INFORMATION_TYPES_URL,
+    fields: ['title'],
+  },
+  {
+    url: CONTACT_URL,
+    fields: ['text'],
   },
 ];
 

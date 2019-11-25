@@ -25,7 +25,7 @@
                 class="date"
               >{{(i.date && i.date.split(' ')[0]) || (i.date_start && i.date_start.split(' ')[0])}}</span>
             </router-link>-->
-            <div @click="gotoDetail(id, i[`title_${locale}`], i)">
+            <div @click="gotoDetail(id, i[`title_${locale}`], i)" v-if="i.date">
               <span
                 class="date"
               >{{(i.date && i.date.split(' ')[0]) || (i.date_start && i.date_start.split(' ')[0])}}</span>
@@ -34,26 +34,28 @@
           <b-col sm="10">
             <div
               @click="gotoDetail(id, i[`title_${locale}`], i)"
-              v-if="i.date || i.date_start"
-              style="cursor: pointer"
+              class="search-result"
             >
               <div style="font-weight: bold" v-if="i[`title_${locale}`]">{{i[`title_${locale}`]}}</div>
               <div
                 style="font-weight: bold"
                 v-if="i[`name_${locale}`]"
-              >{{i[`name_${locale}`].substring(0, 100)}}...</div>
+              >{{i[`name_${locale}`].substring(0, 100) + '...'}}...</div>
               <div v-if="i[`article_${locale}`]">
-                <vue-markdown :source="i[`article_${locale}`].substring(0, 200)"></vue-markdown>
+                <vue-markdown :source="i[`article_${locale}`].substring(0, 200) + '...'"></vue-markdown>
+              </div>
+              <div v-if="i[`text_${locale}`]">
+                <vue-markdown :source="i[`text_${locale}`].substring(0, 200) + '...'"></vue-markdown>
               </div>
               <div
                 style="font-weight: bold"
                 v-if="i[`question_${locale}`]"
               >{{i[`question_${locale}`]}}...</div>
               <div v-if="i[`answer_${locale}`]">
-                <vue-markdown :source="i[`answer_${locale}`].substring(0, 200)"></vue-markdown>...
+                <vue-markdown :source="i[`answer_${locale}`].substring(0, 200) + '...'"></vue-markdown>...
               </div>
               <div v-if="i[`biography_${locale}`]">
-                <vue-markdown :source="i[`biography_${locale}`].substring(0, 200)"></vue-markdown>...
+                <vue-markdown :source="i[`biography_${locale}`].substring(0, 200) + '...'"></vue-markdown>...
               </div>
               <div v-if="i[`doc_${locale}`]">
                 <a
@@ -168,9 +170,11 @@ a:hover {
 .link:active {
   color: #b74f29 !important;
 }
+
 .date-label {
   position: relative;
 }
+
 .date {
   background: #0082bf;
   color: #141e3a;
@@ -182,4 +186,11 @@ a:hover {
   transform: translateY(-50%);
   cursor: pointer;
 }
+
+.search-result{
+  cursor: pointer;
+  border-bottom: 1px dotted #333;
+  padding-bottom: 15px;
+}
+
 </style>

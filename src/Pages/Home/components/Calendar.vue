@@ -55,17 +55,11 @@ export default {
         this.data = response.data;
         this.events = this.data &&
           this.data.map(event => {
-            const day = new Date(event.date);
-            let nextDay = new Date(event.date);
-            nextDay.setDate(day.getDate()+1);
             return {
-              // start: day,
-              // end: nextDay,
-              // You can also define event dates with Javascript Date objects:
-              startDate: day,
-              endDate: day,
-              title: event[`title_${this.locale}`],
-              content: '<router-link :to="`/media/announcement/${event.id}`">' + event[`title_${this.locale}`] + '</router-link>',
+              start: event.date.split(' ')[0],
+              end: event.date.split(' ')[0],
+              title: '',
+              content: '<div style="padding: 20px">' + event[`title_${this.locale}`] + '</div>',
               class: 'leisure',
               meta: event.id
             };

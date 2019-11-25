@@ -15,6 +15,9 @@
         <div v-if="i[`article_${locale}`]">
           <vue-markdown :source="i[`article_${locale}`]"></vue-markdown>
         </div>
+        <div v-if="i[`text_${locale}`]">
+          <vue-markdown :source="i[`text_${locale}`]"></vue-markdown>
+        </div>
         <div style="font-weight: bold" v-if="i[`question_${locale}`]">{{i[`question_${locale}`]}}</div>
         <div v-if="i[`answer_${locale}`]">
           <vue-markdown :source="i[`answer_${locale}`]"></vue-markdown>
