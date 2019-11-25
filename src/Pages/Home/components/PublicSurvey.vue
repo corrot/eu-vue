@@ -14,7 +14,7 @@
             :src="item.image && `${API_BASE_URL}/uploads/${item.image.hash}${item.image.ext}`"
           >
           <div>{{ item[`title_${locale}`] }}</div>-->
-          <b-card
+          <!-- <b-card
             :title="item[`title_${locale}`]"
             :img-src="`${API_BASE_URL}/uploads/${item.image.hash}${item.image.ext}`"
             :alt="item[`title_${locale}`]"
@@ -27,7 +27,7 @@
                 style="font-size: 12px; width: 100%; text-align: right"
               >{{ item.date_start && item.date_start.split(' ')[0]}}</div>
             </b-card-text>
-          </b-card>
+          </b-card> -->
         </a>
       </div>
     </div>

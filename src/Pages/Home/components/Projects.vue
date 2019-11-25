@@ -3,12 +3,12 @@
     <router-link to="/about-us/projects">
       <h5 class="section-title">{{ $t('Projects') }}</h5>
     </router-link>
-    <a :href="data && data.Link" target="_blank">
+    <!-- <a :href="data && data.Link" target="_blank">
       <img
         style="width: 100%; object-fit: cover"
         :src="data && data.image && `${API_BASE_URL}/uploads/${data.image.hash}${data.image.ext}`"
       />
-    </a>
+    </a> -->
   </div>
 </template>
 

@@ -5,19 +5,16 @@
 
     <b-container class="rows-container">
       <div class="page-row left">
-        <!-- <links-component/> -->
-        <!-- <testimonials-component/> -->
-        <home-forms-component/>
         <cards-component/>
         <photo-gallery-component/>
         <video-gallery-component/>
       </div>
       <div class="page-row right">
-        <public-survey-component/>
-        <fbwidget-component class="mb-2"/>
+        <home-forms-component class="mb-4"/>
+        <public-survey-component class="mb-4"/>
         <projects-component class="mb-4"/>
-        <!-- <events-component class="mb-4"/> -->
-        <calendar-component class="mb-2"/>
+        <fbwidget-component class="mb-4"/>
+        <calendar-component class="mb-4"/>
       </div>
     </b-container>
   </div>
