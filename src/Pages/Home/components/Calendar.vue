@@ -25,7 +25,6 @@
 <script>
 import router from '@/router';
 import TooltipComponent from './Tooltip';
-import { setupCalendar } from 'v-calendar';
 import VueCal from 'vue-cal';
 import 'vue-cal/dist/vuecal.css';
 import 'vue-cal/dist/i18n/ka.js'
