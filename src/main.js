@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import BootstrapVue from 'bootstrap-vue';
 import FlagIcon from 'vue-flag-icon';
-import VCalendar from 'v-calendar';
+import VCalendar, { setupCalendar } from 'v-calendar';
 import VueMarkdown from 'vue-markdown';
 import VuePureLightbox from 'vue-pure-lightbox';
 import styles from 'vue-pure-lightbox/dist/VuePureLightbox.css';
@@ -57,37 +57,56 @@ Vue.use(VCalendar, {
   locales: {
     ge: {
       firstDayOfWeek: 2,
-      masks: {
-        L: 'YYYY-MM-DD',
-        // ...optional `title`, `weekdays`, `navMonths`, etc
-      },
-      // dayNames: ['as', 'qa', 'wq', 'fd', 'wr', 'et', 'yr'],
-      // monthNames: ['asfa']
-    },
-    ka: {
-      firstDayOfWeek: 2,
-      monthNames: [
-          'იანვარი',
-          'თებერვალი',
-          'მარტი',
-          'აპრილი',
-          'მაისი',
-          'ივნისი',
-          'ივლისი',
-          'აგვისტო',
-          'სექტემბერი',
-          'ოქტომბერი',
-          'ნოემბერი',
-          'დეკემბერი'
-      ],
-      monthNamesShort: ['იან', 'თებ', 'მარ', 'აპრ', 'მაი', 'ივნ', 'ივლ', 'აგვ', 'სექ', 'ოქტ', 'ნოე', 'დეკ'],
-      dayNames: ['კვირა', 'ორშაბათი', 'სამშაბათი', 'ოთხშაბათი', 'ხუთშაბათი', 'პარასკევი', 'შაბათი'],
-      dayNamesShort: ['კვი', 'ორშ', 'სამ', 'ოთხ', 'ხუთ', 'პარ', 'შაბ'],
-      dayNamesShorter: ['კ', 'ო', 'ს', 'ო', 'ხ', 'პ', 'შ'],
-      dayNamesNarrow: ['კ', 'ო', 'ს', 'ო', 'ხ', 'პ', 'შ'],
+      // masks: {
+      //   L: 'YYYY-MM-DD',
+      // },
+      //   monthNames: [
+      //     'იანვარი',
+      //     'თებერვალი',
+      //     'მარტი',
+      //     'აპრილი',
+      //     'მაისი',
+      //     'ივნისი',
+      //     'ივლისი',
+      //     'აგვისტო',
+      //     'სექტემბერი',
+      //     'ოქტომბერი',
+      //     'ნოემბერი',
+      //     'დეკემბერი'
+      // ],
+      // monthNamesShort: ['იან', 'თებ', 'მარ', 'აპრ', 'მაი', 'ივნ', 'ივლ', 'აგვ', 'სექ', 'ოქტ', 'ნოე', 'დეკ'],
+      // dayNames: ['კვირა', 'ორშაბათი', 'სამშაბათი', 'ოთხშაბათი', 'ხუთშაბათი', 'პარასკევი', 'შაბათი'],
+      // dayNamesShort: ['კვი', 'ორშ', 'სამ', 'ოთხ', 'ხუთ', 'პარ', 'შაბ'],
+      // dayNamesShorter: ['კ', 'ო', 'ს', 'ო', 'ხ', 'პ', 'შ'],
+      // dayNamesNarrow: ['კ', 'ო', 'ს', 'ო', 'ხ', 'პ', 'შ'],
     },
   },
 });
+
+setupCalendar({
+  firstDayOfWeek     : 2,
+  locale             : 'ka',
+  monthNames         : [
+      'იანვარი',
+      'თებერვალი',
+      'მარტი',
+      'აპრილი',
+      'მაისი',
+      'ივნისი',
+      'ივლისი',
+      'აგვისტო',
+      'სექტემბერი',
+      'ოქტომბერი',
+      'ნოემბერი',
+      'დეკემბერი'
+  ],
+  monthNamesShort    : ['იან', 'თებ', 'მარ', 'აპრ', 'მაი', 'ივნ', 'ივლ', 'აგვ', 'სექ', 'ოქტ', 'ნოე', 'დეკ'],
+  dayNames           : ['კვირა', 'ორშაბათი', 'სამშაბათი', 'ოთხშაბათი', 'ხუთშაბათი', 'პარასკევი', 'შაბათი'],
+  dayNamesShort      : ['კვი', 'ორშ', 'სამ', 'ოთხ', 'ხუთ', 'პარ', 'შაბ'],
+  dayNamesShorter    : ['კ', 'ო', 'ს', 'ო', 'ხ', 'პ', 'შ'],
+  dayNamesNarrow     : ['კ', 'ო', 'ს', 'ო', 'ხ', 'პ', 'შ'],
+});
+
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.use(FlagIcon);
 Vue.use(BootstrapVue);

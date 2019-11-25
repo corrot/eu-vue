@@ -6,7 +6,7 @@ import {
   DECISIONS_URL,
   EMPLOYEES_URL,
   PROJECTS_URL,
-  COOPERATION_URL,
+  COOPERATIONS_URL,
   PUBLICATIONS_URL,
   LEGISLATIONS_URL,
   FAQ_URL,
@@ -42,7 +42,7 @@ const endpoints = [
     fields: ['title', 'text'],
   },
   {
-    url: COOPERATION_URL,
+    url: COOPERATIONS_URL,
     fields: ['title', 'text'],
   },
   {

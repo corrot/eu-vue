@@ -16,6 +16,7 @@ export const HISTORY_URL = `${API_BASE_URL}/histories`;
 export const CHAIRMAN_URL = `${API_BASE_URL}/chairmen`;
 export const EMPLOYEES_URL = `${API_BASE_URL}/employees`;
 export const COOPERATION_URL = `${API_BASE_URL}/cooperationtypes`;
+export const COOPERATIONS_URL = `${API_BASE_URL}/cooperation`;
 export const VACANCIES_URL = `${API_BASE_URL}/vacancies`;
 export const INTERNSHIPS_URL = `${API_BASE_URL}/internships`;
 export const PROJECTS_URL = `${API_BASE_URL}/projects`;
