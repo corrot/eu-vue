@@ -2,20 +2,23 @@
   <b-container>
     <loading-spinner v-if="loading" />
     <div v-if="!loading">
-      <h4
-        style="text-align: center; font-weight: bold"
-        class="mb-4 pt-5"
-      >{{ $t('Search') }}: {{ id }}</h4>
+      <h4 style="text-align: center; font-weight: bold" class="mb-4 pt-5">
+        {{ $t('Search') }}: {{ id }}
+      </h4>
       <h5
         style="text-align: center; font-weight: bold"
         class="mt-5"
         v-if="!data.length"
-      >{{ $t('NoResults') }}</h5>
+      >
+        {{ $t('NoResults') }}
+      </h5>
       <div
         id="search"
         v-for="(i, index) in data"
         :key="i.id"
-        v-if="index >= (currentPage - 1) * 10 && index < (currentPage - 1) * 10 + 10"
+        v-if="
+          index >= (currentPage - 1) * 10 && index < (currentPage - 1) * 10 + 10
+        "
         class="mb-4"
       >
         <b-row>
@@ -26,9 +29,10 @@
               >{{(i.date && i.date.split(' ')[0]) || (i.date_start && i.date_start.split(' ')[0])}}</span>
             </router-link>-->
             <div @click="gotoDetail(id, i[`title_${locale}`], i)" v-if="i.date">
-              <span
-                class="date"
-              >{{(i.date && i.date.split(' ')[0]) || (i.date_start && i.date_start.split(' ')[0])}}</span>
+              <span class="date">{{
+                (i.date && i.date.split(' ')[0]) ||
+                  (i.date_start && i.date_start.split(' ')[0])
+              }}</span>
             </div>
           </b-col>
           <b-col sm="10">
@@ -36,38 +40,63 @@
               @click="gotoDetail(id, i[`title_${locale}`], i)"
               class="search-result"
             >
-              <div style="font-weight: bold" v-if="i[`title_${locale}`]">{{i[`title_${locale}`]}}</div>
-              <div
-                style="font-weight: bold"
-                v-if="i[`name_${locale}`]"
-              >{{i[`name_${locale}`].substring(0, 100) + '...'}}...</div>
+              <div style="font-weight: bold" v-if="i[`title_${locale}`]">
+                {{ i[`title_${locale}`] }}
+              </div>
+              <div style="font-weight: bold" v-if="i[`name_${locale}`]">
+                {{ i[`name_${locale}`].substring(0, 100) + '...' }}...
+              </div>
               <div v-if="i[`article_${locale}`]">
-                <vue-markdown :source="i[`article_${locale}`].substring(0, 200) + '...'"></vue-markdown>
+                <vue-markdown
+                  :source="i[`article_${locale}`].substring(0, 200) + '...'"
+                ></vue-markdown>
               </div>
               <div v-if="i[`text_${locale}`]">
-                <vue-markdown :source="i[`text_${locale}`].substring(0, 200) + '...'"></vue-markdown>
+                <vue-markdown
+                  :source="i[`text_${locale}`].substring(0, 200) + '...'"
+                ></vue-markdown>
               </div>
-              <div
-                style="font-weight: bold"
-                v-if="i[`question_${locale}`]"
-              >{{i[`question_${locale}`]}}...</div>
+              <div style="font-weight: bold" v-if="i[`question_${locale}`]">
+                {{ i[`question_${locale}`] }}...
+              </div>
               <div v-if="i[`answer_${locale}`]">
-                <vue-markdown :source="i[`answer_${locale}`].substring(0, 200) + '...'"></vue-markdown>...
+                <vue-markdown
+                  :source="i[`answer_${locale}`].substring(0, 200) + '...'"
+                ></vue-markdown
+                >...
               </div>
               <div v-if="i[`biography_${locale}`]">
-                <vue-markdown :source="i[`biography_${locale}`].substring(0, 200) + '...'"></vue-markdown>...
+                <vue-markdown
+                  :source="i[`biography_${locale}`].substring(0, 200) + '...'"
+                ></vue-markdown
+                >...
               </div>
               <div v-if="i[`doc_${locale}`]">
                 <a
+                  target="_blank"
                   class="link"
-                  :href="`${API_BASE_URL}/uploads/${i[`doc_${locale}`].hash}${i[`doc_${locale}`].ext}`"
-                >{{ $t('ViewDocument') }}</a>
+                  :href="
+                    `${API_BASE_URL}/uploads/${i[`doc_${locale}`].hash}${
+                      i[`doc_${locale}`].ext
+                    }`
+                  "
+                  >{{ $t('ViewDocument') }}</a
+                >
               </div>
               <div v-if="i[`document_${locale}`]">
                 <a
                   class="link"
-                  :href="`${API_BASE_URL}/uploads/${i[`document_${locale}`].hash}${i[`document_${locale}`].ext}`"
-                >{{ $t('ViewDocument') }}</a>
+                  target="_blank"
+                  :href="
+                    `${API_BASE_URL}/uploads/${i[`document_${locale}`].hash}${
+                      i[`document_${locale}`].ext
+                    }`
+                  "
+                  >{{ $t('ViewDocument') }}</a
+                >
+              </div>
+              <div v-if="i.link">
+                <a target="_blank" :href="i.link">{{ $t('GoToLink') }}</a>
               </div>
             </div>
           </b-col>
@@ -95,6 +124,7 @@ import VuePureLightbox from 'vue-pure-lightbox';
 import endpoints, { searchEndpoints } from './searchHelper';
 import { API_BASE_URL } from '@/constants.js';
 import { sortArrayByDate } from '@/utils.js';
+import router from '@/router';
 
 export default {
   name: 'Search',
@@ -146,9 +176,8 @@ export default {
       }, 3000);
     },
     gotoDetail: function(id, index, i) {
-      // console.log(id, index, i);
       window.searchResult = { id, index, i };
-      this.$router.push('/search/' + 1 + '/' + 1);
+      router.push('/search/results/' + index);
     },
   },
   components: { LoadingSpinner, ServerError, VuePureLightbox, VueMarkdown },
@@ -187,10 +216,9 @@ a:hover {
   cursor: pointer;
 }
 
-.search-result{
+.search-result {
   cursor: pointer;
   border-bottom: 1px dotted #333;
   padding-bottom: 15px;
 }
-
 </style>

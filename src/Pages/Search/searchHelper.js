@@ -15,7 +15,8 @@ import {
   FORMS_URL,
   PUBLICSURVEYS_URL,
   PROACTIVE_INFORMATION_TYPES_URL,
-  CONTACT_URL
+  CONTACT_URL,
+  ACCESS_PUBLIC_INFORMATION_URL,
 } from '@/constants.js';
 
 const endpoints = [
@@ -39,7 +40,7 @@ const endpoints = [
     url: PROJECTS_URL,
     fields: ['title', 'text'],
   },
- 
+
   {
     url: PUBLICATIONS_URL,
     fields: ['article', 'title'],
@@ -87,6 +88,10 @@ const endpoints = [
   {
     url: EMPLOYEES_URL,
     fields: ['name', 'biography'],
+  },
+  {
+    url: ACCESS_PUBLIC_INFORMATION_URL,
+    fields: ['title', 'text'],
   },
 ];
 

@@ -7,15 +7,30 @@
         id="breadcrumb-container"
         style="display: flex; justify-content: space-between"
       >
-        <b-breadcrumb 
-                v-if="this.$router.currentRoute.name !== 'home' &&
-                this.$router.currentRoute.name !== 'contact' &&
-                this.$router.currentRoute.name !== 'decisionDetails' &&
-                this.$router.currentRoute.name !== 'search'"
-        class="container" :items="breadcrumbNames"></b-breadcrumb>
+        <b-breadcrumb
+          v-if="
+            this.$router.currentRoute.name !== 'home' &&
+              this.$router.currentRoute.name !== 'contact' &&
+              this.$router.currentRoute.name !== 'decisionDetails' &&
+              this.$router.currentRoute.name !== 'search' &&
+              this.$router.currentRoute.name !== 'searchDetails'
+          "
+          class="container"
+          :items="breadcrumbNames"
+        ></b-breadcrumb>
 
         <social-sharing
-          v-if="['pressReleases', 'pressReleasesDetail', 'events', 'eventDetails', 'announcement', 'announcementDetails', 'publicSurvey'].includes(this.$router.currentRoute.name)"
+          v-if="
+            [
+              'pressReleases',
+              'pressReleasesDetail',
+              'events',
+              'eventDetails',
+              'announcement',
+              'announcementDetails',
+              'publicSurvey',
+            ].includes(this.$router.currentRoute.name)
+          "
           class="text-right"
           :url="origin + $route.fullPath"
           inline-template
@@ -35,7 +50,14 @@
       <router-view></router-view>
     </div>
     <footer-component />
-    <go-top :size="55" :z-index="10000" bg-color="#DB2323cc" :radius="0" :right="40" :bottom="40"></go-top>
+    <go-top
+      :size="55"
+      :z-index="10000"
+      bg-color="#DB2323cc"
+      :radius="0"
+      :right="40"
+      :bottom="40"
+    ></go-top>
   </div>
 </template>
 
@@ -55,7 +77,7 @@ export default {
       routePaths: [],
       origin: window.location.origin,
       link: {},
-      crumbs: []
+      crumbs: [],
     };
   },
   computed: {
@@ -69,24 +91,27 @@ export default {
       this.routePaths = this.$router.currentRoute.path.split('/');
       this.routePaths.shift();
       // hotfix not to show numbers
-      if(this.routePaths.length >= 3){
+      if (this.routePaths.length >= 3) {
         this.routePaths.pop();
       }
       this.routePaths.forEach((routePath, index, arr) => {
-        let res = i18n.locale === 'ge' && this.$router.currentRoute.name === 'searchDetails' ?
-        this.$t(
-          routePath
-            .split('-')
-            .map(e => e)
-            .join('')
-        ) : this.$t(
-          routePath
-            .split('-')
-            .map(e => capitalize(e))
-            .join('')
-        );
-        if(res === "Faq"){
-          res = this.$t("FAQ")
+        let res =
+          i18n.locale === 'ge' &&
+          this.$router.currentRoute.name === 'searchDetails'
+            ? this.$t(
+                routePath
+                  .split('-')
+                  .map(e => e)
+                  .join('')
+              )
+            : this.$t(
+                routePath
+                  .split('-')
+                  .map(e => capitalize(e))
+                  .join('')
+              );
+        if (res === 'Faq') {
+          res = this.$t('FAQ');
         }
         arr[index] = res.length <= 3 ? res.toUpperCase() : res;
       });

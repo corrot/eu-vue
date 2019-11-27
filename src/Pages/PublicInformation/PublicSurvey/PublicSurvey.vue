@@ -15,22 +15,35 @@
             v-if="!article.IsEnded"
           >
             <b-card-header header-tag="header" class="p-3" role="tab">
-              <a v-b-toggle="'accordion-1-' + article.id" variant="info">
+              <a block v-b-toggle="'accordion-1-' + article.id" variant="info">
                 <span>{{ article[`title_${locale}`] }}</span>
                 <font-awesome-icon class="mr-1" :icon="['fas', 'fa-plus']" />
               </a>
             </b-card-header>
-            <b-collapse :id="`accordion-1-${article.id}`" accordion="my-accordion" role="tabpanel">
+            <b-collapse
+              :id="`accordion-1-${article.id}`"
+              accordion="my-accordion"
+              role="tabpanel"
+            >
               <b-card-body>
-                <h5 class="mb-3">{{ article.date && article.date.split(' ')[0] }}</h5>
+                <h5 class="mb-3">
+                  {{ article.date && article.date.split(' ')[0] }}
+                </h5>
                 <div style="text-align: center" class="mb-3">
                   <img
                     style="max-width: 100%"
-                    :src="article.image && `${API_BASE_URL}/uploads/${article.image.hash}${article.image.ext}`"
+                    :src="
+                      article.image &&
+                        `${API_BASE_URL}/uploads/${article.image.hash}${
+                          article.image.ext
+                        }`
+                    "
                   />
                 </div>
                 <b-card-text>
-                  <vue-markdown :source="article[`text_${locale}`]"></vue-markdown>
+                  <vue-markdown
+                    :source="article[`text_${locale}`]"
+                  ></vue-markdown>
                 </b-card-text>
                 <a :href="article.Link">{{ $t('GoToLink') }}</a>
               </b-card-body>
@@ -48,22 +61,35 @@
             v-if="article.IsEnded"
           >
             <b-card-header header-tag="header" class="p-3" role="tab">
-              <a block href="#" v-b-toggle="'accordion-2-' + article.id" variant="info">
+              <a block v-b-toggle="'accordion-2-' + article.id" variant="info">
                 <span>{{ article[`title_${locale}`] }}</span>
                 <font-awesome-icon class="mr-1" :icon="['fas', 'fa-plus']" />
               </a>
             </b-card-header>
-            <b-collapse :id="`accordion-2-${article.id}`" accordion="my-accordion" role="tabpanel">
+            <b-collapse
+              :id="`accordion-2-${article.id}`"
+              accordion="my-accordion"
+              role="tabpanel"
+            >
               <b-card-body>
-                <h5 class="mb-3">{{ article.date && article.date.split(' ')[0] }}</h5>
+                <h5 class="mb-3">
+                  {{ article.date && article.date.split(' ')[0] }}
+                </h5>
                 <div style="text-align: center" class="mb-3">
                   <img
                     style="max-width: 100%"
-                    :src="article.image && `${API_BASE_URL}/uploads/${article.image.hash}${article.image.ext}`"
+                    :src="
+                      article.image &&
+                        `${API_BASE_URL}/uploads/${article.image.hash}${
+                          article.image.ext
+                        }`
+                    "
                   />
                 </div>
                 <b-card-text>
-                  <vue-markdown :source="article[`text_${locale}`]"></vue-markdown>
+                  <vue-markdown
+                    :source="article[`text_${locale}`]"
+                  ></vue-markdown>
                 </b-card-text>
                 <a :href="article.Link" target="_blank">{{ $t('GoToLink') }}</a>
               </b-card-body>
@@ -112,5 +138,4 @@ export default {
 };
 </script>
 
-<style lang="postcss" scoped>
-</style>
+<style lang="postcss" scoped></style>

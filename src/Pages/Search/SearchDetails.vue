@@ -1,41 +1,70 @@
 <template>
   <b-container>
-    <div>
+    <div class="pt-4">
       <div id="search" v-for="(i, index) in data" :key="i.id" class="mb-4">
-        <div
-          class="mb-2"
-        >{{(i.date && i.date.split(' ')[0]) || (i.date_start && i.date_start.split(' ')[0])}}</div>
-        <div
-          class="mb-2"
-          style="font-weight: bold"
-          v-if="i[`title_${locale}`]"
-        >{{i[`title_${locale}`]}}</div>
-        <div style="font-weight: bold" v-if="i[`name_${locale}`]">{{i[`title_${locale}`]}}</div>
-        <div style="font-weight: bold" v-if="i[`position_${locale}`]">{{i[`position_${locale}`]}}</div>
+        <div class="mb-2">
+          {{
+            (i.date && i.date.split(' ')[0]) ||
+              (i.date_start && i.date_start.split(' ')[0])
+          }}
+        </div>
+        <div class="mb-2" style="font-weight: bold" v-if="i[`title_${locale}`]">
+          {{ i[`title_${locale}`] }}
+        </div>
+        <div style="font-weight: bold" v-if="i[`name_${locale}`]">
+          {{ i[`title_${locale}`] }}
+        </div>
+        <div style="font-weight: bold" v-if="i[`position_${locale}`]">
+          {{ i[`position_${locale}`] }}
+        </div>
         <div v-if="i[`article_${locale}`]">
           <vue-markdown :source="i[`article_${locale}`]"></vue-markdown>
         </div>
         <div v-if="i[`text_${locale}`]">
           <vue-markdown :source="i[`text_${locale}`]"></vue-markdown>
         </div>
-        <div style="font-weight: bold" v-if="i[`question_${locale}`]">{{i[`question_${locale}`]}}</div>
+        <div style="font-weight: bold" v-if="i[`question_${locale}`]">
+          {{ i[`question_${locale}`] }}
+        </div>
         <div v-if="i[`answer_${locale}`]">
           <vue-markdown :source="i[`answer_${locale}`]"></vue-markdown>
         </div>
         <div v-if="i[`biography_${locale}`]">
           <vue-markdown :source="i[`biography_${locale}`]"></vue-markdown>
         </div>
-        <div class="mt-2" v-if="i[`doc_${locale}`]">
+        <div
+          class="mt-2"
+          v-if="
+            i[`doc_${locale}`] &&
+              (Array.isArray(i[`doc_${locale}`]) &&
+                i[`doc_${locale}`].length > 0)
+          "
+        >
           <a
             class="link"
-            :href="`${API_BASE_URL}/uploads/${i[`doc_${locale}`].hash}${i[`doc_${locale}`].ext}`"
-          >{{ $t('ViewDocument') }}</a>
+            target="_blank"
+            :href="
+              `${API_BASE_URL}/uploads/${i[`doc_${locale}`].hash}${
+                i[`doc_${locale}`].ext
+              }`
+            "
+            >{{ $t('ViewDocument') }}</a
+          >
         </div>
         <div class="mt-2" v-if="i[`document_${locale}`]">
           <a
             class="link"
-            :href="`${API_BASE_URL}/uploads/${i[`document_${locale}`].hash}${i[`document_${locale}`].ext}`"
-          >{{ $t('ViewDocument') }}</a>
+            target="_blank"
+            :href="
+              `${API_BASE_URL}/uploads/${i[`document_${locale}`].hash}${
+                i[`document_${locale}`].ext
+              }`
+            "
+            >{{ $t('ViewDocument') }}</a
+          >
+        </div>
+        <div v-if="i.link">
+          <a target="_blank" :href="i.link">{{ $t('GoToLink') }}</a>
         </div>
       </div>
     </div>

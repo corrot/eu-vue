@@ -28,29 +28,31 @@
     <div>
       <div style="position: absolute" class="w-100">
         <social-component class="ml-2" />
-        <b-input-group class="mt-3 ml-2 input-search" size="sm" style="max-width: 200px">
-          <b-form-input v-model="searchQuery" placeholder="Search"></b-form-input>
+        <b-input-group
+          class="mt-3 ml-2 input-search"
+          size="sm"
+          style="max-width: 200px"
+        >
+          <b-form-input
+            v-model="searchQuery"
+            placeholder="Search"
+          ></b-form-input>
           <b-input-group-append>
             <b-button
               :disabled="!searchQuery"
-              :to="`/search/${searchQuery}`"
+              @click="search()"
               class="ml-0"
               variant="info"
             >
-              <font-awesome-icon class="icon-search mr-1" :icon="['fas', 'search']" />
+              <font-awesome-icon
+                class="icon-search mr-1"
+                :icon="['fas', 'search']"
+              />
             </b-button>
           </b-input-group-append>
         </b-input-group>
       </div>
     </div>
-    <!--     
-    <div class="input-group">
-      <input class="search-input form-control my-0 py-1 amber-border" type="text" placeholder="Search" aria-label="Search">
-      <div class="btn-search-group">
-        <input type="submit" name="search" id="btnSearch"/>
-        <span>S</span>
-      </div>
-    </div>-->
   </div>
 </template>
 
@@ -58,15 +60,21 @@
 import i18n from '@/plugins/i18n';
 import LinksSeparator from '@/components/LinksSeparator';
 import SocialComponent from './Social';
+import router from '@/router';
 
 export default {
   name: 'Language',
   methods: {
     handleClick: () => {},
+    search() {
+      router.replace(`/search/${this.searchQuery}`);
+    },
     changeLocale(locale) {
       i18n.locale = locale;
       localStorage.setItem('activeLocale', locale);
-      // this.$router.go();
+      if (this.searchQuery) {
+        router.replace(`/search/${this.searchQuery}`);
+      }
     },
     print() {
       window.print();

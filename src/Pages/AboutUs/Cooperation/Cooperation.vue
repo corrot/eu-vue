@@ -7,34 +7,59 @@
       <div v-if="!errored && !loading">
         <div v-for="type in data" :key="type.id">
           <div role="tablist" class="mb-5">
-            <h5 v-if="type.cooperation.length" class="section-title">{{ type[`title_${locale}`] }}</h5>
-            <b-card no-body class="mb-2" v-for="article in type.cooperation" :key="article.id">
+            <h5 v-if="type.cooperation.length" class="section-title">
+              {{ type[`title_${locale}`] }}
+            </h5>
+            <b-card
+              no-body
+              class="mb-2"
+              v-for="article in type.cooperation"
+              :key="article.id"
+            >
               <b-card-header
                 :id="`anchor-${article.id}`"
                 header-tag="header"
                 class="p-3"
                 role="tab"
               >
-                <a block v-b-toggle="'accordion-' + article.id" variant="info">
+                <a block v-b-toggle="`accordion-${article.id}`" variant="info">
                   <span>{{ article[`title_${locale}`] }}</span>
                   <font-awesome-icon class="mr-1" :icon="['fas', 'fa-plus']" />
                 </a>
               </b-card-header>
-              <b-collapse :id="`accordion-${article.id}`" accordion="my-accordion" role="tabpanel">
+              <b-collapse
+                :id="`accordion-${article.id}`"
+                accordion="my-accordion"
+                role="tabpanel"
+              >
                 <b-card-body>
                   <div style="text-align: center" class="mb-3">
                     <img
                       style="width: 50%"
-                      :src="article.image && `${API_BASE_URL}/uploads/${article.image.hash}${article.image.ext}`"
+                      :src="
+                        article.image &&
+                          `${API_BASE_URL}/uploads/${article.image.hash}${
+                            article.image.ext
+                          }`
+                      "
                     />
                   </div>
                   <b-card-text>
-                    <vue-markdown class="article" :source="article[`text_${locale}`]"></vue-markdown>
+                    <vue-markdown
+                      class="article"
+                      :source="article[`text_${locale}`]"
+                    ></vue-markdown>
                   </b-card-text>
                   <b-button
-                    :href="article[`doc_${locale}`] && `${API_BASE_URL}/uploads/${article[`doc_${locale}`].hash}${article[`doc_${locale}`].ext}`"
+                    :href="
+                      article[`doc_${locale}`] &&
+                        `${API_BASE_URL}/uploads/${
+                          article[`doc_${locale}`].hash
+                        }${article[`doc_${locale}`].ext}`
+                    "
                     target="_blank"
-                  >{{ $t('ViewDocument') }}</b-button>
+                    >{{ $t('ViewDocument') }}</b-button
+                  >
                 </b-card-body>
               </b-collapse>
             </b-card>

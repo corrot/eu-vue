@@ -1,13 +1,7 @@
 <template>
   <div class="calendar">
-    <!-- <v-calendar
-      :locale="locale"
-      @dayclick="clicker"
-      style="width: 100%;"
-      :attributes="attrs"
-      :key="currentLanguage"
-    /> -->
-    <vue-cal class="vuecal--rounded-theme"
+    <vue-cal
+      class="vuecal--rounded-theme"
       xsmall
       hide-view-selector
       click-to-navigate
@@ -17,7 +11,8 @@
       :events="events"
       style="height: 230px"
       :on-event-click="onEventClick"
-      :disable-views="['week']">
+      :disable-views="['week']"
+    >
     </vue-cal>
   </div>
 </template>
@@ -27,7 +22,7 @@ import router from '@/router';
 import TooltipComponent from './Tooltip';
 import VueCal from 'vue-cal';
 import 'vue-cal/dist/vuecal.css';
-import 'vue-cal/dist/i18n/ka.js'
+import 'vue-cal/dist/i18n/ka.js';
 
 import i18n from '@/plugins/i18n';
 import { ANNOUNCEMENTS_URL, API_BASE_URL } from '@/constants.js';
@@ -40,7 +35,7 @@ export default {
       selectedEvent: {},
       data: null,
       attrs: [],
-      events: []
+      events: [],
     };
   },
   computed: {
@@ -53,15 +48,19 @@ export default {
       .get(ANNOUNCEMENTS_URL)
       .then(response => {
         this.data = response.data;
-        this.events = this.data &&
+        this.events =
+          this.data &&
           this.data.map(event => {
             return {
               start: event.date.split(' ')[0],
               end: event.date.split(' ')[0],
               title: '',
-              content: '<div style="padding: 20px">' + event[`title_${this.locale}`] + '</div>',
+              content:
+                '<div style="padding: 20px">' +
+                event[`title_${this.locale}`] +
+                '</div>',
               class: 'leisure',
-              meta: event.id
+              meta: event.id,
             };
           });
       })
@@ -72,16 +71,16 @@ export default {
       .finally(() => (this.loading = false));
   },
   methods: {
-    onEventClick (event, e) {
+    onEventClick(event, e) {
       this.selectedEvent = event;
       this.$router.push(`/media/announcement/${event.meta}`);
-      e.stopPropagation()
+      e.stopPropagation();
     },
   },
 };
 </script>
 
-<style lang='postcss' scoped>
+<style lang="postcss" scoped>
 .vc-rounded-lg {
   border-radius: 0;
 }

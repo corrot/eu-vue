@@ -493,7 +493,7 @@ export const routes = [
   },
   {
     title: 'SearchDetails',
-    path: '/search/:id/:index',
+    path: '/search/results/:index',
     name: 'searchDetails',
     component: SearchDetails,
     children: [],
