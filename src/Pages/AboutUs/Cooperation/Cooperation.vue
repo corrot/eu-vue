@@ -13,7 +13,9 @@
             <b-card
               no-body
               class="mb-2"
-              v-for="article in type.cooperation"
+              v-for="article in type.cooperation.sort(
+                (a, b) => b.created_at - a.created_at
+              )"
               :key="article.id"
             >
               <b-card-header
@@ -24,7 +26,6 @@
               >
                 <a block v-b-toggle="`accordion-${article.id}`" variant="info">
                   <span>{{ article[`title_${locale}`] }}</span>
-                  <font-awesome-icon class="mr-1" :icon="['fas', 'fa-plus']" />
                 </a>
               </b-card-header>
               <b-collapse

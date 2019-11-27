@@ -17,7 +17,6 @@
             <b-card-header header-tag="header" class="p-3" role="tab">
               <a block v-b-toggle="'accordion-1-' + article.id" variant="info">
                 <span>{{ article[`title_${locale}`] }}</span>
-                <font-awesome-icon class="mr-1" :icon="['fas', 'fa-plus']" />
               </a>
             </b-card-header>
             <b-collapse
@@ -63,7 +62,6 @@
             <b-card-header header-tag="header" class="p-3" role="tab">
               <a block v-b-toggle="'accordion-2-' + article.id" variant="info">
                 <span>{{ article[`title_${locale}`] }}</span>
-                <font-awesome-icon class="mr-1" :icon="['fas', 'fa-plus']" />
               </a>
             </b-card-header>
             <b-collapse
@@ -106,6 +104,7 @@ import i18n from '@/plugins/i18n';
 import { PUBLICSURVEYS_URL, API_BASE_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
+import VueMarkdown from 'vue-markdown';
 
 export default {
   name: 'PublicSurvey',
@@ -134,7 +133,7 @@ export default {
       })
       .finally(() => (this.loading = false));
   },
-  components: { LoadingSpinner, ServerError },
+  components: { LoadingSpinner, ServerError, VueMarkdown },
 };
 </script>
 
