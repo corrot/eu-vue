@@ -13,9 +13,7 @@
             <b-card
               no-body
               class="mb-2"
-              v-for="article in type.cooperation.sort(
-                (a, b) => b.created_at - a.created_at
-              )"
+              v-for="article in type.cooperation"
               :key="article.id"
             >
               <b-card-header
