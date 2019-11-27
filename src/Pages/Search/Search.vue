@@ -71,7 +71,13 @@
                 ></vue-markdown
                 >...
               </div>
-              <div v-if="i[`doc_${locale}`]">
+              <div
+                v-if="
+                  i[`doc_${locale}`] &&
+                    (Array.isArray(i[`doc_${locale}`]) &&
+                      i[`doc_${locale}`].length > 0)
+                "
+              >
                 <a
                   target="_blank"
                   class="link"
