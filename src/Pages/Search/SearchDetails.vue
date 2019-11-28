@@ -52,23 +52,25 @@
                 i[`doc_${locale}`].length > 0)
           "
         >
-          <a
-            class="link"
-            target="_blank"
-            :href="
-              `${API_BASE_URL}/uploads/${i[`doc_${locale}`].hash}${
-                i[`doc_${locale}`].ext
-              }`
-            "
-            >{{ $t('ViewDocument') }}</a
-          >
+          <div v-for="doc in i[`doc_${locale}`]" :key="doc.id">
+            <a
+              class="link"
+              target="_blank"
+              :href="
+                `${API_BASE_URL}/uploads/${doc.hash}${
+                  doc.ext
+                }`
+              "
+              >{{ $t('ViewDocument') }}</a
+            >
+          </div>
         </div>
         <div
           class="mt-2"
           v-if="
             i[`doc_${locale}`] &&
               !(Array.isArray(i[`doc_${locale}`]) &&
-                i[`doc_${locale}`].length > 0)
+                i[`doc_${locale}`].length <= 0)
           "
         >
           <a
