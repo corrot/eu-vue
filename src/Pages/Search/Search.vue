@@ -89,6 +89,25 @@
                   >{{ $t('ViewDocument') }}</a
                 >
               </div>
+              <div
+                class="mt-2"
+                v-if="
+                  i[`doc_${locale}`] &&
+                    !(Array.isArray(i[`doc_${locale}`]) &&
+                      i[`doc_${locale}`].length > 0)
+                "
+              >
+                <a
+                  class="link"
+                  target="_blank"
+                  :href="
+                    `${API_BASE_URL}/uploads/${i[`doc_${locale}`].hash}${
+                      i[`doc_${locale}`].ext
+                    }`
+                  "
+                  >{{ $t('ViewDocument') }}</a
+                >
+              </div>
               <div v-if="i[`document_${locale}`]">
                 <a
                   class="link"
@@ -101,8 +120,8 @@
                   >{{ $t('ViewDocument') }}</a
                 >
               </div>
-              <div v-if="i.link">
-                <a target="_blank" :href="i.link">{{ $t('GoToLink') }}</a>
+              <div v-if="i.link || i.Link">
+                <a target="_blank" :href="i.link || i.Link">{{ $t('GoToLink') }}</a>
               </div>
             </div>
           </b-col>

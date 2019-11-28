@@ -17,6 +17,7 @@ import {
   PROACTIVE_INFORMATION_TYPES_URL,
   CONTACT_URL,
   ACCESS_PUBLIC_INFORMATION_URL,
+  ANNUALREPORTS_URL
 } from '@/constants.js';
 
 const endpoints = [
@@ -92,6 +93,10 @@ const endpoints = [
   {
     url: ACCESS_PUBLIC_INFORMATION_URL,
     fields: ['title', 'text'],
+  },
+  {
+    url: ANNUALREPORTS_URL,
+    fields: ['title'],
   },
 ];
 
