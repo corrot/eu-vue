@@ -292,7 +292,7 @@ a {
   line-height: 12px;
   padding: 0 3px;
   background: #007bff5e!important;
-  color: transparent;
+  color: transparent!important;
   border-radius: 4px!important;
   border: 2px solid #141e3a!important;
   font-size: 10px;
