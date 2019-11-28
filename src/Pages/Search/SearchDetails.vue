@@ -11,8 +11,20 @@
         <div class="mb-2" style="font-weight: bold" v-if="i[`title_${locale}`]">
           {{ i[`title_${locale}`] }}
         </div>
+        <div v-if="i.image" style="width: 30%; margin: auto" class="mb-3 mt-3">
+          <img
+            style="max-width: 100%"
+            :src="i.image && `${API_BASE_URL}/uploads/${i.image.hash}${i.image.ext}`"
+          />
+        </div>
+        <div v-if="i.cover_image" style="width: 30%; margin: auto" class="mb-3 mt-3">
+          <img
+            style="max-width: 100%"
+            :src="i.cover_image && `${API_BASE_URL}/uploads/${i.cover_image.hash}${i.cover_image.ext}`"
+          />
+        </div>
         <div style="font-weight: bold" v-if="i[`name_${locale}`]">
-          {{ i[`title_${locale}`] }}
+          {{ i[`name_${locale}`] }}
         </div>
         <div style="font-weight: bold" v-if="i[`position_${locale}`]">
           {{ i[`position_${locale}`] }}

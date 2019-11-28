@@ -27,7 +27,6 @@
       </div>
 
       <div class="mt-4">
-        <!-- <h5 class="section-title">{{ $t('Events') }}</h5> -->
         <div v-for="item in events" :key="item.id" class="mb-4">
           <router-link :to="`/media/events/${item.id}`">
             <b-row
@@ -64,14 +63,6 @@
           </router-link>
         </div>
       </div>
-      <!-- <div class="mt-4">
-        <div v-for="item in pressReleases" :key="item.id">
-          <router-link
-            :to="`/media/press-releases/${item.id}`"
-            v-if="item.date.split(' ')[0].split('-')[0] == activeYear && parseInt(item.date.split(' ')[0].split('-')[1]) == activeMonth"
-          >{{ item[`title_${locale}`] }}</router-link>
-        </div>
-      </div>-->
     </div>
   </div>
 </template>
@@ -155,7 +146,6 @@ export default {
         this.errored = true;
       })
       .finally(() => (this.loading = false));
-    console.log(this.data);
   },
   methods: {
     setMonth(month) {

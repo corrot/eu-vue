@@ -5,12 +5,11 @@
     <div v-if="!errored && !loading">
       <h4 style="max-width: 80%">{{ data[`title_${locale}`] }}</h4>
       <h5>{{ data.date_start && data.date_start.split(' ')[0].split('-').reverse().join('.') }}</h5>
-      <vue-pure-lightbox
+      <!-- <vue-pure-lightbox
         v-if="images.length"
-        style="width: 100%"
         :thumbnail="images[0]"
         :images="images"
-      ></vue-pure-lightbox>
+      ></vue-pure-lightbox> -->
       <div v-if="images.length" class="image-count">
         <div class="p-3">{{ images.length }} {{ $t('ItemsInGallery') }}</div>
       </div>
@@ -136,7 +135,7 @@ export default {
   flex-direction: column;
 }
 .lightbox__thumbnail img {
-  min-height: 200px;
-  max-height: 200px;
+  min-height: 300px!important;
+  max-height: 300px!important;
 }
 </style>
