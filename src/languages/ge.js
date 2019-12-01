@@ -97,7 +97,7 @@ export const ge = {
   UploadDate: 'განთავსების თარიღი',
   FileLink: 'ფაილის ბმული',
   ApplicationForms: 'მიმართვის ფორმები',
-  Forms: 'სააგენტოსთან მიმართვის ფორმა',
+  Forms: 'სააგენტოსთვის მიმართვის ფორმები',
   Public: 'საჯარო ინფორმაცია',
   LinkToProject: 'პროექტის ბმული',
   ProactiveInformationDetails: 'პროაქტიული ინფორმაცია',

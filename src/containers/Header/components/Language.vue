@@ -72,7 +72,7 @@ export default {
     changeLocale(locale) {
       i18n.locale = locale;
       localStorage.setItem('activeLocale', locale);
-      if (this.searchQuery) {
+      if (this.searchQuery && this.$router.currentRoute.name === 'search') {
         router.replace(`/search/${this.searchQuery}`);
       }
     },
