@@ -8,7 +8,7 @@
           <div class="card-img-container">
             <a
               v-if="report[`doc_${locale}`]"
-              :href="report[`doc_${locale}`] && report[`doc_${locale}`][0] && API_BASE_URL + '/uploads/' + report[`doc_${locale}`][0].hash + report[`doc_${locale}`][0].ext"
+              :href="report[`doc_${locale}`] && report[`doc_${locale}`] && API_BASE_URL + '/uploads/' + report[`doc_${locale}`].hash + report[`doc_${locale}`].ext"
               target="_blank"
             >
               <!-- <img class="card-img-top rounded-0" :src="report.image ? `${API_BASE_URL}/uploads/${report.image.hash}${report.image.ext}` : icon" alt="document"> -->
