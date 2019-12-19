@@ -28,4 +28,21 @@ export default {
   width: 100px;
   height: auto;
 }
+
+@media (max-width: 992px) {
+  .logo {
+    width: 100%;
+    position: relative;
+    height: 60px;
+  }
+  .logo-wrapper {
+    position: relative;
+    left: calc(50% - 30px);
+  }
+  #logo-image {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+  }
+}
 </style>
