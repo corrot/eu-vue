@@ -2,20 +2,23 @@
   <b-container>
     <div class="app-top-header hidden-print">
       <div class="header-left">
-        <logo-component/>
+        <logo-component />
         <div class="euca-title">
           <div
             style="margin-bottom: 10px; font-family: 'Open Sans', 'BPG Glaho WEB Caps', sans-serif; font-size: 18px;"
           >საქართველოს კონკურენციის სააგენტო</div>
-          <br>
+          <br />
           <div
             style="font-family: 'Open Sans', 'BPG Glaho WEB Caps', sans-serif; font-size: 18px;"
           >COMPETITION AGENCY OF GEORGIA</div>
         </div>
       </div>
       <span class="lang-social">
-        <language-component/>
+        <language-component />
       </span>
+    </div>
+    <div class="header mobile">
+      <logo-component />
     </div>
   </b-container>
 </template>
@@ -74,7 +77,11 @@ export default {
 } */
 
 @media (max-width: 992px) {
-  .lang-social{
+  .lang-social {
+    display: none;
+  }
+
+  .header-left {
     display: none;
   }
 }
