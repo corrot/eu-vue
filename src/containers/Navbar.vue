@@ -4,10 +4,12 @@
       class="btn btn-primary mobile"
       @click="toggleSidebar()"
       style="position: absolute; top: 12px; left: 10px"
-    >></div>
+    >
+      <span class="navbar-toggler-icon"></span>
+    </div>
     <div :class="`sidebar mobile ${isSidebarOn ? 'show' : ''}`">
       <div v-for="route in routes" :key="route.name">
-        <b-dropdown :text="$t(route.title)" v-if="!route.hidden">
+        <b-dropdown class="dropdown-m" :text="$t(route.title)" v-if="!route.hidden">
           <b-dropdown-item
             class="dropdown-override"
             v-for="(item, index) in route.children"
@@ -15,7 +17,7 @@
             :to="item.path"
             v-if="!item.hidden"
           >
-            <span v-if="!item.hidden">{{ $t(item.title) }}</span>
+            <span @click="toggleSidebar()" v-if="!item.hidden">{{ $t(item.title) }}</span>
           </b-dropdown-item>
         </b-dropdown>
       </div>
@@ -148,6 +150,7 @@ export default {
     z-index: 1000000;
     left: -90%;
     transition: 0.3s ease all;
+    overflow: hidden;
   }
 
   .sidebar.show {
