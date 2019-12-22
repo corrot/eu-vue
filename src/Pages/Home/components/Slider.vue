@@ -119,4 +119,14 @@ export default {
   font-size: 18px;
   display: inline;
 }
+
+@media (max-width: 992px) {
+  .slider-text {
+    width: 90%;
+  }
+
+  .slider-text p {
+    font-size: 14px;
+  }
+}
 </style>
