@@ -1,7 +1,7 @@
 <template>
   <b-container>
     <h5 class="section-title">{{ $t('AnnualReports') }}:</h5>
-    <b-row>
+    <b-row class="web">
       <b-col cols="3" class="mb-4" v-for="report in data" :key="report.id">
         <div class="card">
           <h4 class="card-year">{{ report.date.split('-')[0] }}</h4>
@@ -23,6 +23,26 @@
         </div>
       </b-col>
     </b-row>
+    <div class="mb-4 mobile" v-for="report in data" :key="report.id">
+      <div class="card">
+        <h4 class="card-year">{{ report.date.split('-')[0] }}</h4>
+        <div class="card-img-container">
+          <a
+            v-if="report[`doc_${locale}`]"
+            :href="report[`doc_${locale}`] && report[`doc_${locale}`] && API_BASE_URL + '/uploads/' + report[`doc_${locale}`].hash + report[`doc_${locale}`].ext"
+            target="_blank"
+          >
+            <!-- <img class="card-img-top rounded-0" :src="report.image ? `${API_BASE_URL}/uploads/${report.image.hash}${report.image.ext}` : icon" alt="document"> -->
+            <div
+              class="img-100"
+              v-bind:style="{'background-image': report.image ? `url(${API_BASE_URL}/uploads/${report.image && report.image.hash}${report.image.ext})` : `url(${noimage})`}"
+            ></div>
+          </a>
+          <!-- <a v-else><img class="card-img-top rounded-0" src="@/assets/doc-icon.svg" alt="document"></a> -->
+        </div>
+        <h4 class="card-title">{{ report[`title_${locale}`] }}</h4>
+      </div>
+    </div>
   </b-container>
 </template>
 
