@@ -9,11 +9,10 @@
       default-view="month"
       :locale="locale == 'ge' ? 'ka' : 'en'"
       :events="events"
-      style="height: 230px"
+      style="height: 300px"
       :on-event-click="onEventClick"
       :disable-views="['week']"
-    >
-    </vue-cal>
+    ></vue-cal>
   </div>
 </template>
 
