@@ -1,11 +1,11 @@
 <template>
   <div id="legislation">
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
 <script>
-import Vue from 'vue'
+import Vue from 'vue';
 
 export default {
   name: 'Legislation',
@@ -17,7 +17,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 h1,
 h2 {
   font-weight: normal;
