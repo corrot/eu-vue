@@ -304,9 +304,17 @@ a {
   box-sizing: border-box;
 }
 
+/* .navbar-toggler-icon {
+  background-image: url();
+} */
+
 @media only screen and (max-width: 992px) {
   .mobile {
     display: block;
+  }
+
+  .web {
+    display: none;
   }
 
   p,
@@ -318,6 +326,7 @@ a {
 
   .section-title,
   h3,
+  h4,
   h5 {
     font-size: 16px;
     font-weight: bold;
@@ -330,5 +339,14 @@ a {
 
   .app-top-header {
     margin: 10px 0 !important;
+  }
+
+  .dropdown-m > button {
+    text-align: left !important;
+    padding: 12px 24px !important;
+  }
+
+  .btn-read-more {
+    display: none;
   }
 }
