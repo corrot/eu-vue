@@ -117,12 +117,4 @@ export default {
   font-weight: bold;
   color: #141e3a;
 }
-
-@media (max-width: 1010px) {
-  .card {
-    width: 92%;
-    /* margin: 10px 0; */
-    border-radius: 0;
-  }
-}
 </style>
