@@ -3,10 +3,21 @@
     <loading-spinner v-if="loading" />
     <server-error v-if="errored" />
     <div v-if="!errored && !loading">
-      <div>
+      <div class="mobile">
+        <img
+          :src="imageData[`image_${locale}`] && `${API_BASE_URL}/uploads/${imageData[`image_${locale}`].hash}${imageData[`image_${locale}`].ext}`"
+          :alt="$t('Structure')"
+          style="width: 100%"
+        />
+      </div>
+      <div class="web">
         <div class="image-canvas">
           <div id="base" class="structure-image mb-4">
-            <img :src="imageData[`image_${locale}`] && `${API_BASE_URL}/uploads/${imageData[`image_${locale}`].hash}${imageData[`image_${locale}`].ext}`" :alt="$t('Structure')" style="margin-top: 60px" />
+            <img
+              :src="imageData[`image_${locale}`] && `${API_BASE_URL}/uploads/${imageData[`image_${locale}`].hash}${imageData[`image_${locale}`].ext}`"
+              :alt="$t('Structure')"
+              style="margin-top: 60px"
+            />
             <div class="overlay">
               <a v-for="item in data" :key="item.id">
                 <span
