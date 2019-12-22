@@ -1,21 +1,31 @@
 <template>
   <div style="background-color: #f7f7f7;">
-    <slider-component/>
+    <slider-component />
     <decisions-cards-component></decisions-cards-component>
 
-    <b-container class="rows-container">
+    <b-container class="rows-container web">
       <div class="page-row left">
-        <cards-component/>
-        <photo-gallery-component/>
-        <video-gallery-component/>
+        <cards-component />
+        <photo-gallery-component />
+        <video-gallery-component />
       </div>
       <div class="page-row right">
-        <home-forms-component class="mb-4"/>
-        <public-survey-component class="mb-4"/>
-        <projects-component class="mb-4"/>
-        <fbwidget-component class="mb-4"/>
-        <calendar-component class="mb-4"/>
+        <home-forms-component class="mb-4" />
+        <public-survey-component class="mb-4" />
+        <projects-component class="mb-4" />
+        <fbwidget-component class="mb-4" />
+        <calendar-component class="mb-4" />
       </div>
+    </b-container>
+
+    <b-container class="rows-container mobile">
+      <home-forms-component class="mb-4" />
+      <public-survey-component class="mb-4" />
+      <projects-component class="mb-4" />
+      <calendar-component class="mb-4" />
+      <cards-component />
+      <photo-gallery-component />
+      <video-gallery-component />
     </b-container>
   </div>
 </template>
@@ -71,6 +81,9 @@ export default {
   width: calc(100% - 286px);
   padding-right: 30px;
 }
+.mobile {
+  display: none;
+}
 @media screen and (max-width: 992px) {
   .rows-container {
     display: block;
@@ -82,6 +95,9 @@ export default {
   .page-row.left {
     width: 100%;
     padding-right: 0;
+  }
+  .web {
+    display: none;
   }
 }
 </style>
