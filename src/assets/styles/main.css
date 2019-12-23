@@ -346,7 +346,21 @@ a {
     padding: 12px 24px !important;
   }
 
-  .btn-read-more {
-    display: none;
+  .date-wrapper{
+        /* width: 100%; */
+        text-align: center!important;
+        position: relative!important;
+        top: unset!important;
+        left: unset!important;
+        transform: unset!important;
+        padding: 0!important;
+        padding-bottom: 20px!important;
+  }
+  .date-wrapper > div{
+     border: none!important;
+  }
+  .date{
+    position: relative!important;
+    top: -10px!important;
   }
 }

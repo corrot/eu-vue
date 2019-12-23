@@ -3,9 +3,9 @@
 </template>
 
 <script>
-export default {
-  name: 'LinksSeparator',
-};
+  export default {
+    name: 'LinksSeparator',
+  };
 </script>
 
 <style lang="postcss" scoped>

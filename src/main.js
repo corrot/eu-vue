@@ -27,6 +27,7 @@ import {
   faSitemap,
   faPrint,
   faSearch,
+  faBars,
   faPlusSquare,
   faArrowLeft,
 } from '@fortawesome/free-solid-svg-icons';
@@ -45,6 +46,7 @@ library.add(
   faLink,
   faSitemap,
   faPrint,
+  faBars,
   faSearch,
   faPlusSquare,
   faArrowLeft

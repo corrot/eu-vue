@@ -68,7 +68,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get(ANNOUNCEMENTS_URL)
+      .get(ANNOUNCEMENTS_URL+'?_sort=id:desc')
       .then(response => {
         this.data = response.data.slice(0, 4);
       })

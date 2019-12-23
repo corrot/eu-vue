@@ -62,7 +62,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get(SLIDERDATA_URL)
+      .get(SLIDERDATA_URL+'?_sort=id:desc')
       .then(response => {
         this.data = response.data;
       })

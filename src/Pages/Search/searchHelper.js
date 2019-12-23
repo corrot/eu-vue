@@ -19,6 +19,7 @@ import {
   ACCESS_PUBLIC_INFORMATION_URL,
   ANNUALREPORTS_URL
 } from '@/constants.js';
+import { CATEGORIES_URL } from '../../constants';
 
 const endpoints = [
   {
@@ -96,6 +97,10 @@ const endpoints = [
   },
   {
     url: ANNUALREPORTS_URL,
+    fields: ['title'],
+  },
+  {
+    url: CATEGORIES_URL,
     fields: ['title'],
   },
 ];

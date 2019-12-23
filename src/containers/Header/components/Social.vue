@@ -11,12 +11,6 @@
           <font-awesome-icon class="fa" :icon="['fab', 'facebook']" />
         </a>
       </li>
-      <!-- <li>
-        <a class="btn-social twitter" href="https://twitter.com" title="Twitter" target="_blank">
-          <font-awesome-icon class="fa" :icon="['fab', 'twitter']"/>
-        </a>
-      </li>
-      <li>-->
       <li>
         <a
           class="btn-social instagram"
@@ -106,5 +100,21 @@ export default {
 }
 .btn-social.youtube:hover {
   background: #f01111cc;
+}
+
+@media screen and (max-width: 992px) {
+  .social-container {
+    display: flex;
+    float: none;
+    margin: 20px;
+  }
+
+  .btn-social {
+    padding: 10px 15px;
+    margin-right: 10px;
+    text-align: center;
+    color: #fff !important;
+    border-radius: 50%;
+  }
 }
 </style>
