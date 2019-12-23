@@ -17,9 +17,10 @@ import {
   PROACTIVE_INFORMATION_TYPES_URL,
   CONTACT_URL,
   ACCESS_PUBLIC_INFORMATION_URL,
-  ANNUALREPORTS_URL
+  ANNUALREPORTS_URL,
+  NEWSLETTERS_URL,
+  CATEGORIES_URL
 } from '@/constants.js';
-import { CATEGORIES_URL } from '../../constants';
 
 const endpoints = [
   {
@@ -102,6 +103,10 @@ const endpoints = [
   {
     url: CATEGORIES_URL,
     fields: ['title'],
+  },
+  {
+    url: NEWSLETTERS_URL,
+    fields: ['title', 'article'],
   },
 ];
 
