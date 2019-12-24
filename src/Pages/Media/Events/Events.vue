@@ -27,7 +27,7 @@
                 <div class="date-container">
                   <div class="date-wrapper">
                     <div>
-                      <div>{{ event.date_start && event.date_start.split(' ')[0].split('-').reverse().join('.') }}</div>
+                      <div>{{ event.date && event.date.split(' ')[0].split('-').reverse().join('.') }}</div>
                       <!-- <div v-if="event.date_finish">-</div>
                       <div
                         v-if="event.date_finish"
@@ -74,7 +74,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get(EVENTS_URL + '?_sort=date_start:DESC')
+      .get(EVENTS_URL + '?_sort=date:DESC')
       .then(response => {
         this.data = response.data.slice(0, 4);
       })

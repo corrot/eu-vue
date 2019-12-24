@@ -19,7 +19,7 @@
             <div class="card-body">{{ event[`title_${locale}`] }}</div>
             <div class="btn-container">
               <b-button
-                class="btn-read-more"
+                class="btn-read-more web"
                 @click="expandArticle(event.id)"
               >{{ $t("ReadMore") }}...</b-button>
             </div>

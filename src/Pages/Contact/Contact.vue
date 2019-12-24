@@ -1,18 +1,18 @@
 <template>
   <b-container style="padding: 30px 0 60px 0; ">
     <b-row>
-      <b-col>
+      <b-col sm="6">
+        <b-card class="text-center" style="border: none; margin-top: none;">
+          <vue-markdown :source="data[`text_${locale}`]"></vue-markdown>
+        </b-card>
+      </b-col>
+      <b-col sm="6">
         <iframe
           style="width:100%; height: 100%; border:0"
           frameborder="0"
           src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCJdk1n9TmA1d7y1WEfYNfxixiYRlJ6fvI&q=154+Davit+Aghmashenebeli+Ave,+T'bilisi"
           allowfullscreen
         ></iframe>
-      </b-col>
-      <b-col>
-        <b-card class="text-center" style="border: none; margin-top: none;">
-          <vue-markdown :source="data[`text_${locale}`]"></vue-markdown>
-        </b-card>
       </b-col>
     </b-row>
     <router-view></router-view>
@@ -45,7 +45,6 @@ export default {
     this.$http
       .get(CONTACT_URL)
       .then(response => {
-        debugger;
         this.data = response.data[0];
       })
       .catch(error => {

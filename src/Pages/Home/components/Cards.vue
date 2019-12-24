@@ -16,7 +16,7 @@
             <div class="card-body">{{ newsArticle[`title_${locale}`] }}</div>
             <div class="btn-container">
               <b-button
-                class="btn-read-more"
+                class="btn-read-more web"
                 @click="expandArticle(newsArticle.id)"
               >{{ $t("ReadMore") }}...</b-button>
             </div>

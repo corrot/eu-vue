@@ -1,15 +1,18 @@
 <template>
   <div>
     <div
-      class="btn btn-primary mobile"
+      class="btn btn-secondary sidebar-toggler mobile"
       @click="toggleSidebar()"
       style="position: absolute; top: 12px; left: 10px"
     >
-      <span class="navbar-toggler-icon"></span>
+      <font-awesome-icon
+        class="icon-bars mr-1"
+        :icon="['fas', 'bars']"
+      />
     </div>
     <div :class="`sidebar mobile ${isSidebarOn ? 'show' : ''}`">
       <div v-for="route in routes" :key="route.name">
-        <b-dropdown class="dropdown-m" :text="$t(route.title)" v-if="!route.hidden">
+        <b-dropdown class="dropdown-m" :text="$t(route.title)" v-if="route.children.length  && !route.hidden">
           <b-dropdown-item
             class="dropdown-override"
             v-for="(item, index) in route.children"
@@ -20,7 +23,17 @@
             <span @click="toggleSidebar()" v-if="!item.hidden">{{ $t(item.title) }}</span>
           </b-dropdown-item>
         </b-dropdown>
+        <b-button @click="navigate(route.path)" class="dropdown-m w-100 no-children" v-if="!route.children.length  && !route.hidden">
+          {{$t(route.title)}}
+        </b-button>
       </div>
+      <b-button @click="navigate('/links')" class="dropdown-m w-100 no-children">
+        {{ $t('Links') }}
+      </b-button>
+      <b-button @click="navigate('/sitemap')" class="dropdown-m w-100 no-children">
+        {{ $t('Sitemap') }}
+      </b-button>
+      <language-component />
     </div>
 
     <b-navbar toggleable="lg" type="dark" variant="dark" :sticky="true" class="navbar">
@@ -66,6 +79,8 @@
 
 <script>
 import { routes } from '@/router';
+import LanguageComponent from './../containers/Header/components/Lang';
+
 this.activePath = '';
 export default {
   name: 'Navbar',
@@ -80,14 +95,21 @@ export default {
       window.isSidebarOn = !window.isSidebarOn;
       this.isSidebarOn = window.isSidebarOn;
     },
+    navigate(path) {
+      this.$router.push(path);
+      this.toggleSidebar();
+    }
   },
   data() {
     return {
       routes,
       activePath: this.activePath,
-      isSidebarOn: false,
+      isSidebarOn: false
     };
   },
+  components: {
+    LanguageComponent
+  }
 };
 </script>
 
@@ -132,7 +154,9 @@ export default {
     width: 100%;
     padding: 0 20px;
   }
-
+  .sidebar-toggler{
+    border-radius: 4px;
+  }
   .navbar {
     display: none;
   }
@@ -166,6 +190,11 @@ export default {
 
   .btn-group > .btn.dropdown-toggle {
     text-align: left !important;
+  }
+
+  .no-children{
+    text-align: left;
+    padding: 12px 24px !important;
   }
 }
 </style>
