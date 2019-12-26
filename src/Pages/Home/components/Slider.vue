@@ -62,7 +62,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get(SLIDERDATA_URL+'?_sort=id:desc')
+      .get(SLIDERDATA_URL + '?_sort=id:desc')
       .then(response => {
         this.data = response.data;
       })
@@ -127,6 +127,14 @@ export default {
 
   .slider-text p {
     font-size: 14px;
+  }
+
+  .slide-image {
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+    width: 100%;
+    height: 300px;
   }
 }
 </style>
