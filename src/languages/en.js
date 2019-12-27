@@ -106,4 +106,5 @@ export const en = {
   EmployDetail: 'Structure',
   GoBack: 'Go Back',
   NoResults: 'Results for search query not found',
+  TESTVERSION: 'Test version'
 };

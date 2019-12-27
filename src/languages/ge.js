@@ -109,4 +109,5 @@ export const ge = {
   EmployDetail: 'სტრუქტურა',
   GoBack: 'უკან დაბრუნება',
   NoResults: 'შედეგები არ მოიძებნა',
+  TESTVERSION: 'სატესტო ვერსია'
 };

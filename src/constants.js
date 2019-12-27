@@ -1,4 +1,4 @@
-export const API_BASE_URL = `http://competition.lambda.ge`;
+export const API_BASE_URL = `http://admin.competition.ge:8080`;
 
 // Home
 export const SLIDERDATA_URL = `${API_BASE_URL}/slidaerdata`;
