@@ -9,7 +9,7 @@
         v-if="images.length"
         :thumbnail="images[0]"
         :images="images"
-      ></vue-pure-lightbox> -->
+      ></vue-pure-lightbox>-->
       <div v-if="images.length" class="image-count">
         <div class="p-3">{{ images.length }} {{ $t('ItemsInGallery') }}</div>
       </div>
@@ -71,6 +71,9 @@ export default {
           const image = `${API_BASE_URL}/uploads/${photo.hash}${photo.ext}`;
           return image;
         });
+        this.images.push(
+          `${API_BASE_URL}/uploads/${response.data.cover_image.hash}${response.data.cover_image.ext}`
+        );
       })
       .catch(error => {
         console.log(error);
@@ -135,7 +138,7 @@ export default {
   flex-direction: column;
 }
 .lightbox__thumbnail img {
-  min-height: 300px!important;
-  max-height: 300px!important;
+  min-height: 300px !important;
+  max-height: 300px !important;
 }
 </style>
