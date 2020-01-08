@@ -1,6 +1,6 @@
 <template>
   <b-container>
-    <h5 class="section-title mb-4">{{ $t('ApplicationForms') }}:</h5>
+    <h5 class="section-title mb-4">{{ $t('ApplicationForms') }}</h5>
     <b-row>
       <b-col cols="3" class="mb-4" v-for="report in data" :key="report.id">
         <a

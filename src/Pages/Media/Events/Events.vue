@@ -76,7 +76,7 @@ export default {
     this.$http
       .get(EVENTS_URL + '?_sort=date:DESC')
       .then(response => {
-        this.data = response.data.slice(0, 4);
+        this.data = response.data.slice(0, 3);
       })
       .catch(error => {
         console.log(error);

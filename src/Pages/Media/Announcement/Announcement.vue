@@ -7,13 +7,6 @@
         <b-card v-for="event in data" :key="event.id" class="mb-3">
           <router-link :to="`/media/announcement/${event.id}`">
             <b-row no-gutters>
-              <b-col md="3">
-                <img
-                  style="width:100%"
-                  :src="event.image && `${API_BASE_URL}/uploads/${event.image.hash}${event.image.ext}`"
-                  class="rounded-0"
-                />
-              </b-col>
               <b-col md="7">
                 <b-card-body :title="event[`title_${locale}`]">
                   <b-card-text>

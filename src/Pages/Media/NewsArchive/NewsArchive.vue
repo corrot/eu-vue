@@ -33,7 +33,7 @@
               v-if="item.date_start.split(' ')[0].split('-')[0] == activeYear && parseInt(item.date_start.split(' ')[0].split('-')[1]) == activeMonth"
             >
               <b-col md="2" class="date-label">
-                <span class="date">{{item.date_start.split(' ')[0]}}</span>
+                <span class="date">{{item.date.split(' ')[0]}}</span>
               </b-col>
               <b-col md="10">
                 <div class="title">{{ item[`title_${locale}`] }}</div>

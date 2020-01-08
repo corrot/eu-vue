@@ -4,7 +4,7 @@
     <server-error v-if="errored" />
     <div v-if="!errored && !loading">
       <h4 style="max-width: 80%">{{ data[`title_${locale}`] }}</h4>
-      <h5>{{ data.date_start && data.date_start.split(' ')[0].split('-').reverse().join('.') }}</h5>
+      <h5>{{ data.date && data.date.split(' ')[0].split('-').reverse().join('.') }}</h5>
       <!-- <vue-pure-lightbox
         v-if="images.length"
         :thumbnail="images[0]"
