@@ -13,7 +13,7 @@
           </b-card-header>
         </b-card>
         <div style="text-align: right">
-          <router-link to="/media/news-archive" class="btn-read-more mb-5 pull-right">
+          <router-link to="/media/press-releases" class="btn-read-more mb-5 pull-right">
             <span>{{ $t("ViewAll") }}...</span>
           </router-link>
         </div>

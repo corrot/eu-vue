@@ -1,7 +1,7 @@
 <template>
   <b-container>
+    <div style="padding: 10px; font-size: 16px; color: red; font-weight: bold; text-align: center; width: 100%">{{ $t("TESTVERSION") }}</div>
     <div class="app-top-header hidden-print">
-      <div style="padding: 10px; font-size: 16px; background: red; color: #fff; font-weight: bold; text-align: center; width: 100%">{{ $t("TESTVERSION") }}</div>
       <div class="header-left">
         <logo-component />
         <div class="euca-title">

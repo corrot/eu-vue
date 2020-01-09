@@ -1,6 +1,6 @@
 <template>
   <div class="cards">
-    <router-link to="/media/news-archive">
+    <router-link to="/media/press-releases">
       <h5 class="section-title">{{ $t('News') }}</h5>
     </router-link>
     <b-row>
@@ -25,7 +25,7 @@
       </b-col>
     </b-row>
     <div style="width: 100%; text-align: right">
-      <router-link class="btn-read-more" to="/media/news-archive">{{ $t("ViewAll") }}...</router-link>
+      <router-link class="btn-read-more" to="/media/press-releases">{{ $t("ViewAll") }}...</router-link>
     </div>
   </div>
 </template>

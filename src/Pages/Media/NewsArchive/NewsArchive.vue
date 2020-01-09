@@ -30,7 +30,7 @@
         <div v-for="item in events" :key="item.id" class="mb-4">
           <router-link :to="`/media/events/${item.id}`">
             <b-row
-              v-if="item.date_start.split(' ')[0].split('-')[0] == activeYear && parseInt(item.date_start.split(' ')[0].split('-')[1]) == activeMonth"
+              v-if="item.date.split(' ')[0].split('-')[0] == activeYear && parseInt(item.date.split(' ')[0].split('-')[1]) == activeMonth"
             >
               <b-col md="2" class="date-label">
                 <span class="date">{{item.date.split(' ')[0]}}</span>
