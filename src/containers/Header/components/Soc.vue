@@ -1,22 +1,17 @@
 <template>
-  <div class="language">
-    <router-link to="/links">
-      <font-awesome-icon class="icon-link mr-1" :icon="['fas', 'link']" />
-      <span class="links">{{ $t('Links') }}</span>
-    </router-link>
-    <links-separator />
-    <router-link to="/sitemap">
-      <font-awesome-icon class="icon-sitemap mr-1" :icon="['fas', 'sitemap']" />
-      <span class="links">{{ $t('Sitemap') }}</span>
-    </router-link>
-
-    <links-separator />
-    <b-button id="print-button" @click="print" style="margin-top: -5px;">
-      <font-awesome-icon class="mr-1" :icon="['fas', 'print']" />
-      <span class="links">{{ $t('Print') }}</span>
-    </b-button>
-    <links-separator />
-    <div
+  <div>
+    <div>
+      <b-input-group class="input-search" size="sm" style="width: 90%;">
+        <b-form-input v-model="searchQuery" placeholder="Search"></b-form-input>
+        <b-input-group-append>
+          <b-button :disabled="!searchQuery" @click="search()" class="ml-0" variant="info">
+            <font-awesome-icon class="icon-search mr-1" :icon="['fas', 'search']" />
+          </b-button>
+        </b-input-group-append>
+      </b-input-group>
+    </div>
+    <social-component />
+    <!-- <div
       class="language-toggler"
       v-for="entry in languages"
       :key="entry.title"
@@ -24,20 +19,7 @@
       v-show="entry.language !== i18n.locale"
     >
       <flag :iso="entry.flag" v-bind:squared="false"></flag>
-    </div>
-    <div>
-      <div style="position: absolute" class="w-100">
-        <social-component class="ml-2" />
-        <b-input-group class="mt-3 ml-2 input-search" size="sm" style="max-width: 200px">
-          <b-form-input v-model="searchQuery" placeholder="Search" v-on:keydown.enter="search"></b-form-input>
-          <b-input-group-append>
-            <b-button :disabled="!searchQuery" @click="search()" class="ml-0" variant="info">
-              <font-awesome-icon class="icon-search mr-1" :icon="['fas', 'search']" />
-            </b-button>
-          </b-input-group-append>
-        </b-input-group>
-      </div>
-    </div>
+    </div>-->
   </div>
 </template>
 
@@ -51,9 +33,16 @@ export default {
   name: 'Language',
   methods: {
     handleClick: () => {},
+    watch: {
+      isSidebarOn: function(id) {
+        console.log('changed', id);
+      },
+      deep: true,
+    },
     search() {
       router.replace(`/search/${this.searchQuery}`);
       this.searchQuery = '';
+      window.isSidebarclosed = true;
     },
     changeLocale(locale) {
       i18n.locale = locale;
@@ -98,6 +87,7 @@ export default {
 .language-toggler {
   cursor: pointer;
   display: inline-block;
+  margin-left: 20px;
 }
 
 .icon-link,
@@ -128,6 +118,8 @@ export default {
   color: #db2323;
 }
 .input-search {
+  margin-left: 20px;
+  margin-top: 20px;
 }
 .input-search > input,
 .input-search > .input-group-append > .btn {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <!-- <div>
       <b-input-group
         class="input-search"
         size="sm"
@@ -25,7 +25,7 @@
         </b-input-group-append>
       </b-input-group>
     </div>
-    <social-component />
+    <social-component />-->
     <div
       class="language-toggler"
       v-for="entry in languages"
@@ -94,7 +94,10 @@ export default {
 .language-toggler {
   cursor: pointer;
   display: inline-block;
-  margin-left: 20px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .icon-link,

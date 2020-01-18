@@ -1,6 +1,8 @@
 <template>
   <b-container>
-    <div style="padding: 10px; font-size: 16px; color: red; font-weight: bold; text-align: center; width: 100%">{{ $t("TESTVERSION") }}</div>
+    <div
+      style="padding: 10px; font-size: 16px; color: red; font-weight: bold; text-align: center; width: 100%"
+    >{{ $t("TESTVERSION") }}</div>
     <div class="app-top-header hidden-print">
       <div class="header-left">
         <logo-component />
@@ -18,8 +20,9 @@
         <language-component />
       </span>
     </div>
-    <div class="header mobile">
+    <div class="header mobile" style="position: relative">
       <logo-component />
+      <mobile-language-component />
     </div>
   </b-container>
 </template>
@@ -29,10 +32,16 @@ import i18n from '@/plugins/i18n';
 import LogoComponent from './components/Logo';
 import SocialComponent from './components/Social';
 import LanguageComponent from './components/Language';
+import MobileLanguageComponent from './components/Lang';
 
 export default {
   name: 'Header',
-  components: { LogoComponent, SocialComponent, LanguageComponent },
+  components: {
+    LogoComponent,
+    SocialComponent,
+    LanguageComponent,
+    MobileLanguageComponent,
+  },
   data() {
     return {};
   },
