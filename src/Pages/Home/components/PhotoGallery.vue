@@ -60,7 +60,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get(EVENTS_URL + '?_limit=3&_sort=date_start:DESC')
+      .get(EVENTS_URL + '?_limit=3&_sort=date:DESC')
       .then(response => {
         this.data = response.data;
       })

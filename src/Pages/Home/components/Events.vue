@@ -15,7 +15,7 @@
         <b-card-text>
           <div
             style="font-size: 12px; width: 100%; text-align: right"
-          >{{ data.date_start && data.date_start.split(' ')[0] + ' - ' + data.date_finish && data.date_finish.split(' ')[0]}}</div>
+          >{{ data.date && data.date.split(' ')[0] }}</div>
         </b-card-text>
       </b-card>
     </router-link>
@@ -46,7 +46,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get(EVENTS_URL)
+      .get(EVENTS_URL + '?_sort=date:DESC')
       .then(response => {
         this.data = response.data.filter(o => o.forfirtpage)[0];
       })
