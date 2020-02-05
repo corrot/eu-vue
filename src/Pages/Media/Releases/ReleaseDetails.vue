@@ -7,7 +7,7 @@
       <h5>{{ data.date && data.date.split(' ')[0].split('-').reverse().join('.') }}</h5>
       <div style="text-align: center" class="mb-3">
         <img
-          style="max-width: 100%"
+          class="news-image"
           :src="data.image && `${API_BASE_URL}/uploads/${data.image.hash}${data.image.ext}`"
         />
       </div>
@@ -114,5 +114,14 @@ export default {
   display: flex;
   justify-items: center;
   flex-direction: column;
+}
+  .news-image{
+    max-width: 50%;
+  }
+
+@media only screen and (max-width: 992px) {
+  .news-image{
+    max-width: 100%;
+  }
 }
 </style>
