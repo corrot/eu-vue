@@ -19,6 +19,16 @@
           :video-id="data.video && data.video.split('=')[1]"
         ></youtube>
       </div>
+      <a
+        v-if="data[`doc_${locale}`]"
+        :href="
+          data[`doc_${locale}`] &&
+            `${API_BASE_URL}/uploads/${
+              data[`doc_${locale}`].hash
+            }${data[`doc_${locale}`].ext}`
+        "
+        target="_blank"
+        >{{ $t('ViewDocument') }}</a>
     </div>
   </b-container>
 </template>
