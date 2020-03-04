@@ -27,6 +27,10 @@
       </div>
 
       <div class="mt-4">
+        <h5
+          v-if="events.filter(o => o.date.split(' ')[0].split('-')[0] == activeYear && parseInt(o.date.split(' ')[0].split('-')[1]) == activeMonth).length > 0"
+          class="section-title"
+        >{{ $t('Events') }}</h5>
         <div v-for="item in events" :key="item.id" class="mb-4">
           <router-link :to="`/media/events/${item.id}`">
             <b-row
@@ -45,6 +49,10 @@
           </router-link>
         </div>
 
+        <h5
+          v-if="pressReleases.filter(o => o.date.split(' ')[0].split('-')[0] == activeYear && parseInt(o.date.split(' ')[0].split('-')[1]) == activeMonth).length > 0"
+          class="section-title mt-3"
+        >{{ $t('Releases') }}</h5>
         <div v-for="item in pressReleases" :key="item.id" class="mb-4">
           <router-link :to="`/media/press-releases/${item.id}`">
             <b-row
