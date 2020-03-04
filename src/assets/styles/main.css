@@ -368,3 +368,10 @@ a {
     height: 300px !important;
   }
 }
+
+.today > .vuecal__flex.vuecal__cell-content {
+  background: #ffb0005e !important;
+  /* color: transparent !important; */
+  border-radius: 4px !important;
+  border: 2px solid #b74f29 !important;
+}
