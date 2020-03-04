@@ -1,4 +1,4 @@
-export const API_BASE_URL = `http://admin.competition.ge`;
+export const API_BASE_URL = `https://admin.competition.ge`;
 
 // Home
 export const SLIDERDATA_URL = `${API_BASE_URL}/slidaerdata`;
@@ -73,59 +73,61 @@ export const FAQ_URL = `${API_BASE_URL}/faqs`;
 export const CONTACT_URL = `${API_BASE_URL}/contacts`;
 
 export const decisionTypes = [
-    {
+  {
     title: 'AbuseOfDominantPosition',
     path: '/decisions/abuse-of-dominant-position/by-prohibition',
-    type: 'ByProhibition'
+    type: 'ByProhibition',
   },
-    {
+  {
     title: 'AbuseOfDominantPosition',
     path: '/decisions/abuse-of-dominant-position/by-investigation',
-    type: 'ByInvestigation'
+    type: 'ByInvestigation',
   },
-    {
+  {
     title: 'AntiCompetitiveAgreements',
     path: '/decisions/anti-competitive-agreements/by-prohibition',
-    type: 'ByProhibition'
+    type: 'ByProhibition',
   },
-    {
+  {
     title: 'AntiCompetitiveAgreements',
     path: '/decisions/anti-competitive-agreements/by-investigation',
-    type: 'ByInvestigation'
+    type: 'ByInvestigation',
   },
-    {
+  {
     title: 'DistortionOfCompetitionByStateAuthorities',
-    path: '/decisions/distortion-of-competition-by-state-authorities/by-prohibition',
-    type: 'ByProhibition'
+    path:
+      '/decisions/distortion-of-competition-by-state-authorities/by-prohibition',
+    type: 'ByProhibition',
   },
-    {
+  {
     title: 'DistortionOfCompetitionByStateAuthorities',
-    path: '/decisions/distortion-of-competition-by-state-authorities/by-investigation',
-    type: 'ByInvestigation'
+    path:
+      '/decisions/distortion-of-competition-by-state-authorities/by-investigation',
+    type: 'ByInvestigation',
   },
-    {
+  {
     title: 'UnfairCompetition',
     path: '/decisions/unfair-competition/by-prohibition',
-    type: 'ByProhibition'
+    type: 'ByProhibition',
   },
-    {
+  {
     title: 'UnfairCompetition',
     path: '/decisions/unfair-competition/by-investigation',
-    type: 'ByInvestigation'
+    type: 'ByInvestigation',
   },
-    {
+  {
     title: 'ConcentrationControl',
     path: '/decisions/concentration-control',
-    type: ''
+    type: '',
   },
-    {
+  {
     title: 'StateAid',
     path: '/decisions/state-aid',
-    type: ''
+    type: '',
   },
-    {
+  {
     title: 'MarketMonitoring',
     path: '/decisions/market-monitoring',
-    type: ''
+    type: '',
   },
-  ]
+];

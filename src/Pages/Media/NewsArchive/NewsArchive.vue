@@ -28,16 +28,16 @@
 
       <div class="mt-4">
         <h5
-          v-if="events.filter(o => o.date.split(' ')[0].split('-')[0] == activeYear && parseInt(o.date.split(' ')[0].split('-')[1]) == activeMonth).length > 0"
+          v-if="events.filter(o => o.date && o.date.split(' ')[0].split('-')[0] == activeYear && parseInt(o.date && o.date.split(' ')[0].split('-')[1]) == activeMonth).length > 0"
           class="section-title"
         >{{ $t('Events') }}</h5>
         <div v-for="item in events" :key="item.id" class="mb-4">
           <router-link :to="`/media/events/${item.id}`">
             <b-row
-              v-if="item.date.split(' ')[0].split('-')[0] == activeYear && parseInt(item.date.split(' ')[0].split('-')[1]) == activeMonth"
+              v-if="item.date && item.date.split(' ')[0].split('-')[0] == activeYear && parseInt(item.date.split(' ')[0].split('-')[1]) == activeMonth"
             >
               <b-col md="2" class="date-label">
-                <span class="date">{{item.date.split(' ')[0]}}</span>
+                <span class="date">{{item.date && item.date.split(' ')[0]}}</span>
               </b-col>
               <b-col md="10">
                 <div class="title">{{ item[`title_${locale}`] }}</div>
@@ -50,16 +50,16 @@
         </div>
 
         <h5
-          v-if="pressReleases.filter(o => o.date.split(' ')[0].split('-')[0] == activeYear && parseInt(o.date.split(' ')[0].split('-')[1]) == activeMonth).length > 0"
+          v-if="pressReleases.filter(o =>o.date && o.date.split(' ')[0].split('-')[0] == activeYear && parseInt(o.date && o.date.split(' ')[0].split('-')[1]) == activeMonth).length > 0"
           class="section-title mt-3"
         >{{ $t('Releases') }}</h5>
         <div v-for="item in pressReleases" :key="item.id" class="mb-4">
           <router-link :to="`/media/press-releases/${item.id}`">
             <b-row
-              v-if="item.date.split(' ')[0].split('-')[0] == activeYear && parseInt(item.date.split(' ')[0].split('-')[1]) == activeMonth"
+              v-if="item.date && item.date.split(' ')[0].split('-')[0] == activeYear && parseInt(item.date.split(' ')[0].split('-')[1]) == activeMonth"
             >
               <b-col md="2" class="date-label">
-                <span class="date">{{item.date.split(' ')[0]}}</span>
+                <span class="date">{{item.date && item.date.split(' ')[0]}}</span>
               </b-col>
               <b-col md="10">
                 <div class="title">{{ item[`title_${locale}`] }}</div>
