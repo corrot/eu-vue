@@ -369,6 +369,8 @@ a {
   }
 }
 
+.vuecal__cell--today > .vuecal__flex,
+.vuecal__cell--today > .vuecal__cell-content,
 .today > .vuecal__flex.vuecal__cell-content {
   background: #ffb0005e !important;
   /* color: transparent !important; */
