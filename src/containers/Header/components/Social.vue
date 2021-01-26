@@ -4,7 +4,7 @@
       <li>
         <a
           class="btn-social fb"
-          href="https://www.facebook.com/CompetitionAgencyGeo/"
+          href="https://www.facebook.com/GeorgianNationalCompetitionAgency/"
           title="Facebook"
           target="_blank"
         >
