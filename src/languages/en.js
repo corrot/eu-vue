@@ -3,9 +3,10 @@ export const en = {
   AboutUs: 'About us',
   Contact: 'Contact',
   FOOTER_TEXT_1:
-    'This website has been produced with the assistance of the European Union. Its contents are the sole responsibility of the Competition Agency of Georgia and do not necessarily reflect the views of the European Union.',
-  FOOTER_TEXT_2: '© 2019, Competition Agency of Georgia, All rights reserved',
-  CompetitionAgencyOfGeorgia: 'Competition Agency Of Georgia',
+    'This website has been produced with the assistance of the European Union. Its contents are the sole responsibility of the GEORGIAN NATIONAL COMPETITION AGENCY and do not necessarily reflect the views of the European Union.',
+  FOOTER_TEXT_2:
+    '© 2019, GEORGIAN NATIONAL COMPETITION AGENCY, All rights reserved',
+  CompetitionAgencyOfGeorgia: 'GEORGIAN NATIONAL COMPETITION AGENCY',
   ReadMore: 'Read more',
   Links: 'Links',
   Sitemap: 'Sitemap',
@@ -84,7 +85,7 @@ export const en = {
     '* The application shall include the name, request, to be signed and scanned. PDF or JPEG format only allowed to upload a maximum file size of 4 MB.',
   Send: 'Send',
   ChooseFile: 'Choose file',
-  CAGInPress: 'Competition agency of Georgia in press',
+  CAGInPress: 'GEORGIAN NATIONAL COMPETITION AGENCY in press',
   Ongoing: 'Ongoing',
   Finished: 'Completed Projects',
   Share: 'Share',
@@ -106,5 +107,5 @@ export const en = {
   EmployDetail: 'Structure',
   GoBack: 'Go Back',
   NoResults: 'Results for search query not found',
-  TESTVERSION: 'Test version'
+  TESTVERSION: 'Test version',
 };
