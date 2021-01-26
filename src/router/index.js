@@ -73,6 +73,12 @@ import SearchDetails from '@/Pages/Search/SearchDetails.vue';
 
 import PageNotFound from '@/Pages/PageNotFound/PageNotFound';
 
+import Antidamping from '@/Pages/Antidamping/Antidamping';
+import _legislation from '@/Pages/Antidamping/Legislation/Legislation';
+import _applicationForm from '@/Pages/Antidamping/ApplicationForm/ApplicationForm';
+import _conclusion from '@/Pages/Antidamping/Conclusion/Conclusion';
+import _decision from '@/Pages/Antidamping/Decision/Decision';
+
 Vue.use(Router);
 
 export const routes = [
@@ -165,6 +171,38 @@ export const routes = [
         path: '/legislation/guidelines',
         name: 'guidelines',
         component: Guidelines,
+      },
+    ],
+  },
+  {
+    title: 'Antidamping',
+    path: '/antidamping',
+    name: 'antidamping',
+    component: Antidamping,
+    children: [
+      {
+        title: 'Legislation',
+        path: '/antidamping/legislation',
+        name: 'legislation',
+        component: _legislation,
+      },
+      {
+        title: 'ApplicationForm',
+        path: '/antidamping/application',
+        name: 'application',
+        component: _applicationForm,
+      },
+      {
+        title: 'AgencyConclusion',
+        path: '/antidamping/conclusion',
+        name: 'conclusion',
+        component: _conclusion,
+      },
+      {
+        title: 'GovernmentDecision',
+        path: '/antidamping/decision',
+        name: 'decision',
+        component: _decision,
       },
     ],
   },

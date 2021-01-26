@@ -110,4 +110,8 @@ export const ge = {
   GoBack: 'უკან დაბრუნება',
   NoResults: 'შედეგები არ მოიძებნა',
   TESTVERSION: 'სატესტო ვერსია',
+  AgencyConclusion: 'სააგენტოს დასკვნა',
+  GovernmentDecision: 'მთავრობის გადაწყვეტილება',
+  Antidamping: 'ანტიდემპინგი',
+  ProcurementAgency: 'სახელმწიფო შესყიდვების სააგენტო',
 };

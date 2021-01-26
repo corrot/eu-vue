@@ -108,4 +108,8 @@ export const en = {
   GoBack: 'Go Back',
   NoResults: 'Results for search query not found',
   TESTVERSION: 'Test version',
+  AgencyConclusion: 'Agency Conclusion',
+  GovernmentDecision: 'Government Decision',
+  Antidamping: 'Antidamping',
+  ProcurementAgency: 'State Procurement Agency',
 };

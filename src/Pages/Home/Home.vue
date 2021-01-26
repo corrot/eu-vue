@@ -13,6 +13,7 @@
         <home-forms-component class="mb-4" />
         <public-survey-component class="mb-4" />
         <projects-component class="mb-4" />
+        <sub-links class="mb-4" />
         <fbwidget-component class="mb-4" />
         <calendar-component class="mb-4" />
       </div>
@@ -22,6 +23,7 @@
       <home-forms-component class="mb-4" />
       <public-survey-component class="mb-4" />
       <projects-component class="mb-4" />
+      <sub-links class="mb-4" />
       <calendar-component class="mb-4" />
       <cards-component />
       <photo-gallery-component />
@@ -44,6 +46,7 @@ import DecisionsCardsComponent from './components/DecisionsCards';
 import PhotoGalleryComponent from './components/PhotoGallery';
 import VideoGalleryComponent from './components/VideoGallery';
 import HomeFormsComponent from './components/HomeForms';
+import SubLinks from './components/SubLinks.vue';
 
 export default {
   name: 'Home',
@@ -61,6 +64,7 @@ export default {
     PhotoGalleryComponent,
     VideoGalleryComponent,
     HomeFormsComponent,
+    SubLinks,
   },
   data() {
     return {
