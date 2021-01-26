@@ -12,7 +12,7 @@ export const ge = {
   Sitemap: 'საიტის რუკა',
   ViewDocument: 'დოკუმენტის ნახვა',
   Decisions: 'გადაწყვეტილებები',
-  AbuseOfDominantPosition: 'დომინირებული მდგომარეობის ბოროტად გამოყენება',
+  AbuseOfDominantPosition: 'დომინანტური მდგომარეობის ბოროტად გამოყენება',
   ByInvestigation: 'დაუშვებლობის გადაწყვეტილებები',
   ByProhibition: 'მოკვლევის შედეგად მიღებული გადაწყვეტილებები',
   AntiCompetitiveAgreements: 'კონკურენციის შემზღუდველი შეთანხმებები',
