@@ -175,38 +175,6 @@ export const routes = [
     ],
   },
   {
-    title: 'Antidamping',
-    path: '/antidamping',
-    name: 'antidamping',
-    component: Antidamping,
-    children: [
-      {
-        title: 'Legislation',
-        path: '/antidamping/legislation',
-        name: 'legislation',
-        component: _legislation,
-      },
-      {
-        title: 'ApplicationForm',
-        path: '/antidamping/application',
-        name: 'application',
-        component: _applicationForm,
-      },
-      {
-        title: 'AgencyConclusion',
-        path: '/antidamping/conclusion',
-        name: 'conclusion',
-        component: _conclusion,
-      },
-      {
-        title: 'GovernmentDecision',
-        path: '/antidamping/decision',
-        name: 'decision',
-        component: _decision,
-      },
-    ],
-  },
-  {
     title: 'Decisions',
     path: '/decisions',
     name: 'decisions',
@@ -312,6 +280,38 @@ export const routes = [
         path: '/decisions/market-monitoring',
         name: 'marketMonitoring',
         component: MarketMonitoring,
+      },
+    ],
+  },
+  {
+    title: 'Antidamping',
+    path: '/antidamping',
+    name: 'antidamping',
+    component: Antidamping,
+    children: [
+      {
+        title: 'Legislation',
+        path: '/antidamping/legislation',
+        name: 'legislation',
+        component: _legislation,
+      },
+      {
+        title: 'ApplicationForm',
+        path: '/antidamping/application',
+        name: 'application',
+        component: _applicationForm,
+      },
+      {
+        title: 'AgencyConclusion',
+        path: '/antidamping/conclusion',
+        name: 'conclusion',
+        component: _conclusion,
+      },
+      {
+        title: 'GovernmentDecision',
+        path: '/antidamping/decision',
+        name: 'decision',
+        component: _decision,
       },
     ],
   },
