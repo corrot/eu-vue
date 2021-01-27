@@ -113,5 +113,5 @@ export const ge = {
   AgencyConclusion: 'სააგენტოს დასკვნა',
   GovernmentDecision: 'მთავრობის გადაწყვეტილება',
   Antidamping: 'ანტიდემპინგი',
-  ProcurementAgency: 'სახელმწიფო შესყიდვების სააგენტო',
+  ProcurementAgency: 'დავების განხილვის საბჭო',
 };

@@ -298,19 +298,19 @@ export const routes = [
       {
         title: 'ApplicationForm',
         path: '/antidamping/application',
-        name: 'application',
+        name: 'applicationForm',
         component: _applicationForm,
       },
       {
         title: 'AgencyConclusion',
         path: '/antidamping/conclusion',
-        name: 'conclusion',
+        name: 'agencyConclusion',
         component: _conclusion,
       },
       {
         title: 'GovernmentDecision',
         path: '/antidamping/decision',
-        name: 'decision',
+        name: 'governmentDecision',
         component: _decision,
       },
     ],

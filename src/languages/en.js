@@ -111,5 +111,5 @@ export const en = {
   AgencyConclusion: 'Agency Conclusion',
   GovernmentDecision: 'Government Decision',
   Antidamping: 'Antidamping',
-  ProcurementAgency: 'State Procurement Agency',
+  ProcurementAgency: 'Dispute Resolution Council',
 };
