@@ -10,20 +10,20 @@
         <video-gallery-component />
       </div>
       <div class="page-row right">
+        <sub-links class="mb-4" />
         <home-forms-component class="mb-4" />
         <public-survey-component class="mb-4" />
         <projects-component class="mb-4" />
-        <sub-links class="mb-4" />
         <fbwidget-component class="mb-4" />
         <calendar-component class="mb-4" />
       </div>
     </b-container>
 
     <b-container class="rows-container mobile">
+      <sub-links class="mb-4" />
       <home-forms-component class="mb-4" />
       <public-survey-component class="mb-4" />
       <projects-component class="mb-4" />
-      <sub-links class="mb-4" />
       <calendar-component class="mb-4" />
       <cards-component />
       <photo-gallery-component />
