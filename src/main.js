@@ -30,6 +30,7 @@ import {
   faBars,
   faPlusSquare,
   faArrowLeft,
+  faFile,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
@@ -49,7 +50,8 @@ library.add(
   faBars,
   faSearch,
   faPlusSquare,
-  faArrowLeft
+  faArrowLeft,
+  faFile
 );
 
 Vue.prototype.$http = axios;

@@ -3,7 +3,12 @@
       <a href="http://www.procurement.gov.ge/Davebi.aspx" target="_blank">
         <h5 class="section-title" style="margin-legt: 0; padding-left: 0; position: relative; display: flex; align-items: center; color: #fff; font-weight: normal; font-family: 'BPG Glaho WEB Caps'; border-color: #ce653e">
           <img style="width: 100%" :src="backgroundImage" />
-          <div style="margin-left: 10px; position: absolute">{{ $t('ProcurementAgency') }}</div>
+          <!-- <font-awesome-icon class="fa" :icon="['fab', 'file']" /> -->
+
+          <div style="margin-left: 10px; position: absolute; font-size: 18px; display: flex; align-items: center">
+            <img style="width: 28px" :src="procurementLogo" />
+            <div style="margin-left: 10px">{{ $t('ProcurementAgency') }}</div>
+          </div>
         </h5>
       </a>
     <!-- <a :href="data && data.Link" target="_blank">
@@ -22,6 +27,7 @@ import { PROJECTS_URL, API_BASE_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 import backgroundImage from '@/assets/procurement.png';
+import procurementLogo from '@/assets/davebisabcho_icon.png';
 
 export default {
   name: 'Projects',
@@ -31,7 +37,8 @@ export default {
       loading: true,
       errored: false,
       API_BASE_URL: API_BASE_URL,
-      backgroundImage
+      backgroundImage,
+      procurementLogo
     };
   },
   computed: {
