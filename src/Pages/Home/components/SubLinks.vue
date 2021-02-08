@@ -5,9 +5,9 @@
           <img style="width: 100%" :src="backgroundImage" />
           <!-- <font-awesome-icon class="fa" :icon="['fab', 'file']" /> -->
 
-          <div style="margin-left: 10px; position: absolute; font-size: 18px; display: flex; align-items: center">
-            <img style="width: 28px" :src="procurementLogo" />
-            <div style="margin-left: 10px">{{ $t('ProcurementAgency') }}</div>
+          <div style="margin-left: 8px; position: absolute; font-size: 18px; display: flex; align-items: center">
+            <img style="width: 42px" :src="procurementLogo" />
+            <div style="margin-left: 6px">{{ $t('ProcurementAgency') }}</div>
           </div>
         </h5>
       </a>
