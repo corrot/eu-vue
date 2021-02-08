@@ -67,6 +67,7 @@ import UnfairCompetitionByInvestigation from '@/Pages/Decisions/UnfairCompetitio
 import ConcentrationControl from '@/Pages/Decisions/ConcentrationControl';
 import StateAid from '@/Pages/Decisions/StateAid';
 import MarketMonitoring from '@/Pages/Decisions/MarketMonitoring';
+import ImpactAssessment from '@/Pages/Decisions/ImpactAssessment';
 
 import Search from '@/Pages/Search/Search';
 import SearchDetails from '@/Pages/Search/SearchDetails.vue';
@@ -280,6 +281,12 @@ export const routes = [
         path: '/decisions/market-monitoring',
         name: 'marketMonitoring',
         component: MarketMonitoring,
+      },
+      {
+        title: 'ImpactAssessment',
+        path: '/decisions/impact-assessment',
+        name: 'impactAssessment',
+        component: ImpactAssessment,
       },
     ],
   },

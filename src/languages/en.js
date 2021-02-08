@@ -21,6 +21,7 @@ export const en = {
   UnfairCompetition: 'Unfair competition',
   ConcentrationControl: 'Merger control',
   StateAid: 'State aid',
+  ImpactAssessment: 'Impact Assessment',
   MarketMonitoring: 'Market monitoring',
   WhatWeDo: 'What we do',
   Projects: 'Projects',
@@ -110,6 +111,6 @@ export const en = {
   TESTVERSION: 'Test version',
   AgencyConclusion: 'Agency Conclusion',
   GovernmentDecision: 'Government Decision',
-  Antidamping: 'Antidamping',
-  ProcurementAgency: 'Dispute Resolution Council',
+  Antidamping: 'Anti-dumping',
+  ProcurementAgency: 'Public Procurement-related Dispute Resolution Council',
 };

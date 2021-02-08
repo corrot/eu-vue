@@ -21,6 +21,7 @@ export const ge = {
   UnfairCompetition: 'არაკეთილსინდისიერი კონკურენცია',
   ConcentrationControl: 'კონცენტრაციების კონტროლი',
   StateAid: 'სახელმწიფო დახმარება',
+  ImpactAssessment: 'ზეგავლენის შეფასება',
   MarketMonitoring: 'ბაზრის მონიტორინგი',
   WhatWeDo: 'რას ვაკეთებთ',
   Projects: 'პროექტები',
@@ -113,5 +114,5 @@ export const ge = {
   AgencyConclusion: 'სააგენტოს დასკვნა',
   GovernmentDecision: 'მთავრობის გადაწყვეტილება',
   Antidamping: 'ანტიდემპინგი',
-  ProcurementAgency: 'დავების განხილვის საბჭო',
+  ProcurementAgency: 'სახელმწიფო შესყიდვების დავების განხილვის საბჭო',
 };
