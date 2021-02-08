@@ -154,6 +154,10 @@ export default {
   background-image: url('../../../assets/decisions-icons/07.png');
 }
 
+.decision-card:nth-child(8) .card-icon {
+  background-image: url('../../../assets/decisions-icons/08.png');
+}
+
 @media (max-width: 992px) {
   .decisions-cards {
     margin-top: 25px;
