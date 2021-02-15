@@ -3,10 +3,10 @@ export const en = {
   AboutUs: 'About us',
   Contact: 'Contact',
   FOOTER_TEXT_1:
-    'This website has been produced with the assistance of the European Union. Its contents are the sole responsibility of the GEORGIAN NATIONAL COMPETITION AGENCY and do not necessarily reflect the views of the European Union.',
+    'This website has been produced with the assistance of the European Union. Its contents are the sole responsibility of the Georgian National Competition Agency and do not necessarily reflect the views of the European Union.',
   FOOTER_TEXT_2:
-    '© 2019, GEORGIAN NATIONAL COMPETITION AGENCY, All rights reserved',
-  CompetitionAgencyOfGeorgia: 'GEORGIAN NATIONAL COMPETITION AGENCY',
+    '© 2019, Georgian National Competition Agency, All rights reserved',
+  CompetitionAgencyOfGeorgia: 'Georgian National Competition Agency',
   ReadMore: 'Read more',
   Links: 'Links',
   Sitemap: 'Sitemap',
@@ -86,7 +86,7 @@ export const en = {
     '* The application shall include the name, request, to be signed and scanned. PDF or JPEG format only allowed to upload a maximum file size of 4 MB.',
   Send: 'Send',
   ChooseFile: 'Choose file',
-  CAGInPress: 'GEORGIAN NATIONAL COMPETITION AGENCY in press',
+  CAGInPress: 'Georgian National Competition Agency in press',
   Ongoing: 'Ongoing',
   Finished: 'Completed Projects',
   Share: 'Share',
