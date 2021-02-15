@@ -64,7 +64,7 @@ export const ge = {
   Search: 'ძიება',
   search: 'ძიება',
   Employees: 'თანამშრომლები',
-  Releases: 'რელიზები',
+  Releases: 'სიახლეები',
   PhotoGallery: 'ფოტო გალერეა',
   VideoGallery: 'ვიდეო გალერეა',
   ViewAll: 'ყველას ნახვა',

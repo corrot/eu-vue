@@ -21,7 +21,7 @@ export const en = {
   UnfairCompetition: 'Unfair competition',
   ConcentrationControl: 'Merger control',
   StateAid: 'State aid',
-  ImpactAssessment: 'Impact Assessment',
+  ImpactAssessment: 'Impact assessment',
   MarketMonitoring: 'Market monitoring',
   WhatWeDo: 'What we do',
   Projects: 'Projects',
