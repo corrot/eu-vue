@@ -50,6 +50,7 @@ export const UnfairCompetitionByInvestigation_URL = `${API_BASE_URL}/decisiontyp
 export const ConcentrationControl_URL = `${API_BASE_URL}/decisiontypes/9`;
 export const StateAid_URL = `${API_BASE_URL}/decisiontypes/10`;
 export const MarketMonitoring_URL = `${API_BASE_URL}/decisiontypes/11`;
+export const ImpactAssessment_URL = `${API_BASE_URL}/decisiontypes/13`;
 
 // Public Information
 export const PROACTIVE_INFORMATION_URL = `${API_BASE_URL}/proactive`;

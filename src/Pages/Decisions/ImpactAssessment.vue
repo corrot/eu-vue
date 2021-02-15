@@ -39,7 +39,7 @@
 <script>
 import VueMarkdown from 'vue-markdown';
 import i18n from '@/plugins/i18n';
-import { API_BASE_URL, StateAid_URL } from '@/constants.js';
+import { API_BASE_URL, ImpactAssessment_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 import { sortArrayByDate } from '@/utils';
@@ -61,7 +61,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get(StateAid_URL + '?_sort=date:DESC')
+      .get(ImpactAssessment_URL + '?_sort=date:DESC')
       .then(response => {
         this.data = sortArrayByDate(response.data.decisions);
       })
