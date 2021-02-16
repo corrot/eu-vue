@@ -1,51 +1,93 @@
 <template>
-  <b-container class="guidelines">
+  <b-container>
     <loading-spinner v-if="loading" />
     <server-error v-if="errored" />
     <div v-if="!errored && !loading">
-      <div role="tablist" class="mb-5">
-        <h5 class="section-title">{{ data[`title_${locale}`] }}</h5>
-        <b-card
-          no-body
-          class="mb-2"
-          v-for="article in data.legislations"
-          :key="article.id"
-        >
-          <b-card-header header-tag="header" class="p-3" role="tab">
+      <!-- content -->
+
+      <div class="mb-5">
+        <h5 class="section-title">{{ data[0][`title_${locale}`] }}</h5>
+        <vue-markdown class="article" :source="data[0][`text_${locale}`]"></vue-markdown>
+      </div>
+
+      <!-- <div class="mb-5">
+        <h5 class="section-title">{{ $t('RequestForm') }}</h5>
+        <b-form @submit="onSubmit" style="max-width: 30%;">
+          <b-form-group id="input-group-3" :label="`${$t('FirstName')}:`" label-for="input-3">
+            <b-form-input
+              id="input-3"
+              v-model="form.firstName"
+              required
+              :placeholder="$t('FirstName')"
+            ></b-form-input>
+          </b-form-group>
+          <b-form-group id="input-group-4" :label="`${$t('LastName')}:`" label-for="input-4">
+            <b-form-input
+              id="input-4"
+              v-model="form.lastName"
+              required
+              :placeholder="$t('LastName')"
+            ></b-form-input>
+          </b-form-group>
+          <b-form-group id="input-group-5" :label="`${$t('PersonalNumber')}:`" label-for="input-5">
+            <b-form-input
+              id="input-5"
+              v-model="form.personalId"
+              type="number"
+              required
+              :placeholder="$t('PersonalNumber')"
+            ></b-form-input>
+          </b-form-group>
+          <b-form-group id="input-group-5" :label="`${$t('ScannedDocument')}:`" label-for="input-6" :description="$t('UploadAgreement')">
+            <b-form-file
+              id="input-6"
+              v-model="form.file"
+              :state="Boolean(form.file)"
+              :placeholder="$t('ChooseFile')"
+              :drop-placeholder="$t('DropFileHere')"
+              required
+            ></b-form-file>
+          </b-form-group>
+          <b-button class="mt-3" type="submit" variant="primary">{{ $t('Send')}}</b-button>
+        </b-form>
+      </div>-->
+
+      <div class="mb-5">
+        <!-- <h5 class="section-title">{{ $t('RequestStandards') }}</h5> -->
+        <div v-if="data[0][`doc_${locale}`].length">
+          <div v-for="doc in data[0][`doc_${locale}`]" :key="doc.id">
             <a
               target="_blank"
-              :href="
-                article[`doc_${locale}`] &&
-                  `${API_BASE_URL}/uploads/${article[`doc_${locale}`].hash}${
-                    article[`doc_${locale}`].ext
-                  }`
-              "
-              v-b-toggle="'accordion-' + article.id"
-              variant="info"
-            >
-              <span>{{ article[`title_${locale}`] }}</span>
-            </a>
-          </b-card-header>
-        </b-card>
+              :href="`${API_BASE_URL}/uploads/${doc.hash}${doc.ext}`"
+            >{{ doc.name.split('.')[0] }}</a>
+          </div>
+        </div>
       </div>
     </div>
   </b-container>
 </template>
 
 <script>
+import VueMarkdown from 'vue-markdown';
 import i18n from '@/plugins/i18n';
-import { NATIONAL_URL, API_BASE_URL } from '@/constants.js';
+import { UD_APPLICATIONFORM, API_BASE_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 
 export default {
-  name: 'National',
+  name: 'RequestRelatedActs',
   data() {
     return {
       data: null,
       loading: true,
       errored: false,
       API_BASE_URL,
+      form: {
+        email: null,
+        firstName: null,
+        lastName: null,
+        file: null,
+      },
     };
   },
   computed: {
@@ -55,7 +97,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get(NATIONAL_URL)
+      .get(UD_APPLICATIONFORM)
       .then(response => {
         this.data = response.data;
       })
@@ -65,23 +107,15 @@ export default {
       })
       .finally(() => (this.loading = false));
   },
-  components: { LoadingSpinner, ServerError },
+  components: { LoadingSpinner, ServerError, VueMarkdown },
+  methods: {
+    onSubmit(evt) {
+      evt.preventDefault();
+      alert(JSON.stringify(this.form));
+    },
+  },
 };
 </script>
 
 <style lang="postcss" scoped>
-.article > p > a {
-  color: #007bff !important;
-}
-.card-header > a {
-  color: #141e3a;
-  font-weight: bold;
-  transition: 0.3s ease all;
-}
-.card-header > a:active,
-.card-header > a:focus,
-.card-header > a:hover {
-  color: #e07400;
-  transition: 0.3s ease all;
-}
 </style>

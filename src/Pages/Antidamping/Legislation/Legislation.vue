@@ -34,12 +34,12 @@
 
 <script>
 import i18n from '@/plugins/i18n';
-import { GUIDELINES_URL, API_BASE_URL } from '@/constants.js';
+import { UD_LEGISLATIONS_URL, API_BASE_URL } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 
 export default {
-  name: 'Guidelines',
+  name: 'National',
   data() {
     return {
       data: null,
@@ -55,7 +55,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get(GUIDELINES_URL)
+      .get(UD_LEGISLATIONS_URL)
       .then(response => {
         this.data = response.data;
       })

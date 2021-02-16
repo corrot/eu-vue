@@ -112,7 +112,10 @@ export const ge = {
   NoResults: 'შედეგები არ მოიძებნა',
   TESTVERSION: 'სატესტო ვერსია',
   AgencyConclusion: 'სააგენტოს დასკვნა',
+  Conclusion: 'სააგენტოს დასკვნა',
   GovernmentDecision: 'მთავრობის გადაწყვეტილება',
+  Application: 'განაცხადის ფორმა',
+  Decision: 'მთავრობის გადაწყვეტილება',
   Antidamping: 'ანტიდემპინგი',
   ProcurementAgency: 'სახელმწიფო შესყიდვების დავების განხილვის საბჭო',
 };

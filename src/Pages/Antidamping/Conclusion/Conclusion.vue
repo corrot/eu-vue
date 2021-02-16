@@ -1,45 +1,52 @@
 <template>
-  <b-container class="guidelines">
+  <b-container>
     <loading-spinner v-if="loading" />
     <server-error v-if="errored" />
     <div v-if="!errored && !loading">
-      <div role="tablist" class="mb-5">
-        <h5 class="section-title">{{ data[`title_${locale}`] }}</h5>
-        <b-card
-          no-body
-          class="mb-2"
-          v-for="article in data.legislations"
-          :key="article.id"
-        >
-          <b-card-header header-tag="header" class="p-3" role="tab">
-            <a
-              target="_blank"
-              :href="
-                article[`doc_${locale}`] &&
-                  `${API_BASE_URL}/uploads/${article[`doc_${locale}`].hash}${
-                    article[`doc_${locale}`].ext
-                  }`
-              "
-              v-b-toggle="'accordion-' + article.id"
-              variant="info"
+      <div v-for="article in data" v-bind:key="article.id">
+        <div>
+          <b-card-group deck>
+            <b-card
+              :title="article[`title_${locale}`]"
+              header-tag="header"
+              footer-tag="footer"
+              class="mb-3"
             >
-              <span>{{ article[`title_${locale}`] }}</span>
-            </a>
-          </b-card-header>
-        </b-card>
+              <h6 slot="header" class="mb-0 decision-date">{{ article.date.split(" ")[0] }}</h6>
+              <b-card-text><vue-markdown :source="article[`article_${locale}`]"></vue-markdown></b-card-text>
+              <b-button
+                class="doc-button"
+                :href="article[`document_${locale}`] && `${API_BASE_URL}/uploads/${article[`document_${locale}`].hash}${article[`document_${locale}`].ext}`"
+                :disabled="!article[`document_${locale}`]"
+                variant="primary"
+              >{{ $t('ViewDocument') }}</b-button>
+              <em slot="footer">
+                <span
+                  v-for="tag in article[`tags_${locale}`] && article[`tags_${locale}`].split('#')"
+                  :key="tag"
+                >
+                  <router-link :to="`/search/${tag}`">#{{ tag }}</router-link>
+                </span>
+              </em>
+            </b-card>
+          </b-card-group>
+        </div>
+        <!-- <vue-simple-markdown :source="article.Tags"></vue-simple-markdown> -->
       </div>
     </div>
   </b-container>
 </template>
 
 <script>
+import VueMarkdown from 'vue-markdown';
 import i18n from '@/plugins/i18n';
-import { GUIDELINES_URL, API_BASE_URL } from '@/constants.js';
+import { API_BASE_URL, UD_AGENCY_CONCLUSION } from '@/constants.js';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
+import { sortArrayByDate } from '@/utils';
 
 export default {
-  name: 'Guidelines',
+  name: 'MarketMonitoring',
   data() {
     return {
       data: null,
@@ -55,9 +62,9 @@ export default {
   },
   mounted() {
     this.$http
-      .get(GUIDELINES_URL)
+      .get(UD_AGENCY_CONCLUSION + '?_sort=date:DESC')
       .then(response => {
-        this.data = response.data;
+        this.data = sortArrayByDate(response.data.decisions);
       })
       .catch(error => {
         console.log(error);
@@ -65,23 +72,23 @@ export default {
       })
       .finally(() => (this.loading = false));
   },
-  components: { LoadingSpinner, ServerError },
+  components: { LoadingSpinner, ServerError, VueMarkdown },
 };
 </script>
 
 <style lang="postcss" scoped>
-.article > p > a {
-  color: #007bff !important;
+.card {
+  border-radius: 0 !important;
 }
-.card-header > a {
-  color: #141e3a;
-  font-weight: bold;
-  transition: 0.3s ease all;
+
+.doc-button {
+  background: transparent;
+  color: #db2323;
+  border: none;
+  padding: 0;
 }
-.card-header > a:active,
-.card-header > a:focus,
-.card-header > a:hover {
-  color: #e07400;
-  transition: 0.3s ease all;
+
+.doc-button:hover {
+  color: #ff5d43;
 }
 </style>
