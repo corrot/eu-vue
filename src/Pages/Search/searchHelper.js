@@ -19,7 +19,7 @@ import {
   ACCESS_PUBLIC_INFORMATION_URL,
   ANNUALREPORTS_URL,
   NEWSLETTERS_URL,
-  CATEGORIES_URL
+  CATEGORIES_URL,
 } from '@/constants.js';
 
 const endpoints = [
@@ -106,6 +106,22 @@ const endpoints = [
   },
   {
     url: NEWSLETTERS_URL,
+    fields: ['title', 'article'],
+  },
+  {
+    url: UD_APPLICATIONFORM,
+    fields: ['title'],
+  },
+  {
+    url: UD_AGENCY_CONCLUSION,
+    fields: ['title', 'article'],
+  },
+  {
+    url: UD_GOVERNMENT_DECISION,
+    fields: ['title', 'article'],
+  },
+  {
+    url: UD_LEGISLATIONS_URL,
     fields: ['title', 'article'],
   },
 ];
