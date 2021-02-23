@@ -64,7 +64,7 @@ export default {
     this.$http
       .get(UD_AGENCY_CONCLUSION + '?_sort=date:DESC')
       .then(response => {
-        this.data = sortArrayByDate(response.data.decisions);
+        this.data = response.data;
       })
       .catch(error => {
         console.log(error);

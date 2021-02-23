@@ -1,5 +1,6 @@
 <template>
   <b-container>
+    <!-- {{data}} -->
     <loading-spinner v-if="loading" />
     <server-error v-if="errored" />
     <div v-if="!errored && !loading">
@@ -31,7 +32,7 @@
             </b-card>
           </b-card-group>
         </div>
-        <!-- <vue-simple-markdown :source="article.Tags"></vue-simple-markdown> -->
+        <vue-simple-markdown :source="article.Tags"></vue-simple-markdown>
       </div>
     </div>
   </b-container>
@@ -46,7 +47,7 @@ import ServerError from '@/components/ServerError';
 import { sortArrayByDate } from '@/utils';
 
 export default {
-  name: 'MarketMonitoring',
+  name: 'GovernmentDecision',
   data() {
     return {
       data: null,
@@ -64,10 +65,10 @@ export default {
     this.$http
       .get(UD_GOVERNMENT_DECISION + '?_sort=date:DESC')
       .then(response => {
-        this.data = sortArrayByDate(response.data.decisions);
+        this.data = response.data;
       })
       .catch(error => {
-        console.log(error);
+        // console.log(error);
         this.errored = true;
       })
       .finally(() => (this.loading = false));

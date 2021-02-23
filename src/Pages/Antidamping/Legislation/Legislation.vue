@@ -1,5 +1,6 @@
 <template>
   <b-container class="guidelines">
+    <!-- {{data}} -->
     <loading-spinner v-if="loading" />
     <server-error v-if="errored" />
     <div v-if="!errored && !loading">
@@ -8,7 +9,7 @@
         <b-card
           no-body
           class="mb-2"
-          v-for="article in data.legislations"
+          v-for="article in data"
           :key="article.id"
         >
           <b-card-header header-tag="header" class="p-3" role="tab">
@@ -39,7 +40,7 @@ import LoadingSpinner from '@/components/LoadingSpinner';
 import ServerError from '@/components/ServerError';
 
 export default {
-  name: 'National',
+  name: 'AntiDumpingLegislation',
   data() {
     return {
       data: null,
@@ -60,7 +61,6 @@ export default {
         this.data = response.data;
       })
       .catch(error => {
-        console.log(error);
         this.errored = true;
       })
       .finally(() => (this.loading = false));
