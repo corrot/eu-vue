@@ -53,10 +53,10 @@ export const MarketMonitoring_URL = `${API_BASE_URL}/decisiontypes/11`;
 export const ImpactAssessment_URL = `${API_BASE_URL}/decisiontypes/13`;
 
 // Anti-dumping
-export const UD_LEGISLATIONS_URL = `${API_BASE_URL}/_udlegislations`;
-export const UD_APPLICATIONFORM = `${API_BASE_URL}/_udapplicationforms`;
-export const UD_AGENCY_CONCLUSION = `${API_BASE_URL}/_udagencyconclusions`;
-export const UD_GOVERNMENT_DECISION = `${API_BASE_URL}/_udgovernmentdecisions`;
+export const UD_LEGISLATIONS_URL = `${API_BASE_URL}/udlegislations`;
+export const UD_APPLICATIONFORM = `${API_BASE_URL}/udapplicationforms`;
+export const UD_AGENCY_CONCLUSION = `${API_BASE_URL}/udagencyconclusions`;
+export const UD_GOVERNMENT_DECISION = `${API_BASE_URL}/udgovernmentdecisions`;
 
 // Public Information
 export const PROACTIVE_INFORMATION_URL = `${API_BASE_URL}/proactive`;
