@@ -83,6 +83,17 @@ export default {
   transform: translateY(-50%);
 }
 
+.card {
+  border-radius: 0;
+  box-shadow: none;
+  border-color: #efefef;
+}
+
+.btn-read-more {
+  background: transparent;
+  padding: 4px 6px;
+}
+
 .card-body {
   overflow: hidden;
   display: -webkit-box;

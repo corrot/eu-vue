@@ -184,14 +184,14 @@ a {
   font-size: 18px;
   font-weight: bold;
   color: #141e3a;
-  background-color: #ddd;
+  /* background-color: #ddd; */
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3) !important;
   border: none;
   padding: 8px 20px;
 }
 
 .decision-tab:hover {
-  background-color: #ddd;
+  /* background-color: #ddd; */
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) !important;
 }
 
@@ -216,7 +216,7 @@ a {
   font-weight: bold;
 }
 .card {
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1); */
   border: 1px #ddd solid;
 }
 .table th {
