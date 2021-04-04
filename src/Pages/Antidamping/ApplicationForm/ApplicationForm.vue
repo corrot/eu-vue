@@ -54,13 +54,11 @@
 
       <div class="mb-5">
         <!-- <h5 class="section-title">{{ $t('RequestStandards') }}</h5> -->
-        <div v-if="data[0][`doc_${locale}`].length">
-          <div v-for="doc in data[0][`doc_${locale}`]" :key="doc.id">
+        <div v-if="data[0][`doc_${locale}`]">
             <a
               target="_blank"
-              :href="`${API_BASE_URL}/uploads/${doc.hash}${doc.ext}`"
-            >{{ doc.name.split('.')[0] }}</a>
-          </div>
+              :href="`${API_BASE_URL}/uploads/${data[0][`doc_${locale}`].hash}${data[0][`doc_${locale}`].ext}`"
+            >{{ $t('ViewDocument') }}</a>
         </div>
       </div>
     </div>
