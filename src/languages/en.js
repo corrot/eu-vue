@@ -114,6 +114,6 @@ export const en = {
   Application: 'Application Form',
   Decision: 'Government Decision',
   GovernmentDecision: 'Government Decision',
-  Antidamping: 'Anti-dumping',
+  Antidumping: 'Anti-dumping',
   ProcurementAgency: 'Public Procurement-related Dispute Resolution Council',
 };

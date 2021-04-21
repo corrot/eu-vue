@@ -74,11 +74,11 @@ import SearchDetails from '@/Pages/Search/SearchDetails.vue';
 
 import PageNotFound from '@/Pages/PageNotFound/PageNotFound';
 
-import Antidamping from '@/Pages/Antidamping/Antidamping';
-import _legislation from '@/Pages/Antidamping/Legislation/Legislation';
-import _applicationForm from '@/Pages/Antidamping/ApplicationForm/ApplicationForm';
-import _conclusion from '@/Pages/Antidamping/Conclusion/Conclusion';
-import _decision from '@/Pages/Antidamping/Decision/Decision';
+import Antidumping from '@/Pages/Antidumping/Antidumping';
+import _legislation from '@/Pages/Antidumping/Legislation/Legislation';
+import _applicationForm from '@/Pages/Antidumping/ApplicationForm/ApplicationForm';
+import _conclusion from '@/Pages/Antidumping/Conclusion/Conclusion';
+import _decision from '@/Pages/Antidumping/Decision/Decision';
 
 Vue.use(Router);
 
@@ -291,32 +291,32 @@ export const routes = [
     ],
   },
   {
-    title: 'Antidamping',
-    path: '/antidamping',
-    name: 'antidamping',
-    component: Antidamping,
+    title: 'Antidumping',
+    path: '/antidumping',
+    name: 'antidumping',
+    component: Antidumping,
     children: [
       {
         title: 'Legislation',
-        path: '/antidamping/legislation',
+        path: '/antidumping/legislation',
         name: 'legislation',
         component: _legislation,
       },
       {
         title: 'ApplicationForm',
-        path: '/antidamping/application',
+        path: '/antidumping/application',
         name: 'applicationForm',
         component: _applicationForm,
       },
       {
         title: 'AgencyConclusion',
-        path: '/antidamping/conclusion',
+        path: '/antidumping/conclusion',
         name: 'agencyConclusion',
         component: _conclusion,
       },
       {
         title: 'GovernmentDecision',
-        path: '/antidamping/decision',
+        path: '/antidumping/decision',
         name: 'governmentDecision',
         component: _decision,
       },

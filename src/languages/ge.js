@@ -116,6 +116,6 @@ export const ge = {
   GovernmentDecision: 'მთავრობის გადაწყვეტილება',
   Application: 'განაცხადის ფორმა',
   Decision: 'მთავრობის გადაწყვეტილება',
-  Antidamping: 'ანტიდემპინგი',
+  Antidumping: 'ანტიდემპინგი',
   ProcurementAgency: 'სახელმწიფო შესყიდვების დავების განხილვის საბჭო',
 };
